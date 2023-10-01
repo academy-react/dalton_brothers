@@ -1,8 +1,13 @@
+import { Landing } from "../Screens/Landing/Landing";
 
 
 function App() {
 
-  return <><div>App</div></>;
+  return (
+    <Landing/>
+
+
+  )
 }
 
 export default App;
