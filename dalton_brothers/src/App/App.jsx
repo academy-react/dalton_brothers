@@ -2,7 +2,7 @@
 
 function App() {
 
-  return <><div>kossher</div></>;
+  return <><div>App</div></>;
 }
 
 export default App;
