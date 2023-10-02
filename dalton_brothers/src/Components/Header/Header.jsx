@@ -4,6 +4,7 @@ import { HeaderNavbar } from "./HeaderSections/HeaderNavbar";
 import { HeaderMenu } from "./HeaderSections/HeaderMenu";
 import { HeaderText } from "./HeaderSections/HeaderText";
 import { HeaderPicture } from "./HeaderSections/HeaderPicture";
+import { BestMasters } from "../BestMasters/BestMasters";
 
 const Header = () => {
   return (
@@ -12,6 +13,7 @@ const Header = () => {
       <HeaderMenu />
       <HeaderText />
       <HeaderPicture />
+      <BestMasters/>
     </Fragment>
   );
 };
