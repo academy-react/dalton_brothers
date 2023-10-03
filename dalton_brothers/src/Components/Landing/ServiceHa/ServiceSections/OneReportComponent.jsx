@@ -1,13 +1,28 @@
 import React from "react";
 
-const OneReportComponent = ({ title, describe }) => {
+const OneReportComponent = ({ title, describe, border }) => {
   return (
-    <div className=" border-r-8 w-1/4">
-      <h1 className="  text-center h-1/2 flex items-center justify-center font-black text-4xl">
-        {title}
-      </h1>
-      <span className=" h-1/2 flex items-center justify-center">{describe}</span>
-    </div>
+    <>
+      {border ? (
+        <div className=" border-r-8 w-1/4">
+          <h1 className="  text-center h-1/2 flex items-center justify-center font-black text-4xl">
+            {title}
+          </h1>
+          <span className=" h-1/2 flex items-center justify-center">
+            {describe}
+          </span>
+        </div>
+      ) : (
+        <div className="  w-1/4">
+          <h1 className="  text-center h-1/2 flex items-center justify-center font-black text-4xl">
+            {title}
+          </h1>
+          <span className=" h-1/2 flex items-center justify-center">
+            {describe}
+          </span>
+        </div>
+      )}
+    </>
   );
 };
 

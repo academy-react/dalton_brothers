@@ -3,9 +3,11 @@ import React, { Fragment } from "react";
 import { HeaderNavbar } from "./HeaderSections/HeaderNavbar";
 import { HeaderContent } from "./HeaderSections/HeaderContent";
 
+import styled from "./Header.module.css";
+
 const Header = () => {
   return (
-    <div style={{ direction: "rtl" }}>
+    <div className={styled.header}>
       <HeaderNavbar />
       <HeaderContent />
     </div>
