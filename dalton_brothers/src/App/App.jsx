@@ -1,13 +1,12 @@
-import { Landing } from "../Screens/Landing/Landing";
+import React from "react";
+import { Landing } from "../Components/Landing/landing";
 
-
-function App() {
-
+const App = () => {
   return (
-    <Landing/>
-
-
-  )
-}
+    <>
+      <Landing />
+    </>
+  );
+};
 
 export default App;
