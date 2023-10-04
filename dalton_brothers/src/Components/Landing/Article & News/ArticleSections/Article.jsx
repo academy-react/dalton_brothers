@@ -1,10 +1,10 @@
 import React from 'react'
 
-import ArticleImage from "../../../Assets/Images/article.png";
-import ArticleWriter from "../../../Assets/Images/articleWriter.png";
-import like from "../../../Assets/Images/like.png";
-import comment from "../../../Assets/Images/comment.png";
-import bookmark from "../../../Assets/Images/bookMark.png";
+import ArticleImage from "../../../../assets/Images/article.png";
+import ArticleWriter from "../../../../Assets/Images/articleWriter.png";
+import like from "../../../../Assets/Images/like.png";
+import comment from "../../../../Assets/Images/comment.png";
+import bookmark from "../../../../Assets/Images/bookMark.png";
 
 
 const Article = () => {
