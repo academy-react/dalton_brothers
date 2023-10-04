@@ -3,6 +3,8 @@ import React from "react";
 import { Header } from "./Header/Header.jsx";
 import { Services } from "./ServiceHa/Services.jsx";
 import { CourseList } from "./Course/index.jsx";
+import { BestMasters } from "./BestMasters/BestMasters.jsx";
+import { Suggestions } from "./Suggestions/Suggestions.jsx";
 
 const Landing = () => {
   return (
@@ -10,6 +12,8 @@ const Landing = () => {
       <Header />
       <Services />
       <CourseList />
+      <BestMasters />
+      <Suggestions />
     </div>
   );
 };
