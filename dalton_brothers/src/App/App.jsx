@@ -1,13 +1,13 @@
-import { Landing } from "../Screens/Landing/Landing";
+import React from "react";
 
+import { CourseList } from "../Components/Course/CourseList";
 
-function App() {
-
+const App = () => {
   return (
-    <Landing/>
-
-
-  )
-}
+    <>
+      <CourseList />
+    </>
+  );
+};
 
 export default App;
