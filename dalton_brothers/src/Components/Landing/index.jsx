@@ -12,6 +12,7 @@ const Landing = () => {
       <Header />
       <Services />
       <CourseList />
+
       <BestMasters />
       <Suggestions />
     </div>
