@@ -1,13 +1,13 @@
 import React from "react";
 
-import { CourseList } from "../Components/Course/CourseList";
+import SignIn from "../Components/SignIn/SignIn";
 
 const App = () => {
   return (
     <>
-      <CourseList />
+      <SignIn/>
     </>
   );
 };
 
-export default App;
+export default App

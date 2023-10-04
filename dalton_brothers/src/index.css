@@ -1,4 +1,9 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+  direction: rtl;
+}
 @font-face {
   font-family: shabnam;
   src: url(./assets/Fonts/shabnam/Shabnam-Bold.ttf);
@@ -32,5 +37,4 @@
   src: url(./assets/Fonts/Ordibehesht.TTF);
 }
 
-@tailwind components;
-@tailwind utilities;
+
