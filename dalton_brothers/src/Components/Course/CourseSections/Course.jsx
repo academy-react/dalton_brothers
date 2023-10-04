@@ -5,7 +5,6 @@ import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
 
 const Course = ({ courseName, courseMaster, price }) => {
- 
   return (
     <div className="w-80 h-96 border  rounded-lg flex flex-col">
       {/* image & 3 button start */}

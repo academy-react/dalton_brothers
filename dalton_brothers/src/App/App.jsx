@@ -1,11 +1,11 @@
 import React from "react";
 
-import { CourseList } from "../Components/Course/CourseList";
+import { Landing } from "../Components/Landing";
 
 const App = () => {
   return (
     <>
-      <CourseList />
+      <Landing />
     </>
   );
 };

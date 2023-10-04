@@ -5,6 +5,7 @@ import { Services } from "./ServiceHa/Services.jsx";
 import { CourseList } from "./Course/index.jsx";
 import { BestMasters } from "./BestMasters/BestMasters.jsx";
 import { Suggestions } from "./Suggestions/Suggestions.jsx";
+import { ArticleNews } from "./Article & News/Article & News.jsx";
 
 const Landing = () => {
   return (
@@ -12,7 +13,7 @@ const Landing = () => {
       <Header />
       <Services />
       <CourseList />
-
+      <ArticleNews />
       <BestMasters />
       <Suggestions />
     </div>
