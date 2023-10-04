@@ -1,11 +1,10 @@
 import React from "react";
-import like from "../../../Assets/Images/like.png";
-import comment from "../../../Assets/Images/comment.png";
-import bookmark from "../../../Assets/Images/bookMark.png";
-import courseImage from "../../../Assets/Images/course.png";
+import like from "../../../../assets/Images/like.png";
+import comment from "../../../../assets/Images/comment.png";
+import bookmark from "../../../../assets/Images/bookmark.png";
+import courseImage from "../../../../assets/Images/course.png";
 
-const Course = ({ courseName, courseMaster, price }) => {
- 
+const Course = () => {
   return (
     <div className="w-80 h-96 border  rounded-lg flex flex-col">
       {/* image & 3 button start */}
@@ -34,21 +33,19 @@ const Course = ({ courseName, courseMaster, price }) => {
       {/* details & more info button start */}
 
       <div className=" w-full h-[170px]  flex flex-col  gap-5 rounded-b-lg mt-7 ">
-        <span className="flex flex-row-reverse p-3 font-est ">
-          {courseName}
-        </span>
+        <span className="flex flex-row-reverse p-3 font-est ">اسم دوره</span>
         <span className="flex flex-row-reverse pr-3 text-neutral-600 text-sm">
-          {courseMaster}{" "}
+          نام استاد
         </span>
 
         {/* button & price start */}
 
         <div className="w-full h-1/2  rounded-b-lg flex justify-center flex-row-reverse ">
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm ">
-            {price}
+            تومان 2500000
           </div>
           <div className="w-1/2  bg-red-300 rounded-tr-2xl rounded-bl-lg flex justify-center items-center">
-            اطلاعات بیشتر
+            اطلاعات بیشتر{" "}
           </div>
         </div>
 
