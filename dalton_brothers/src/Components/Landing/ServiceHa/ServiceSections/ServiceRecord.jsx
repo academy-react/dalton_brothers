@@ -9,7 +9,7 @@ const ServiceRecord = () => {
     { title: "4.5", describe: "برسی100000" ,border:true },
   ];
   return (
-    <div className="m-auto  h-20 flex flex-row justify-center mb-80">
+    <div className="m-auto  h-20 flex flex-row justify-center ">
       {data.map((el, index) => (
         <OneReportComponent {...el} key={index} />
       ))}

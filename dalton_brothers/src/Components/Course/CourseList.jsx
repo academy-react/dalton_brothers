@@ -2,33 +2,10 @@ import React from "react";
 
 import "../../index.css";
 import { Course } from "./CourseSections/Course";
+import { courseData } from "../../Core/Services/data";
 
 const CourseList = () => {
-  const data = [
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " عر عر", courseMaster: "میو میو نیگا", price: 100000 },
-    { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
-  ];
+  const data = courseData;
   return (
     <div className="w-100   flex flex-col gap-5 ">
       <div className="w-full h-16  flex flex-row-reverse justify-between items-center  pr-[170px] pl-[170px]">

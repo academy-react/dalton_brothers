@@ -5,7 +5,7 @@ import { ServiceRecord } from "./ServiceSections/ServiceRecord";
 
 const Services = () => {
   return (
-    <div style={{ direction: "rtl" }} className="w-4/5 m-auto font-est">
+    <div style={{ direction: "rtl" }} className="w-4/5 mx-auto font-est">
       <ServiceTitle />
       <ServiceKind />
       <ServiceRecord />

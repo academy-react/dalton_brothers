@@ -6,7 +6,7 @@ import courseImage from "../../../Assets/Images/course.png";
 
 const Course = ({ courseName, courseMaster, price }) => {
   return (
-    <div className="w-80 h-96 border  rounded-lg flex flex-col">
+    <div className="w-64 h-96 border  rounded-lg flex flex-col">
       {/* image & 3 button start */}
 
       <div className="w-full h-1/2  rounded-t-lg flex justify-center flex-row-reverse">
@@ -36,17 +36,17 @@ const Course = ({ courseName, courseMaster, price }) => {
         <span className="flex flex-row-reverse p-3 font-est ">
           {courseName}
         </span>
-        <span className="flex flex-row-reverse pr-3 text-neutral-600 text-sm">
-          {courseMaster}{" "}
+        <span className="flex flex-row-reverse pr-3 text-neutral-600 text-sm font-est">
+          {courseMaster}
         </span>
 
         {/* button & price start */}
 
         <div className="w-full h-1/2  rounded-b-lg flex justify-center flex-row-reverse ">
-          <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm ">
+          <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm  font-est">
             {price}
           </div>
-          <div className="w-1/2  bg-red-300 rounded-tr-2xl rounded-bl-lg flex justify-center items-center">
+          <div className="w-1/2  bg-red-300 rounded-tr-2xl rounded-bl-lg flex justify-center items-center font-est">
             اطلاعات بیشتر
           </div>
         </div>

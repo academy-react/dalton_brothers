@@ -11,10 +11,13 @@ import App from "./App/App";
 import "./index.css";
 import { Landing } from "./Components/Landing";
 import { CourseList } from "./Components/Course/CourseList";
+import { ArticleNews } from "./Components/Article & News/Article & News";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
   { path: "/course", element: <CourseList /> },
+  { path: "/course", element: <CourseList /> },
+  { path: "/news", element: <ArticleNews /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,15 +1,15 @@
+import master from "../../../assets/Images/master.png";
+
 const BestMasters = () => {
   return (
-    <div className="border border-black w-[100%] flex justify-center">
-      <div className="border border-indigo-500 w-[1500px] h-[500px] ">
-        <h2 className="flex justify-end h-[80px] text-2xl"> اساتید برتر </h2>
-        <div className="border border-orange-400 w-[100%] h-[410px] flex justify-center items-center">
-          <img
-            src=""
-            alt="BestMasters picture"
-            className="border border-red-400 w-[600px] h-[400px]"
-          ></img>
-        </div>
+    <div className=" w-[77%] mx-auto mt-14  ">
+      <h2 className=" font-black text-4xl h-28 flex justify-end items-center font-sha">
+        اساتید برتر
+      </h2>
+      <div className=" w-[97%] mx-auto h-[410px] flex justify-center items-center">
+        <picture className=" w-[600px] ">
+          <img src={master} alt="BestMasters picture"></img>
+        </picture>
       </div>
     </div>
   );

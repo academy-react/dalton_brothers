@@ -1,11 +1,11 @@
 import React from "react";
 
-const ServiceTitle = () => {
+const CategoryTitle = () => {
   return (
     <div className="m-auto font-black text-4xl h-28 flex justify-start items-center font-sha">
-      خدمات
+      دسته بندی ها
     </div>
   );
 };
 
-export { ServiceTitle };
+export { CategoryTitle };

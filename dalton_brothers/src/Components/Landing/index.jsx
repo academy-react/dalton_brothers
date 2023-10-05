@@ -5,13 +5,15 @@ import { Services } from "./ServiceHa/Services.jsx";
 import { CourseList } from "./Course/index.jsx";
 import { BestMasters } from "./BestMasters/BestMasters.jsx";
 import { Suggestions } from "./Suggestions/Suggestions.jsx";
-import { ArticleNews } from "./Article & News/Article & News.jsx";
+import { ArticleNews } from "./Article & News/index.jsx";
+import { Category } from "./Category/Category.jsx";
 
 const Landing = () => {
   return (
     <div className="w-full max-w-screen-2xl m-auto">
       <Header />
       <Services />
+      <Category />
       <CourseList />
       <ArticleNews />
       <BestMasters />
