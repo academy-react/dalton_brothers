@@ -10,18 +10,22 @@ const CommentPlace = () => {
       </h1>
       <Formik>
         <Form>
-          <label>نام کاربری</label>
+          <span className=" mx-[5%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 ">
+            نام کاربر
+          </span>
           <Field
             name="name"
-            className="text-right"
+            className="w-full  h-10 rounded-full border outline-none border-gray-500 peer px-5"
             type="text"
             placeholder="نام کاربری..."
           />
           <ErrorMessage name="Title" component={"div"} className="error" />
-          <label>پیام شما</label>
+          <span className=" mx-[5%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 ">
+           پیام شما
+          </span>
           <Field
             name="name"
-            className="text-right"
+            className="w-full  h-10 rounded-full border outline-none border-gray-500 peer px-5"
             type="text"
             placeholder="متن پیام..."
           />
@@ -32,4 +36,14 @@ const CommentPlace = () => {
   );
 };
 
+{/* <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full">
+  <Field
+    name="logInPassword"
+    placeholder="www..example.com"
+    className="w-full  h-10 rounded-full border outline-none border-gray-500 peer px-5"
+  />
+  <span className=" mx-[5%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 ">
+    نام کاربر
+  </span>
+</div>; */}
 export default CommentPlace;
