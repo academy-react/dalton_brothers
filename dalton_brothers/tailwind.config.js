@@ -14,7 +14,9 @@ export default {
       Ord: "Ordibehesht",
     },
 
-    extend: {},
+    extend: {
+      boxShadow: { ri: "0px 0px 10px black" },
+    },
   },
   plugins: [],
 };
