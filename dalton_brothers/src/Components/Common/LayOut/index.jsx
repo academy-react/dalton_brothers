@@ -3,17 +3,18 @@ import { Outlet } from "react-router-dom";
 
 import logo from "../../../assets/Images/layOut-logo.png";
 import sun from "../../../assets/Images/sun.png";
+import illustration from "../../../assets/Images/footer-img.png";
+
+import CommentPlace from "../../Common/Comment/Index";
 
 import style from "./layOut.module.css";
-import FooterTitle from "./footer/footer-title";
-import FooterText from "./footer/Footer-text";
-import CommentPlace from "../comment";
+import { FooterDesc } from "./Footer/Footer-desc";
 
 const Layout = () => {
   return (
-    <div>
+    <div className={style.container}>
       <header className="flex flex-col gap-[40px] items-center mb-[80px]">
-        <div className={style.header}>
+        <div className={style.headerBox1}>
           <div className="">
             <img src={logo} alt="" />
           </div>
@@ -27,7 +28,7 @@ const Layout = () => {
           <div className="">
             <img src={sun} alt="" className=" w-[40px]" />
           </div>
-          <div className="bg-gray-200 border-2 w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-est text-slate-600">
+          <div className="bg-gray-200  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-est text-slate-600">
             <button
               type="button"
               className="bg-[#fff] w-[150px] h-11 text-center py-[12px] shadow-ri shadow-slate-400 rounded-full absolute left-[12px] top-[10px]"
@@ -36,7 +37,7 @@ const Layout = () => {
             </button>
             <button
               type="button"
-              className="bg-[#fcbf49] w-[150px] h-12 text-center py-[12px] border-2 rounded-full"
+              className="bg-[#fcbf49] w-[150px] h-12 text-center py-[12px]  rounded-full"
             >
               ورود
             </button>
@@ -49,7 +50,7 @@ const Layout = () => {
           <input
             type="text"
             placeholder="...جستوجو کن"
-            className="border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none"
+            className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none"
           />
         </div>
         <div>
@@ -58,7 +59,7 @@ const Layout = () => {
           </h1>
         </div>
         <div className="flex flex-row-reverse justify-center items-center gap-[10px]">
-          <div className="border-2 flex flex-row-reverse justify-start items-center p-[10px] gap-[10px] rounded-r-[999px] rounded-l-[150px] font-est text-slate-500 text-lg">
+          <div className="border-2 border-[#eaeaea] flex flex-row-reverse justify-start items-center p-[10px] gap-[10px] rounded-r-[999px] rounded-l-[300px] font-est text-slate-500 text-lg">
             <input
               type="radio"
               name="sort"
@@ -82,31 +83,21 @@ const Layout = () => {
               ارزان ترین
             </label>
           </div>
-          <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[150px] font-est text-slate-500 text-lg py-[28px] px-[70px] bg-[#fcbf49]">
+          <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[300px] font-est text-slate-500 text-lg py-[28px] px-[70px] bg-[#fcbf49]">
             ترتیب ها
           </div>
         </div>
       </header>
       <Outlet />
       <footer className={style.footer}>
-        <div className="border-2 h-full flex flex-row-reverse gap-1 justify-end">
-          <div className="py-[50px] px-9 flex flex-col gap-[30px]">
-            <FooterTitle title={"بخش های سایت"} />
-            <FooterText text={"قوانین و مقررات"} />
-            <FooterText text={"مدرسان سایت"} />
-            <FooterText text={"درباره ی سایت"} />
-            <FooterText text={"ارتباط با ما"} />
+        <div className=" max-w-[1500px] m-auto flex flex-row-reverse flex-nowrap justify-end items-center">
+          <FooterDesc />
+          <div className={style.illustration}>
+            <img src={illustration} alt="" />
           </div>
-          <div className="py-[50px] px-9 flex flex-col gap-[30px]">
-            <FooterTitle title={"راه های ارتباطی"} />
-            <FooterText text={"09034893230"} />
-            <FooterText text={"dalton-brothers@gmail.com"} />
-            <FooterText text={"t.me/daltonBrothers"} />
+          <div className=" w-1/3 h-full">
+            <CommentPlace />
           </div>
-        </div>
-        <div className="border-2 w-1/3 h-full"></div>
-        <div className="border-2 w-1/3 h-full">
-          <CommentPlace />
         </div>
       </footer>
     </div>

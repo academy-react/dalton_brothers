@@ -1,15 +1,19 @@
-import master from "../../../assets/Images/master.png";
+import { masterData } from "../../../Core/Services/data";
+
+import Master from "./BestMasterSection/Master";
 
 const BestMasters = () => {
+  const data = masterData;
+
   return (
-    <div className=" w-[77%] mx-auto mt-14  ">
-      <h2 className=" font-black text-4xl h-28 flex justify-end items-center font-sha">
+    <div className="mx-auto mt-[100px]  ">
+      <div className="mr-3 text-2xl h-28 text-center font-sha text-[#fcbf49]">
         اساتید برتر
-      </h2>
-      <div className=" w-[97%] mx-auto h-[410px] flex justify-center items-center">
-        <picture className=" w-[600px] ">
-          <img src={master} alt="BestMasters picture"></img>
-        </picture>
+      </div>
+      <div className=" mx-auto flex  flex-row-reverse flex-wrap justify-center gap-[50px] items-center">
+        {data.map((master) => (
+          <Master {...master} key={master.id} />
+        ))}
       </div>
     </div>
   );

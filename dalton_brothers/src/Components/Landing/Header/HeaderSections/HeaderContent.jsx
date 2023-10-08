@@ -1,13 +1,13 @@
 import React from "react";
 
 import { HeaderText } from "./HeaderText";
-import { HeaderPicture } from "./HeaderPicture";
+import { HeaderBtn } from "./HeaderBtn";
 
 const HeaderContent = () => {
   return (
-    <div className="mt-60 flex flex-row flex-wrap justify-start gap-16 w-4/5 m-auto">
+    <div className="h-[550px] mt-60 flex flex-col flex-wrap items-start gap-16 w-4/5 m-auto">
       <HeaderText />
-      <HeaderPicture />
+      <HeaderBtn />
     </div>
   );
 };

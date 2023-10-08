@@ -5,50 +5,50 @@ import ArticleWriter from "../../../Assets/Images/articleWriter.png";
 import like from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
+import arrow from "../../../Assets/Images/arrow.png";
 
 const Article = ({ author, number, topic }) => {
   return (
-    <div className="w-64 h-96 border  rounded-lg flex flex-col">
+    <div className="w-[350px] p-3 border rounded-lg flex flex-col">
       {/* image & 3 button start */}
-
-      <div className="w-full h-1/2  rounded-t-lg flex justify-center flex-row-reverse">
+      <div className="w-full h-1/2 rounded-t-lg flex justify-center flex-row-reverse">
         {/*img Container*/}
-
-        <div className="w-2/3 h-full  rounded-tr-2xl ">
+        <div className="h-full rounded-tr-2xl ">
           <img className="w-full h-full" src={ArticleImage} alt="" />
         </div>
-        <div className="w-1/3 flex flex-col  ">
-          <div className="w-full h-1/3 flex justify-center items-center">
-            <img className="w-[25px] " src={bookmark} alt="" />
-          </div>
-          <div className="w-full h-1/3 flex justify-center items-center">
-            <img className="w-[25px] " src={like} alt="" />
-          </div>
-          <div className="w-full h-1/3 flex justify-center items-center">
-            <img className="w-[25px] " src={comment} alt="" />
-          </div>
-        </div>
       </div>
-
       {/* image & 3 button end */}
 
       {/* details & more info button start */}
 
-      <div className=" w-full h-[170px]  flex flex-col  gap-5 rounded-b-lg mt-7 ">
-        <span className="flex flex-row-reverse p-3 font-est ">{topic}</span>
-        <span className="flex flex-row-reverse pr-3 text-neutral-600 text-sm font-est">
+      <div className=" w-full flex flex-col px-[20px] gap-5 rounded-b-lg mt-7 ">
+        <span className="flex flex-row-reverse font-est text-gray-800">
+          {topic}
+        </span>
+        <span className="flex flex-row-reverse text-neutral-500 font-vaz text-sm">
           مقاله شماره {number}
         </span>
+        <div className="flex justify-start items-center flex-row-reverse gap-1 font-vaz text-neutral-500 text-sm">
+          <img className="w-[20px]" src={ArticleWriter} alt="" />
+          {author}
+        </div>
 
         {/* button & price start */}
 
-        <div className="w-full h-1/2  rounded-b-lg flex justify-center flex-row-reverse ">
-          <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm font-est gap-5">
-            <img className="w-7 h-7" src={ArticleWriter} alt="" />
-            {author}
+        <div className="w-full h-1/2  rounded-b-lg flex justify-between items-center flex-row-reverse ">
+          <div className=" flex flex-row justify-center gap-[20px] opacity-40 ">
+            <div className="w-full h-1/3 flex justify-center items-center">
+              <img className="w-[40px] " src={bookmark} alt="" />
+            </div>
+            <div className="w-full h-1/3 flex justify-center items-center">
+              <img className="w-[40px] " src={like} alt="" />
+            </div>
+            <div className="w-full h-1/3 flex justify-center items-center">
+              <img className="w-[40px] " src={comment} alt="" />
+            </div>
           </div>
-          <div className="w-1/2  bg-teal-300 rounded-tr-2xl rounded-bl-lg flex justify-center items-center font-est">
-            مشاهده مقاله
+          <div className="w-[60px] h-[60px] bg-[#6c63ff] rounded-full flex items-center justify-end">
+            <img src={arrow} alt="" className="w-90%"/>
           </div>
         </div>
 

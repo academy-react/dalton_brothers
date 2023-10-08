@@ -16,6 +16,19 @@ export default {
 
     extend: {
       boxShadow: { ri: "0px 0px 10px black" },
+      backgroundImage: {
+        ham: "url(./src/assets/images/arrow-ng.png)",
+      },
+      backgroundSize: {
+        auto: "auto",
+        cover: "cover",
+        contain: "contain",
+        "50%": "50%",
+        "20%": "20%",
+        "15%": "15%",
+        "10%": "10%",
+        16: "4rem",
+      },
     },
   },
   plugins: [],

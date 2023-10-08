@@ -4,9 +4,10 @@ import { Header } from "./Header/Header.jsx";
 import { Services } from "./ServiceHa/Services.jsx";
 import { CourseList } from "./Course/index.jsx";
 import { BestMasters } from "./BestMasters/BestMasters.jsx";
-import { Suggestions } from "./Suggestions/Suggestions.jsx";
 import { ArticleNews } from "./Article & News/index.jsx";
 import { Category } from "./Category/Category.jsx";
+import LandingComment from "./Comment/index.jsx";
+import { LandingFooter } from "./Footer/LandingFooter.jsx";
 
 const Landing = () => {
   return (
@@ -17,7 +18,8 @@ const Landing = () => {
       <CourseList />
       <ArticleNews />
       <BestMasters />
-      <Suggestions />
+      <LandingComment />
+      <LandingFooter />
     </div>
   );
 };

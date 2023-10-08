@@ -1,5 +1,6 @@
 .header {
+  height: 1000px;
   direction: rtl;
-  background: url(../../../assets/Images/bg.png) no-repeat;
+  background: url(../../../assets/Images/landing-header.png) no-repeat;
   background-size: 100%;
 }

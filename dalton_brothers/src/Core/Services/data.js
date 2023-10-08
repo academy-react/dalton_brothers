@@ -22,6 +22,7 @@ const courseData = [
   { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
   { courseName: " عر عر", courseMaster: "میو میو نیگا", price: 100000 },
   { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
+  { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
 ];
 const newsData = [
   { topic: "هوا", author: "فرامرز", number: 12 },
@@ -47,5 +48,12 @@ const newsData = [
   { topic: "هوا", author: "فرامرز", number: 12 },
   { topic: "هوا", author: "فرامرز", number: 12 },
   { topic: "هوا", author: "فرامرز", number: 12 },
+  { topic: "هوا", author: "فرامرز", number: 12 },
 ];
-export { courseData, newsData };
+const masterData = [
+  { id: 1, master: "استاد محمد بحرالعلوم", topic: "مدیدریت پژوهشگاه" },
+  { id: 2, master: "استاد حامد نظری", topic: "مدرس دوره ی دیزاین" },
+  { id: 3, master: "استاد مهدی اصغری", topic: "مدرس دوره ی ری اکت" },
+  { id: 4, master: "استاد محسن اسفندیاری", topic: "مدرس دوره ی ری اکت" },
+];
+export { courseData, newsData, masterData };

@@ -1,31 +1,24 @@
 import React, { useState } from "react";
 
-import img from "../../../../assets/Images/mag.png";
+import logo from "../../../../assets/Images/logo.png";
 
 const HeaderNavbar = () => {
   return (
-    <div className="font-est w-11/12 m-auto">
-      <div className="flex flex-row flex-wrap px-8 justify-between text-emerald-500 mb-3">
-        <div className="flex flex-row gap-12 mt-5">
-          <div className=" ml-24">logo</div>
-          <div className="">دسته بندی ها</div>
-          <div className="">مورد علاقه ها</div>
-          <div className="">ورود/ثبت نام</div>
+    <div className="pt-[10px] flex items-end font-sha">
+      <div className="w-[90%] max-w-[1500px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between">
+        <div>
+          <img src={logo} alt="" className="w-[80px]" />
         </div>
-        <div className="flex flex-row gap-12 mt-5">
-          <div className="flex flex-row flex-wrap bg-green-200 rounded-3xl  py-1  justify-start items-center px-4 gap-2">
-            <picture className="w-4">
-              <img src={img} alt="" />
-            </picture>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="جستوجو..."
-              className="w-96 text-right bg-green-200 text-gray-950 outline-none focus:border-b-2 border-b-green-700"
-            />
-          </div>
-          <div className="text-slate-200">پشتیبانی/مشاور خرید</div>
+        <div className="flex flex-row flex-nowrap items-center justify-start gap-[50px] text-[#fdb501] text-xl">
+          <div>دوره ها</div>
+          <div>پشتیبانی</div>
+        </div>
+        <div className="flex flex-row flex-nowrap items-center justify-center gap-[50px] text-[#707070] text-xl">
+          <div>اخبار و مقالات</div>
+          <div>ارتباط با ما</div>
+        </div>
+        <div className="pt-[30px]">
+          <button className="hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[200px] h-[50px] bg-slate-100 rounded-full flex justify-center items-center text-[#707070]">ورود/ثبت نام</button>
         </div>
       </div>
     </div>
@@ -33,3 +26,5 @@ const HeaderNavbar = () => {
 };
 
 export { HeaderNavbar };
+
+
