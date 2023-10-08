@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import App from "./App/App";
+// import App from "./App/App";
 import "./index.css";
 import { Landing } from "./Components/Landing";
 import { CourseList } from "./Components/Course/CourseList";
@@ -18,6 +18,8 @@ const router = createBrowserRouter([
       { path: "/news", element: <ArticleNews /> },
     ],
   },
+  { path: "/", element: <SignIn /> },
+  { path: "/course", element: <CourseList /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
