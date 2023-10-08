@@ -8,6 +8,7 @@ import { Landing } from "./Components/Landing";
 import { CourseList } from "./Components/Course/CourseList";
 import { ArticleNews } from "./Components/Article & News/Article & News";
 import { Layout } from "./Components/Common/LayOut";
+import { SignIn } from "./Components/SignIn/SignIn";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
@@ -18,8 +19,7 @@ const router = createBrowserRouter([
       { path: "/news", element: <ArticleNews /> },
     ],
   },
-  { path: "/", element: <SignIn /> },
-  { path: "/course", element: <CourseList /> },
+  { path: "/signIn", element: <SignIn /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

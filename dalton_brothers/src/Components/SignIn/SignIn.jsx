@@ -1,12 +1,14 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { IconEye , IconEyeOff } from '@tabler/icons-react';
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
+
+import style from "./SignIn.module.css";
 
 const SignIn = () => {
-  const [show , setShow ] = useState(false)
+  const [show, setShow] = useState(false);
   return (
-    <div className="flex flex-nowrap w-full h-[1080px] ">
+    <div className={style.holder}>
       <div className="bg-red-700 w-[56%] hidden lg:block"></div>
 
       <div className=" lg:w-[44%] w-full">
@@ -29,14 +31,17 @@ const SignIn = () => {
               <Field
                 name="logInUserName "
                 placeholder="www..example.com"
-                type={show ? "text" : "password" }
+                type={show ? "text" : "password"}
                 className="w-full  h-10 rounded-full border  outline-none border-gray-500 peer px-5"
               />
               <span className=" mx-[5%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000  ">
                 رمز عبور
               </span>
-              {show ? <IconEye onClick={()=>setShow(!show)} />: <IconEyeOff onClick={()=>setShow(!show)} />}
-             
+              {show ? (
+                <IconEye onClick={() => setShow(!show)} />
+              ) : (
+                <IconEyeOff onClick={() => setShow(!show)} />
+              )}
             </div>
             <div className="flex flex-col gap-1 w-full">
               <Link to="/" className="text-blue-400 hover:text-blue-600">
