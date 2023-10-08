@@ -68,4 +68,4 @@ const CommentPlace = () => {
   );
 };
 
-export default CommentPlace;
+export { CommentPlace };

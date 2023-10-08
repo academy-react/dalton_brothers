@@ -7,7 +7,7 @@ import "./index.css";
 import { Landing } from "./Components/Landing";
 import { CourseList } from "./Components/Course/CourseList";
 import { ArticleNews } from "./Components/Article & News/Article & News";
-import Layout from "./Components/common/LayOut";
+import { Layout } from "./Components/Common/LayOut";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },

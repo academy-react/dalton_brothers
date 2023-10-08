@@ -1,7 +1,7 @@
 import React from "react";
 
 import style from "./LandingFooter.module.css";
-import { FooterDesc } from "../../Common/LayOut/Footer/Footer-desc";
+import { FooterDesc } from "../../Common/LayOut/Footer/FooterSection/Footer-desc";
 
 import logo from "../../../assets/Images/namad.png";
 import rezi from "../../../assets/Images/rezi.png";

@@ -1,5 +1,5 @@
 import React from "react";
-import CommentPlace from "../../Common/Comment/Index";
+import { CommentPlace } from "../../Common/Comment/Index";
 
 import illustration from "../../../assets/Images/landingFooter-illustration.png";
 const LandingComment = () => {
@@ -13,7 +13,7 @@ const LandingComment = () => {
           <CommentPlace />
         </div>
         <picture className="w-[40%]">
-          <img src={illustration} alt="" className="w-[100%]"/>
+          <img src={illustration} alt="" className="w-[100%]" />
         </picture>
       </div>
     </div>
