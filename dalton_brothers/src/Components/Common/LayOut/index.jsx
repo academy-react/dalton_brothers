@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <div className={style.container}>
       <header className="flex flex-col gap-[40px] items-center mb-[80px]">
-        <LayHeader pageName={"دوره ها"} />
+        <LayHeader pageName={"دوره ها"} detailCourse={" جزپیات دوره "} />
       </header>
       <Outlet />
       <footer className={style.footer}>

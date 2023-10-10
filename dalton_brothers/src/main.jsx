@@ -9,13 +9,15 @@ import { CourseList } from "./Components/Course/CourseList";
 import { ArticleNews } from "./Components/Article & News/Article & News";
 import { Layout } from "./Components/Common/LayOut";
 import { SignIn } from "./Components/SignIn/SignIn";
+import { CourseDetail } from "./Components/CourseDetail/CourseDetail";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
   {
     element: <Layout />,
     children: [
-      { path: "/course", element: <CourseList /> },
+      { path: "/course", element: <CourseList />, },
+      { path: "/courseDetail" , element: <CourseDetail/>},
       { path: "/news", element: <ArticleNews /> },
     ],
   },
