@@ -1,8 +1,6 @@
 .landingContainer {
   width: 100%;
-  max-width: 1800px;
+  max-width: 2000px;
   margin: 0 auto;
-  display: flex;
-  flex-flow: column;
-  gap: 75px;
+
 }
