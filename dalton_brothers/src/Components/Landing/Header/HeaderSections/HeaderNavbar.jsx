@@ -5,7 +5,7 @@ import logo from "../../../../assets/Images/logo.png";
 const HeaderNavbar = () => {
   return (
     <div className="pt-[10px] flex items-end font-sha">
-      <div className="w-[90%] max-w-[1500px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between">
+      <div className="w-[95%] max-w-[2000px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between">
         <div>
           <img src={logo} alt="" className="w-[80px]" />
         </div>
