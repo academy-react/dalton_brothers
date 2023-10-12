@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Button from "../buttons/Button";
 // import * as yup from "yup";
 
 const CommentPlace = () => {
@@ -37,7 +38,7 @@ const CommentPlace = () => {
             </span>
             <Field
               name="name"
-              className="outline-[#595959] w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-[#949494] border-[2px] peer px-5"
+              className="w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-[#949494] border-[2px] peer px-5"
               type="text"
               placeholder="...نام کاربری"
             />
@@ -50,18 +51,13 @@ const CommentPlace = () => {
             <Field
               as="textarea"
               name="comment"
-              className="outline-[#595959] w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-[#949494] border-[2px] peer px-5 py-[15px]"
+              className="w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-[#949494] border-[2px] peer px-5 py-[15px]"
               type="text"
               placeholder="...متن پیام"
             />
             <ErrorMessage name="Describe" component={"div"} className="error" />
           </div>
-          <button
-            type="submit"
-            className="w-[130px] h-[40px] flex justify-center items-center bg-[#fcbf49] rounded-full font-sha text-lg text-[#5d5d5d]"
-          >
-            ثبت
-          </button>
+          <Button type={"submit"} style={"bg-[#fcbf49]"} text={"ثبت"} />
         </Form>
       </Formik>
     </div>
