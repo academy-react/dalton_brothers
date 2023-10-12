@@ -56,4 +56,9 @@ const masterData = [
   { id: 3, master: "استاد مهدی اصغری", topic: "مدرس دوره ی ری اکت" },
   { id: 4, master: "استاد محسن اسفندیاری", topic: "مدرس دوره ی ری اکت" },
 ];
-export { courseData, newsData, masterData };
+const relatedData = [
+  { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
+  { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
+  { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
+]
+export { courseData, newsData, masterData, relatedData };
