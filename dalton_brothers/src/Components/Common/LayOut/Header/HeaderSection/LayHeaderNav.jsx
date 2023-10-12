@@ -1,5 +1,7 @@
 import React from "react";
 
+import {NavLinks} from '../../'
+
 import logo from "../../../../../assets/Images/layOut-logo.png";
 import sun from "../../../../../assets/Images/sun.png";
 
@@ -14,18 +16,19 @@ const LayHeaderNav = () => {
       </div>
       <div className=" flex flex-row-reverse flex-wrap justify-center gap-[75px] items-center font-est text-xl text-gray-500">
         {/* items */}
-        <div>خانه</div>
-        <div>خدمات</div>
-        <div>دوره ها</div>
-        <div>اخبار و مقالات</div>
-        <div>ارتباط با ما</div>
+        
+        <NavLinks/>     خانه
+        <NavLinks/>     خدمات
+        <NavLinks/>     دوره ها
+        <NavLinks/>     اخبار و مقالات
+        <NavLinks/>     ارتباط با ما
       </div>
       {/* dark mode bliad */}
       <div className="">
         <img src={sun} alt="" className=" w-[40px]" />
       </div>
       {/* button for sign in or enter */}
-      <div className="bg-gray-200  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-est text-slate-600">
+      <div className="bg-gray-200  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-est p- text-slate-600">
         <button
           type="button"
           className="bg-[#fff] w-[150px] h-11 text-center py-[12px] shadow-ri shadow-slate-400 rounded-full absolute left-[12px] top-[10px]"

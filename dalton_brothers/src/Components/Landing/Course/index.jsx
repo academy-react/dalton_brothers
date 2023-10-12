@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../../../index.css";
 import { Course } from "../../Course/CourseSections/Course";
 import { courseData } from "../../../Core/Services/data";
+import NavLinks from "../../Common/Links/NavLinks";
 
 const CourseList = () => {
   const data = [courseData[0], courseData[1], courseData[2]];
@@ -14,13 +15,11 @@ const CourseList = () => {
         <div className="mr-3 text-2xl h-28 flex justify-start items-center font-sha text-[#fcbf49]">
           دوره ها
         </div>
-        <Link
-          to={"/course"}
-          onClick={() => (Document.documentElement.scrollTop = 0)}
-          className="w-[210px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-sha text-[#fff] text-l"
-        >
-          مشاهده ی تمام دوره ها
-        </Link>
+        <NavLinks
+          text={"مشاهده ی تمام دوره ها"}
+          style={"bg-[#6c63ff] hover:bg-[#463fd3] text-[#fff]"}
+          path={"/course"}
+        />
       </div>
       <div className="flex flex-row flex-wrap w-11/12 mx-auto justify-center gap-10">
         {data.map((course, index) => (

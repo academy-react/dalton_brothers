@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import logo from "../../../../assets/Images/logo.png";
 import { Button } from "../../../Common/buttons";
+import NavLinks from "../../../Common/Links/NavLinks";
 
 const HeaderNavbar = () => {
   return (
@@ -10,16 +11,20 @@ const HeaderNavbar = () => {
         <div>
           <img src={logo} alt="" className="w-[80px]" />
         </div>
-        <div className="flex flex-row flex-nowrap items-center justify-start gap-[50px] text-[#fdb501] text-xl">
-          <div>دوره ها</div>
-          <div>پشتیبانی</div>
+        <div className="flex flex-row flex-nowrap items-center justify-start text-[#fdb501] text-xl">
+          <NavLinks text={"دوره ها"} path={"/"} />
+          <NavLinks text={"پشتیبانی"} path={"/"} />
         </div>
-        <div className="flex flex-row flex-nowrap items-center justify-center gap-[50px] text-[#707070] text-xl">
-          <div>اخبار و مقالات</div>
-          <div>ارتباط با ما</div>
+        <div className="flex flex-row flex-nowrap items-center justify-center text-[#707070] text-xl">
+          <NavLinks text={"  اخبار و مقالات"} path={"/"} />
+          <NavLinks text={"ارتباط با ما"} path={"/"} />
         </div>
         <div className="pt-[30px]">
-          <Button type={"button"} text={"ورود/ثبت نام"} style={"bg-[#fff] text-[#707070] hover:bg-[#ffefc8]"} />
+          <Button
+            type={"button"}
+            text={"ورود/ثبت نام"}
+            style={"bg-[#fff] text-[#707070] hover:bg-[#ffefc8]"}
+          />
         </div>
       </div>
     </div>

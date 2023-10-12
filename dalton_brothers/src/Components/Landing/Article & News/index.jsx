@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Article } from "../../Article & News/ArticleSections/Article";
 import { newsData } from "../../../Core/Services/data";
+import NavLinks from "../../Common/Links/NavLinks";
 
 const ArticleNews = () => {
   const data = [newsData[0], newsData[1], newsData[2]];
@@ -15,13 +16,11 @@ const ArticleNews = () => {
           آخرین اخبار و مقالات
         </div>
 
-        <Link
-          onClick={() => (Document.documentElement.scrollTop = 0)}
-          to={"/news"}
-          className="w-[210px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-sha text-[#fff] text-l"
-        >
-          مشاهده بیشتر
-        </Link>
+        <NavLinks
+          text={"مشاهده ی تمام دوره ها"}
+          style={"bg-[#6c63ff] hover:bg-[#463fd3] text-[#fff]"}
+          path={"/news"}
+        />
       </div>
 
       <div className=" w-11/12 mx-auto flex justify-center flex-wrap items-center gap-10 ">
