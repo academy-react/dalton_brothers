@@ -11,4 +11,4 @@ const Button = ({ type, style, text }) => {
   );
 };
 
-export default Button;
+export { Button };

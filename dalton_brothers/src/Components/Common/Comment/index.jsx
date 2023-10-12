@@ -1,5 +1,8 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+
+import { Button } from "../buttons/Button";
+
 // import * as yup from "yup";
 
 const CommentPlace = () => {
@@ -56,12 +59,7 @@ const CommentPlace = () => {
             />
             <ErrorMessage name="Describe" component={"div"} className="error" />
           </div>
-          <button
-            type="submit"
-            className="w-[130px] h-[40px] flex justify-center items-center bg-[#fcbf49] rounded-full font-sha text-lg text-[#5d5d5d]"
-          >
-            ثبت
-          </button>
+          <Button text={'ثبت'} type={'submit'} style={'bg-[#fcbf49]'} />
         </Form>
       </Formik>
     </div>
