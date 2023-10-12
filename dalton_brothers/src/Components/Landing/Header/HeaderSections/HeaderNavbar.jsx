@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import logo from "../../../../assets/Images/logo.png";
+import { Button } from "../../../Common/buttons";
 
 const HeaderNavbar = () => {
   return (
@@ -18,7 +19,7 @@ const HeaderNavbar = () => {
           <div>ارتباط با ما</div>
         </div>
         <div className="pt-[30px]">
-          <button className="hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[200px] h-[50px] bg-slate-100 rounded-full flex justify-center items-center text-[#707070]">ورود/ثبت نام</button>
+          <Button type={"button"} text={"ورود/ثبت نام"} style={"bg-[#fff] text-[#707070] hover:bg-[#ffefc8]"} />
         </div>
       </div>
     </div>
@@ -26,5 +27,3 @@ const HeaderNavbar = () => {
 };
 
 export { HeaderNavbar };
-
-
