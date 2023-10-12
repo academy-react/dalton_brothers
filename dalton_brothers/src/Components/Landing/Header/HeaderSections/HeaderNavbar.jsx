@@ -11,14 +11,14 @@ const HeaderNavbar = () => {
           <img src={logo} alt="" className="w-full h-full" />
         </div>
         <div className="flex flex-row flex-nowrap items-center justify-start gap-[80px] text-[#fdb501] text-base">
-          <div>دوره ها</div>
-          <div>پشتیبانی</div>
-          <div>پشتیبانی</div>
+          <NavLinks text={"دوره ها"} path={"/couese"} />
+          <NavLinks text={"پشتیبانی"} path={"/"} />
+          <NavLinks text={"پشتیبانی"} path={"/"} />
         </div>
-        <div className="flex flex-row flex-nowrap items-center justify-center gap-[80px] text-[#707070] text-base">
-          <div>اخبار و مقالات</div>
-          <div>ارتباط با ما</div>
-          <div>ارتباط با ما</div>
+        <div className="flex flex-row flex-nowrap items-center justify-center text-[#707070] text-xl">
+          <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
+          <NavLinks text={"ارتباط با ما"} path={"/"} />
+          <NavLinks text={"ارتباط با ما"} path={"/"} />
         </div>
         <div className="pt-[30px]">
           <Button
