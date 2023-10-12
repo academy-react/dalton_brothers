@@ -39,7 +39,7 @@ const CommentPlace = () => {
             </span>
             <Field
               name="name"
-              className="outline-[#595959] w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-[#949494] border-[2px] peer px-5"
+              className=" w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-[#949494] border-[2px] peer px-5"
               type="text"
               placeholder="...نام کاربری"
             />
@@ -52,7 +52,7 @@ const CommentPlace = () => {
             <Field
               as="textarea"
               name="comment"
-              className="outline-[#595959] w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-[#949494] border-[2px] peer px-5 py-[15px]"
+              className=" w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-[#949494] border-[2px] peer px-5 py-[15px]"
               type="text"
               placeholder="...متن پیام"
             />
