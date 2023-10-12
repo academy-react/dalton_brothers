@@ -2,8 +2,10 @@ import React from "react";
 
 import { LayHeaderNav } from "./HeaderSection/LayHeaderNav";
 import { LaySort } from "./HeaderSection/Sort";
+import { useLocation } from "react-router-dom";
 
-const LayHeader = ({ pageName }) => {
+const LayHeader = ({ course, news, detailCourse }) => {
+  const location = useLocation();
   return (
     <>
       <LayHeaderNav />
@@ -21,7 +23,9 @@ const LayHeader = ({ pageName }) => {
       {/* pageName */}
       <div>
         <h1 className=" font-sha text-3xl font-semibold text-gray-500">
-          {pageName}
+          {location.pathname === "/course" && <div>{course}</div>}
+          {location.pathname === "/courseDetail" && <div>{detailCourse}</div>}
+          {location.pathname === "/news" && <div>{news}</div>}
         </h1>
       </div>
       <LaySort />
