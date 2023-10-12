@@ -40,7 +40,7 @@
   margin-top: 50px;
   display: flex;
   flex-flow: row-reverse nowrap;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   /* height: 500px; */
   background: url(../../../assets/Images/footer-bg.png) no-repeat 100% 100%;
