@@ -7,7 +7,7 @@ const Master = ({ id, master, topic }) => {
     <div className="flex flex-col gap-[10px] items-center">
       <div className={style.master}>
         <input
-          type="checkBox"
+          type="radio"
           name="master"
           id={`master${id}`}
           className={style.masterInput}

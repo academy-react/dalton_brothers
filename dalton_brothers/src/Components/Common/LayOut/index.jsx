@@ -1,9 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import style from "./layOut.module.css";
 import { LayHeader } from "./Header";
 import LayFooter from "./Footer";
+
+import style from "./layOut.module.css";
 
 const Layout = () => {
   return (

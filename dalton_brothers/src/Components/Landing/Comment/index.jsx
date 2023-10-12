@@ -1,13 +1,15 @@
 import React from "react";
 import { CommentPlace } from "../../Common/Comment/Index";
+import { Title } from "../../Common/Title/Title";
 
 import illustration from "../../../assets/Images/landingFooter-illustration.png";
 const LandingComment = () => {
   return (
-    <div className="w-[85%] h-[500px] m-auto">
-      <div className="mr-3 text-2xl mt-[100px] mb-[20px] text-center font-sha text-[#fcbf49]">
-        پیشنهادات و انتقادات
-      </div>
+    <div className="w-[85%] h-[500px] m-auto mt-[100px]">
+      <Title
+        topic={"پیشنهادات و انتقادات"}
+        style={"text-center text-[#fcbf49] text-[30px] mb-[50px]"}
+      />
       <div className="flex flex-row-reverse justify-center items-center">
         <div className="w-[500px] h-full">
           <CommentPlace />
