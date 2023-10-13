@@ -4,9 +4,6 @@ import { NavLink } from "react-router-dom";
 import shabnam from "../../../assets/Fonts/shabnam/Shabnam-Bold.ttf";
 
 const NavLinks = ({ path }) => {
-  const CommonStyle =
-    "w-[210px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-sha text-[#fff] text-l";
-
   return (
     <NavLink
       onClick={() => (Document.documentElement.scrollTop = 0)}
@@ -29,4 +26,4 @@ const NavLinks = ({ path }) => {
   );
 };
 
-export default NavLinks;
+export { NavLinks };
