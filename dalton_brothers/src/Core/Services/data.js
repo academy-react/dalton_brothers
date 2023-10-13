@@ -61,4 +61,29 @@ const relatedData = [
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
 ]
-export { courseData, newsData, masterData, relatedData };
+const commentData = [
+  {
+    text: "خووووووووووبببب بوووووووووووود",
+    userName: "سجاد",
+    userLogo: "https://picsum.photos/200/300",
+    reply: [],
+    date: "۳۰ مرداد",
+  },
+  {
+    text: "خوب بود",
+    userName: "سجاد",
+    userLogo: "https://picsum.photos/200/500",
+    reply: [],
+    date: "۱۰ فروردین",
+  },
+  {
+    text: "بد بود",
+    userName: "اشکان محمدی اصل",
+    userLogo: "https://picsum.photos/200/400",
+    reply: [],
+    date: " دیروز ",
+  },
+]
+
+
+export { courseData, newsData, masterData, relatedData, commentData };

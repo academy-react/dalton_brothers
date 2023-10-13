@@ -5,6 +5,7 @@ import { CourseIntroduction } from "./components/CourseIntroduction/CourseIntrod
 import { Needs } from "./components/needs/Needs";
 import { CourseTeacher } from "./components/CourseTeacher/CourseTeacher";
 import { RelatedCourses } from "./components/RelatedCourses/RelatedCourses";
+import { CourseComments } from "./components/CourseComment/CourseComment";
 
 const CourseDetail = () => {
   return (
@@ -13,6 +14,7 @@ const CourseDetail = () => {
         <CourseIntroduction/>
         <Needs/>
         <CourseTeacher/>
+        <CourseComments/>
         <RelatedCourses/>
     </div>
   );
