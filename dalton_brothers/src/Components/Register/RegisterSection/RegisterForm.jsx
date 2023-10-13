@@ -25,7 +25,7 @@ const SignInForm = ({ zIndex, setToggle, toggle }) => {
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        // validationSchema={validation}
       >
         <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-start px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
           <Title
