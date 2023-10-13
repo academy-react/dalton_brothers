@@ -10,10 +10,13 @@ import { Button } from "../../Common/Buttons";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 
 const SignInForm = ({ zIndex, setToggle, toggle }) => {
-  console.log(zIndex);
+  const [path, setPath] = useState(false);
   const [show, setShow] = useState(false);
-  const handleToggle = () => setToggle(!toggle);
 
+  const handleToggle = () => {
+    setPath(!path);
+    setToggle(!toggle);
+  };
   // validation................................
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
@@ -25,7 +28,7 @@ const SignInForm = ({ zIndex, setToggle, toggle }) => {
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        // validationSchema={validation}
       >
         <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-start px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
           <Title
@@ -55,21 +58,19 @@ const SignInForm = ({ zIndex, setToggle, toggle }) => {
           )}
           <NavLinks
             path={"/"}
-            style={
-              "text-blue-400 hover:text-blue-600 my-[0] py-[0] mx-[0] px-[10px]"
-            }
+            style={"text-blue-400 hover:text-blue-600 mt-[-30px] px-[5px]"}
             text={"فراموشی رمز عبور"}
           />
           <NavLinks
-            path={"/"}
-            style={
-              "text-blue-400 hover:text-blue-600 my-[0] py-[0] mx-[0] px-[10px]"
-            }
+            path={"/register"}
+            style={"text-blue-400 hover:text-blue-600 mt-[-30px] px-[5px]"}
             text={"حساب کاربری ندارم"}
           />
           <Button
+            type={"submit"}
             style={"bg-orange-300 text-[18px] text-[#595959]"}
             text={"ورود"}
+            path={path ? "/" : undefined}
           />
         </Form>
       </Formik>

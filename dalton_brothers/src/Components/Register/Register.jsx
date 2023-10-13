@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { SignInForm } from "./RegisterSection/SignInForm";
+import { SignInForm } from "./RegisterSection/RegisterForm";
 
 import style from "./SignIn.module.css";
 
-const SignIn = () => {
+const Register = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -22,4 +22,4 @@ const SignIn = () => {
   );
 };
 
-export { SignIn };
+export { Register };

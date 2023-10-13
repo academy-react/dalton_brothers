@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Button = ({ type, style, text, path }) => {
@@ -7,6 +7,7 @@ const Button = ({ type, style, text, path }) => {
     if (e === undefined) return;
     navigate(e);
   };
+  console.log(path);
   return (
     <button
       onClick={() => {
