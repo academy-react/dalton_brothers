@@ -1,6 +1,11 @@
 import React from "react";
 
-const Button = ({ type, style, text }) => {
+const Button = ({ type, style, text, path }) => {
+  const navigate = useNavigate();
+  const transfer = (e) => {
+    if (e === undefined) return;
+    navigate(e);
+  };
   return (
     <button
       type={`${type}`}
