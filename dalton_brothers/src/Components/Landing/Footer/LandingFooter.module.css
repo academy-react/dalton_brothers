@@ -4,5 +4,5 @@
   background-size: 70% 100%;
   display: flex;
   flex-flow: row-reverse;
-  align-items: end;
+  align-items: flex-end;
 }

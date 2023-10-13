@@ -1,0 +1,46 @@
+import React from "react";
+
+import logo from "../../../../../assets/Images/layOut-logo.png";
+import sun from "../../../../../assets/Images/sun.png";
+
+import style from "../../layOut.module.css";
+
+const LayHeaderNav = () => {
+  return (
+    <div className={style.headerBox1}>
+      {/* logo */}
+      <div className="">
+        <img src={logo} alt="" />
+      </div>
+      <div className=" flex flex-row-reverse flex-wrap justify-center gap-[75px] items-center font-est text-xl text-gray-500">
+        {/* items */}
+        <div>خانه</div>
+        <div>خدمات</div>
+        <div>دوره ها</div>
+        <div>اخبار و مقالات</div>
+        <div>ارتباط با ما</div>
+      </div>
+      {/* dark mode bliad */}
+      <div className="">
+        <img src={sun} alt="" className=" w-[40px]" />
+      </div>
+      {/* button for sign in or enter */}
+      <div className="bg-gray-200  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-est text-slate-600">
+        <button
+          type="button"
+          className="bg-[#fff] w-[150px] h-11 text-center py-[12px] shadow-ri shadow-slate-400 rounded-full absolute left-[12px] top-[10px]"
+        >
+          ثبت نام
+        </button>
+        <button
+          type="button"
+          className="bg-[#fcbf49] w-[150px] h-12 text-center py-[12px]  rounded-full"
+        >
+          ورود
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export { LayHeaderNav };
