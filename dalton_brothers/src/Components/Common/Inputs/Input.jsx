@@ -4,10 +4,7 @@ import { Field, ErrorMessage } from "formik";
 
 const Input = ({ topic, style, placeHolder, type, name, as }) => {
   return (
-    <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full px-[40px]">
-      <span className="mx-[10%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
-        {topic}
-      </span>
+    <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full px-[10px]">
       <Field
         as={as}
         name={name}
@@ -15,6 +12,9 @@ const Input = ({ topic, style, placeHolder, type, name, as }) => {
         type={type}
         placeholder={placeHolder}
       />
+      <span className="mx-[10%] peer-focus:right-[65%] whitespace-nowrap bg-white absolute right-2 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
+        {topic}
+      </span>
       <ErrorMessage name={name} component={"div"} className="error" />
     </div>
   );

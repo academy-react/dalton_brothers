@@ -1,7 +1,30 @@
 .holder {
   width: 100%;
-  height: 1080px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+.SignInBg {
   display: flex;
   flex-wrap: nowrap;
-  direction: rtl;
+  direction: ltr;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 100px;
+  width: 100%;
+  height: 700px;
+  background: url(../../assets/Images/signIn-bg.png) no-repeat 100% 0%;
+  background-size: 100% 100%;
+}
+.SignInBgFull {
+  display: flex;
+  flex-wrap: nowrap;
+  direction: ltr;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 100px;
+  width: 100%;
+  height: 700px;
+  background: url(../../assets/Images/signIn-bg.png) no-repeat 100% 0%;
+  background-size: 300% 100%;
+  transition: 1s;
 }

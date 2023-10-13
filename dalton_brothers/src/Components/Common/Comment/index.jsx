@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
 
-import { Button } from "../../Common/buttons";
+import { Button } from "../Buttons";
 import { Input } from "../Inputs/Input";
 import { Title } from "../Title/Title";
 
