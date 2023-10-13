@@ -10,21 +10,22 @@ import { Button } from "../../Common/Buttons";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 
 const SignInForm = ({ zIndex, setToggle, toggle }) => {
+  console.log(zIndex);
   const [show, setShow] = useState(false);
   const handleToggle = () => setToggle(!toggle);
 
-    // validation................................
-    const validation = yup.object().shape({
-        logInPassword: yup.string().required("این فیلد اجباریست"),
-        logInUserName: yup.string().required("این فیلد اجباریست"),
-      });
+  // validation................................
+  const validation = yup.object().shape({
+    logInPassword: yup.string().required("این فیلد اجباریست"),
+    logInUserName: yup.string().required("این فیلد اجباریست"),
+  });
 
   return (
-    <div className={`lg:w-[44%] w-full relative z-[${zIndex}]`}>
+    <div className={`lg:w-[44%] w-full ${zIndex} relative`}>
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        // validationSchema={validation}
       >
         <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-start px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
           <Title
