@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 const Button = ({ type, style, text, path }) => {
   const navigate = useNavigate();
   const transfer = (e) => {
+    if (e === undefined) return;
     navigate(e);
   };
   return (
