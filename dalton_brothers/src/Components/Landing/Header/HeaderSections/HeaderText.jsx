@@ -2,7 +2,7 @@ import React from "react";
 
 const HeaderText = () => {
   return (
-    <p className=" w-[40%] font-vaz text-zinc-600" style={{ minWidth: "400px" }}>
+    <p className=" w-[40%] font-irSans text-zinc-600" style={{ minWidth: "400px" }}>
       اودیو استثنائی ورو تمپوریبوس فوجیت ایکو، آروم ایوس ساپه دولوره راشنه فرض
       بر این است که خطای رسمی در زمانی رخ داده است. اودیو استثنائی ورو تمپوریبوس
       فوجیت ایکو، آروم ایوس ساپه دولوره راشنه فرض بر این است که خطای رسمی در
