@@ -4,16 +4,16 @@ import * as yup from "yup";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
-import NavLinks from "../../Common/Links";
 import { Button } from "../../Common/Buttons";
 
-import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import { TbEye, TbEyeOff } from "react-icons/tb";
 
-const SignInForm = ({ zIndex, setToggle, toggle }) => {
-  console.log(zIndex);
+const RegisterForm = ({ zIndex, setToggle, toggle }) => {
   const [show, setShow] = useState(false);
-  const handleToggle = () => setToggle(!toggle);
 
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
   // validation................................
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
@@ -25,56 +25,63 @@ const SignInForm = ({ zIndex, setToggle, toggle }) => {
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
-        // validationSchema={validation}
+        validationSchema={validation}
       >
-        <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-start px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
+        <Form className="w-[70%] m-auto h-[400px] flex flex-col justify-center gap-[30px] items-end px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
           <Title
-            topic={"صفحه ورود"}
+            topic={"صفحه ثبت نام"}
             style={"leading-3 font-vaz text-[20px] self-center text-[#595959]"}
           />
           <Input
             topic={"نام کاربر"}
             style={"rounded-full"}
-            placeHolder={"name..."}
+            placeHolder={"... نام کاربری خود را انتخاب کنید"}
             type={"text"}
             name={"logInPassword"}
             as={"input"}
           />
-          <Input
-            topic={"رمز عبور"}
-            style={"rounded-full"}
-            placeHolder={"www..example.com"}
-            type={show ? "text" : "password"}
-            name={"logInUserName"}
-            as={"input"}
-          />
-          {show ? (
-            <IconEye onClick={() => setShow(!show)} />
-          ) : (
-            <IconEyeOff onClick={() => setShow(!show)} />
-          )}
-          <NavLinks
-            path={"/"}
-            style={
-              "text-blue-400 hover:text-blue-600 my-[0] py-[0] mx-[0] px-[10px]"
-            }
-            text={"فراموشی رمز عبور"}
-          />
-          <NavLinks
-            path={"/"}
-            style={
-              "text-blue-400 hover:text-blue-600 my-[0] py-[0] mx-[0] px-[10px]"
-            }
-            text={"حساب کاربری ندارم"}
-          />
-          <Button
-            style={"bg-orange-300 text-[18px] text-[#595959]"}
-            text={"ورود"}
-          />
+          <div className="relative w-full">
+            <Input
+              topic={"ساخت حساب"}
+              style={"rounded-full w-full"}
+              placeHolder={"www..example.com"}
+              type={show ? "text" : "password"}
+              name={"logInUserName"}
+              as={"input"}
+            />
+            <div className="w-[25px] absolute left-[5%] top-[14%]">
+              {show ? (
+                <TbEye
+                  onClick={() => setShow(!show)}
+                  className="w-full h-full"
+                />
+              ) : (
+                <TbEyeOff
+                  onClick={() => setShow(!show)}
+                  className="w-full h-full"
+                />
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-row justify-around w-full gap-[20px]">
+            <Button
+              type={"submit"}
+              style={"bg-orange-300 text-[18px] text-[#595959]"}
+              text={"ثبت نام"}
+            />
+            <div onClick={() => setToggle(!toggle)}>
+              <Button
+                type={"button"}
+                style={"bg-orange-300 text-[18px] text-[#595959]"}
+                text={"بازگشت"}
+              />
+            </div>
+          </div>
         </Form>
       </Formik>
     </div>
   );
 };
 
-export { SignInForm };
+export { RegisterForm };

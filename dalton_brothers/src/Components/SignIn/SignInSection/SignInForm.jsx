@@ -7,14 +7,21 @@ import { Input } from "../../Common/Inputs/Input";
 import NavLinks from "../../Common/Links";
 import { Button } from "../../Common/Buttons";
 
-import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import { TbEye, TbEyeOff } from "react-icons/tb";
+import SignLinks from "../../Common/Links/SignLinks";
 
-const SignInForm = ({ zIndex, setToggle, toggle }) => {
-  const [path, setPath] = useState(false);
+const SignInForm = ({
+  zIndex,
+  setToggle,
+  toggle,
+  reg,
+  setReg,
+  setForget,
+  forget,
+}) => {
   const [show, setShow] = useState(false);
 
   const handleToggle = () => {
-    setPath(!path);
     setToggle(!toggle);
   };
   // validation................................
@@ -30,7 +37,7 @@ const SignInForm = ({ zIndex, setToggle, toggle }) => {
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-start px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
+        <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-end px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
             style={"leading-3 font-vaz text-[20px] self-center text-[#595959]"}
@@ -38,39 +45,50 @@ const SignInForm = ({ zIndex, setToggle, toggle }) => {
           <Input
             topic={"نام کاربر"}
             style={"rounded-full"}
-            placeHolder={"name..."}
+            placeHolder={"... نام کاربری خود را وارد کنید"}
             type={"text"}
             name={"logInPassword"}
             as={"input"}
           />
-          <Input
-            topic={"رمز عبور"}
-            style={"rounded-full"}
-            placeHolder={"www..example.com"}
-            type={show ? "text" : "password"}
-            name={"logInUserName"}
-            as={"input"}
-          />
-          {show ? (
-            <IconEye onClick={() => setShow(!show)} />
-          ) : (
-            <IconEyeOff onClick={() => setShow(!show)} />
-          )}
-          <NavLinks
-            path={"/"}
+          <div className="relative w-full">
+            <Input
+              topic={"نام حساب"}
+              style={"rounded-full w-full"}
+              placeHolder={"www..example.com"}
+              type={show ? "text" : "password"}
+              name={"logInUserName"}
+              as={"input"}
+            />
+            <div className="w-[25px] absolute left-[5%] top-[14%]">
+              {show ? (
+                <TbEye
+                  onClick={() => setShow(!show)}
+                  className="w-full h-full"
+                />
+              ) : (
+                <TbEyeOff
+                  onClick={() => setShow(!show)}
+                  className="w-full h-full"
+                />
+              )}
+            </div>
+          </div>
+          <SignLinks
             style={"text-blue-400 hover:text-blue-600 mt-[-30px] px-[5px]"}
             text={"فراموشی رمز عبور"}
+            state={forget}
+            setState={setForget}
           />
-          <NavLinks
-            path={"/register"}
+          <SignLinks
             style={"text-blue-400 hover:text-blue-600 mt-[-30px] px-[5px]"}
             text={"حساب کاربری ندارم"}
+            state={reg}
+            setState={setReg}
           />
           <Button
             type={"submit"}
             style={"bg-orange-300 text-[18px] text-[#595959]"}
             text={"ورود"}
-            path={path ? "/" : undefined}
           />
         </Form>
       </Formik>

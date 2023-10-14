@@ -1,11 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavLinks = ({ style, text, path }) => {
+const SignLinks = ({ style, text, state, setState }) => {
+  const handleClick = (state, setState) => {
+    setState(!state);
+    // Document.documentElement.scrollTop = 0;
+  };
   return (
     <NavLink
-      to={`${path}`}
-      onClick={() => (Document.documentElement.scrollTop = 0)}
+      onClick={() => handleClick(state, setState)}
       className={`px-[50px] py-[10px] transition-all duration-500 cursor-pointer flex justify-center items-center rounded-full font-sha text-l ${style}`}
     >
       {text}
@@ -13,4 +16,4 @@ const NavLinks = ({ style, text, path }) => {
   );
 };
 
-export default NavLinks;
+export default SignLinks;

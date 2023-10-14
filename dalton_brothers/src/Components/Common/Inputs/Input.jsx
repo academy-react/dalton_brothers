@@ -12,10 +12,10 @@ const Input = ({ topic, style, placeHolder, type, name, as }) => {
         type={type}
         placeholder={placeHolder}
       />
-      <span className="mx-[10%] peer-focus:right-[65%] whitespace-nowrap bg-white absolute right-2 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
+      <span className="mx-[10%] peer-focus:right-[65%] whitespace-nowrap bg-white rounded-full absolute right-2 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
         {topic}
       </span>
-      <ErrorMessage name={name} component={"div"} className="error" />
+      <ErrorMessage name={name} component={"p"} className="error" />
     </div>
   );
 };

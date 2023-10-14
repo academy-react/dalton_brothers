@@ -16,7 +16,7 @@ const HeaderNavbar = () => {
           <NavLinks text={"پشتیبانی"} path={"/"} />
         </div>
         <div className="flex flex-row flex-nowrap items-center justify-center text-[#707070] text-xl">
-          <NavLinks text={"  اخبار و مقالات"} path={"/news"}  />
+          <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
           <NavLinks text={"ارتباط با ما"} path={"/"} />
         </div>
         <div className="pt-[30px]">
