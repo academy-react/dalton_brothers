@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
 import { Button } from "../../Common/buttons";
+import { Input } from "../Inputs/Input";
+import { Title } from "../Title/Title";
 
 const CommentPlace = () => {
   // validation................................
@@ -17,7 +19,6 @@ const CommentPlace = () => {
       comment: values.comment,
     };
     console.log(obj);
-
   };
 
   return (
