@@ -12,6 +12,7 @@ import { CourseDetail } from "./Components/CourseDetail/CourseDetail";
 import { ForgetPass } from "./Components/ForgetPass/ForgetPass";
 
 import "./index.css";
+import { StudentPanel } from "./Components/StudentPanel/StudentPanel";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   { path: "/signIn", element: <SignIn /> },
   { path: "/register", element: <Register /> },
   { path: "/forget", element: <ForgetPass /> },
+  { path: "/panel", element: <StudentPanel /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
