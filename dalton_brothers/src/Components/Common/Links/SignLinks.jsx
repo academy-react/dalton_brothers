@@ -16,4 +16,4 @@ const SignLinks = ({ style, text, state, setState }) => {
   );
 };
 
-export default SignLinks;
+export  {SignLinks};
