@@ -7,7 +7,7 @@ const NavLinks = ({ path }) => {
   return (
     <NavLink
       onClick={() => (Document.documentElement.scrollTop = 0)}
-      to={`${path}`}
+      to={path}
       style={({ isActive }) => ({
         width: "210px",
         height: "50px",
