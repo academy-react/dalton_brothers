@@ -7,7 +7,7 @@ import { NavLinks } from "../../../Common/Links/NavLinks";
 const HeaderNavbar = () => {
   return (
     <div className="pt-[10px] flex items-end font-irSBold">
-      <div className="w-[90%] max-w-[2000px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between items-center ">
+      <div className="w-[90%] max-w-[2000px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between items-center">
         <div className="w-[70px] " >
           <img src={logo} alt="" className="w-full h-full" />
         </div>
