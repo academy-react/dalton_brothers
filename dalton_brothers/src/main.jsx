@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { Landing } from "./Components/Landing";
-import { CourseList } from "./Components/Course/CourseList";
-import { ArticleNews } from "./Components/Article & News/Article & News";
-import { Layout } from "./Components/Common/LayOut";
-import { SignIn } from "./Components/SignIn/SignIn";
-import { Register } from "./Components/Register/Register";
-import { CourseDetail } from "./Components/CourseDetail/CourseDetail";
-import { ForgetPass } from "./Components/ForgetPass/ForgetPass";
+import { Landing } from "../src/Components/Landing";
+import { CourseList } from "../src/Components/Course/CourseList";
+import { ArticleNews } from "../src/Components/Article & News/Article & News";
+import { Layout } from "../src/Components/Common/LayOut";
+import { SignIn } from "../src/Components/SignIn/SignIn";
+import { Register } from "../src/Components/Register/Register";
+import { CourseDetail } from "../src/Components/CourseDetail/CourseDetail";
+import { ForgetPass } from "../src/Components/ForgetPass/ForgetPass";
 
 import "./index.css";
 import { StudentPanel } from "./Components/StudentPanel/StudentPanel";

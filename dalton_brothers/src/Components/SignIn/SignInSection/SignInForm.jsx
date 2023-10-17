@@ -4,6 +4,7 @@ import * as yup from "yup";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
+import {NavLinks} from "../../Common/Links";
 import { Button } from "../../Common/buttons";
 import { SignLinks } from "../../Common/Links/SignLinks";
 
