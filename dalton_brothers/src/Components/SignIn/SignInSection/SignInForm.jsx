@@ -4,7 +4,6 @@ import * as yup from "yup";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
-import {NavLinks} from "../../Common/Links";
 import { Button } from "../../Common/buttons";
 import { SignLinks } from "../../Common/Links/SignLinks";
 
@@ -31,13 +30,15 @@ const SignInForm = ({
   });
 
   return (
-    <div className={`lg:w-[44%] w-full ${zIndex} relative`}>
+    <div
+      className={`xl:w-[50%] l:w-[60%] w-full relative flex flex-row justify-center items-center ${zIndex}`}
+    >
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className="w-[70%] m-auto h-[500px] flex flex-col justify-center gap-[30px] items-end px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
+        <Form className=" items-end w-[100%] h-[500px] flex flex-col justify-center gap-[30px] px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
             style={"leading-3 font-vaz text-[20px] self-center text-[#595959]"}
@@ -50,10 +51,10 @@ const SignInForm = ({
             name={"logInPassword"}
             as={"input"}
           />
-          <div className="relative w-full">
+          <div className="relative w-full flex justify-end">
             <Input
               topic={"نام حساب"}
-              style={"rounded-full w-full"}
+              style={"rounded-full"}
               placeHolder={"www..example.com"}
               type={show ? "text" : "password"}
               name={"logInUserName"}
