@@ -4,7 +4,7 @@ import { CategoryKind } from "./CategorySections/CategoryKind";
 
 const Category = () => {
   return (
-    <div style={{ direction: "rtl" }} className="w-4/5 m-auto my-5 font-est">
+    <div style={{ direction: "rtl" }} className="w-4/5 m-auto my-5 font-irSans">
       <CategoryTitle />
       <CategoryKind />
     </div>

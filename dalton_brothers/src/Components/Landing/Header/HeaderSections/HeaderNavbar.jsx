@@ -6,10 +6,10 @@ import { NavLinks } from "../../../Common/Links/NavLinks";
 
 const HeaderNavbar = () => {
   return (
-    <div className="pt-[10px] flex items-end font-sha">
-      <div className="w-[95%] max-w-[2000px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between">
-        <div>
-          <img src={logo} alt="" className="w-[80px]" />
+    <div className="pt-[10px] flex items-end font-irSBold">
+      <div className="w-[90%] max-w-[2000px] m-auto whitespace-nowrap flex flex-row flex-wrap justify-between items-center ">
+        <div className="w-[70px] " >
+          <img src={logo} alt="" className="w-full h-full" />
         </div>
         <div className="flex flex-row flex-nowrap items-center justify-start text-[#fdb501] text-xl">
           <NavLinks text={"دوره ها"} path={"/course"} style={"px-[30px]"} />
@@ -17,7 +17,7 @@ const HeaderNavbar = () => {
           <NavLinks text={"پشتیبانی"} path={"/"} style={"px-[30px]"} />
         </div>
         <div className="flex flex-row flex-nowrap items-center justify-center text-[#707070] text-xl">
-          <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
+        <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
           <NavLinks text={"ارتباط با ما"} path={"/"} style={"px-[30px]"} />
           <NavLinks text={"ارتباط با ما"} path={"/"} style={"px-[30px]"} />
         </div>
