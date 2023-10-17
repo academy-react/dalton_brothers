@@ -1,0 +1,150 @@
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import { IconArrowNarrowLeft, IconHome , IconChevronLeft,IconPencil , IconClipboardText, IconList } from "@tabler/icons-react";
+
+// import homeSelect from "../../../../../assets/Images/panel/icons8-home-128(1).png";
+// import home from "../../../../../assets/Images/panel/icons8-home-64(1).png";
+// import editSelect from "../../../../../assets/Images/panel/icons8-edit-128(1).png";
+// import edit from "../../../../../assets/Images/panel/icons8-edit-128.png";
+// import noteSelect from "../../../../../assets/Images/panel/icons8-note-64 (2).png";
+// import note from "../../../../../assets/Images/panel/icons8-note-64.png";
+// import listSelect from "../../../../../assets/Images/panel/icons8-list-64(2).png";
+// import list from "../../../../../assets/Images/panel/icons8-list-64.png";
+// import select from "../../../../../assets/Images/panel/icons8-play-96 (1).png";
+
+const panelList = [{ name: "داشبورد", href: "/panel", icon: IconHome },
+{name:'ویرایش پروفایل',href: "/panel/EditProfile", icon: IconPencil},
+{name:' دوره های من ',href: "/panel/PanelCourses", icon: IconClipboardText},
+{name:' لیست دوره ها ',href: "/panel/PanelCoursesList", icon:  IconList }];
+
+const PanelNavigation = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const goTo = (link) => {
+    navigate(link);
+  };
+  return (
+    <>
+      <div className=" w-[270px] h-[300px] border border-gray-400 rounded-[20px] ">
+        <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly ">
+          {panelList.map((item, index) => (
+            <li
+            key={index}
+              onClick={()=>goTo(item.href)}
+              className=" w-full h-[50px] mt-6 flex cursor-pointer justify-evenly items-center"
+            >
+            <div className={"h-full w-full flex items-center text-right justify-end text-xl pt-1 pr-[6px] " +(location.pathname == item.href ? "text-yellow-500 ":'text-gray-500') }>{item.name}</div>
+            <item.icon  className={"h-12 w-12 "+(location.pathname == item.href ? "text-yellow-500 ":'text-gray-500')} />
+            <div className="h-20 w-20 flex items-center justify-center">
+              <IconChevronLeft fill="rgb(234,179,8)" className={"h-16 w-16 text-white "+(location.pathname == item.href ? "block":'hidden')}  />
+            </div>
+            </li>
+          ))}
+          {/* <li
+            onClick={goToDashboard}
+            className=" w-full h-[50px] mt-6 flex flex-row-reverse cursor-pointer"
+          >
+            <div className=" h-full w-12 ml-2">
+              {location.pathname === "/panel" && (
+                <img
+                  src={select}
+                  alt=""
+                  className="w-[40px] h-[60px] relative bottom-2 "
+                ></img>
+              )}
+            </div>
+            <div className=" h-full w-20">
+              {location.pathname === "/panel" ? (
+                <img src={homeSelect} alt="" className="w-[80%] h-[80%] "></img>
+              ) : (
+                <img src={home} alt="" className="w-[80%] h-[80%] "></img>
+              )}
+            </div>
+            <div className=" h-full w-full text-right text-xl pt-1 pr-[6px] text-[#fcbf49]">
+              {" "}
+              داشبورد{" "}
+            </div>
+          </li> */}
+          {/* <li onClick={goToEditProfile} className=" w-full h-[50px] flex flex-row-reverse cursor-pointer">
+            <div className=" h-full w-12 ml-2">
+              {location.pathname === "/panel/EditProfile" && (
+                <img
+                  src={select}
+                  alt=""
+                  className="w-[40px] h-[60px] relative bottom-2 "
+                ></img>
+              )}
+            </div>
+            <div className=" h-full w-20">
+            {location.pathname === "/panel/EditProfile" ? (
+                <img src={editSelect} alt="" className="w-[80%] h-[80%] "></img>
+              ) : (
+                <img src={edit} alt="" className="w-[80%] h-[80%] "></img>
+              )}
+            </div>
+            <div className=" h-full w-full text-right text-xl pt-1 pr-[6px]">
+              {" "}
+              ویرایش پروفایل{" "}
+            </div>
+          </li>
+          <li onClick={goToPanelCourses} className=" w-full h-[50px] flex flex-row-reverse cursor-pointer">
+            <div className=" h-full w-12 ml-2">
+              {location.pathname === "/panel/PanelCourses" && (
+                <img
+                  src={select}
+                  alt=""
+                  className="w-[40px] h-[60px] relative bottom-2 "
+                ></img>
+              )}
+            </div>
+            <div className=" h-full w-20">
+            {location.pathname === "/panel/PanelCourses" ? (
+                <img src={noteSelect} alt="" className="w-[80%] h-[80%] "></img>
+              ) : (
+                <img src={note} alt="" className="w-[80%] h-[80%] "></img>
+              )}
+            </div>
+            <div className=" h-full w-full text-right text-xl items-center pt-1 pr-[6px]">
+              {" "}
+              دوره های من{" "}
+            </div>
+          </li>
+          <li onClick={goToPanelCoursesList} className=" w-full h-[50px] flex flex-row-reverse cursor-pointer">
+            <div className=" h-full w-12 ml-2">
+              {location.pathname === "/panel/PanelCoursesList" && (
+                <img
+                  src={select}
+                  alt=""
+                  className="w-[40px] h-[60px] relative bottom-2 "
+                ></img>
+              )}
+            </div>
+            <div className=" h-full w-20">
+            {location.pathname === "/panel/PanelCoursesList" ? (
+                <img src={listSelect} alt="" className="w-[80%] h-[80%] "></img>
+              ) : (
+                <img src={list} alt="" className="w-[80%] h-[80%] "></img>
+              )}
+            </div>
+            <div className=" h-full w-full text-right text-xl pt-1 pr-[6px]">
+              {" "}
+              لیست دوره ها{" "}
+            </div>
+          </li> */}
+        </ul>
+      </div>
+      <button className="  w-[270px] h-[50px] border border-gray-400 rounded-[20px] text-center text-xl text-gray-800 ">
+        {" "}
+        خروج
+        <IconArrowNarrowLeft
+          strokeWidth="1"
+          className="w-[80px] h-[50px] relative -top-[31px] ml-[20px]"
+        />
+      </button>
+    </>
+  );
+};
+
+export { PanelNavigation };

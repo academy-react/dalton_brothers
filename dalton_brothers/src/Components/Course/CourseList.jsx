@@ -3,7 +3,7 @@ import React from "react";
 import "../../index.css";
 import { Course } from "./CourseSections/Course";
 import { courseData } from "../../Core/Services/data";
-import { LayOutHeaders } from "../Common/TopTitles/LayOutHeaders";
+import { LayOutHeaders } from "../Common/LayOutHeaders";
 
 const CourseList = () => {
   const data = courseData;

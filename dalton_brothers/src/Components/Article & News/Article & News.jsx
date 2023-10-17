@@ -2,7 +2,7 @@ import React from "react";
 
 import { Article } from "./ArticleSections/Article";
 import { newsData } from "../../Core/Services/data";
-import { LayOutHeaders } from "../Common/TopTitles/LayOutHeaders";
+import { LayOutHeaders } from "../Common/LayOutHeaders";
 
 const ArticleNews = () => {
   const data = newsData;
