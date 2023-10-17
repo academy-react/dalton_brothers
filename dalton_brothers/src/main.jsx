@@ -32,8 +32,7 @@ const router = createBrowserRouter([
   { path: "/signIn", element: <SignIn /> },
   { path: "/register", element: <Register /> },
   { path: "/forget", element: <ForgetPass /> },
-  { path: "/panel", element: <StudentPanel /> },
-  // { path: "/panel", element: <StudentPanel /> },
+
   {
     element: <LayoutPanel />,
     children: [
@@ -41,7 +40,6 @@ const router = createBrowserRouter([
       { path: "/panel/EditProfile", element: <EditProfile /> },
       { path: "/panel/PanelCourses", element: <PanelCourses /> },
       { path: "/panel/PanelCoursesList", element: <PanelCoursesList /> },
-
     ],
   },
 ]);
