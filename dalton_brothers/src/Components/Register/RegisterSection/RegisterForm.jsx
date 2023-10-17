@@ -4,7 +4,7 @@ import * as yup from "yup";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
-import { Button } from "../../Common/Buttons";
+import { Button } from "../../Common/buttons";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 
