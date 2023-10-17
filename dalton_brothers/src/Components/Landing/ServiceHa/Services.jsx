@@ -4,7 +4,7 @@ import { ServiceKind } from "./ServiceSections/ServiceKind";
 
 const Services = () => {
   return (
-    <div style={{ direction: "rtl" }} className="w-4/5 mx-auto font-est">
+    <div style={{ direction: "rtl" }} className="w-4/5  mx-auto font-irSBold">
       <ServiceTitle />
       <ServiceKind />
     </div>

@@ -12,6 +12,9 @@ export default {
       shabl: "shablon",
       BTi: "BTitrBd",
       Ord: "Ordibehesht",
+      irSans : "iranSans",
+      irSBold : "iranSansBold",
+
     },
 
     extend: {

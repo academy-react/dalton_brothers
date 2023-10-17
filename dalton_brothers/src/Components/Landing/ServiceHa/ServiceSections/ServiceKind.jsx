@@ -30,7 +30,7 @@ const ServiceKind = () => {
     },
   ];
   return (
-    <div className="m-auto flex justify-center flex-wrap gap-9 mt-4 mb-11">
+    <div className="m-auto flex justify-center flex-wrap gap-9 mt-4 mb-11 font-irSans">
       {data.map((service, index) => (
         <OneServiceComponent {...service} key={index} />
       ))}
