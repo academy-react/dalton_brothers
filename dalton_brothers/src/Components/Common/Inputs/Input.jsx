@@ -4,7 +4,7 @@ import { Field, ErrorMessage } from "formik";
 
 const Input = ({ topic, style, placeHolder, type, name, as }) => {
   return (
-    <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full px-[10px]">
+    <div className="flex flex-col w-full relative  sm:w-full px-[10px]">
       <Field
         as={as}
         name={name}
