@@ -14,7 +14,6 @@ const HeaderNavbar = () => {
         <div className="flex flex-row flex-nowrap items-center justify-start text-[#fdb501] text-xl">
           <NavLinks text={"دوره ها"} path={"/course"} />
           <NavLinks text={"پشتیبانی"} path={"/"} />
-          <NavLinks text={"پشتیبانی"} path={"/"} />
         </div>
         <div className="flex flex-row flex-nowrap items-center justify-center text-[#707070] text-xl">
           <NavLinks text={"  اخبار و مقالات"} path={"/news"} />

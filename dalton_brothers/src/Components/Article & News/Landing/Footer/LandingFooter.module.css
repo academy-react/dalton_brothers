@@ -1,0 +1,8 @@
+.landingFooter {
+  height: 600px;
+  background: url(../../../assets/Images/landing-footer.png) no-repeat 100%;
+  background-size: 70% 100%;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: flex-end;
+}
