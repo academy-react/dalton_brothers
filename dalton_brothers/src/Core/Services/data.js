@@ -1,16 +1,3 @@
-import security from "../../assets/Images/security.png";
-import math from "../../assets/Images/math.png";
-import web from "../../assets/Images/web.png";
-import language from "../../assets/Images/language.png";
-import it from "../../assets/Images/it.png";
-import graphic from "../../assets/Images/graphic.png";
-import computer from "../../assets/Images/computer.png";
-import ai from "../../assets/Images/ai.png";
-import WarrantyIcon from "../../assets/Images/WarrantyIcon.png";
-import SupportIcon from "../../assets/Images/SupportIcon.png";
-import communication from "../../assets/Images/communication.png";
-import JobChances from "../../assets/Images/JobChances.png";
-
 const courseData = [
   { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
   { courseName: " میو میو", courseMaster: "میو میو نیگا", price: 100000 },
@@ -73,59 +60,30 @@ const relatedData = [
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
-];
-const CatData = [
+]
+const commentData = [
   {
-    imgPath: web,
-    title: "وب",
+    text: "خووووووووووبببب بوووووووووووود",
+    userName: "سجاد",
+    userLogo: "https://picsum.photos/200/300",
+    reply: [],
+    date: "۳۰ مرداد",
   },
   {
-    imgPath: computer,
-    title: "شبکه",
+    text: "خوب بود",
+    userName: "سجاد",
+    userLogo: "https://picsum.photos/200/500",
+    reply: [],
+    date: "۱۰ فروردین",
   },
   {
-    imgPath: it,
-    title: "ای تی",
+    text: "بد بود",
+    userName: "اشکان محمدی اصل",
+    userLogo: "https://picsum.photos/200/400",
+    reply: [],
+    date: " دیروز ",
   },
-  {
-    imgPath: security,
-    title: "امنیت",
-  },
-  {
-    imgPath: graphic,
-    title: "گرافیک",
-  },
-  {
-    imgPath: ai,
-    title: "هوش مصنوعی",
-  },
-  {
-    imgPath: language,
-    title: "زبان انگلیسی",
-  },
-  {
-    imgPath: math,
-    title: "ریاضی",
-  },
-];
+]
 
-const ServiceData = [
-  {
-    imgPath: WarrantyIcon,
-    title: "مدرک معتبر",
-  },
-  {
-    imgPath: SupportIcon,
-    title: "فرصت های شغلی",
-  },
-  {
-    imgPath: communication,
-    title: "پشتیبانی 24 ساعته",
-  },
-  {
-    imgPath: JobChances,
-    title: "مشاوره",
-  },
-];
 
-export { courseData, newsData, masterData, relatedData, CatData, ServiceData };
+export { courseData, newsData, masterData, relatedData, commentData };
