@@ -2,11 +2,11 @@ import React from "react";
 
 const OneServiceComponent = ({ imgPath, title, desc }) => {
   return (
-    <div className="basis-64 flex flex-col items-center px-3 py-6 gap-5 rounded-lg">
-      <picture className="bg-[#f2f2f2] w-[220px] h-[220px] flex items-center rounded-3xl">
-        <img src={imgPath} alt="" className="w-[100px] m-auto" />
+    <div className="bg-[#F1F5F9]    flex flex-col flex-grow items-center justify-center  py-6 gap-5 rounded-3xl ">
+      <picture className=" w-[100px] h-[100px] flex items-center ">
+        <img src={imgPath} alt="" className="w-[70px] m-auto" />
       </picture>
-      <h1 className="font-vaz text-[#3c3c3c] px-[20px] w-[180px] h-[50px] rounded-full flex justify-between items-center bg-ham bg-no-repeat bg-[10%] bg-15% bg-[#fcbf49]">{title}</h1>
+      <h1 className="font-irSans text-[#3c3c3c]   rounded-full flex justify-between items-center  ">{title}</h1>
     </div>
   );
 };

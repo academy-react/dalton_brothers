@@ -37,17 +37,10 @@ const CategoryKind = () => {
       imgPath: ai,
       title: "هوش مصنوعی",
     },
-    {
-      imgPath: language,
-      title: "زبان انگلیسی",
-    },
-    {
-      imgPath: math,
-      title: "ریاضی",
-    },
+
   ];
   return (
-    <div className="m-auto flex justify-center flex-wrap gap-9 mt-4 mb-11">
+    <div className="m-auto flex justify-center flex-wrap gap-9 mt-10 mb-16">
       {data.map((service, index) => (
         <OneServiceComponent {...service} key={index} />
       ))}
