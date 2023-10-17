@@ -6,7 +6,7 @@ const NavLinks = ({ style, text, path }) => {
     <NavLink
       to={`${path}`}
       onClick={() => (Document.documentElement.scrollTop = 0)}
-      className={`px-[10px] py-[10px] transition-all duration-500 cursor-pointer flex justify-center items-center rounded-full font-sha text-l ${style}`}
+      className={`px-[10px] py-[10px] transition-all duration-500 cursor-pointer flex justify-center items-center rounded-full font-irSBold text-l ${style}`}
     >
       {text}
     </NavLink>

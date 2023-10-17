@@ -25,7 +25,7 @@ const HeaderNavbar = () => {
           <Button
             type={"button"}
             text={"ورود/ثبت نام"}
-            style={"bg-[#fff] text-[#707070] hover:bg-[#ffefc8]  hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[150px] h-[45px] bg-slate-100 rounded-full flex justify-center items-center text-[15px]"}
+            style={"bg-[#fff] text-[#707070] hover:bg-[#ffefc8]  hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[150px] h-[45px] bg-slate-100 rounded-full flex justify-center items-center text-[14px] "}
             path={"/signIn"}
           />
           
