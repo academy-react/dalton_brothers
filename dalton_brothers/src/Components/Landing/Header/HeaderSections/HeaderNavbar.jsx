@@ -2,7 +2,7 @@ import React from "react";
 
 import logo from "../../../../assets/Images/logo.png";
 import { Button } from "../../../Common/buttons";
-import NavLinks from "../../../Common/Links";
+import {NavLinks} from "../../../Common/Links/NavLinks";
 
 const HeaderNavbar = () => {
   return (
@@ -14,11 +14,9 @@ const HeaderNavbar = () => {
         <div className="flex flex-row flex-nowrap items-center justify-start text-[#fdb501] text-xl">
           <NavLinks text={"دوره ها"} path={"/course"} />
           <NavLinks text={"پشتیبانی"} path={"/"} />
-          <NavLinks text={"پشتیبانی"} path={"/"} />
         </div>
         <div className="flex flex-row flex-nowrap items-center justify-center text-[#707070] text-xl">
           <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
-          <NavLinks text={"ارتباط با ما"} path={"/"} />
           <NavLinks text={"ارتباط با ما"} path={"/"} />
         </div>
         <div className="pt-[30px]">
