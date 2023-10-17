@@ -4,6 +4,7 @@ import logo from "../../../../../assets/Images/layOut-logo.png";
 import sun from "../../../../../assets/Images/sun.png";
 
 import style from "../../layOut.module.css";
+import { NavLinks } from "../../../Links/NavLinks";
 
 const LayHeaderNav = () => {
   return (
@@ -14,11 +15,11 @@ const LayHeaderNav = () => {
       </div>
       <div className=" flex flex-row-reverse flex-wrap justify-center gap-[75px] items-center font-est text-xl text-gray-500">
         {/* items */}
-        <div>خانه</div>
-        <div>خدمات</div>
-        <div>دوره ها</div>
-        <div>اخبار و مقالات</div>
-        <div>ارتباط با ما</div>
+        <div></div>
+        <NavLinks text={"خانه"} path={"/"} />
+        <NavLinks text={"دوره ها"} path={"/course"} />
+        <NavLinks text={"اخبار و مقالات"} path={"/news"} />
+        <NavLinks text={"ارتباط با ما"} path={"/"} />
       </div>
       {/* dark mode bliad */}
       <div className="">

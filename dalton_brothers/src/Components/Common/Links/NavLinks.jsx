@@ -1,27 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import shabnam from "../../../assets/Fonts/shabnam/Shabnam-Bold.ttf";
-
-const NavLinks = ({ path }) => {
+const NavLinks = ({ style, text, path }) => {
   return (
     <NavLink
-      onClick={() => (Document.documentElement.scrollTop = 0)}
       to={`${path}`}
-      style={({ isActive }) => ({
-        width: "210px",
-        height: "50px",
-        background: "#6c63ff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontFamily: shabnam,
-        fontSize: "18px",
-        color: "#fff",
-        borderRadius: "999px",
-      })}
+      onClick={() => (Document.documentElement.scrollTop = 0)}
+      className={`px-[10px] py-[10px] transition-all duration-500 cursor-pointer flex justify-center items-center rounded-full font-sha text-l ${style}`}
     >
-      بازگشت به صفحه اصلی
+      {text}
     </NavLink>
   );
 };
