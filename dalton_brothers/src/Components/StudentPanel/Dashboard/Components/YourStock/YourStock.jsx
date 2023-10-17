@@ -17,11 +17,11 @@ const YourStock = () => {
         <div className=" w-full h-[70px] flex-col items-center ">
           <p className=" w-full text-center text-gray-700 "> نوع شارژ </p>
           <div className="w-[90%] h-[35px] flex justify-between m-auto mt-2 text-center ">
-            <div className="bg-[#e6e6e6] h-full w-[45%] rounded-r-md rounded-l-full">
+            <div className="bg-[#e6e6e6] h-full w-[45%] rounded-r-md rounded-l-[30px]">
               {" "}
               دلار{" "}
             </div>
-            <div className="bg-[#fcbf49] h-full w-[45%] rounded-l-md rounded-r-full">
+            <div className="bg-[#fcbf49] h-full w-[45%] rounded-l-md rounded-r-[30px]">
               {" "}
               تومان{" "}
             </div>

@@ -8,7 +8,7 @@ const Button = ({ type, style, text, path }) => {
   };
   return (
     <button
-      type={`${type}`}
+      type={type}
       className={`px-[50px] py-[10px] rounded-full font-sha text-lg cursor-pointer  transition-all duration-500 ${style}`}
     >
       {text}
