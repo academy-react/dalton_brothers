@@ -11,7 +11,7 @@ const HeaderNavbar = () => {
         <div className="w-[70px] " >
           <img src={logo} alt="" className="w-full h-full" />
         </div>
-        <div className="flex flex-row flex-nowrap items-center justify-start text-[#fdb501] text-xl">
+        <div className="flex flex-row flex-nowrap items-center justify-start gap-[80px] text-[#fdb501] text-base">
           <NavLinks text={"دوره ها"} path={"/course"} style={"px-[30px]"} />
           <NavLinks text={"پشتیبانی"} path={"/"} style={"px-[30px]"} />
           <NavLinks text={"پشتیبانی"} path={"/"} style={"px-[30px]"} />
