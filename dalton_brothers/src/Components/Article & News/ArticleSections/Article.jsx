@@ -21,7 +21,7 @@ const Article = ({ author, number, topic }) => {
 
       {/* details & more info button start */}
 
-      <div className=" w-full flex flex-col px-[10px] gap-5 rounded-b-lg mt-1 ">
+      <div className=" w-full flex flex-col px-[5px] gap-5 rounded-b-lg mt-1 ">
         <span className="flex flex-row-reverse font-irSBold text-gray-800">
           {topic}
         </span>

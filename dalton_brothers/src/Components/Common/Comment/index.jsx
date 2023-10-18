@@ -23,7 +23,7 @@ const CommentPlace = () => {
 
   return (
     <div>
-      <h1 className="text-center mt-4 font-est text-slate-800 text-lg whitespace-nowrap">
+      <h1 className="text-center mt-4 font-irSans text-slate-800 text-lg whitespace-nowrap">
         ارتباط با ما
       </h1>
       <Formik
@@ -41,7 +41,7 @@ const CommentPlace = () => {
             </span>
             <Field
               name="name"
-              className=" w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-[#949494] border-[2px] peer px-5"
+              className=" w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-border-x-stone-500 border-[2px] peer px-5"
               type="text"
               placeholder="...نام کاربری"
             />
@@ -54,14 +54,14 @@ const CommentPlace = () => {
             <Field
               as="textarea"
               name="comment"
-              className=" w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-[#949494] border-[2px] peer px-5 py-[15px]"
+              className=" w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-border-x-stone-500 border-[2px] peer px-5 py-[15px]"
               type="text"
               placeholder="...متن پیام"
             />
-            <ErrorMessage name="comment" component={"div"} className="error" />
+            <ErrorMessage name="comment" component={"div"} className="error " />
           </div>
           <Button
-            style={"bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"}
+            style={"bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] "}
             type={"submit"}
             text={"ثبت"}
           />
