@@ -12,7 +12,7 @@ const Button = ({ type, style, text, path }) => {
       onClick={() => {
         transfer(path);
       }}
-      type={`${type}`}
+      type={type}
       className={`px-[50px] py-[10px] rounded-full font-irSBold text-lg cursor-pointer  transition-all duration-500 ${style}`}
     >
       {text}
