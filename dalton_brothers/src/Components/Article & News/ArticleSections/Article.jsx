@@ -21,14 +21,14 @@ const Article = ({ author, number, topic }) => {
 
       {/* details & more info button start */}
 
-      <div className=" w-full flex flex-col px-[20px] gap-5 rounded-b-lg mt-1 ">
-        <span className="flex flex-row-reverse font-est text-gray-800">
+      <div className=" w-full flex flex-col px-[10px] gap-5 rounded-b-lg mt-1 ">
+        <span className="flex flex-row-reverse font-irSBold text-gray-800">
           {topic}
         </span>
-        <span className="flex flex-row-reverse text-neutral-500 font-vaz text-sm">
+        <span className="flex flex-row-reverse text-neutral-500 font-irSans text-sm">
           مقاله شماره {number}
         </span>
-        <div className="flex justify-start items-center flex-row-reverse gap-1 font-vaz text-neutral-500 text-sm">
+        <div className="flex justify-start items-center flex-row-reverse gap-1 font-irSans text-neutral-500 text-sm">
           <img className="w-[20px]" src={ArticleWriter} alt="" />
           {author}
         </div>
