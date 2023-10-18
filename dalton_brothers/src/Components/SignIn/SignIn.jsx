@@ -16,7 +16,7 @@ const SignIn = () => {
   const animate = () => {
     setTimeout(() => {
       setFirst(!first);
-    }, 1000);
+    }, 1500);
   };
   useEffect(() => {
     animate();
@@ -26,7 +26,7 @@ const SignIn = () => {
     return (
       <div className={style.holder}>
         {first && (
-          <div className={style.SignInBgFullRight}>
+          <div className={style.fullRight}>
             <SignInForm zIndex={"-z-10"} />
           </div>
         )}
@@ -36,7 +36,7 @@ const SignIn = () => {
     return (
       <div className={style.holder}>
         {reg && (
-          <div className={style.SignInBgFullLeft}>
+          <div className={style.fullLeft}>
             <SignInForm zIndex={"-z-10"} />
             {setTimeout(() => {
               navigate("/register");
@@ -49,7 +49,7 @@ const SignIn = () => {
     return (
       <div className={style.holder}>
         {forget && (
-          <div className={style.SignInBgFullLeft}>
+          <div className={style.fullLeft}>
             <SignInForm zIndex={"-z-10"} />
             {setTimeout(() => {
               navigate("/forget");
@@ -61,14 +61,14 @@ const SignIn = () => {
   return (
     <div className={style.holder}>
       {toggle ? (
-        <div className={style.SignInBgFullLeft}>
+        <div className={style.fullLeft}>
           <SignInForm zIndex={"-z-10"} />
           {setTimeout(() => {
             navigate("/");
-          }, 1200)}
+          }, 1700)}
         </div>
       ) : (
-        <div className={style.SignInBg}>
+        <div className={style.bg}>
           <SignInForm
             zIndex={"z-10"}
             toggle={toggle}

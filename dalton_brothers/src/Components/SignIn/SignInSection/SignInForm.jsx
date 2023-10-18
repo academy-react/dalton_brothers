@@ -31,7 +31,7 @@ const SignInForm = ({
 
   return (
     <div
-      className={`xl:w-[50%] lg:w-[60%] md:w-[80%] md:px-[100px]  relative flex flex-row justify-center items-center${zIndex}`}
+      className={`xl:w-[50%] lg:w-[50%] md:w-[80%] relative flex flex-row justify-center items-center ${zIndex}`}
     >
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
@@ -53,7 +53,7 @@ const SignInForm = ({
           />
           <div className="relative w-full flex justify-end">
             <Input
-              topic={"نام حساب"}
+              topic={"رمز عبور"}
               style={"rounded-full"}
               placeHolder={"www..example.com"}
               type={show ? "text" : "password"}
