@@ -10,7 +10,7 @@ const CourseList = () => {
   const data = [courseData[0], courseData[1], courseData[2]];
   return (
     <div className="w-100 flex flex-col gap-5 mt-10 ">
-      <div className="w-[75%] h-16  flex flex-row-reverse justify-between items-center m-auto mb-5">
+      <div className="w-[75%] h-16  flex flex-row-reverse justify-between items-center m-auto mb-10">
         <div className="mr-3 text-2xl h-28 flex justify-start items-center font-irSans text-[#fcbf49]">
           دوره ها
         </div>

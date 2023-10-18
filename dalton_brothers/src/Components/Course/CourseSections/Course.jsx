@@ -13,7 +13,7 @@ const Course = ({ courseName, courseMaster, price }) => {
         {/*img Container*/}
 
         <div className="w-2/3 h-full  rounded-tr-2xl ">
-          <img className="w-full " src={courseImage} alt="" />
+          <img className="w-full rounded-tr-2xl " src={courseImage} alt="" />
         </div>
         <div className="w-1/3 flex flex-col items-center justify-center  ">
           <div className="w-full h-1/3 flex justify-start pl-[30px] items-center">
@@ -49,7 +49,7 @@ const Course = ({ courseName, courseMaster, price }) => {
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-[#fcbf49] font-irSans">
             {price} : قیمت
           </div>
-          <div className="w-1/2  bg-[#fcbf49] text-slate-100 rounded-tr-2xl rounded-bl-lg flex justify-center items-center font-irSBold">
+          <div className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg flex justify-center items-center font-irSBold">
             اطلاعات بیشتر
           </div>
         </div>
