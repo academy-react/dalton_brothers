@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
-import { NavLinks } from "../../Common/Links/NavLinks";
+import { SignLinks } from "../../Common/Links/SignLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import person from "../../../assets/Images/register-person.png";
@@ -84,7 +84,6 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
           </div>
           <div className="pr-[20px] flex flex-row-reverse items-center gap-[10px]">
             <input type="radio" name="" id="remember" className="hidden" />
-
             <label
               htmlFor="remember"
               className="font-irSans font-thin text-[#5c5c5c] text-sm"
@@ -106,10 +105,14 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
             <span className="text-[#313131] font-thin text-[14px] font-irSans">
               ایا حساب فعال دارید؟
             </span>
-            <NavLinks
+            <SignLinks
+              state={toggle}
+              setState={setToggle}
               text={"ثبت نام"}
-              style={"text-[#fcbf49] font-thin text-[14px] font-irSans p-[0]"}
-              path={"/"}
+              style={
+                "text-[#fcbf49] font-thin text-[14px] font-irSans p-[0] mr-[-40px]"
+              }
+              path={"/signIn"}
             />
           </div>
         </Form>

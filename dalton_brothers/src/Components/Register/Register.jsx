@@ -13,7 +13,7 @@ const Register = () => {
   const animate = () => {
     setTimeout(() => {
       setFirst(!first);
-    }, 1700);
+    }, 1200);
   };
   useEffect(() => {
     animate();
@@ -37,7 +37,7 @@ const Register = () => {
             <RegisterForm zIndex={"-z-10"} />
             {setTimeout(() => {
               navigate("/signIn");
-            }, 1700)}
+            }, 1200)}
           </div>
         </>
       ) : (
