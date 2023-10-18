@@ -141,6 +141,7 @@ const EditProfile = () => {
         </div>
       </Form>
     </Formik>
+
   );
 };
 

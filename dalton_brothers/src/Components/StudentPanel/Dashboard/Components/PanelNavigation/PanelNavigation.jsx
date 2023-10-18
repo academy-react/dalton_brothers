@@ -3,16 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { IconArrowNarrowLeft, IconHome , IconChevronLeft,IconPencil , IconClipboardText, IconList } from "@tabler/icons-react";
 
-// import homeSelect from "../../../../../assets/Images/panel/icons8-home-128(1).png";
-// import home from "../../../../../assets/Images/panel/icons8-home-64(1).png";
-// import editSelect from "../../../../../assets/Images/panel/icons8-edit-128(1).png";
-// import edit from "../../../../../assets/Images/panel/icons8-edit-128.png";
-// import noteSelect from "../../../../../assets/Images/panel/icons8-note-64 (2).png";
-// import note from "../../../../../assets/Images/panel/icons8-note-64.png";
-// import listSelect from "../../../../../assets/Images/panel/icons8-list-64(2).png";
-// import list from "../../../../../assets/Images/panel/icons8-list-64.png";
-// import select from "../../../../../assets/Images/panel/icons8-play-96 (1).png";
-
 const panelList = [{ name: "داشبورد", href: "/panel", icon: IconHome },
 {name:'ویرایش پروفایل',href: "/panel/EditProfile", icon: IconPencil},
 {name:' دوره های من ',href: "/panel/PanelCourses", icon: IconClipboardText},

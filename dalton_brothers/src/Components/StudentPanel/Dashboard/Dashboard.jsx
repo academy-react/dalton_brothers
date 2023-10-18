@@ -14,7 +14,7 @@ import { CustomSlider } from "../../Common/CustomSlider/CustomSlider";
 const Dashboard = () => {
   return (
     <div className=" w-full h-full flex-col pt-7 ">
-      <div className="flex justify-between w-full h-[40%] ">
+      <div className="flex justify-between w-full h-[40%] gap-1 ">
         <div className=" w-[370px] h-[300px] ">
           <YourStock />
         </div>

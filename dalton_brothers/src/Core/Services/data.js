@@ -84,6 +84,21 @@ const commentData = [
     date: " دیروز ",
   },
 ]
+const myCourseData = [
+  {coursePic:"https://picsum.photos/200/200" , courseName: " میو ", courseMaster: "میو میو نیگا",term:"زمستان" ,date:"۱۴۰۲/۰۴/۲۹" , price: 190000 },
+  {coursePic:"https://picsum.photos/200/300" , courseName: " میو میو", courseMaster: "میو میو نیگا",term:"تابستان" ,date:"۱۴۰۳/۰۸/۲۰" , price: 300000 },
+  {coursePic:"https://picsum.photos/200/400" , courseName: " میو میو", courseMaster: "میو میو نیگا",term:"بهار" ,date:"۱۴۰۱/۱۲/۱۰" , price: 400000 },
+
+];
+const allCourseData = [
+  {coursePic:"https://picsum.photos/200/200" , courseName: " میو ", courseMaster: "میو میو نیگا",term:"زمستان" ,date:"۱۴۰۲/۰۴/۲۹" , price: 190000 },
+  {coursePic:"https://picsum.photos/200/300" , courseName: " میو میو", courseMaster: "میو میو نیگا",term:"تابستان" ,date:"۱۴۰۳/۰۸/۲۰" , price: 300000 },
+  {coursePic:"https://picsum.photos/200/400" , courseName: " میو میو", courseMaster: "میو میو ",term:"بهار" ,date:"۱۴۰۱/۱۲/۱۰" , price: 980000 },
+  {coursePic:"https://picsum.photos/200/500" , courseName: " ها میو", courseMaster: "میو میو نیگا",term:"بهار" ,date:"۱۴۰۱/۰۷/۱۹" , price: 1000000 },
+  {coursePic:"https://picsum.photos/200/600" , courseName: " ها ها ", courseMaster: "میو  نیگا",term:"هاا" ,date:"۱۴۰۱/۰۲/۰۳" , price: 480000 },
 
 
-export { courseData, newsData, masterData, relatedData, commentData };
+];
+
+
+export { courseData, newsData, masterData, relatedData, commentData, myCourseData, allCourseData};
