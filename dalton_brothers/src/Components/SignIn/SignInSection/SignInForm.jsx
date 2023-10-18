@@ -31,14 +31,14 @@ const SignInForm = ({
 
   return (
     <div
-      className={`xl:w-[50%] lg:w-[50%] md:w-[80%] relative flex flex-row justify-center items-center ${zIndex}`}
+      className={`xl:w-[40%] lg:w-[50%] md:w-[80%] relative flex flex-row justify-center items-center ${zIndex}`}
     >
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className=" w-[100%] items-end h-[500px] flex flex-col justify-center gap-[30px] px-10 border-2 border-[#f9f0df] bg-[#fffaf1] rounded-[30px]">
+        <Form className=" w-[100%] items-end h-[500px] flex flex-col justify-center gap-[30px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
             style={"leading-3 font-vaz text-[20px] self-center text-[#595959]"}

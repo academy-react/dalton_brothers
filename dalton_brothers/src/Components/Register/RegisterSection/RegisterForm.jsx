@@ -19,6 +19,7 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
     logInUserName: yup.string().required("این فیلد اجباریست"),
+    loginPhoneNumber: yup.string().required("این فیلد اجباریست"),
   });
 
   return (
@@ -77,7 +78,7 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
               style={"rounded-full"}
               placeHolder={"... شماره ی خود را وارد کنید"}
               type={"text"}
-              name={"logInPhoneNumber"}
+              name={"loginPhoneNumber"}
               as={"input"}
             />
           </div>
@@ -108,7 +109,7 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
             <NavLinks
               text={"ثبت نام"}
               style={"text-[#fcbf49] font-thin text-[14px] font-irSans p-[0]"}
-              path={"/signIn"}
+              path={"/"}
             />
           </div>
         </Form>
