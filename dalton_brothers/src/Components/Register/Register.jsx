@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { RegisterForm } from "./RegisterSection/RegisterForm";
 
 import style from "./Register.module.css";
-import { Navigate } from "react-router-dom";
 
 const Register = () => {
   const [toggle, setToggle] = useState(false);
@@ -14,7 +13,7 @@ const Register = () => {
   const animate = () => {
     setTimeout(() => {
       setFirst(!first);
-    }, 1000);
+    }, 1200);
   };
   useEffect(() => {
     animate();
@@ -24,7 +23,7 @@ const Register = () => {
     return (
       <div className={style.holder}>
         {first && (
-          <div className={style.SignInBgFullLeft}>
+          <div className={style.fullLeft}>
             <RegisterForm zIndex={"-z-10"} />
           </div>
         )}
@@ -34,7 +33,7 @@ const Register = () => {
     <div className={style.holder}>
       {toggle ? (
         <>
-          <div className={style.SignInBgFullRight}>
+          <div className={style.fullRight}>
             <RegisterForm zIndex={"-z-10"} />
             {setTimeout(() => {
               navigate("/signIn");
@@ -42,7 +41,7 @@ const Register = () => {
           </div>
         </>
       ) : (
-        <div className={style.SignInBg}>
+        <div className={style.bg}>
           <RegisterForm zIndex={"z-10"} toggle={toggle} setToggle={setToggle} />
         </div>
       )}
