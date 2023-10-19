@@ -25,7 +25,7 @@ const ForgetPass = () => {
 
   if (first)
     return (
-      <div className="w-100% max-w-[2000px] h-[700px] m-auto flex border-2 relative overflow-hidden">
+      <div className="w-100% max-w-[2000px] h-[100vh] m-auto flex border-2 relative overflow-hidden">
         <div className={style.topMoveDown}></div>
         <div className="w-[100%] flex justify-center items-center">
           <ForgetForm zIndex={"-z-10"} />
@@ -35,7 +35,7 @@ const ForgetPass = () => {
     );
   if (back)
     return (
-      <div className="w-100% max-w-[2000px] h-[700px] m-auto flex border-2 relative overflow-hidden">
+      <div className="w-100% max-w-[2000px] h-[100vh] m-auto flex border-2 relative overflow-hidden">
         <div className={style.topMoveUp}></div>
         <div className="w-[100%] flex justify-center items-center">
           <ForgetForm zIndex={"-z-10"} />
@@ -48,7 +48,7 @@ const ForgetPass = () => {
     );
   if (identify)
     return (
-      <div className="w-100% max-w-[2000px] h-[700px] m-auto flex justify-center items-center border-2 relative overflow-hidden">
+      <div className="w-100% max-w-[2000px] h-[100vh] m-auto flex justify-center items-center border-2 relative overflow-hidden">
         <div className={style.top}></div>
         <Identify
           zIndex={"z-10"}
@@ -60,7 +60,7 @@ const ForgetPass = () => {
     );
 
   return (
-    <div className="w-100% max-w-[2000px] h-[700px] m-auto flex border-2 relative overflow-hidden">
+    <div className="w-100% max-w-[2000px] h-[100vh] m-auto flex border-2 relative overflow-hidden">
       {toggle ? (
         <>
           <div className={style.topMoveUp}></div>
