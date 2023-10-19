@@ -1,14 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import FooterTitle from "./Footer-title";
 import FooterText from "./Footer-text";
 
 const FooterDesc = () => {
   return (
-    <div className=" h-full flex flex-row-reverse gap-1 justify-end items-end">
+    <Fragment>
+    <div className=" h-full flex flex-row-reverse gap-1 ">
       <div className="py-[50px] px-9 flex flex-col gap-[30px]">
         <FooterTitle title={"بخش های سایت"} />
-        <FooterText text={"قوانین و مقررات"} />
+        <FooterText text={"قوانین و مقررات"} /> 
         <FooterText text={"مدرسان سایت"} />
         <FooterText text={"درباره ی سایت"} />
         <FooterText text={"ارتباط با ما"} />
@@ -20,6 +21,7 @@ const FooterDesc = () => {
         <FooterText text={"t.me/daltonBrothers"} />
       </div>
     </div>
+    </Fragment>
   );
 };
 
