@@ -9,12 +9,23 @@ import { SignLinks } from "../../Common/Links/SignLinks";
 
 import logo from "../../../assets/Images/logo.png";
 
-const ForgetForm = ({ zIndex, toggle, setToggle, back, setBack }) => {
+const ForgetForm = ({
+  zIndex,
+  toggle,
+  setToggle,
+  back,
+  setBack,
+  identify,
+  setIdentify,
+}) => {
   const validation = yup.object().shape({
     email: yup.string().required("این فیلد اجباریست"),
   });
   const handleSubmit = () => {
     setToggle(!toggle);
+    setTimeout(() => {
+      setIdentify(!identify);
+    }, 1200);
   };
 
   return (
