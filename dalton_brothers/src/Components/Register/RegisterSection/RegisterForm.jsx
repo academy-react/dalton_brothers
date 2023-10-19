@@ -1,4 +1,4 @@
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import * as yup from "yup";
 
@@ -8,13 +8,15 @@ import { Button } from "../../Common/buttons";
 import { SignLinks } from "../../Common/Links/SignLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
-import person from "../../../assets/Images/register-person.png";
+import defaultImg from "../../../assets/Images/register-person.png";
 const RegisterForm = ({ zIndex, setToggle, toggle }) => {
   const [show, setShow] = useState(false);
+  const [personImg, setPersonImg] = useState();
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
+
   // validation................................
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
@@ -36,9 +38,22 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
             topic={"صفحه ایجاد حساب"}
             style={"leading-3 self-center text-[20px] h-auto "}
           />
-          <picture className="rounded-full cursor-pointer self-center">
-            <img src={person} alt="" />
-          </picture>
+          <div className="rounded-full cursor-pointer self-center">
+            <label htmlFor="pic" className="cursor-pointer">
+              <img
+                src={personImg ? URL.createObjectURL(personImg) : defaultImg}
+                alt=""
+                className="w-[150px]"
+              />
+            </label>
+            <Field
+              type="file"
+              name="pic"
+              id="pic"
+              className="hidden"
+              onChange={(e) => setPersonImg(e.target.files[0])}
+            />
+          </div>
           <div className="w-[90%]">
             <Input
               topic={"نام کاربر"}

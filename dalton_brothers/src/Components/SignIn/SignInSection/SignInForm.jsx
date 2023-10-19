@@ -38,7 +38,7 @@ const SignInForm = ({
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className=" w-[100%] h-[500px] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
+        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
             style={"leading-3 text-[20px] self-center text-[#9a9a9a]"}
