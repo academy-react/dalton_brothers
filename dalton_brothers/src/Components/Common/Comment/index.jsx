@@ -45,7 +45,7 @@ const CommentPlace = () => {
               type="text"
               placeholder="...نام کاربری"
             />
-            <ErrorMessage name="name" component={"div"} className="error" />
+            <ErrorMessage name="name" component={"div"} className="error font-irSans text-center mt-[10px]" />
           </div>
           <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mb-[30px] px-[40px]">
             <span className=" mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
@@ -58,7 +58,7 @@ const CommentPlace = () => {
               type="text"
               placeholder="...متن پیام"
             />
-            <ErrorMessage name="comment" component={"div"} className="error " />
+            <ErrorMessage name="comment" component={"div"} className="error  font-irSans text-center mt-[10px]" />
           </div>
           <Button
             style={"bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] "}
