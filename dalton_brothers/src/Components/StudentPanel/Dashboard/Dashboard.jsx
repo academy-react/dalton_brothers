@@ -24,8 +24,7 @@ const Dashboard = () => {
       </div>
       <div className="s flex flex-col  w-full  h-[430px] mt-5 justify-center">
         <h4 className="w-full h-[50px] text-right text-2xl">
-          {" "}
-          مهم ترین دوره ها{" "}
+          دوره های مورد علاقه
         </h4>
         <div className=" w-[760px] pt-7">
           <div>

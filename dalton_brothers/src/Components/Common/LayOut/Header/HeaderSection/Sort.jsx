@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import style from "../../layOut.module.css";
-import { courseData } from "../../../../../Core/Services/data";
+import { useAppContext } from "../..";
 
 const LaySort = () => {
-  const [sort, setSort] = useState("");
-
-  const sortedData = courseData.sort((a, b) => {
-    if (sort === "price") return a.price - b.price;
-    if (sort === "view") return a.view - b.view;
-    if (sort === "like") return a.like - b.like;
-    if (sort === "addTime") return a.addTime - b.addTime;
-  });
-
+  const { setSort } = useAppContext();
   return (
     <div className="flex flex-row-reverse justify-center items-center gap-[10px]">
       <div className="border-2 border-[#eaeaea] flex flex-row-reverse justify-start items-center p-[10px] gap-[10px] rounded-r-[999px] rounded-l-[300px] font-irSans text-slate-500 text-lg">

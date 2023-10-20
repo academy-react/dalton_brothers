@@ -1,10 +1,10 @@
 import React from "react";
-import like from "../../../Assets/Images/like.png";
+import likes from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
 
-const Course = ({ courseName, courseMaster, price }) => {
+const Course = ({ courseName, courseMaster, price, like }) => {
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
       {/* image & 3 button start */}
@@ -12,18 +12,21 @@ const Course = ({ courseName, courseMaster, price }) => {
       <div className="w-full h-1/2  rounded-t-lg flex justify-center flex-row-reverse">
         {/*img Container*/}
 
-        <div className="w-2/3 h-full  rounded-tr-2xl ">
+        <div className="w-2/3 h-full rounded-tr-2xl ">
           <img className="w-full rounded-tr-2xl " src={courseImage} alt="" />
         </div>
-        <div className="w-1/3 flex flex-col items-center justify-center  ">
-          <div className="w-full h-1/3 flex justify-start pl-[30px] items-center">
+        <div className="w-1/3 flex flex-col items-center justify-center pt-[20px] text-[#090909] font-sha opacity-80">
+          <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
             <img className="w-[30px] " src={bookmark} alt="" />
+            <span className="w-[30px] text-center inline-block">{like}</span>
           </div>
-          <div className="w-full h-1/3 flex justify-start pl-[30px] items-center">
-            <img className="w-[30px] " src={like} alt="" />
+          <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
+            <img className="w-[30px]" src={likes} alt="" />
+            <span className="w-[30px] text-center inline-block">{like}</span>
           </div>
-          <div className="w-full h-1/3 flex justify-start pl-[30px] items-center">
+          <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
             <img className="w-[30px] " src={comment} alt="" />
+            <span className="w-[30px] text-center inline-block">{like}</span>
           </div>
         </div>
       </div>

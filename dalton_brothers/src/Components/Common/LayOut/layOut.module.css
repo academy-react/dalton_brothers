@@ -5,17 +5,17 @@
 }
 .headerBox1 {
   /* border: 1px solid; */
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-flow: row-reverse wrap;
   justify-content: space-around;
   align-items: center;
-  
+
   padding: 50px 80px;
   padding-bottom: 130px;
   padding-left: 0;
   background: url(../../../assets/Images/header-bg.svg) no-repeat 130% 10%;
-  background-size: 80%  ;
+  background-size: 80%;
 }
 .inp {
   display: none;
@@ -35,16 +35,16 @@
   color: #fff;
 }
 .footer {
-  width: 100%;
-  max-width: 1750px;
+  width: 100vw;
+  max-width: 1834px;
 
   margin: 0 auto;
   margin-top: 50px;
   display: flex;
   flex-flow: row-reverse nowrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  
+
   /* height: 500px; */
   background: url(../../../assets/Images/footer-bg.png) no-repeat 100% 100%;
   background-size: 65% 460px;

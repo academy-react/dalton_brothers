@@ -11,13 +11,14 @@ import { Register } from "../src/Components/Register/Register";
 import { CourseDetail } from "../src/Components/CourseDetail/CourseDetail";
 import { ForgetPass } from "../src/Components/ForgetPass/ForgetPass";
 
-import "./index.css";
 import { StudentPanel } from "./Components/StudentPanel/StudentPanel";
 import { LayoutPanel } from "./Components/StudentPanel/LayoutPanel/LayoutPanel";
 import { EditProfile } from "./Components/StudentPanel/EditProfile/EditProfile";
 import { PanelCourses } from "./Components/StudentPanel/PanelCourses/PanelCourses";
 import { PanelCoursesList } from "./Components/StudentPanel/PanelCoursesList/PanelCoursesList";
 import { Dashboard } from "./Components/StudentPanel/Dashboard/Dashboard";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
