@@ -4,10 +4,10 @@ import FooterTitle from "./Footer-title";
 import FooterText from "./Footer-text";
 import { FooterIcon } from "./footer-icon";
 
-const FooterDesc = () => {
+const FooterDesc = ({style}) => {
   return (
     
-    <div className=" h-full flex flex-row-reverse gap-28 ">
+    <div className={ `h-full flex flex-row-reverse gap-28 ${style}` }>
       <div className="py-[50px] px-9 flex flex-col gap-[30px]">
         <FooterTitle title={"بخش های سایت"} />
         <FooterText text={"قوانین و مقررات"} /> 

@@ -10,7 +10,7 @@ import style from "../layOut.module.css";
 const LayFooter = () => {
   return (
     <>
-      <FooterDesc />
+      <FooterDesc style ={"pt-[120px]" } />
       <picture className={style.illustration}>
         <img src={illustration} alt="" />
       </picture>

@@ -8,7 +8,7 @@ import LayFooter from "./Footer";
 const Layout = () => {
   return (
     <div className={style.container}>
-      <header className="flex flex-col gap-[40px] items-center mb-[80px]">
+      <header className="flex flex-col gap-[80px] items-center mb-[80px]">
         <LayHeader
           course={"دوره ها"}
           news={"اخبار و مقالات"}

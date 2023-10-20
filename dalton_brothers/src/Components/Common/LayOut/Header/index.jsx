@@ -11,18 +11,18 @@ const LayHeader = ({ course, news, detailCourse }) => {
       <LayHeaderNav />
       {/* search input */}
       <div>
-        <div className=" font-est text-xl text-gray-500 bg-white m-auto text-center relative top-[15px] w-[200px] rounded-full">
+        <div className=" font-irSans text-xl text-gray-500 bg-white m-auto text-center relative top-[15px] w-[170px] rounded-full">
           جستوجو در سایت
         </div>
         <input
           type="text"
           placeholder="...جستوجو کن"
-          className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none"
+          className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none font-irSans"
         />
       </div>
       {/* pageName */}
       <div>
-        <h1 className=" font-sha text-3xl font-semibold text-gray-500">
+        <h1 className=" font-irSans text-3xl  text-gray-500">
           {location.pathname === "/course" && <div>{course}</div>}
           {location.pathname === "/courseDetail" && <div>{detailCourse}</div>}
           {location.pathname === "/news" && <div>{news}</div>}
