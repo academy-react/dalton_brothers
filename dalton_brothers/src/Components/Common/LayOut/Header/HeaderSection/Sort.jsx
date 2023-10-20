@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import style from "../../layOut.module.css";
 import { courseData } from "../../../../../Core/Services/data";
 
 const LaySort = () => {
-  const [newest, setNewest] = useState();
-  const [view, setView] = useState();
-  const [favorite, setFavorite] = useState();
-  const [cheap, setCheap] = useState();
+  const [sort, setSort] = useState("");
 
-  const data = courseData;
-  console.log(data);
-  console.log(newest);
+  const sortedData = courseData.sort((a, b) => {
+    if (sort === "price") return a.price - b.price;
+    if (sort === "view") return a.view - b.view;
+    if (sort === "like") return a.like - b.like;
+    if (sort === "addTime") return a.addTime - b.addTime;
+  });
 
   return (
     <div className="flex flex-row-reverse justify-center items-center gap-[10px]">
@@ -21,14 +21,19 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="newest"
-          defaultChecked
-          // onClick={()=> handleSort()}
+          onChange={(e) => e.target.checked && setSort("addTime")}
         />
-        <label htmlFor="input1" className={style.sort}>
+        <label htmlFor="newest" className={style.sort}>
           جدید ترین
         </label>
-        <input type="radio" name="sort" className={style.inp} id="mostView" />
-        <label htmlFor="input2" className={style.sort}>
+        <input
+          type="radio"
+          name="sort"
+          className={style.inp}
+          id="mostView"
+          onChange={(e) => e.target.checked && setSort("view")}
+        />
+        <label htmlFor="mostView" className={style.sort}>
           پربازدید ترین
         </label>
         <input
@@ -36,12 +41,19 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="mostFavorite"
+          onChange={(e) => e.target.checked && setSort("like")}
         />
-        <label htmlFor="input3" className={style.sort}>
+        <label htmlFor="mostFavorite" className={style.sort}>
           محبوب ترین
         </label>
-        <input type="radio" name="sort" className={style.inp} id="cheapest" />
-        <label htmlFor="input4" className={style.sort}>
+        <input
+          type="radio"
+          name="sort"
+          className={style.inp}
+          id="cheapest"
+          onChange={(e) => e.target.checked && setSort("price")}
+        />
+        <label htmlFor="cheapest" className={style.sort}>
           ارزان ترین
         </label>
       </div>
