@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1750px;
   margin: 0 auto;
 }
 .headerBox1 {
@@ -8,14 +8,14 @@
   width: 100%;
   display: flex;
   flex-flow: row-reverse wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 120px;
+  
   padding: 50px 80px;
   padding-bottom: 130px;
   padding-left: 0;
-  background: url(../../../assets/Images/header-bg.png) no-repeat 100% 0;
-  background-size: 75% 250px;
+  background: url(../../../assets/Images/header-bg.svg) no-repeat 130% 10%;
+  background-size: 80%  ;
 }
 .inp {
   display: none;
@@ -32,16 +32,19 @@
 }
 .inp:checked + .sort {
   background: #fcbf49;
+  color: #fff;
 }
 .footer {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1750px;
+
   margin: 0 auto;
   margin-top: 50px;
   display: flex;
   flex-flow: row-reverse nowrap;
   justify-content: flex-end;
   align-items: center;
+  
   /* height: 500px; */
   background: url(../../../assets/Images/footer-bg.png) no-repeat 100% 100%;
   background-size: 65% 460px;

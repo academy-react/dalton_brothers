@@ -61,7 +61,7 @@ const CommentPlace = () => {
             <ErrorMessage name="comment" component={"div"} className="error  font-irSans text-center mt-[10px]" />
           </div>
           <Button
-            style={"bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] "}
+            style={"bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"}
             type={"submit"}
             text={"ثبت"}
           />
