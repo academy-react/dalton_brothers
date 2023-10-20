@@ -9,7 +9,7 @@ const ArticleNews = () => {
   return (
     <div className="w-100 flex flex-col gap-5 ">
       <LayOutHeaders topic={"اخبار و مقالات"} />
-      <div className="w-100 flex flex-row flex-wrap justify-center gap-3 scale-90">
+      <div className="w-100 flex flex-row flex-wrap justify-center gap-3 scale-x-90">
         {data.map((news, index) => (
           <Article {...news} key={index} />
         ))}

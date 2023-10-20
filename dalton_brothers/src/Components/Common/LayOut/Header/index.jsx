@@ -28,7 +28,7 @@ const LayHeader = ({ course, news, detailCourse }) => {
           {location.pathname === "/news" && <div>{news}</div>}
         </h1>
       </div>
-      <LaySort />
+      {location.pathname === "/course" && <LaySort />}
     </>
   );
 };
