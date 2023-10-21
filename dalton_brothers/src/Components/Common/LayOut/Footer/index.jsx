@@ -10,11 +10,15 @@ import style from "../layOut.module.css";
 const LayFooter = () => {
   return (
     <>
-      <FooterDesc style ={"pt-[80px] max-xl:pt-[20px]" } />
+      <FooterDesc style={"pt-[80px] max-xl:pt-[20px]"} />
       <picture className={style.illustration}>
-        <img className="max-xl:hidden  max-xl:invisible " src={illustration} alt="" />
+        <img
+          className="max-xl:hidden max-xl:invisible "
+          src={illustration}
+          alt=""
+        />
       </picture>
-      <div className=" w-1/3 h-full">
+      <div className="h-full">
         <CommentPlace />
       </div>
     </>
