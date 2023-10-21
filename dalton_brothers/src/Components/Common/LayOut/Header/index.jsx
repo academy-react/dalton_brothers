@@ -17,7 +17,7 @@ const LayHeader = ({ course, news, detailCourse }) => {
         <input
           type="text"
           placeholder="...جستوجو کن"
-          className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none font-irSans"
+          className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none font-irSans max-sm:w-[400px]"
         />
       </div>
       {/* pageName */}
