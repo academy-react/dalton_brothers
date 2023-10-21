@@ -1,9 +1,13 @@
-import { React, createContext, useContext, useEffect, useState } from "react";
+import { React, createContext, useContext, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import { LayHeader } from "./Header";
 import LayFooter from "./Footer";
-import { courseData } from "../../../Core/Services/data";
+import {
+  courseData,
+  masterData,
+  courseNameData,
+} from "../../../Core/Services/data";
 
 import style from "./layOut.module.css";
 
@@ -13,11 +17,14 @@ export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
   const [sort, setSort] = useState("");
-  const [bahr, setBahr] = useState("");
-  const [naz, setNaz] = useState("");
-  const [mehdi, setMehdi] = useState("");
-  const [mohsen, setMohesen] = useState("");
-  const [all, setAll] = useState(true);
+  const [bahr, setBahr] = useState(masterData[0].master);
+  const [naz, setNaz] = useState(masterData[1].master);
+  const [mehdi, setMehdi] = useState(masterData[2].master);
+  const [mohsen, setMohesen] = useState(masterData[3].master);
+  const [python, setPython] = useState(courseNameData[0].courseName);
+  const [react, setReact] = useState(courseNameData[1].courseName);
+  const [design, setDesign] = useState(courseNameData[2].courseName);
+  const [main, setMain] = useState(courseNameData[3].courseName);
 
   const sortedData = courseData.sort((a, b) => {
     if (sort === "price") return a.price - b.price;
@@ -28,11 +35,14 @@ const Layout = () => {
 
   const filteredData = sortedData.filter((el) => {
     return (
-      el.courseMaster == bahr ||
-      el.courseMaster == naz ||
-      el.courseMaster == mehdi ||
-      el.courseMaster == mohsen ||
-      all
+      (el.courseMaster == bahr ||
+        el.courseMaster == naz ||
+        el.courseMaster == mehdi ||
+        el.courseMaster == mohsen) &&
+      (el.courseName == python ||
+        el.courseName == react ||
+        el.courseName == design ||
+        el.courseName == main)
     );
   });
 
@@ -46,7 +56,10 @@ const Layout = () => {
         setNaz,
         setMehdi,
         setMohesen,
-        setAll,
+        setPython,
+        setReact,
+        setDesign,
+        setMain,
       }}
     >
       <div className={style.container}>

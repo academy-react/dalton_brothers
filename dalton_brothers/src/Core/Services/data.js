@@ -1,6 +1,6 @@
 const courseData = [
   {
-    courseName: " میو میو",
+    courseName: "طراحی سایت",
     courseMaster: "استاد محسن اسفندیاری",
     price: 100000,
     view: 10,
@@ -8,7 +8,7 @@ const courseData = [
     like: 11,
   },
   {
-    courseName: " میو میو",
+    courseName: "پایتون",
     courseMaster: "استاد مهدی اصغری",
     price: 10232100,
     view: 14,
@@ -16,7 +16,7 @@ const courseData = [
     like: 12,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 10000,
     view: 13,
@@ -24,7 +24,7 @@ const courseData = [
     like: 21,
   },
   {
-    courseName: " میو میو",
+    courseName: "ری اکت",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 10031232000,
     view: 43,
@@ -32,7 +32,7 @@ const courseData = [
     like: 32,
   },
   {
-    courseName: " میو میو",
+    courseName: "پایتون",
     courseMaster: "استاد محسن اسفندیاری",
     price: 123213,
     view: 657,
@@ -40,7 +40,7 @@ const courseData = [
     like: 421,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد مهدی اصغری",
     price: 43213,
     view: 32,
@@ -48,7 +48,7 @@ const courseData = [
     like: 312,
   },
   {
-    courseName: " میو میو",
+    courseName: "ری اکت",
     courseMaster: "استاد حامد نظری",
     price: 645654,
     view: 543,
@@ -56,7 +56,7 @@ const courseData = [
     like: 213,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 1312,
     view: 321,
@@ -64,7 +64,7 @@ const courseData = [
     like: 321,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 3215532,
     view: 213,
@@ -72,7 +72,7 @@ const courseData = [
     like: 32,
   },
   {
-    courseName: " میو میو",
+    courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 35325,
     view: 32,
@@ -80,7 +80,7 @@ const courseData = [
     like: 131,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 53,
     view: 12,
@@ -88,7 +88,7 @@ const courseData = [
     like: 42,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 253226257,
     view: 54,
@@ -96,7 +96,7 @@ const courseData = [
     like: 231,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 100000,
     view: 653,
@@ -104,7 +104,7 @@ const courseData = [
     like: 321,
   },
   {
-    courseName: " میو میو",
+    courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 432432,
     view: 4324,
@@ -112,7 +112,7 @@ const courseData = [
     like: 32,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 543,
     view: 543,
@@ -120,7 +120,7 @@ const courseData = [
     like: 345,
   },
   {
-    courseName: " میو میو",
+    courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 654,
     view: 2343,
@@ -128,7 +128,7 @@ const courseData = [
     like: 6453,
   },
   {
-    courseName: " میو میو",
+    courseName: "طراحی سایت",
     courseMaster: "استاد محسن اسفندیاری",
     price: 432423,
     view: 432,
@@ -136,7 +136,7 @@ const courseData = [
     like: 54,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 87667870,
     view: 4323,
@@ -144,7 +144,7 @@ const courseData = [
     like: 43,
   },
   {
-    courseName: " میو میو",
+    courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 8907,
     view: 532,
@@ -152,7 +152,7 @@ const courseData = [
     like: 321,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
     price: 534534,
     view: 34,
@@ -160,7 +160,7 @@ const courseData = [
     like: 12,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 5435342,
     view: 43,
@@ -168,7 +168,7 @@ const courseData = [
     like: 33,
   },
   {
-    courseName: " عر عر",
+    courseName: "پایتون",
     courseMaster: "استاد مهدی اصغری",
     price: 4324566,
     view: 4234,
@@ -176,7 +176,7 @@ const courseData = [
     like: 213,
   },
   {
-    courseName: " میو میو",
+    courseName: "ری اکت",
     courseMaster: "استاد حامد نظری",
     price: 342343257,
     view: 34,
@@ -184,7 +184,7 @@ const courseData = [
     like: 2132,
   },
   {
-    courseName: " میو میو",
+    courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
     price: 87656,
     view: 432,
@@ -223,6 +223,12 @@ const masterData = [
   { id: 2, master: "استاد حامد نظری", topic: "مدرس دوره ی دیزاین" },
   { id: 3, master: "استاد مهدی اصغری", topic: "مدرس دوره ی ری اکت" },
   { id: 4, master: "استاد محسن اسفندیاری", topic: "مدرس دوره ی ری اکت" },
+];
+const courseNameData = [
+  { id: 1, courseName: "پایتون" },
+  { id: 2, courseName: "ری اکت" },
+  { id: 3, courseName: "طراحی سایت" },
+  { id: 4, courseName: "دوره اصلی" },
 ];
 const relatedData = [
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
@@ -329,4 +335,5 @@ export {
   commentData,
   myCourseData,
   allCourseData,
+  courseNameData,
 };
