@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "../../../../Common/buttons";
 
 import { IconArrowNarrowLeft, IconHome , IconChevronLeft,IconPencil , IconClipboardText, IconList } from "@tabler/icons-react";
 
@@ -17,18 +18,18 @@ const PanelNavigation = () => {
   };
   return (
     <>
-      <div className=" w-[270px] h-[300px] border border-gray-400 rounded-[20px] ">
+      <div className=" 2xl:w-[260px] w-[210px] xl:h-[300px] lg:h-[280px] h-[230px]  border border-gray-400 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap ">
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly ">
           {panelList.map((item, index) => (
             <li
             key={index}
               onClick={()=>goTo(item.href)}
-              className=" w-full h-[50px] mt-6 flex cursor-pointer justify-evenly items-center"
+              className=" w-full lg:h-[50px] h-[40px] lg:mt-6 mt-2 flex cursor-pointer justify-evenly items-center"
             >
-            <div className={"h-full w-full flex items-center text-right justify-end text-xl pt-1 pr-[6px] " +(location.pathname == item.href ? "text-yellow-500 ":'text-gray-500') }>{item.name}</div>
-            <item.icon  className={"h-12 w-12 "+(location.pathname == item.href ? "text-yellow-500 ":'text-gray-500')} />
+            <div className={"h-full w-full flex items-center text-right justify-end lg:text-xl text-lg pt-1 pr-[6px] " +(location.pathname == item.href ? "text-yellow-500 ":'text-gray-500') }>{item.name}</div>
+            <item.icon  className={"lg:h-12 lg:w-12 w-10 h-10 "+(location.pathname == item.href ? "text-yellow-500 w-12 h-12":'text-gray-500')} />
             <div className="h-20 w-20 flex items-center justify-center">
-              <IconChevronLeft fill="rgb(234,179,8)" className={"h-16 w-16 text-white "+(location.pathname == item.href ? "block":'hidden')}  />
+              <IconChevronLeft fill="rgb(234,179,8)" className={"lg:h-16 lg:w-16 w-12 h-12 text-white "+(location.pathname == item.href ? "block lg:scale-100 scale-125":'hidden')}  />
             </div>
             </li>
           ))}
@@ -125,14 +126,17 @@ const PanelNavigation = () => {
           </li> */}
         </ul>
       </div>
-      <button className="  w-[270px] h-[50px] border border-gray-400 rounded-[20px] text-center text-xl text-gray-800 ">
-        {" "}
-        خروج
+      <Button 
+       path={"./"}
+       style="  w-[220px] h-[50px] border border-gray-400 rounded-[20px] text-center lg:text-xl text-lg text-gray-800 "
+       text={" خروج "}
+       >
+        
         <IconArrowNarrowLeft
           strokeWidth="1"
-          className="w-[80px] h-[50px] relative -top-[31px] ml-[20px]"
+          className="w-[80px] h-[50px]"
         />
-      </button>
+      </Button>
     </>
   );
 };

@@ -1,7 +1,9 @@
 import React from 'react'
 
+
 import { MyCourse } from '../PanelCourses/Component/MyCourse/MyCourse'
 import {allCourseData } from '../../../Core/Services/data'
+import { Pagination } from './Pagination/Pagination'
 
 
 const PanelCoursesList = () => {
@@ -21,7 +23,9 @@ const PanelCoursesList = () => {
         <MyCourse coursePic={item.coursePic} courseName={item.courseName} courseMaster={item.courseMaster} term={item.term} date={item.date} price={item.price} key={index}  />
       ))}
     </div>
-    <div className='bg-red-200 w-full h-[90px] '></div>
+    <div className='bg-red-200 w-full h-[90px] '>
+      <Pagination/>
+    </div>
   </div>
   )
 }
