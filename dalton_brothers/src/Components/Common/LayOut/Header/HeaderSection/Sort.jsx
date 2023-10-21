@@ -6,8 +6,8 @@ import { useAppContext } from "../..";
 const LaySort = () => {
   const { setSort } = useAppContext();
   return (
-    <div className="flex flex-row-reverse justify-center items-center gap-[10px]">
-      <div className="border-2 border-[#eaeaea] flex flex-row-reverse justify-start items-center p-[10px] gap-[10px] rounded-r-[999px] rounded-l-[300px] font-irSans text-slate-500 text-lg">
+    <div className="flex flex-row-reverse justify-center items-center gap-[10px] max-lg:flex-col-reverse  ">
+      <div className="border-2 border-[#eaeaea] flex flex-row-reverse justify-start items-center    p-[10px] gap-[10px] rounded-r-[999px] rounded-l-[300px] font-irSans text-slate-500 text-lg  max-lg:flex-col max-lg:rounded-t-md max-lg:rounded-b-3xl  ">
         <input
           type="radio"
           name="sort"
@@ -49,7 +49,7 @@ const LaySort = () => {
           ارزان ترین
         </label>
       </div>
-      <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[300px] font-irSBold text-stone-700 text-lg py-[28px] px-[70px] bg-[#fcbf49]">
+      <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[300px] font-irSBold text-stone-700 text-lg py-[28px] px-[70px] bg-[#fcbf49] max-lg:rounded-t-3xl max-lg:rounded-b-md">
         ترتیب ها
       </div>
     </div>
