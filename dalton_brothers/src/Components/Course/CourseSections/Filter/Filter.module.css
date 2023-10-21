@@ -11,12 +11,12 @@
   border: 5px solid #fcbf49;
   width: 175px;
   height: 175px;
-  background: url(../../../../assets/Images/filter/selMaster.png);
+  background: url(../../../../assets/Images/filter/selMaster.png) white no-repeat;
   background-size: 100%;
   border-radius: 30px;
 }
 .masterLabel {
-  background: url(../../../../assets/Images/filter/defMaster.png);
+  background: url(../../../../assets/Images/filter/defMaster.png) white no-repeat;
   background-size: 100%;
   border-radius: 30px;
 }

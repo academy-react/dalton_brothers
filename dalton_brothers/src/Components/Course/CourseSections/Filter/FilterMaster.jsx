@@ -53,9 +53,9 @@ const FilterMasters = ({ id, master }) => {
       />
       <label
         htmlFor={`master${id}`}
-        className={`w-[175px] he-[175px] ${style.masterLabel}`}
+        className={`w-[175px] h-[175px] flex items-end pb-[10px] ${style.masterLabel}`}
       >
-        <h1>{master}</h1>
+        <h1 className="mx-auto">{master}</h1>
       </label>
     </>
   );
