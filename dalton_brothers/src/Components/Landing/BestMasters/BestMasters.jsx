@@ -1,7 +1,6 @@
 import { masterData } from "../../../Core/Services/data";
 
 import Master from "./BestMasterSection/Master";
-import {Title} from '../../Common/Title/Title'
 
 const BestMasters = () => {
   const data = masterData;

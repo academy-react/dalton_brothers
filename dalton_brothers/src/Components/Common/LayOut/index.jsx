@@ -1,4 +1,4 @@
-import { React, createContext, useContext, useState } from "react";
+import { React, createContext, useContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import { LayHeader } from "./Header";
@@ -13,6 +13,11 @@ export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
   const [sort, setSort] = useState("");
+  const [bahr, setBahr] = useState("");
+  const [naz, setNaz] = useState("");
+  const [mehdi, setMehdi] = useState("");
+  const [mohsen, setMohesen] = useState("");
+  const [all, setAll] = useState(true);
 
   const sortedData = courseData.sort((a, b) => {
     if (sort === "price") return a.price - b.price;
@@ -21,10 +26,29 @@ const Layout = () => {
     if (sort === "addTime") return a.addTime - b.addTime;
   });
 
-  console.log(sortedData);
+  const filteredData = sortedData.filter((el) => {
+    return (
+      el.courseMaster == bahr ||
+      el.courseMaster == naz ||
+      el.courseMaster == mehdi ||
+      el.courseMaster == mohsen ||
+      all
+    );
+  });
 
   return (
-    <SortContext.Provider value={{ sortedData, setSort }}>
+    <SortContext.Provider
+      value={{
+        sortedData,
+        filteredData,
+        setSort,
+        setBahr,
+        setNaz,
+        setMehdi,
+        setMohesen,
+        setAll,
+      }}
+    >
       <div className={style.container}>
         <header className="flex flex-col gap-[80px] items-center mb-[80px]">
           <LayHeader

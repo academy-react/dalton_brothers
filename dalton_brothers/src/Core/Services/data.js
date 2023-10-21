@@ -1,7 +1,7 @@
 const courseData = [
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محسن اسفندیاری",
     price: 100000,
     view: 10,
     addTime: 14020210,
@@ -9,7 +9,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد مهدی اصغری",
     price: 10232100,
     view: 14,
     addTime: 14020406,
@@ -17,7 +17,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 10000,
     view: 13,
     addTime: 14021003,
@@ -25,7 +25,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 10031232000,
     view: 43,
     addTime: 14021111,
@@ -33,7 +33,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محسن اسفندیاری",
     price: 123213,
     view: 657,
     addTime: 14021221,
@@ -41,7 +41,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد مهدی اصغری",
     price: 43213,
     view: 32,
     addTime: 14020110,
@@ -49,7 +49,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 645654,
     view: 543,
     addTime: 14020423,
@@ -57,7 +57,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 1312,
     view: 321,
     addTime: 14021221,
@@ -65,7 +65,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 3215532,
     view: 213,
     addTime: 14020805,
@@ -73,7 +73,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 35325,
     view: 32,
     addTime: 14020921,
@@ -81,7 +81,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 53,
     view: 12,
     addTime: 14020112,
@@ -89,7 +89,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 253226257,
     view: 54,
     addTime: 14020708,
@@ -97,7 +97,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 100000,
     view: 653,
     addTime: 14020915,
@@ -105,7 +105,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 432432,
     view: 4324,
     addTime: 14020221,
@@ -113,7 +113,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 543,
     view: 543,
     addTime: 14020723,
@@ -121,7 +121,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 654,
     view: 2343,
     addTime: 14020930,
@@ -129,7 +129,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محسن اسفندیاری",
     price: 432423,
     view: 432,
     addTime: 14020529,
@@ -137,7 +137,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 87667870,
     view: 4323,
     addTime: 14021127,
@@ -145,7 +145,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 8907,
     view: 532,
     addTime: 14020123,
@@ -153,7 +153,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 534534,
     view: 34,
     addTime: 14021212,
@@ -161,7 +161,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 5435342,
     view: 43,
     addTime: 14021111,
@@ -169,7 +169,7 @@ const courseData = [
   },
   {
     courseName: " عر عر",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد مهدی اصغری",
     price: 4324566,
     view: 4234,
     addTime: 14020313,
@@ -177,7 +177,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد حامد نظری",
     price: 342343257,
     view: 34,
     addTime: 14020321,
@@ -185,7 +185,7 @@ const courseData = [
   },
   {
     courseName: " میو میو",
-    courseMaster: "میو میو نیگا",
+    courseMaster: "استاد محمد بحرالعلوم",
     price: 87656,
     view: 432,
     addTime: 14020221,
