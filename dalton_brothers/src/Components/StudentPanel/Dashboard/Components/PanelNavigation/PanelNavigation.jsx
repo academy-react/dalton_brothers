@@ -18,13 +18,13 @@ const PanelNavigation = () => {
   };
   return (
     <>
-      <div className=" 2xl:w-[260px] w-[210px] xl:h-[300px] lg:h-[280px] h-[230px]  border border-gray-400 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap ">
+      <div className=" 2xl:w-[260px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  border border-gray-400 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap ">
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly ">
           {panelList.map((item, index) => (
             <li
             key={index}
               onClick={()=>goTo(item.href)}
-              className=" w-full lg:h-[50px] h-[40px] lg:mt-6 mt-2 flex cursor-pointer justify-evenly items-center"
+              className=" w-full lg:h-[49px] h-[40px] lg:mt-5 mt-2 flex cursor-pointer justify-evenly items-center"
             >
             <div className={"h-full w-full flex items-center text-right justify-end lg:text-xl text-lg pt-1 pr-[6px] " +(location.pathname == item.href ? "text-yellow-500 ":'text-gray-500') }>{item.name}</div>
             <item.icon  className={"lg:h-12 lg:w-12 w-10 h-10 "+(location.pathname == item.href ? "text-yellow-500 w-12 h-12":'text-gray-500')} />

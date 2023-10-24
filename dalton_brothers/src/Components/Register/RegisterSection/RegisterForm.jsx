@@ -34,6 +34,7 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
           />
           <Input
             topic={"نام کاربر"}
+            
             style={"rounded-full"}
             placeHolder={"... نام کاربری خود را انتخاب کنید"}
             type={"text"}

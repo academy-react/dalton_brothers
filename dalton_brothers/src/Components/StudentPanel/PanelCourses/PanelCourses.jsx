@@ -6,7 +6,7 @@ import { myCourseData } from '../../../Core/Services/data'
 const PanelCourses = () => { 
   return (
     <div className=' w-full h-full flex flex-col pt-7 px-2'>
-      <div className=' w-full h-[100px] flex justify-evenly items-center flex-row-reverse text-xl whitespace-nowrap'>
+      <div className=' w-full h-[100px] flex justify-evenly items-center flex-row-reverse xl:text-xl text-lg whitespace-nowrap'>
         <div className='w-[130px] h-[50px] text-center'> تصویر </div>
         <div className='w-[130px] h-[50px] text-center'> نام دوره </div>
         <div className='w-[130px] h-[50px] text-center'> مدرس </div>
