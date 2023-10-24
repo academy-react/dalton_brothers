@@ -137,7 +137,7 @@ const EditProfile = () => {
             />
             <ErrorMessage name="email" component={"div"} className="error" />
           </div>
-          <Button text={'ثبت تغیرات'} style={'bg-orange-300 w-[50%] m-auto '} type={'submit'}/>
+          <Button text={'ثبت تغیرات'} style={'bg-orange-300 w-[50%] m-auto z-30'} type={'submit'}/>
         </div>
       </Form>
     </Formik>

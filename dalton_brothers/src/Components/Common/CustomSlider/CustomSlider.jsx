@@ -13,7 +13,7 @@ import { Course } from '../../Course/CourseSections/Course';
 
 const CustomSlider =() => {
   return (
-    <div className='w-[350px] h-[385px] mb-12 mr-20 m-auto'>
+    <div className='w-[350px] h-[385px] xl:mb-12 mb-0 xl:mr-20 mr-4 m-auto'>
       <Swiper
       loop={true}
         effect={'cards'}

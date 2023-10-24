@@ -13,11 +13,11 @@ const LayoutPanel = () => {
   const location = useLocation();
   return (
     <div className=' flex w-full h-[100vh] justify-between flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-cover bg-center '>
-      <div className=" flex flex-col h-full w-[310px]  ">
+      <div className=" flex flex-col h-full 2xl:w-[310px] w-[220px]  ">
         <div className="w-full h-[160px] flex justify-center items-center">
           <Profile />
         </div>
-        <div className="bg-white w-full h-[410px] flex flex-col items-center justify-between ">
+        <div className="bg-white w-full xl:h-[410px] h-[370px] flex flex-col items-center justify-between ">
           <PanelNavigation />
         </div>
       </div>
@@ -29,11 +29,11 @@ const LayoutPanel = () => {
           <Outlet />
         </div>
       </div>
-      <div className="  flex flex-col w-[310px] justify-between ">
-        <div className="flex h-[90px] w-full justify-center items-center ">
+      <div className="  flex flex-col 2xl:w-[300px] xl:w-[160px] lg:w-[110px] w-0  justify-between ">
+        <div className="flex h-[90px] w-full justify-center items-center max-lg:relative max-lg:left-10">
           <Notification />
         </div>
-        <div className="h-[400px] w-[470px] mb-[20px] ml-2">
+        <div className="2xl:h-[400px] 2xl:w-[470px] xl:h-[350px] xl:w-[410px] lg:h-[300px] lg:w-[360px] lg:flex hidden xl:mb-[20px] lg:mb-[30px] mb-[45px] ml-2 ">
           {location.pathname === "/panel/EditProfile" && (
             <img src={ProfileDetails} alt="" className="w-full h-full"></img>
           )}
