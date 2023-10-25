@@ -1,5 +1,6 @@
 const courseData = [
   {
+    id: 1 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 100000,
@@ -8,6 +9,7 @@ const courseData = [
     like: 11,
   },
   {
+    id: 2 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 10232100,
@@ -16,6 +18,7 @@ const courseData = [
     like: 12,
   },
   {
+    id: 3 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 10000,
@@ -24,6 +27,7 @@ const courseData = [
     like: 21,
   },
   {
+    id: 4 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 10031232000,
@@ -32,6 +36,7 @@ const courseData = [
     like: 32,
   },
   {
+    id: 5 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 123213,
@@ -40,6 +45,7 @@ const courseData = [
     like: 421,
   },
   {
+    id: 6 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 43213,
@@ -48,6 +54,7 @@ const courseData = [
     like: 312,
   },
   {
+    id: 7 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 645654,
@@ -56,6 +63,7 @@ const courseData = [
     like: 213,
   },
   {
+    id: 8 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 1312,
@@ -64,6 +72,7 @@ const courseData = [
     like: 321,
   },
   {
+    id: 9 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 3215532,
@@ -72,6 +81,7 @@ const courseData = [
     like: 32,
   },
   {
+    id: 10 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 35325,
@@ -80,6 +90,7 @@ const courseData = [
     like: 131,
   },
   {
+    id: 11 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 53,
@@ -88,6 +99,7 @@ const courseData = [
     like: 42,
   },
   {
+    id: 12 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 253226257,
@@ -96,6 +108,7 @@ const courseData = [
     like: 231,
   },
   {
+    id: 13 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 100000,
@@ -104,6 +117,7 @@ const courseData = [
     like: 321,
   },
   {
+    id: 14 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 432432,
@@ -112,6 +126,7 @@ const courseData = [
     like: 32,
   },
   {
+    id: 15 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 543,
@@ -120,6 +135,7 @@ const courseData = [
     like: 345,
   },
   {
+    id: 16 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 654,
@@ -128,6 +144,7 @@ const courseData = [
     like: 6453,
   },
   {
+    id: 17 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 432423,
@@ -136,6 +153,7 @@ const courseData = [
     like: 54,
   },
   {
+    id: 18 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 87667870,
@@ -144,6 +162,7 @@ const courseData = [
     like: 43,
   },
   {
+    id: 19 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 8907,
@@ -152,6 +171,7 @@ const courseData = [
     like: 321,
   },
   {
+    id: 20 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 534534,
@@ -160,6 +180,7 @@ const courseData = [
     like: 12,
   },
   {
+    id: 21 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 5435342,
@@ -168,6 +189,7 @@ const courseData = [
     like: 33,
   },
   {
+    id: 22 ,
     courseName: " عر عر",
     courseMaster: "میو میو نیگا",
     price: 4324566,
@@ -176,6 +198,7 @@ const courseData = [
     like: 213,
   },
   {
+    id: 23 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 342343257,
@@ -184,6 +207,7 @@ const courseData = [
     like: 2132,
   },
   {
+    id: 24 ,
     courseName: " میو میو",
     courseMaster: "میو میو نیگا",
     price: 87656,
@@ -193,30 +217,30 @@ const courseData = [
   },
 ];
 const newsData = [
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
-  { topic: "هوا", author: "فرامرز", number: 12 },
+  {id:1, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:2, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:3, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:4, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:5, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:6, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:7, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:8, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:9, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:10, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:11, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:12, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:13, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:14, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:15, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:16, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:17, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:18, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:19, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:20, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:21, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:22, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:23, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:24, topic: "هوا", author: "فرامرز", number: 12 },
 ];
 const masterData = [
   { id: 1, master: "استاد محمد بحرالعلوم", topic: "مدیدریت پژوهشگاه" },
@@ -229,6 +253,12 @@ const relatedData = [
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
   { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
 ];
+const relatedNews =[
+  {id:1, topic: "هوا", author: "فرامرز", number: 12 },
+  {id:2, topic: "هاوا", author: "فرامرز", number: 12 },
+  {id:3, topic: "هوا", author: "سمرز", number: 12 },
+
+]
 const commentData = [
   {
     text: "خووووووووووبببب بوووووووووووود",
@@ -329,4 +359,5 @@ export {
   commentData,
   myCourseData,
   allCourseData,
+  relatedNews
 };

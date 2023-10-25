@@ -17,6 +17,7 @@ import { EditProfile } from "./Components/StudentPanel/EditProfile/EditProfile";
 import { PanelCourses } from "./Components/StudentPanel/PanelCourses/PanelCourses";
 import { PanelCoursesList } from "./Components/StudentPanel/PanelCoursesList/PanelCoursesList";
 import { Dashboard } from "./Components/StudentPanel/Dashboard/Dashboard";
+import { ArticleDetail } from "./Components/Article & News/ArticleDetail/ArticleDetail";
 
 import "./index.css";
 
@@ -26,8 +27,10 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/course", element: <CourseList /> },
-      { path: "/courseDetail", element: <CourseDetail /> },
+      { path: "/courseDetail/:id", element: <CourseDetail /> },
       { path: "/news", element: <ArticleNews /> },
+      { path: `/newsDetail/:id`, element: <ArticleDetail /> },
+
     ],
   },
   { path: "/signIn", element: <SignIn /> },

@@ -3,8 +3,10 @@ import likes from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
+import { Button } from "../../Common/buttons";
 
-const Course = ({ courseName, courseMaster, price, like }) => {
+const Course = ({ courseName, courseMaster, price, like ,id}) => {
+
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
       {/* image & 3 button start */}
@@ -35,7 +37,7 @@ const Course = ({ courseName, courseMaster, price, like }) => {
 
       {/* details & more info button start */}
 
-      <div className=" w-full h-[170px]  flex flex-col gap-[10px] rounded-b-lg mt-7 ">
+      <div className=" w-full h-[170px] flex flex-col gap-[10px] rounded-b-lg mt-7 ">
         <span className="flex flex-row-reverse p-3 pb-1 text-base font-irSBold">
           {courseName}
         </span>
@@ -52,9 +54,9 @@ const Course = ({ courseName, courseMaster, price, like }) => {
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-[#fcbf49] font-irSans">
             {price} : قیمت
           </div>
-          <div className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg flex justify-center items-center font-irSBold">
-            اطلاعات بیشتر
-          </div>
+          <Button style="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold" text={"اطلاعات بیشتر"}  path={`/courseDetail/${id}`} >
+            
+          </Button>
         </div>
 
         {/* button & price end */}

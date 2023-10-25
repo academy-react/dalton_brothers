@@ -5,9 +5,11 @@ import ArticleWriter from "../../../Assets/Images/articleWriter.png";
 import like from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
-import arrow from "../../../Assets/Images/arrow.png";
+// import arrow from "../../../Assets/Images/arrow.png";
+import { Button } from "../../Common/buttons";
+import { IconDots } from "@tabler/icons-react";
 
-const Article = ({ author, number, topic }) => {
+const Article = ({ author, number, topic,id }) => {
   return (
     <div className="w-[350px] h-96 p-3 border rounded-lg flex flex-col mt-10">
       {/* image & 3 button start */}
@@ -47,9 +49,12 @@ const Article = ({ author, number, topic }) => {
               <img className="w-[30px] " src={comment} alt="" />
             </div>
           </div>
-          <div className="w-[45px] h-[45px]  rounded-full flex items-center justify-center">
-            <img src={arrow} alt="" className="w-full h-full"/>
-          </div>
+          <Button style="w-[45px] h-[45px] px-[0] py-[0] bg-orange-300 rounded-full flex items-center justify-center" path={`/newsDetail/${id}`}>
+            {/* <img src={arrow} alt="" className="w-full h-full"/> */}
+
+              <IconDots strokeWidth="2" className="w-full h-full text-black" />
+            
+          </Button>
         </div>
 
         {/* button & price end */}
