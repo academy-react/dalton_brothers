@@ -18,15 +18,15 @@ const LayoutPanel = () => {
           <div className="w-full  flex justify-center items-center">
             <Profile />
           </div>
-          <div className=" w-full  flex flex-col items-center justify-center gap-7 scale-75 ">
+          <div className=" w-full  flex flex-col items-center justify-center gap-7 scale-[80%] ">
             <PanelNavigation />
           </div>
         </div>
-        <div className=" flex flex-col items-center h-[50px] ">
-          <div className="border border-gray-300   w-1/2 h-full   rounded-[30px]">
+        <div className=" flex flex-col items-center  ">
+          <div className="border border-gray-300   w-[500px]    rounded-[30px]">
             <PanelSearch />
           </div>
-          <div className=" w-full h-[800px]">
+          <div className=" w-full pt-203">
             <Outlet />
           </div>
         </div>
@@ -38,9 +38,9 @@ const LayoutPanel = () => {
             {location.pathname === "/panel/EditProfile" && (
               <img src={ProfileDetails} alt="" className="w-full h-full"></img>
             )}
-            {location.pathname === "/panel" && (
+            {/* {location.pathname === "/panel" && (
               <img src={undrawSocial} alt="" className="w-full h-full"></img>
-            )}
+            )} */}
           </div>
         </div>
       
