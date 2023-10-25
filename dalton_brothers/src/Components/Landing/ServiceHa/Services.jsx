@@ -1,11 +1,17 @@
 import React from "react";
-import { ServiceTitle } from "./ServiceSections/ServiceTitle";
+
+import { Title } from "../../Common/Title/Title";
 import { ServiceKind } from "./ServiceSections/ServiceKind";
 
 const Services = () => {
   return (
-    <div style={{ direction: "rtl" }} className="w-4/5  mx-auto font-irSBold">
-      <ServiceTitle />
+    <div dir="rtl" className="w-4/5 mx-auto mt-[100px] h-[500px] font-irSBold">
+      <Title
+        topic={" خدمات"}
+        style={
+          " text-[#fcbf49] text-center font-irSans justify-center text-3xl"
+        }
+      />
       <ServiceKind />
     </div>
   );

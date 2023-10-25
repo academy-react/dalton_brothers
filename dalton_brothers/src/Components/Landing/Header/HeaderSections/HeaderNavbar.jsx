@@ -23,7 +23,13 @@ const HeaderNavbar = () => {
           <img src={logo} alt="" className="w-full h-full" />
         </div>
 
-        <div className="w-[100px] bg-cover bg-center">
+
+
+
+
+
+{/* md responsive navbar */}
+        <div className="w-[100px] bg-cover bg-center md:hidden">
           <input
             className={`hidden ${style.hamInp}`}
             type="checkbox"
@@ -35,7 +41,7 @@ const HeaderNavbar = () => {
             htmlFor="hamMenu"
           ></label>
           <div
-            className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px]  ${style.hamContent}`}
+            className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
           >
             <NavLinks text={"دوره ها"} path={"/course"} />
             <NavLinks text={"پشتیبانی"} path={"/"} />

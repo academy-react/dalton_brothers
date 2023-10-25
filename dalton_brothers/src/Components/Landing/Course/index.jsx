@@ -2,9 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import "../../../index.css";
-import { Course } from "../../Course/CourseSections/Course";
 import { courseData } from "../../../Core/Services/data";
+import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
 
 const CourseList = () => {
   const data = [courseData[0], courseData[1], courseData[2]];
@@ -23,9 +22,10 @@ const CourseList = () => {
         </Link>
       </div>
       <div className="flex flex-row flex-wrap w-11/12 mx-auto justify-center gap-10">
-        {data.map((course, index) => (
+        {/* {data.map((course, index) => (
           <Course {...course} key={index} />
-        ))}
+        ))} */}
+        <SimpleSlider data={courseData} item={"course"} />
       </div>
     </div>
   );

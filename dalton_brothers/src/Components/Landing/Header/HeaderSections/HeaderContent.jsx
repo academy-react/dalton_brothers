@@ -5,7 +5,7 @@ import { Button } from "../../../Common/buttons";
 
 const HeaderContent = () => {
   return (
-    <div className="h-[550px] mt-60 flex flex-col flex-wrap items-start gap-16 w-4/5 m-auto">
+    <div className="h-auto mt-[200px] flex flex-col flex-wrap items-center gap-16 w-4/5 mx-auto">
       <HeaderText />
       <Button
         type={"button"}
