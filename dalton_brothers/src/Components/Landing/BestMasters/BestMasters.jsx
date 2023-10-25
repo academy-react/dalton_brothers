@@ -33,7 +33,7 @@ const BestMasters = () => {
           }}
           pagination={false}
           modules={[EffectCube, Pagination, Autoplay, Navigation]}
-          className="mySwiper w-[300px] h-[300px]"
+          className="lg:hidden mySwiper w-[300px] h-[300px]"
         >
           {data.map((master, index) => (
             <SwiperSlide className="bg-center bg-cover" key={index}>
@@ -41,6 +41,11 @@ const BestMasters = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="lg:flex h-[300px] w-[100%] hidden ">
+          {data.map((master, index) => (
+            <Master {...master} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );

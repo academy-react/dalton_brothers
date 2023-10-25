@@ -1,13 +1,6 @@
 .header {
-  width: 100%;
-  height: fit-content;
-  direction: rtl;
-  gap: 50px;
   /* background: url(../../../assets/Images/landing-header.svg) no-repeat; */
   background-size: 90%;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
 }
 .hamInp:checked + .hamLabel {
   right: 130px;

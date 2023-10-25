@@ -8,7 +8,10 @@ import styled from "./Header.module.css";
 
 const Header = () => {
   return (
-    <div className={styled.header}>
+    <div
+      dir="rtl"
+      className={`${styled.header} lg:bg-[url('../../../../src/assets/Images/landing-header.svg')] bg-no-repeat bg-[length:100%] bg-[100% 0%] w-[100%] h-fit gap-[50px] flex flex-col justify-between`}
+    >
       <HeaderNavbar />
       <HeaderContent />
       <HeaderSearch />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cube";
+import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCube, Pagination, Autoplay, Navigation } from "swiper/modules";
 
@@ -59,10 +60,17 @@ const ServiceKind = () => {
         }}
         pagination={false}
         modules={[EffectCube, Pagination, Autoplay, Navigation]}
-        className="mySwiper w-[300px] h-[300px]"
+        className="lg:hidden mySwiper w-[300px] h-[300px]"
       >
         {data.map((service, index) => (
           <SwiperSlide className="bg-center bg-cover" key={index}>
+            <OneServiceComponent {...service} key={index} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Swiper watchSlidesProgress={true} slidesPerView={4} className="mySwiper w-[100%]">
+        {data.map((service, index) => (
+          <SwiperSlide className="h-[300px]" key={index}>
             <OneServiceComponent {...service} key={index} />
           </SwiperSlide>
         ))}

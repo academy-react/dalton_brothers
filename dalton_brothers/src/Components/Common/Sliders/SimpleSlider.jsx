@@ -15,7 +15,7 @@ const SimpleSlider = ({ data, item }) => {
         <Swiper
           navigation={true}
           modules={[Navigation]}
-          className="mySwiper w-[100%] h-[100%] "
+          className="md:w-[80%] mySwiper w-[100%] h-[100%] "
         >
           {data.map((el, index) => (
             <SwiperSlide
@@ -34,7 +34,7 @@ const SimpleSlider = ({ data, item }) => {
         <Swiper
           navigation={true}
           modules={[Navigation]}
-          className="mySwiper w-[100%] h-[100%] "
+          className="mySwiper w-[80%] h-[100%] "
         >
           {data.map((el, index) => (
             <SwiperSlide

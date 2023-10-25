@@ -10,7 +10,7 @@ import style from "./LandingFooter.module.css";
 const LandingFooter = () => {
   return (
     <div
-      className={`${style.landingFooter} flex flex-col flex-nowrap items-start w-[100%] h-fit bg-[#fcbf49]`}
+      className={`${style.landingFooter} md:items-center flex flex-col flex-nowrap items-start w-[100%] h-fit bg-[#fcbf49]`}
     >
       <div className="flex justify-center items-center flex-row-reverse mt-[30px] px-[20px]">
         <FooterDesc style={'gap-[10px]'}/>
