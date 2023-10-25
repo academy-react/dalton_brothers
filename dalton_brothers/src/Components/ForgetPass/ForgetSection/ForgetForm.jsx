@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
@@ -27,6 +29,7 @@ const ForgetForm = ({
       setIdentify(!identify);
     }, 1200);
   };
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -54,11 +57,11 @@ const ForgetForm = ({
           </div>
           <Button
             type={"submit"}
-            style={
+            className={
               "py-[7px] px-[60px] bg-[#fcbf49] font-irSans text-[13px] text-[#232323]"
             }
             text={"مرحله بعد"}
-            path={"/forget"}
+            onClick={()=> navigate("/forget")}
           />
           <SignLinks
             style={"font-irSans text-[13px] text-[#989898] mt-[-20px]"}

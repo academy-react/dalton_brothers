@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import likes from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
@@ -6,6 +8,7 @@ import courseImage from "../../../Assets/Images/course.png";
 import { Button } from "../../Common/buttons";
 
 const Course = ({ courseName, courseMaster, price, like ,id}) => {
+  const navigate = useNavigate()
 
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
@@ -54,7 +57,7 @@ const Course = ({ courseName, courseMaster, price, like ,id}) => {
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-[#fcbf49] font-irSans">
             {price} : قیمت
           </div>
-          <Button style="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold" text={"اطلاعات بیشتر"}  path={`/courseDetail/${id}`} >
+          <Button className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold" value={"اطلاعات بیشتر"}  onClick={()=> navigate(`/courseDetail/${id}`)} >
             
           </Button>
         </div>

@@ -1,5 +1,6 @@
 import { Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useState} from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 import { Title } from "../../Common/Title/Title";
@@ -23,6 +24,7 @@ const SignInForm = ({
   const handleToggle = () => {
     setToggle(!toggle);
   };
+  const navigate = useNavigate()
   // validation................................
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
@@ -87,10 +89,11 @@ const SignInForm = ({
           </div>
           <Button
             type={"submit"}
-            style={
+            className={
               "bg-[#fcbf49] w-[60%] py-[5px] text-[13px] font-irSans text-[#595959]"
             }
-            text={"ورود"}
+            value={"ورود"}
+            onClick={() => navigate("/")}
           />
           <div className="self-end pr-[80px] flex flex-row-reverse items-center ">
             <span className="text-[#868686] font-thin text-[14px] font-irSans">

@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
@@ -16,6 +17,7 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
   const handleToggle = () => {
     setToggle(!toggle);
   };
+  const navigate = useNavigate()
 
   // validation................................
   const validation = yup.object().shape({
@@ -110,10 +112,11 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
           <div className="flex flex-row justify-around w-full gap-[20px]">
             <Button
               type={"submit"}
-              style={
+              className={
                 "bg-[#fcbf49] text-[18px] text-[#595959] font-irSans text-[17px] py-[5px]"
               }
               text={"ایجاد حساب"}
+              onClick={()=> navigate("/")}
             />
           </div>
           <div className="self-center flex flex-row-reverse items-center ">
