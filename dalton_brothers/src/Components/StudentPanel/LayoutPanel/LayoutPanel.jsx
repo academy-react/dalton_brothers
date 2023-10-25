@@ -12,18 +12,18 @@ import undrawSocial from "../../../../src/assets/Images/panel/undraw_social_thin
 const LayoutPanel = () => {
   const location = useLocation();
   return (
-    <div className=' flex w-full h-[100vh] justify-between flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-cover bg-center '>
+    <div className=' flex w-full h-[100vh] justify-between flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-cover bg-center pt-10 '>
       
         <div className=" flex flex-col gap-0  h-full 2xl:w-[310px] w-[220px]  ">
-          <div className="w-full pt-8 flex justify-center items-center">
+          <div className="w-full  flex justify-center items-center">
             <Profile />
           </div>
           <div className=" w-full  flex flex-col items-center justify-center gap-7 scale-75 ">
             <PanelNavigation />
           </div>
         </div>
-        <div className=" flex flex-col items-center h-full xl:w-[980px] lg:w-[750px] md:w-[500px] ">
-          <div className="border border-gray-600 lg:h-[60px] h-[50px] xl:w-[500px] lg:w-[400px] md:w-[300px] mt-[38px] mb-[30px] rounded-[30px]">
+        <div className=" flex flex-col items-center h-[50px] ">
+          <div className="border border-gray-300   w-1/2 h-full   rounded-[30px]">
             <PanelSearch />
           </div>
           <div className=" w-full h-[800px]">
@@ -31,10 +31,10 @@ const LayoutPanel = () => {
           </div>
         </div>
         <div className="  flex flex-col 2xl:w-[300px] xl:w-[160px] lg:w-[110px] w-0  justify-between ">
-          <div className="flex h-[90px] w-full justify-center items-center max-lg:relative max-lg:left-10">
+          <div className="flex   justify-center items-center ">
             <Notification />
           </div>
-          <div className="2xl:h-[400px] 2xl:w-[470px] xl:h-[350px] xl:w-[410px] lg:h-[300px] lg:w-[360px] lg:flex hidden xl:mb-[20px] lg:mb-[30px] mb-[45px] ml-2 ">
+          <div className="2xl:h-[400px] 2xl:w-[470px] xl:h-[350px] xl:w-[410px] lg:h-[300px] lg:w-[360px] lg:flex hidden xl:mb-[20px] lg:mb-[30px]  ml-2 ">
             {location.pathname === "/panel/EditProfile" && (
               <img src={ProfileDetails} alt="" className="w-full h-full"></img>
             )}
