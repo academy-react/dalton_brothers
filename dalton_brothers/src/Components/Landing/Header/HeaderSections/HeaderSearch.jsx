@@ -6,7 +6,7 @@ const HeaderSearch = () => {
   return (
     <label
       htmlFor="searchInput"
-      className="relative flex flex-row flex-nowrap h-[65px] w-[500px] m-auto border-2 rounded-full  py-1  justify-start items-center px-5 gap-3"
+      className="relative flex flex-row flex-nowrap h-[65px] w-[70vw] m-auto border-2 rounded-full  py-1  justify-start items-center px-5 gap-3"
     >
       <span className="absolute right-[32%] top-[-25%] whitespace-nowrap bg-white px-2 w-fit  text-[#707070]  font-irSans text-xl">
         جستوجو در سایت
