@@ -16,14 +16,14 @@
   width: 180px;
   height: 180px;
   background: url(../../../../assets/Images/filter/selMaster.png) white
-    no-repeat;
-  background-size: 100%;
+    no-repeat 50% 0%;
+  background-size: 85%;
   border-radius: 30px;
 }
 .masterLabel {
   background: url(../../../../assets/Images/filter/defMaster.png) white
-    no-repeat;
-  background-size: 100%;
+    no-repeat 50% 0%;
+  background-size: 85%;
   border-radius: 30px;
 }
 .courseInp:checked + .pythonLabel {
@@ -31,57 +31,61 @@
   width: 180px;
   height: 180px;
   background: url(../../../../assets/Images/filter/selpython.png) white
-    no-repeat;
-  background-size: 100%;
+    no-repeat 50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .priceRange {
   direction: ltr;
 }
 .pythonLabel {
-  background: url(../../../../assets/Images/filter/selpython.png) white
-    no-repeat;
-  background-size: 100%;
+  background: url(../../../../assets/Images/filter/defpython.png) white
+    no-repeat 50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .courseInp:checked + .reactLabel {
   border: 5px solid #fcbf49;
   width: 180px;
   height: 180px;
-  background: url(../../../../assets/Images/filter/selReact.png) white no-repeat;
-  background-size: 100%;
+  background: url(../../../../assets/Images/filter/selReact.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .reactLabel {
-  background: url(../../../../assets/Images/filter/defReact.png) white no-repeat;
-  background-size: 100%;
+  background: url(../../../../assets/Images/filter/defReact.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .courseInp:checked + .designLabel {
   border: 5px solid #fcbf49;
   width: 180px;
   height: 180px;
-  background: url(../../../../assets/Images/filter/defDesign.png) white
-    no-repeat;
-  background-size: 100%;
+  background: url(../../../../assets/Images/filter/selDesign.png) white
+    no-repeat 50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .designLabel {
   background: url(../../../../assets/Images/filter/defDesign.png) white
-    no-repeat;
-  background-size: 100%;
+    no-repeat 50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .courseInp:checked + .mainLabel {
   border: 5px solid #fcbf49;
   width: 180px;
   height: 180px;
-  background: url(../../../../assets/Images/filter/defMain.png) white no-repeat;
-  background-size: 100%;
+  background: url(../../../../assets/Images/filter/selMain.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
 .mainLabel {
-  background: url(../../../../assets/Images/filter/defMain.png) white no-repeat;
-  background-size: 100%;
+  background: url(../../../../assets/Images/filter/defMain.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
   border-radius: 30px;
 }
