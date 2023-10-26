@@ -41,7 +41,7 @@ const BestMasters = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="lg:flex h-[300px] w-[100%] hidden ">
+        <div className="lg:flex justify-center w-[100%] hidden ">
           {data.map((master, index) => (
             <Master {...master} key={index} />
           ))}

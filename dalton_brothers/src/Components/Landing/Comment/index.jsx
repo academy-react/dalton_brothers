@@ -12,9 +12,9 @@ const LandingComment = () => {
         <div className="w-[500px] h-full">
           <CommentPlace />
         </div>
-        {/* <picture className="w-[40%] flex justify-center items-center">
+        <picture className="w-[40%] xl:flex justify-center items-center hidden">
           <img src={illustration} alt="" className="w-[80%] 	" />
-        </picture> */}
+        </picture>
       </div>
     </div>
   );

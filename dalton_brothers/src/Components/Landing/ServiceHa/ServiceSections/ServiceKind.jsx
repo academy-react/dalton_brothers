@@ -68,13 +68,11 @@ const ServiceKind = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper watchSlidesProgress={true} slidesPerView={4} className="mySwiper w-[100%]">
+      <div className="lg:flex lg:justify-center h-[300px] w-[100%] hidden ">
         {data.map((service, index) => (
-          <SwiperSlide className="h-[300px]" key={index}>
             <OneServiceComponent {...service} key={index} />
-          </SwiperSlide>
         ))}
-      </Swiper>
+      </div>
     </div>
   );
 };

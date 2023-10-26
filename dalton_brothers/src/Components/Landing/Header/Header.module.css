@@ -1,7 +1,4 @@
-.header {
-  /* background: url(../../../assets/Images/landing-header.svg) no-repeat; */
-  background-size: 90%;
-}
+
 .hamInp:checked + .hamLabel {
   right: 130px;
   top: 10px;
