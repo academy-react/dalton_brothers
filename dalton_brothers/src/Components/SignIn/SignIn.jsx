@@ -1,85 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 import { SignInForm } from "./SignInSection/SignInForm";
 
-import style from "./SignIn.module.css";
-
 const SignIn = () => {
-  const [first, setFirst] = useState(true);
-  const [toggle, setToggle] = useState(false);
-  const [reg, setReg] = useState(false);
-  const [forget, setForget] = useState(false);
-
-  const navigate = useNavigate();
-
-  const animate = () => {
-    setTimeout(() => {
-      setFirst(!first);
-    }, 1500);
-  };
-  useEffect(() => {
-    animate();
-  }, []);
-
-  if (first)
-    return (
-      <div className={style.holder}>
-        {first && (
-          <div className={style.fullRight}>
-            <SignInForm zIndex={"-z-10"} />
-          </div>
-        )}
-      </div>
-    );
-  if (reg)
-    return (
-      <div className={style.holder}>
-        {reg && (
-          <div className={style.fullLeft}>
-            <SignInForm zIndex={"-z-10"} />
-            {setTimeout(() => {
-              navigate("/register");
-            }, 1200)}
-          </div>
-        )}
-      </div>
-    );
-  if (forget)
-    return (
-      <div className={style.holder}>
-        {forget && (
-          <div className={style.fullLeft}>
-            <SignInForm zIndex={"-z-10"} />
-            {setTimeout(() => {
-              navigate("/forget");
-            }, 1200)}
-          </div>
-        )}
-      </div>
-    );
   return (
-    <div className={style.holder}>
-      {toggle ? (
-        <div className={style.fullLeft}>
-          <SignInForm zIndex={"-z-10"} />
-          {setTimeout(() => {
-            navigate("/");
-          }, 1700)}
-        </div>
-      ) : (
-        <div className={style.bg}>
-          <SignInForm
-            zIndex={"z-10"}
-            toggle={toggle}
-            setToggle={setToggle}
-            reg={reg}
-            setReg={setReg}
-            forget={forget}
-            setForget={setForget}
-          />
-        </div>
-      )}
+    <div
+      dir="ltr"
+      className={`xl:bg-[url('../../../src/assets/Images/signIn-bg.svg')] xl:justify-start md:px-[50px] justify-center bg-no-repeat bg-cover bg-center w-[100%] h-[100vh] pt-[100px]  flex flex-nowrap items-start `}
+    >
+      <SignInForm />
     </div>
   );
 };

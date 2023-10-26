@@ -1,20 +1,22 @@
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
-import { SignLinks } from "../../Common/Links/SignLinks";
+import { NavLinks } from "../../Common/Links/NavLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import defaultImg from "../../../assets/Images/register-person.png";
-const RegisterForm = ({ zIndex, setToggle, toggle }) => {
+const RegisterForm = () => {
   const [show, setShow] = useState(false);
   const [personImg, setPersonImg] = useState();
+  const navigate = useNavigate();
 
   const handleToggle = () => {
-    setToggle(!toggle);
+    navigate("/signIn");
   };
 
   // validation................................
@@ -26,14 +28,14 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
 
   return (
     <div
-      className={`xl:w-[50%] lg:w-[50%] md:w-[80%] w-full ${zIndex} relative`}
+      className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center`}
     >
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className="w-[70%] m-auto flex flex-col justify-center gap-[30px] items-end px-10 rounded-[30px]">
+        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ایجاد حساب"}
             style={"leading-3 self-center text-[20px] h-auto "}
@@ -120,13 +122,9 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
             <span className="text-[#313131] font-thin text-[14px] font-irSans">
               ایا حساب فعال دارید؟
             </span>
-            <SignLinks
-              state={toggle}
-              setState={setToggle}
+            <NavLinks
               text={"ثبت نام"}
-              style={
-                "text-[#fcbf49] font-thin text-[14px] font-irSans p-[0] mr-[-40px]"
-              }
+              style={"text-[#fcbf49] font-thin text-[14px] font-irSans p-[0]"}
               path={"/signIn"}
             />
           </div>
