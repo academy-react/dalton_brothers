@@ -6,9 +6,9 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  /* background: url(/src/assets/Images/signIn-bg.svg) no-repeat 100% 0%;
+  background: url(/src/assets/Images/signIn-bg.svg) no-repeat 100% 0%;
   background-size: 177%;
-  transform: rotateZ(315deg) translateX(644px) translateY(102px); */
+  transform: rotateZ(325deg) translateX(644px) translateY(85px);
 }
 .topMoveUp {
   width: 63%;
@@ -16,9 +16,9 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  /* background: url(/src/assets/Images/signIn-bg.png) no-repeat 100% 0%;
+  background: url(/src/assets/Images/signIn-bg.png) no-repeat 100% 0%;
   background-size: 177%;
-  transform: rotateZ(315deg) translateX(644px) translateY(102px); */
+  transform: rotateZ(315deg) translateX(644px) translateY(102px);
   animation: topMoveUp 1s linear forwards;
 }
 .topMoveDown {
@@ -27,35 +27,39 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  /* background: url(/src/assets/Images/signIn-bg.png) no-repeat 100% 0%;
+  background: url(/src/assets/Images/signIn-bg.png) no-repeat 100% 0%;
   background-size: 177%;
-  transform: rotateZ(315deg) translateX(644px) translateY(102px); */
+  transform: rotateZ(315deg) translateX(644px) translateY(102px);
   animation: topMoveDown 1s linear forwards;
 }
 @keyframes topMoveUp {
   0% {
-    transform: rotateZ(315deg) translateX(644px) translateY(102px);
-    background-size: 177% 100%;
+    background-size: 177%;
+    transform: rotateZ(325deg) translateX(644px) translateY(85px);
   }
   50% {
-    transform: rotateZ(270deg) translateX(644px) translateY(200px);
+    transform: rotateZ(270deg) translateX(644px) translateY(250px);
     background-size: 177% 77%;
   }
   80% {
-    transform: rotateZ(270deg) translateX(135px) translateY(200px);
+    height: 166%;
+    transform: rotateZ(270deg) translateX(135px) translateY(250px);
     background-size: 177% 77%;
   }
   100% {
-    transform: rotateZ(270deg) translateX(135px) translateY(200px);
-    background-size: 300% 77%;
+    height: 266%;
+    background-size: 248% 77%;
+    transform: rotateZ(270deg) translateX(701px) translateY(372px);
   }
 }
 @keyframes topMoveDown {
   0% {
-    transform: rotateZ(270deg) translateX(135px) translateY(250px);
-    background-size: 300% 77%;
+    height: 266%;
+    background-size: 248% 77%;
+    transform: rotateZ(270deg) translateX(701px) translateY(372px);
   }
   20% {
+    height: 166%;
     transform: rotateZ(270deg) translateX(135px) translateY(250px);
     background-size: 177% 77%;
   }
@@ -64,8 +68,8 @@
     background-size: 177% 77%;
   }
   100% {
-    transform: rotateZ(315deg) translateX(644px) translateY(102px);
     background-size: 177%;
+    transform: rotateZ(325deg) translateX(644px) translateY(85px);
   }
 }
 
@@ -76,9 +80,9 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  /* background: url(/src/assets/Images/register-bg.svg) no-repeat 0% 50%;
-  background-size: 174%;
-  transform: rotateZ(337deg) translateX(-444px) translateY(199px); */
+  background: url(/src/assets/Images/register-bg.svg) no-repeat 0% 50%;
+    background-size: 174%;
+    transform: rotateZ(337deg) translateX(-444px) translateY(199px);
   z-index: 1;
 }
 .botMoveUp {
@@ -87,9 +91,9 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  /* background: url(/src/assets/Images/register-bg.png) no-repeat 0% 0%;
+  background: url(/src/assets/Images/register-bg.png) no-repeat 0% 0%;
   background-size: 174%;
-  transform: rotateZ(337deg) translateX(-399px) translateY(199px); */
+  transform: rotateZ(337deg) translateX(-399px) translateY(199px);
   animation: botMoveUp 1s linear forwards;
   z-index: 1;
 }
@@ -99,9 +103,9 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  /* background: url(/src/assets/Images/register-bg.png) no-repeat 0% 0%;
+  background: url(/src/assets/Images/register-bg.png) no-repeat 0% 0%;
   background-size: 174%;
-  transform: rotateZ(337deg) translateX(-399px) translateY(199px); */
+  transform: rotateZ(337deg) translateX(-399px) translateY(199px);
   animation: botMoveDown 1s linear forwards;
   z-index: 1;
 }
@@ -135,8 +139,8 @@
     background-size: 400% 77%;
   }
 }
-
-@media (min-width: 1024px) {
+/* 
+@media (min-width: 1280px) {
   .botMoveDown,
   .botMoveUp {
     background: url(/src/assets/Images/register-bg.png) no-repeat 0% 0%;
@@ -153,11 +157,11 @@
   .top {
     background: url(/src/assets/Images/signIn-bg.svg) no-repeat 100% 0%;
     background-size: 177%;
-    transform: rotateZ(315deg) translateX(644px) translateY(102px);
+    transform: rotateZ(325deg) translateX(644px) translateY(85px);
   }
   .bot {
     background: url(/src/assets/Images/register-bg.svg) no-repeat 0% 50%;
     background-size: 174%;
     transform: rotateZ(337deg) translateX(-444px) translateY(199px);
   }
-}
+} */
