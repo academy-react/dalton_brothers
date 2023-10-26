@@ -53,3 +53,11 @@ body {
   user-select: none;
   overflow-x: hidden;
 }
+.swiper-button-prev {
+  color: #fcc419;
+  left: 0;
+}
+.swiper-button-next {
+  color: #fcc419;
+  right: 0;
+}

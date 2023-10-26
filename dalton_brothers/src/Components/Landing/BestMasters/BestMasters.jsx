@@ -19,7 +19,7 @@ const BestMasters = () => {
         <Swiper
           loop={true}
           autoplay={{
-            delay: 2500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           navigation={false}
@@ -41,7 +41,7 @@ const BestMasters = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="lg:flex justify-center w-[100%] hidden ">
+        <div className="2xl:gap-[40px] lg:flex justify-center w-[100%] hidden ">
           {data.map((master, index) => (
             <Master {...master} key={index} />
           ))}
