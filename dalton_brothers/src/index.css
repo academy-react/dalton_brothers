@@ -35,21 +35,29 @@
   src: url(./assets/Fonts/Ordibehesht.TTF);
 }
 @font-face {
-  font-family: iranSans ;
+  font-family: iranSans;
   src: url(./Assets/Fonts/IRANSansWeb.ttf);
 }
 @font-face {
-  font-family: iranSansBold ;
+  font-family: iranSansBold;
   src: url(./Assets/Fonts/IRANSansWeb_Bold.ttf);
 }
 
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
   user-select: none;
+  overflow-x: hidden;
+}
+.swiper-button-prev {
+  color: #fcc419;
+  left: 0;
+}
+.swiper-button-next {
+  color: #fcc419;
+  right: 0;
 }
