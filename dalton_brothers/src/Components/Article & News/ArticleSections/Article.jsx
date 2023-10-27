@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import ArticleImage from "../../../Assets/Images/article.png";
 import ArticleWriter from "../../../Assets/Images/articleWriter.png";
+import likeCheck from "../../../Assets/Images/likeCheck.png";
 import like from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
@@ -14,6 +15,8 @@ import { IconDots } from "@tabler/icons-react";
 
 const Article = ({ author, number, topic,id }) => {
   const [save, setSave] = useState(false)
+  const [Like, setLike] = useState(false)
+
   const navigate = useNavigate()
    
   return (
@@ -44,23 +47,25 @@ const Article = ({ author, number, topic,id }) => {
         {/* button & price start */}
 
         <div className="w-full h-1/2  rounded-b-lg flex justify-between items-center flex-row-reverse ">
-          <div className=" flex flex-row justify-center gap-[20px] opacity-40 ">
+          <div className=" flex flex-row justify-center gap-[20px] ">
             <div className="w-full h-1/3 flex justify-center items-center">
               { save?
-               (<img className="w-[30px] " src={bookmarkCheck} alt="" onClick={()=> setSave(!save)}/>)
-               :(<img className="w-[30px] " src={bookmark} alt="" onClick={()=> setSave(!save)}/>)
+               (<img className="w-[30px] cursor-pointer" src={bookmarkCheck} alt="" onClick={()=> setSave(!save)}/>)
+               :(<img className="w-[30px] cursor-pointer  opacity-40" src={bookmark} alt="" onClick={()=> setSave(!save)}/>)
                 }
               
             </div>
             <div className="w-full h-1/3 flex justify-center items-center">
-              <img className="w-[30px] " src={like} alt="" />
+            { Like?
+               (<img className="w-[30px] cursor-pointer" src={likeCheck} alt="" onClick={()=> setLike(!Like)}/>)
+               :(<img className="w-[30px] cursor-pointer  opacity-40" src={like} alt="" onClick={()=> setLike(!Like)}/>)
+                }
             </div>
             <div className="w-full h-1/3 flex justify-center items-center">
-              <img className="w-[30px] " src={comment} alt="" />
+              <img className="w-[30px]  opacity-40" src={comment} alt=""  onClick={()=> navigate(`/newsDetail/${id}`)}/>
             </div>
           </div>
           <Button className="w-[45px] h-[45px] px-[0] py-[0] bg-orange-300 rounded-full flex items-center justify-center" onClick={()=> navigate(`/newsDetail/${id}`)}>
-            {/* <img src={arrow} alt="" className="w-full h-full"/> */}
 
               <IconDots strokeWidth="2" className="w-full h-full text-black" />
             

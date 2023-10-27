@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import likeCheck from "../../../Assets/Images/likeCheck.png";
 import likes from "../../../Assets/Images/like.png";
 import comment from "../../../Assets/Images/comment.png";
+import bookmarkCheck from "../../../Assets/Images/bookMarkCheck.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
 import { Button } from "../../Common/buttons";
 
 const Course = ({ courseName, courseMaster, price, like ,id}) => {
+  const [save, setSave] = useState(false)
+  const [Like, setLike] = useState(false)
+
   const navigate = useNavigate()
 
   return (
@@ -20,17 +25,23 @@ const Course = ({ courseName, courseMaster, price, like ,id}) => {
         <div className="w-2/3 h-full rounded-tr-2xl ">
           <img className="w-full rounded-tr-2xl " src={courseImage} alt="" />
         </div>
-        <div className="w-1/3 flex flex-col items-center justify-center pt-[20px] text-[#090909] font-sha opacity-80">
+        <div className="w-1/3 flex flex-col items-center justify-center pt-[20px] text-[#090909] font-sha">
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img className="w-[30px] " src={bookmark} alt="" />
+          { save?
+               (<img className="w-[30px] cursor-pointer" src={bookmarkCheck} alt="" onClick={()=> setSave(!save)} />)
+               :(<img className="w-[30px] cursor-pointer opacity-80" src={bookmark} alt="" onClick={()=> setSave(!save)} />)
+                }
             <span className="w-[30px] text-center inline-block">{like}</span>
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img className="w-[30px]" src={likes} alt="" />
+          { Like?
+               (<img className="w-[30px] cursor-pointer" src={likeCheck} alt="" onClick={()=> setLike(!Like)}/>)
+               :(<img className="w-[30px] cursor-pointer  opacity-80" src={likes} alt="" onClick={()=> setLike(!Like)}/>)
+                }
             <span className="w-[30px] text-center inline-block">{like}</span>
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img className="w-[30px] " src={comment} alt="" />
+            <img className="w-[30px] opacity-80 cursor-pointer" src={comment} alt=""  onClick={()=> navigate(`/courseDetail/${id}`)} />
             <span className="w-[30px] text-center inline-block">{like}</span>
           </div>
         </div>

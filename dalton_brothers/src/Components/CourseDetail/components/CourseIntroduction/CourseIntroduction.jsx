@@ -5,13 +5,13 @@ const CourseIntroduction = () => {
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
-        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-bold">
+        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold">
           {" "}
           معرفی دوره{" "}
         </h4>
         <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> پیش گفتار </h5>
-          <p className="text-lg text-right my-[10px] text-gray-800">
+          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
             {" "}
             بیت تورنت به شکل مهیبی در بین کاربران محبوب شد و پیش‌بینی می‌شود بیش
             از ربع میلیارد کاربر در سراسر جهان از آن استفاده می‌کنند. سال گذشته
@@ -27,7 +27,7 @@ const CourseIntroduction = () => {
         </div>
         <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> کاربرد های پایتون </h5>
-          <p className="text-lg text-right my-[10px] text-gray-800">
+          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
             هرچند که مطالعه کل این مطلب از مجله فرادرس، در افزایش شناخت و آگاهی
             فرد از زبان پایتون، قابلیت‌های آن و چرایی انتخاب پایتون موثر است.
             افراد می‌توانند از کاربرد پایتون برای اعمال علم داده و یادگیری ماشین
@@ -42,7 +42,7 @@ const CourseIntroduction = () => {
         </div>
         <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> اهداف دوره </h5>
-          <p className="text-lg text-right my-[10px] text-gray-800">
+          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
             پایتون امروزه از محبوبیت بسیار زیادی برخوردار است و برنامه‌نویسان
             زیادی یا با آن آشنایی دارند، یا به طور کامل به آن مسلط هستند و یا در
             حال/درصدد یادگیری این زبان هستند. همین امر پایتون را به گزینه‌ای
