@@ -68,8 +68,8 @@ const Course = ({ courseName, courseMaster, price, like ,id}) => {
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-[#fcbf49] font-irSans">
             {price} : قیمت
           </div>
-          <Button className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold" value={"اطلاعات بیشتر"}  onClick={()=> navigate(`/courseDetail/${id}`)} >
-            
+          <Button className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold"  onClick={()=> navigate(`/courseDetail/${id}`)} >
+            {"اطلاعات بیشتر"}
           </Button>
         </div>
 

@@ -23,13 +23,13 @@ const AboutCourse = () => {
           </div>
         </div>
         <div className=" w-1/2 h-[350px] flex flex-col justify-evenly gap-[5px] md:gap-[15px]">
-          <h3 className=" lg:text-4xl  md:text-3xl  text-2xl text-right pr-[60px] "> courseData </h3>
+          <h3 className=" lg:text-4xl  md:text-3xl  text-2xl text-right pr-[60px] "> دوره پایتون </h3>
           <p className=" text-right pr-[60px] lg:text-2xl  md:text-xl  text-lg text-gray-800">
             {" "}
             گواهی معتبر{" "}
           </p>
           <p className="text-right pr-[60px] md:text-lg  text-md text-gray-500">
-          توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود 
+           توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود توضیحات دوره در اینجا نوشته می شود 
           </p>
           <div className="flex justify-end text-right pr-[60px]  lg:text-2xl  md:text-xl  text-lg text-gray-800">
             <p className="text-right"> نفر ثبت نام کرده اند </p>

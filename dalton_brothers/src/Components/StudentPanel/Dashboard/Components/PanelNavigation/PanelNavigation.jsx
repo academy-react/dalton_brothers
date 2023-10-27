@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../../../../Common/buttons";
 
@@ -128,13 +128,12 @@ const PanelNavigation = () => {
       </div>
       <Button 
        path={"./"}
-       style="  w-[220px] h-[50px] border border-gray-400 rounded-[20px] text-center lg:text-xl text-lg text-gray-800 "
-       text={" خروج "}
+       className="  w-[220px] h-[50px] border border-gray-400 rounded-[20px] text-center lg:text-xl text-lg text-gray-800 "
+       value={" خروج "}
        >
-        
         <IconArrowNarrowLeft
           strokeWidth="1"
-          className="w-[80px] h-[50px]"
+          className="w-[80px] h-[50px] relative -top-9 right-10"
         />
       </Button>
     </>

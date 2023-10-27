@@ -60,7 +60,7 @@ const ForgetForm = ({
             className={
               "py-[7px] px-[60px] bg-[#fcbf49] font-irSans text-[13px] text-[#232323]"
             }
-            text={"مرحله بعد"}
+            value={"مرحله بعد"}
             onClick={()=> navigate("/forget")}
           />
           <SignLinks

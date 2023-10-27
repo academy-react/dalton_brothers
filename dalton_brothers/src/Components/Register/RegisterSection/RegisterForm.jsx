@@ -113,9 +113,9 @@ const RegisterForm = ({ zIndex, setToggle, toggle }) => {
             <Button
               type={"submit"}
               className={
-                "bg-[#fcbf49] text-[18px] text-[#595959] font-irSans text-[17px] py-[5px]"
+                "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
               }
-              text={"ایجاد حساب"}
+              value={"ایجاد حساب"}
               onClick={()=> navigate("/")}
             />
           </div>

@@ -115,6 +115,34 @@
     width: 100%;
   }
   }
+  .progressWheel{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    transform: rotate(-90deg);
+    width: 100px;
+    height: 100px;
+  }
+  .progress-wheel div {
+    stroke-dashoffset: 0;
+    stroke-width: 30%;
+    width: 100px;
+    height: 100px;
+    fill: none;
+  }
+  .progress-wheel .bg {
+    stroke: var(--accent);
+    opacity: 0.2;
+    width: 100px;
+    height: 100px;
+  }
+  .progress-wheel .progress {
+    stroke: var(--accent);
+    stroke-dasharray: 0, 1;
+    width: 100px;
+    height: 100px;
+  }
+  
 
 
 

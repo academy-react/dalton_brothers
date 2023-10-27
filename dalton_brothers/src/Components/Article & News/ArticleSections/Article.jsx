@@ -62,7 +62,7 @@ const Article = ({ author, number, topic,id }) => {
                 }
             </div>
             <div className="w-full h-1/3 flex justify-center items-center">
-              <img className="w-[30px]  opacity-40" src={comment} alt=""  onClick={()=> navigate(`/newsDetail/${id}`)}/>
+              <img className="w-[30px]  opacity-40 cursor-pointer" src={comment} alt=""  onClick={()=> navigate(`/newsDetail/${id}`)}/>
             </div>
           </div>
           <Button className="w-[45px] h-[45px] px-[0] py-[0] bg-orange-300 rounded-full flex items-center justify-center" onClick={()=> navigate(`/newsDetail/${id}`)}>
