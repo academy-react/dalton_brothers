@@ -28,7 +28,7 @@ const RegisterForm = () => {
 
   return (
     <div
-      className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center`}
+      className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center font-irSans`}
     >
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
@@ -75,7 +75,7 @@ const RegisterForm = () => {
               name={"logInUserName"}
               as={"input"}
             />
-            <div className="w-[25px] absolute left-[6%] top-[25%]">
+            <div className="w-[25px] absolute left-[6%] top-[14%]">
               {show ? (
                 <TbEye
                   onClick={() => setShow(!show)}

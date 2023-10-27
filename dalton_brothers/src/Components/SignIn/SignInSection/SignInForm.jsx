@@ -32,7 +32,7 @@ const SignInForm = () => {
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
+        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[20px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
             style={"leading-3 text-[20px] self-center text-[#9a9a9a]"}
@@ -56,7 +56,7 @@ const SignInForm = () => {
               name={"logInUserName"}
               as={"input"}
             />
-            <div className="w-[25px] absolute left-[8%] top-[25%]">
+            <div className="w-[25px] absolute left-[8%] top-[14%]">
               {show ? (
                 <TbEye
                   onClick={() => setShow(!show)}
