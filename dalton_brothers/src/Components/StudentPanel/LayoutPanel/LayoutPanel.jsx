@@ -26,7 +26,7 @@ const LayoutPanel = () => {
           <div className="border border-gray-300   w-[500px]    rounded-[30px]">
             <PanelSearch />
           </div>
-          <div className=" w-full pt-203">
+          <div className=" w-full pt-[10px]">
             <Outlet />
           </div>
         </div>
@@ -34,14 +34,14 @@ const LayoutPanel = () => {
           <div className="flex   justify-center items-center ">
             <Notification />
           </div>
-          <div className="2xl:h-[400px] 2xl:w-[470px] xl:h-[350px] xl:w-[410px] lg:h-[300px] lg:w-[360px] lg:flex hidden xl:mb-[20px] lg:mb-[30px]  ml-2 ">
-            {location.pathname === "/panel/EditProfile" && (
+          {/* <div className="2xl:h-[400px] 2xl:w-[470px] xl:h-[350px] xl:w-[410px] lg:h-[300px] lg:w-[360px] lg:flex hidden xl:mb-[20px] lg:mb-[30px]  ml-2 "> */}
+            {/* {location.pathname === "/panel/EditProfile" && (
               <img src={ProfileDetails} alt="" className="w-full h-full"></img>
-            )}
+            )} */}
             {/* {location.pathname === "/panel" && (
               <img src={undrawSocial} alt="" className="w-full h-full"></img>
             )} */}
-          </div>
+          {/* </div> */}
         </div>
       
     </div>

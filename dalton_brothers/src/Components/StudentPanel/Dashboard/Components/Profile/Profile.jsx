@@ -9,7 +9,7 @@ const Profile = () => {
         <div className='w-[60px] h-[60px] rounded-full bg-[#F1F5F9] flex justify-center items-center overflow-hidden '>
           <img className='w-[40px] h-[40px]'  src={userImage} alt="" />
         </div>
-
+    
     </div>
   )
 }
