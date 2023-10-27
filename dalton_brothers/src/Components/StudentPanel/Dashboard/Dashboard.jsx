@@ -13,22 +13,27 @@ import { CustomSlider } from "../../Common/CustomSlider/CustomSlider";
 
 const Dashboard = () => {
   return (
-    <div className=" w-full h-full flex-col pt-7 ">
-      <div className="flex justify-evenly max-lg:flex-col w-full max-lg:items-center lg:h-[40%] h-[600px] gap-1 ">
-        <div className=" 2xl:w-[370px] xl:w-[350px] lg:w-[300px] w-[300px] xl:h-[300px] lg:h-[250px] h-[200px]">
+    <div className=" w-full h-full flex-col mt-10 ">
+      <div className="flex justify-evenly max-lg:flex-col w-full max-lg:items-center lg:h-[40%] h-[600px] gap-8 ">
+        <div className=" 2xl:w-[370px] xl:w-[350px] lg:w-[300px] w-[400px] xl:h-[250px] lg:h-[250px] h-[200px]">
           <YourStock />
         </div>
-        <div className=" 2xl:w-[580px] xl:w-[430px] lg:w-[350px] w-[410px] xl:h-[300px] lg:h-[250px] h-[220px]">
+        <div className=" 2xl:w-[650px] xl:w-[430px] lg:w-[350px]  xl:h-[250px] lg:h-[250px] ">
           <Specification />
         </div>
       </div>
-      <div className="s flex flex-col  w-full  h-[430px] mt-5 justify-center">
-        <h4 className="w-full h-[50px] text-right text-2xl">
-          دوره های مورد علاقه
-        </h4>
-        <div className=" xl:w-[700px] lg:w-[680px] 2xl:pt-7 lg:mt-0 pt-2 xl:mr-2 flex lg:justify-end justify-center">
-          <div>
-            <CustomSlider />
+      <div className=" flex flex-row-reverse  w-full    ">
+      {/* h-[430px] */}
+        <h4 className="w-full  text-right text-xl font-irSans pr-5">
+علاقه مندی ها        </h4>
+        <div className="     flex ">
+          <div className="scale-75 ">
+          <CustomSlider component = "Article"  />
+
+          </div>
+          <div className="scale-75 ">
+          <CustomSlider component = "Course" />
+
           </div>
         </div>
       </div>
