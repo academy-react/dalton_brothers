@@ -1,31 +1,23 @@
 import React from "react";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
-import { SignLinks } from "../../Common/Links/SignLinks";
+import { NavLinks } from "../../Common/Links/NavLinks";
 
 import logo from "../../../assets/Images/logo.png";
 
-const ForgetForm = ({
-  zIndex,
-  toggle,
-  setToggle,
-  back,
-  setBack,
-  identify,
-  setIdentify,
-}) => {
+const ForgetForm = () => {
+  const navigate = useNavigate();
+
   const validation = yup.object().shape({
     email: yup.string().required("این فیلد اجباریست"),
   });
   const handleSubmit = () => {
-    setToggle(!toggle);
-    setTimeout(() => {
-      setIdentify(!identify);
-    }, 1200);
+    navigate("/identify");
   };
 
   return (
@@ -35,9 +27,7 @@ const ForgetForm = ({
         validationSchema={validation}
         onSubmit={handleSubmit}
       >
-        <Form
-          className={`flex flex-col gap-[35px] items-center relative ${zIndex}`}
-        >
+        <Form className={`flex flex-col gap-[35px] items-center relative `}>
           <div className="w-[75px]">
             <img src={logo} alt="" className="w-full h-full" />
           </div>
@@ -60,11 +50,10 @@ const ForgetForm = ({
             text={"مرحله بعد"}
             path={"/forget"}
           />
-          <SignLinks
+          <NavLinks
             style={"font-irSans text-[13px] text-[#989898] mt-[-20px]"}
             text={"بازگشت"}
-            state={back}
-            setState={setBack}
+            path={"/signIn"}
           />
         </Form>
       </Formik>

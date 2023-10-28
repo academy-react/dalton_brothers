@@ -1,9 +1,0 @@
-.landingFooter {
-  height: 900px;
-  width: 100%;
-  background: url(../../../assets/Images/landing-footer.svg) no-repeat ;
-  background-size: 100%;
-  display: flex;
-  flex-flow: row-reverse;
-  flex-flow: column;
-}

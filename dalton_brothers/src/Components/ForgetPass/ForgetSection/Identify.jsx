@@ -1,11 +1,15 @@
 import React from "react";
-import { SignLinks } from "../../Common/Links/SignLinks";
+import { NavLinks } from "../../Common/Links/NavLinks";
 
-const Identify = ({ zIndex,Identify , setIdentify }) => {
+const Identify = () => {
   return (
-    <div className={`font-irSBold text-center text-2xl relative ${zIndex}`}>
+    <div className={`font-irSBold text-center text-2xl relative`}>
       waiting for api ...
-      <SignLinks style={" font-irSans text-[#ccc]"} text={"click here to return"} state={Identify} setState={Identify} />
+      <NavLinks
+        style={" font-irSans text-[#ccc]"}
+        text={"click here to return"}
+        path={"/forget"}
+      />
     </div>
   );
 };
