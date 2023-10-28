@@ -1,13 +1,14 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { LayHeaderNav } from "./HeaderSection/LayHeaderNav";
 import { LaySort } from "./HeaderSection/Sort";
 import { useLocation } from "react-router-dom";
-import { useAppContext } from "..";
+import { onSearchChange } from "../../../../Redux/search";
 
 const LayHeader = ({ course, news, detailCourse }) => {
-  const { setSearch } = useAppContext();
-
+  const store = useSelector((state) => state.search);
+  const dispatch = useDispatch();
 
   const location = useLocation();
   return (
@@ -22,7 +23,7 @@ const LayHeader = ({ course, news, detailCourse }) => {
           type="text"
           placeholder="...جستوجو کن"
           className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none font-irSans max-sm:w-[400px]"
-          onKeyUp={(e)=> setSearch(e.target.value)}
+          onKeyUp={(e) => dispatch(onSearchChange(e.target.value))}
         />
       </div>
       {/* pageName */}

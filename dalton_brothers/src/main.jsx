@@ -18,9 +18,10 @@ import { EditProfile } from "./Components/StudentPanel/EditProfile/EditProfile";
 import { PanelCourses } from "./Components/StudentPanel/PanelCourses/PanelCourses";
 import { PanelCoursesList } from "./Components/StudentPanel/PanelCoursesList/PanelCoursesList";
 import { Dashboard } from "./Components/StudentPanel/Dashboard/Dashboard";
+import { Identify } from "./Components/ForgetPass/ForgetSection/Identify";
+import store from "./Redux/Store";
 
 import "./index.css";
-import { Identify } from "./Components/ForgetPass/ForgetSection/Identify";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider>
+  <Provider store={store}>
     <RouterProvider router={router} />
   </Provider>
 );

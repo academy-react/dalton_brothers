@@ -1,13 +1,11 @@
 import { React, createContext, useContext, useState } from "react";
+import { useSelector } from "react-redux";
+
 import { Outlet } from "react-router-dom";
 
 import { LayHeader } from "./Header";
 import LayFooter from "./Footer";
-import {
-  courseData,
-  masterData,
-  courseNameData,
-} from "../../../Core/Services/data";
+import { courseData } from "../../../Core/Services/data";
 
 import style from "./layOut.module.css";
 
@@ -16,16 +14,10 @@ export const SortContext = createContext();
 export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
-  const [sort, setSort] = useState("");
-  const [search, setSearch] = useState("");
-  const [bahr, setBahr] = useState(masterData[0].master);
-  const [naz, setNaz] = useState(masterData[1].master);
-  const [mehdi, setMehdi] = useState(masterData[2].master);
-  const [mohsen, setMohesen] = useState(masterData[3].master);
-  const [python, setPython] = useState(courseNameData[0].courseName);
-  const [react, setReact] = useState(courseNameData[1].courseName);
-  const [design, setDesign] = useState(courseNameData[2].courseName);
-  const [main, setMain] = useState(courseNameData[3].courseName);
+  const search = useSelector((state) => state.search.search);
+  const sort = useSelector((state) => state.sort.sort);
+  const masterFilter = useSelector((state) => state.masterFilter);
+  const courseFilter = useSelector((state) => state.courseFilter);
 
   const searchData = courseData.filter((e) => {
     return (
@@ -42,14 +34,16 @@ const Layout = () => {
 
   const filteredData = sortedData.filter((el) => {
     return (
-      (el.courseMaster == bahr ||
-        el.courseMaster == naz ||
-        el.courseMaster == mehdi ||
-        el.courseMaster == mohsen) &&
-      (el.courseName == python ||
-        el.courseName == react ||
-        el.courseName == design ||
-        el.courseName == main)
+      (el.courseMaster == masterFilter.bah ||
+        el.courseMaster == masterFilter.naz ||
+        el.courseMaster == masterFilter.asg ||
+        el.courseMaster == masterFilter.esf ||
+        masterFilter.masterElse) &&
+      (el.courseName == courseFilter.python ||
+        el.courseName == courseFilter.react ||
+        el.courseName == courseFilter.design ||
+        el.courseName == courseFilter.main ||
+        courseFilter.courseElse)
     );
   });
 
@@ -58,16 +52,6 @@ const Layout = () => {
       value={{
         sortedData,
         filteredData,
-        setSort,
-        setSearch,
-        setBahr,
-        setNaz,
-        setMehdi,
-        setMohesen,
-        setPython,
-        setReact,
-        setDesign,
-        setMain,
       }}
     >
       <div className={style.container}>

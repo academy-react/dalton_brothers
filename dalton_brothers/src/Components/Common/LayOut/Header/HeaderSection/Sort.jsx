@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { onSortChange } from "../../../../../Redux/sort";
 
 import style from "../../layOut.module.css";
-import { useAppContext } from "../..";
 
 const LaySort = () => {
-  const { setSort } = useAppContext();
+  const store = useSelector((state) => state.sort);
+  const dispatch = useDispatch();
+
   return (
     <div className="flex flex-row-reverse justify-center items-center gap-[10px] max-lg:flex-col-reverse  ">
       <div className="border-2 border-[#eaeaea] flex flex-row-reverse justify-start items-center    p-[10px] gap-[10px] rounded-r-[999px] rounded-l-[300px] font-irSans text-slate-500 text-lg  max-lg:flex-col max-lg:rounded-t-md max-lg:rounded-b-3xl  ">
@@ -13,7 +17,10 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="newest"
-          onChange={(e) => e.target.checked && setSort("addTime")}
+          onChange={(e) =>
+            e.target.checked && dispatch(onSortChange("addTime"))
+          }
+          defaultChecked
         />
         <label htmlFor="newest" className={style.sort}>
           جدید ترین
@@ -23,7 +30,7 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="mostView"
-          onChange={(e) => e.target.checked && setSort("view")}
+          onChange={(e) => e.target.checked && dispatch(onSortChange("view"))}
         />
         <label htmlFor="mostView" className={style.sort}>
           پربازدید ترین
@@ -33,7 +40,7 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="mostFavorite"
-          onChange={(e) => e.target.checked && setSort("like")}
+          onChange={(e) => e.target.checked && dispatch(onSortChange("like"))}
         />
         <label htmlFor="mostFavorite" className={style.sort}>
           محبوب ترین
@@ -43,7 +50,7 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="cheapest"
-          onChange={(e) => e.target.checked && setSort("price")}
+          onChange={(e) => e.target.checked && dispatch(onSortChange("price"))}
         />
         <label htmlFor="cheapest" className={style.sort}>
           ارزان ترین
