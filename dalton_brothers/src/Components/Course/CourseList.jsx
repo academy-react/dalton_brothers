@@ -12,7 +12,7 @@ const CourseList = () => {
     <div className="w-100 flex flex-col gap-5">
       <LayOutHeaders topic={"لیست دوره ها"} />
       <Filter />
-      <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24">
+      <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
         {filteredData.map((course, index) => (
           <Course {...course} key={index} />
         ))}
