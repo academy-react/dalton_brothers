@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
@@ -21,7 +21,6 @@ const ForgetForm = () => {
   const handleSubmit = () => {
     navigate("/identify");
   };
-  const navigate = useNavigate()
 
   return (
     <div>

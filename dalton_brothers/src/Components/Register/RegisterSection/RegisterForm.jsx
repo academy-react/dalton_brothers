@@ -18,7 +18,6 @@ const RegisterForm = () => {
   const handleToggle = () => {
     navigate("/signIn");
   };
-  const navigate = useNavigate()
 
   // validation................................
   const validation = yup.object().shape({
