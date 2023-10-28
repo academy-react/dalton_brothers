@@ -2,7 +2,7 @@ const courseData = [
   {
     courseName: "طراحی سایت",
     courseMaster: "استاد محسن اسفندیاری",
-    price: 100000,
+    price: 5000000,
     view: 10,
     addTime: 14020210,
     like: 11,
@@ -10,7 +10,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد مهدی اصغری",
-    price: 10232100,
+    price: 430000,
     view: 14,
     addTime: 14020406,
     like: 12,
@@ -18,7 +18,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 10000,
+    price: 650000,
     view: 13,
     addTime: 14021003,
     like: 21,
@@ -26,7 +26,7 @@ const courseData = [
   {
     courseName: "ری اکت",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 10031232000,
+    price: 1250000,
     view: 43,
     addTime: 14021111,
     like: 32,
@@ -34,7 +34,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد محسن اسفندیاری",
-    price: 123213,
+    price: 2200000,
     view: 657,
     addTime: 14021221,
     like: 421,
@@ -42,7 +42,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد مهدی اصغری",
-    price: 43213,
+    price: 4200000,
     view: 32,
     addTime: 14020110,
     like: 312,
@@ -50,7 +50,7 @@ const courseData = [
   {
     courseName: "ری اکت",
     courseMaster: "استاد حامد نظری",
-    price: 645654,
+    price: 690000,
     view: 543,
     addTime: 14020423,
     like: 213,
@@ -58,7 +58,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 1312,
+    price: 1000000,
     view: 321,
     addTime: 14021221,
     like: 321,
@@ -66,7 +66,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 3215532,
+    price: 550000,
     view: 213,
     addTime: 14020805,
     like: 32,
@@ -74,7 +74,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 35325,
+    price: 5000000,
     view: 32,
     addTime: 14020921,
     like: 131,
@@ -82,7 +82,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 53,
+    price: 2350000,
     view: 12,
     addTime: 14020112,
     like: 42,
@@ -90,7 +90,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 253226257,
+    price: 4000000,
     view: 54,
     addTime: 14020708,
     like: 231,
@@ -98,7 +98,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 100000,
+    price: 4250000,
     view: 653,
     addTime: 14020915,
     like: 321,
@@ -106,7 +106,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 432432,
+    price: 1000000,
     view: 4324,
     addTime: 14020221,
     like: 32,
@@ -114,7 +114,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 543,
+    price: 800000,
     view: 543,
     addTime: 14020723,
     like: 345,
@@ -122,7 +122,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 654,
+    price: 1200000,
     view: 2343,
     addTime: 14020930,
     like: 6453,
@@ -130,7 +130,7 @@ const courseData = [
   {
     courseName: "طراحی سایت",
     courseMaster: "استاد محسن اسفندیاری",
-    price: 432423,
+    price: 3420000,
     view: 432,
     addTime: 14020529,
     like: 54,
@@ -138,7 +138,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 87667870,
+    price: 870000,
     view: 4323,
     addTime: 14021127,
     like: 43,
@@ -146,7 +146,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 8907,
+    price: 250000,
     view: 532,
     addTime: 14020123,
     like: 321,
@@ -154,7 +154,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد حامد نظری",
-    price: 534534,
+    price: 2300000,
     view: 34,
     addTime: 14021212,
     like: 12,
@@ -162,7 +162,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 5435342,
+    price: 250000,
     view: 43,
     addTime: 14021111,
     like: 33,
@@ -170,7 +170,7 @@ const courseData = [
   {
     courseName: "پایتون",
     courseMaster: "استاد مهدی اصغری",
-    price: 4324566,
+    price: 430000,
     view: 4234,
     addTime: 14020313,
     like: 213,
@@ -178,7 +178,7 @@ const courseData = [
   {
     courseName: "ری اکت",
     courseMaster: "استاد حامد نظری",
-    price: 342343257,
+    price: 4200000,
     view: 34,
     addTime: 14020321,
     like: 2132,
@@ -186,7 +186,7 @@ const courseData = [
   {
     courseName: "دوره اصلی",
     courseMaster: "استاد محمد بحرالعلوم",
-    price: 87656,
+    price: 2350000,
     view: 432,
     addTime: 14020221,
     like: 21,

@@ -41,11 +41,11 @@ const HeaderNavbar = () => {
           className={`hidden ${style.hamInp}`}
           type="checkbox"
           name=""
-          id="hamMenu"
+          id="hamMenuLayout"
         />
         <label
           className={`w-[40px] h-[40px] absolute top-[30px] right-[10px] cursor-pointer transition-all duration-500 bg-[url('../../../../../src/assets/Images/hamMenu.png')] bg-no-repeat bg-[length:50%] bg-center  ${style.hamLabel}`}
-          htmlFor="hamMenu"
+          htmlFor="hamMenuLayout"
         ></label>
         <div
           className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}

@@ -36,7 +36,7 @@ const BestMasters = () => {
           className="lg:hidden mySwiper w-[300px] h-[300px]"
         >
           {data.map((master, index) => (
-            <SwiperSlide className="bg-center bg-cover" key={index}>
+            <SwiperSlide className="bg-center bg-cover " key={index}>
               <Master {...master} />
             </SwiperSlide>
           ))}

@@ -18,6 +18,8 @@ const Layout = () => {
   const sort = useSelector((state) => state.sort.sort);
   const masterFilter = useSelector((state) => state.masterFilter);
   const courseFilter = useSelector((state) => state.courseFilter);
+  const minPrice = useSelector((state) => state.priceFilter.minPrice);
+  const maxPrice = useSelector((state) => state.priceFilter.maxPrice);
 
   const searchData = courseData.filter((e) => {
     return (
@@ -39,6 +41,8 @@ const Layout = () => {
         el.courseMaster == masterFilter.asg ||
         el.courseMaster == masterFilter.esf ||
         masterFilter.masterElse) &&
+      minPrice <= el.price &&
+      el.price <= maxPrice &&
       (el.courseName == courseFilter.python ||
         el.courseName == courseFilter.react ||
         el.courseName == courseFilter.design ||

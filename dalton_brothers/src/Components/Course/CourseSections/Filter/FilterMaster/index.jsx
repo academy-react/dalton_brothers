@@ -7,6 +7,11 @@ import {
   onEsfChange,
   onMasterElseChange,
 } from "../../../../../Redux/Filter/masterFilter";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+import { EffectCube, Pagination, Autoplay, Navigation } from "swiper/modules";
 
 import style from "../Filter.module.css";
 
@@ -89,62 +94,148 @@ const FilterMaster = () => {
 
   return (
     <>
-      {/*------------------------------------------------------------ ostad bahr ------------------------------------------------------------*/}
-      <input
-        type="checkbox"
-        name="master"
-        id={`masterBah`}
-        onClick={handleBah}
-        className={`hidden ${style.masterInp}`}
-      />
-      <label
-        htmlFor={`masterBah`}
-        className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+      <div className="2xl:gap-[40px] xl:flex w-full 2xl:flex flex-row flex-wrap gap-[20px] justify-around font-irSans text-[#383838] hidden">
+        {/*------------------------------------------------------------ ostad bahr ------------------------------------------------------------*/}
+        <input
+          type="checkbox"
+          name="master"
+          id={`masterBah`}
+          onClick={handleBah}
+          className={`hidden ${style.masterInp}`}
+        />
+        <label
+          htmlFor={`masterBah`}
+          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+        >
+          <h1 className="mx-auto">استاد بحرالعلوم</h1>
+        </label>
+        {/*------------------------------------------------------------ ostad nazary ------------------------------------------------------------*/}
+        <input
+          type="checkbox"
+          name="master"
+          id={`masterNaz`}
+          onClick={handleNaz}
+          className={`hidden ${style.masterInp}`}
+        />
+        <label
+          htmlFor={`masterNaz`}
+          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+        >
+          <h1 className="mx-auto">استاد نظری</h1>
+        </label>
+        {/*------------------------------------------------------------ ostad asghary ------------------------------------------------------------*/}
+        <input
+          type="checkbox"
+          name="master"
+          id={`masterAsg`}
+          onClick={handleAsg}
+          className={`hidden ${style.masterInp}`}
+        />
+        <label
+          htmlFor={`masterAsg`}
+          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+        >
+          <h1 className="mx-auto">استاد اصغری</h1>
+        </label>
+        {/*------------------------------------------------------------ ostad esfandiary ------------------------------------------------------------*/}
+        <input
+          type="checkbox"
+          name="master"
+          id={`masterEsf`}
+          onClick={handleEsf}
+          className={`hidden ${style.masterInp}`}
+        />
+        <label
+          htmlFor={`masterEsf`}
+          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+        >
+          <h1 className="mx-auto">استاد اسفندیاری</h1>
+        </label>
+      </div>
+      <Swiper
+        loop={true}
+        autoplay={{
+          delay: 3700,
+          disableOnInteraction: false,
+        }}
+        navigation={false}
+        effect={"cube"}
+        grabCursor={true}
+        cubeEffect={{
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.94,
+        }}
+        pagination={false}
+        modules={[EffectCube, Pagination, Autoplay, Navigation]}
+        className="xl:hidden md:w-[300px] md:h-[300px] w-[200px] h-[200px] mySwiper"
       >
-        <h1 className="mx-auto">استاد بحرالعلوم</h1>
-      </label>
-      {/*------------------------------------------------------------ ostad nazary ------------------------------------------------------------*/}
-      <input
-        type="checkbox"
-        name="master"
-        id={`masterNaz`}
-        onClick={handleNaz}
-        className={`hidden ${style.masterInp}`}
-      />
-      <label
-        htmlFor={`masterNaz`}
-        className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
-      >
-        <h1 className="mx-auto">استاد نظری</h1>
-      </label>
-      {/*------------------------------------------------------------ ostad asghary ------------------------------------------------------------*/}
-      <input
-        type="checkbox"
-        name="master"
-        id={`masterAsg`}
-        onClick={handleAsg}
-        className={`hidden ${style.masterInp}`}
-      />
-      <label
-        htmlFor={`masterAsg`}
-        className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
-      >
-        <h1 className="mx-auto">استاد اصغری</h1>
-      </label>
-      {/*------------------------------------------------------------ ostad esfandiary ------------------------------------------------------------*/}
-      <input
-        type="checkbox"
-        name="master"
-        id={`masterEsf`}
-        onClick={handleEsf}
-        className={`hidden ${style.masterInp}`}
-      />
-      <label
-        htmlFor={`masterEsf`}
-        className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
-      >
-        <h1 className="mx-auto">استاد اسفندیاری</h1>
-      </label>
+        <SwiperSlide className="bg-center bg-cover">
+          {/*------------------------------------------------------------ ostad bahr ------------------------------------------------------------*/}
+          <input
+            type="checkbox"
+            name="master"
+            id={`masterBahResPonsive`}
+            onClick={handleBah}
+            className={`hidden ${style.masterInpResponsive}`}
+          />
+          <label
+            htmlFor={`masterBahResPonsive`}
+            className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
+          >
+            <h1 className="mx-auto">استاد بحرالعلوم</h1>
+          </label>
+        </SwiperSlide>
+        <SwiperSlide className="bg-center bg-cover">
+          {/*------------------------------------------------------------ ostad nazary ------------------------------------------------------------*/}
+          <input
+            type="checkbox"
+            name="master"
+            id={`masterNazResPonsive`}
+            onClick={handleNaz}
+            className={`hidden ${style.masterInpResponsive}`}
+          />
+          <label
+            htmlFor={`masterNazResPonsive`}
+            className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
+          >
+            <h1 className="mx-auto">استاد نظری</h1>
+          </label>
+        </SwiperSlide>
+        <SwiperSlide className="bg-center bg-cover">
+          {/*------------------------------------------------------------ ostad asghary ------------------------------------------------------------*/}
+          <input
+            type="checkbox"
+            name="master"
+            id={`masterAsgResPonsive`}
+            onClick={handleAsg}
+            className={`hidden ${style.masterInpResponsive}`}
+          />
+          <label
+            htmlFor={`masterAsgResPonsive`}
+            className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
+          >
+            <h1 className="mx-auto">استاد اصغری</h1>
+          </label>
+        </SwiperSlide>
+        <SwiperSlide className="bg-center bg-cover">
+          {/*------------------------------------------------------------ ostad esfandiary ------------------------------------------------------------*/}
+          <input
+            type="checkbox"
+            name="master"
+            id={`masterEsfResPonsive`}
+            onClick={handleEsf}
+            className={`hidden ${style.masterInpResponsive}`}
+          />
+          <label
+            htmlFor={`masterEsfResPonsive`}
+            className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
+          >
+            <h1 className="mx-auto">استاد اسفندیاری</h1>
+          </label>
+        </SwiperSlide>
+      </Swiper>
     </>
   );
 };

@@ -16,13 +16,13 @@ const LayHeader = ({ course, news, detailCourse }) => {
       <LayHeaderNav />
       {/* search input */}
       <div>
-        <div className=" font-irSans text-xl text-gray-500 bg-white m-auto text-center relative top-[15px] w-[170px] rounded-full">
+        <div className="font-irSans text-xl text-gray-500 bg-white m-auto text-center relative top-[15px] w-[170px] rounded-full">
           جستوجو در سایت
         </div>
         <input
           type="text"
           placeholder="...جستوجو کن"
-          className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none font-irSans max-sm:w-[400px]"
+          className=" border-[#eaeaea] border-2 w-[600px] h-[60px] rounded-full text-right pr-5 outline-none font-irSans max-sm:w-[300px]"
           onKeyUp={(e) => dispatch(onSearchChange(e.target.value))}
         />
       </div>

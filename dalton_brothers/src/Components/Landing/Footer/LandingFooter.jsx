@@ -9,7 +9,7 @@ import kasbokar from "../../../assets/Images/kasbokar.png";
 const LandingFooter = () => {
   return (
     <div
-      className={`2xl:h-[800px] xl:bg-[url('../../../../src/assets/Images/landing-footer.svg')] xl:bg-no-repeat xl:w-[100vw] xl:h-[600px] xl:bg-[length:100vw] xl:bg-bottom xl:bg-transparent xl:items-end xl:justify-end md:items-center flex flex-col flex-nowrap items-start w-[100%] h-fit bg-[#fcbf49]`}
+      className={`2xl:h-[800px] xl:bg-[url('../../../../src/assets/Images/landing-footer.svg')] xl:bg-no-repeat xl:w-[100vx] xl:h-[600px] xl:bg-[length:100vw] xl:bg-bottom xl:bg-transparent xl:items-end xl:justify-end md:items-center flex flex-col flex-nowrap items-start w-[100%] h-fit bg-[#fcbf49]`}
     >
       <div className=" flex justify-center items-center flex-row-reverse mt-[30px] px-[20px]">
         <FooterDesc style={"gap-[10px]"} />

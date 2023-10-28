@@ -13,7 +13,7 @@ const Button = ({ type, style, text, path }) => {
         transfer(path);
       }}
       type={type}
-      className={`px-[50px] py-[10px] rounded-full font-irSBold text-lg cursor-pointer  transition-all duration-500 ${style}`}
+      className={`min-[500px]:text-xl min-[500px]:px-[20px] text-xs px-2 py-[10px]  rounded-full font-irSBold cursor-pointer  transition-all duration-500 ${style}`}
     >
       {text}
     </button>
