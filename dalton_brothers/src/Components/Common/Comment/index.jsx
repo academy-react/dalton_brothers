@@ -32,39 +32,45 @@ const CommentPlace = () => {
         onSubmit={(values) => onSubmit(values)}
         validationSchema={validation}
       >
-        <Form className="flex w-[500px] flex-col items-center">
+        <Form className="flex w-[500px] flex-col items-center font-irSans">
           <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
-            <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959] max-xl:bg-[#fcbf49] max-xl:text-[#fff]">
+            <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959] max-xl:bg-transparent max-xl:text-zinc-600">
               نام کاربر
             </span>
             <Field
               name="name"
-              className=" w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-zinc-300 border-[2px] peer px-5 max-xl:bg-[#fcbf49] max-xl:border-gray-50 max-xl:text-[#fff] max-xl:placeholder:text-[#fff]"
+              className=" w-[85%] m-auto text-right h-[40px] rounded-full outline-none border-zinc-300 border-[2px] peer px-5 max-xl:bg-transparent max-xl:border-gray-50 max-xl:text-zinc-600 max-xl:placeholder:text-zinc-400"
               type="text"
               placeholder="...نام کاربری"
             />
+            <div className="w-full h-10 flex justify-center items-center">
+
             <ErrorMessage
               name="name"
               component={"div"}
-              className="error font-irSans text-center mt-[10px]"
+              className="error font-irSans text-center mt-[10px] text-red-500  "
             />
           </div>
+          </div>
           <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mb-[30px] px-[40px]">
-            <span className=" mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959] max-xl:bg-[#fcbf49] max-xl:text-[#fff] ">
+            <span className=" mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959] max-xl:bg-transparent max-xl:text-zinc-600 ">
               پیام شما
             </span>
             <Field
               as="textarea"
               name="comment"
-              className=" w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-zinc-300 border-[2px] peer px-5 py-[15px] max-xl:bg-[#fcbf49] max-xl:border-gray-50 max-xl:text-[#fff] max-xl:placeholder:text-[#fff]"
+              className=" w-[85%] m-auto text-right min-h-[120px] max-h-[150px] rounded-[20px] outline-none border-zinc-300 border-[2px] peer px-5 py-[15px] max-xl:bg-transparent max-xl:border-gray-50 max-xl:text-zinc-600 max-xl:placeholder:text-zinc-400"
               type="text"
               placeholder="...متن پیام"
             />
+            <div className="w-full h-10 flex justify-center items-center">
+            
             <ErrorMessage
               name="comment"
               component={"div"}
-              className="error  font-irSans text-center mt-[10px]"
+              className="error  font-irSans text-center mt-[10px] text-red-500"
             />
+          </div>
           </div>
           <Button
             style={
