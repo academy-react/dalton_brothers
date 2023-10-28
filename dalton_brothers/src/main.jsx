@@ -20,6 +20,7 @@ import { Dashboard } from "./Components/StudentPanel/Dashboard/Dashboard";
 import { ArticleDetail } from "./Components/Article & News/ArticleDetail/ArticleDetail";
 
 import "./index.css";
+import { Identify } from "./Components/ForgetPass/ForgetSection/Identify";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
@@ -35,8 +36,11 @@ const router = createBrowserRouter([
   },
   { path: "/signIn", element: <SignIn /> },
   { path: "/register", element: <Register /> },
-  { path: "/forget", element: <ForgetPass /> },
-
+  {
+    path: "/forget",
+    element: <ForgetPass />,
+  },
+  { path: "/identify", element: <Identify /> },
   {
     element: <LayoutPanel />,
     children: [

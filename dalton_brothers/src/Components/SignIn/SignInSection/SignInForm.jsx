@@ -1,30 +1,23 @@
 import { Form, Formik } from "formik";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
-import { SignLinks } from "../../Common/Links/SignLinks";
+import { NavLinks } from "../../Common/Links/NavLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 
-const SignInForm = ({
-  zIndex,
-  setToggle,
-  toggle,
-  reg,
-  setReg,
-  setForget,
-  forget,
-}) => {
+const SignInForm = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
-    setToggle(!toggle);
+    navigate("/");
   };
-  const navigate = useNavigate()
+ 
   // validation................................
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
@@ -33,14 +26,14 @@ const SignInForm = ({
 
   return (
     <div
-      className={`xl:w-[40%] lg:w-[50%] md:w-[80%] relative flex flex-row justify-center items-center ${zIndex}`}
+      className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center`}
     >
       <Formik
         initialValues={{ logInPassword: "", logInUserName: "" }}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
-        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
+        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[20px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
             style={"leading-3 text-[20px] self-center text-[#9a9a9a]"}
@@ -64,7 +57,7 @@ const SignInForm = ({
               name={"logInUserName"}
               as={"input"}
             />
-            <div className="w-[25px] absolute left-[8%] top-[25%]">
+            <div className="w-[25px] absolute left-[8%] top-[14%]">
               {show ? (
                 <TbEye
                   onClick={() => setShow(!show)}
@@ -99,27 +92,19 @@ const SignInForm = ({
             <span className="text-[#868686] font-thin text-[14px] font-irSans">
               ایا رمز عبور خود را فراموش کردبد؟
             </span>
-            <SignLinks
-              state={forget}
-              setState={setForget}
+            <NavLinks
               text={"بلی"}
-              style={
-                "text-[#fcbf49] font-thin text-[14px] font-irSans py-[0] mr-[-40px]"
-              }
-              path={"/signIn"}
+              style={"text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"}
+              path={"/forget"}
             />
           </div>
           <div className="self-end pr-[80px] flex flex-row-reverse items-center ">
             <span className="text-[#868686] font-thin text-[14px] font-irSans">
               حساب فعال ندارید؟
             </span>
-            <SignLinks
-              state={reg}
-              setState={setReg}
+            <NavLinks
               text={"ایجاد حساب"}
-              style={
-                "text-[#fcbf49] font-thin text-[14px] font-irSans py-[0] mr-[-40px]"
-              }
+              style={"text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"}
               path={"/register"}
             />
           </div>

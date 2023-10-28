@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryTitle } from "./CategorySections/CategoryTitle";
+import { Title } from "../../Common/Title/Title";
 import { CategoryKind } from "./CategorySections/CategoryKind";
 
 const Category = () => {
@@ -8,7 +8,7 @@ const Category = () => {
       style={{ direction: "rtl" }}
       className="w-4/5 m-auto my-5 font-irSans border border-transparent"
     >
-      <CategoryTitle />
+      <Title topic={'دسته بندی ها'} style={'text-[#fcbf49] justify-center'}/>
       <CategoryKind />
     </div>
   );

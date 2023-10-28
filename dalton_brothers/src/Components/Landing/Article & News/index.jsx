@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Article } from "../../Article & News/ArticleSections/Article";
 import { newsData } from "../../../Core/Services/data";
+import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
 
 const ArticleNews = () => {
   const data = [newsData[0], newsData[1], newsData[2]];
@@ -25,9 +26,7 @@ const ArticleNews = () => {
       </div>
 
       <div className=" w-11/12 mx-auto flex justify-center flex-wrap items-center gap-10 ">
-        {data.map((news, index) => (
-          <Article {...news} key={index} />
-        ))}
+        <SimpleSlider data={newsData} item={"news"} />
       </div>
     </div>
   );
