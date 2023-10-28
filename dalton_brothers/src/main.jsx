@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import { Landing } from "../src/Components/Landing";
 import { CourseList } from "../src/Components/Course/CourseList";
@@ -50,5 +51,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <Provider>
+    <RouterProvider router={router} />
+  </Provider>
 );
