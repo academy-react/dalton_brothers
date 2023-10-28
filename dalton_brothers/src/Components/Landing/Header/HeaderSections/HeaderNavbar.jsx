@@ -18,12 +18,12 @@ const HeaderNavbar = () => {
           type={"button"}
           text={"ورود/ثبت نام"}
           style={
-            "bg-[#fff] text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[150px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[12px] "
+            "bg-[#fff] text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[150px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
           }
           path={"/signIn"}
         />
       </div>
-      <div className="xl:w-[70vw] lg:w-fit lg:gap-[30px] lg:order-2 md:justify-center md:mt-[30px] md:w-[100%] md:flex flex-row hidden">
+      <div className="xl:w-[70vw] lg:w-fit lg:gap-[30px] lg:order-2 md:justify-center md:mt-[10px] md:w-[100%] md:flex flex-row hidden">
         <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] flex flex-row flex-nowrap items-center justify-center gap-[10px] text-[#fdb501] text-base">
           <NavLinks text={"دوره ها"} path={"/course"} />
           <NavLinks text={"پشتیبانی"} path={"/"} />

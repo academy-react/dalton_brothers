@@ -15,6 +15,13 @@ const FooterDesc = ({style}) => {
         <FooterText text={"درباره ی سایت"} />
         <FooterText text={"ارتباط با ما"} />
       </div>
+      <div className="py-[50px] px-9 flex flex-col gap-[30px]">
+        <FooterTitle title={"برنامه‌نویسی"} />
+        <FooterText text={"اندروید"} /> 
+        <FooterText text={"پی اچ پی "} />
+        <FooterText text={"پایتون "} />
+        <FooterText text={"جاوا "} />
+      </div>
       
       <div className="py-[50px] px-9 flex flex-col items-center gap-[30px]">
         <FooterTitle title={"راه های ارتباطی"} />
