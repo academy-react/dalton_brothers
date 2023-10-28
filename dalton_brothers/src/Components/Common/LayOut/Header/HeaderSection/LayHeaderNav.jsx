@@ -25,7 +25,7 @@ const LayHeaderNav = () => {
         <img src={sun} alt="" className=" w-[40px]" />
       </div>
       {/* button for sign in or enter */}
-      <div className="bg-zinc-100  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-irSBold text-slate-600 mr-9 xl: mr-0">
+      <div className="bg-zinc-100  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-irSBold text-slate-600 xl: mr-0">
         <button
           type="button"
           className="bg-[#fff] w-[150px] h-11 text-center py-[12px] shadow-ri shadow-slate-400 rounded-full absolute left-[12px] top-[10px]"

@@ -17,6 +17,7 @@ export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
   const [sort, setSort] = useState("");
+  const [search, setSearch] = useState("");
   const [bahr, setBahr] = useState(masterData[0].master);
   const [naz, setNaz] = useState(masterData[1].master);
   const [mehdi, setMehdi] = useState(masterData[2].master);
@@ -26,7 +27,13 @@ const Layout = () => {
   const [design, setDesign] = useState(courseNameData[2].courseName);
   const [main, setMain] = useState(courseNameData[3].courseName);
 
-  const sortedData = courseData.sort((a, b) => {
+  const searchData = courseData.filter((e) => {
+    return (
+      e.courseName.indexOf(search) != -1 || e.courseMaster.indexOf(search) != -1
+    );
+  });
+
+  const sortedData = searchData.sort((a, b) => {
     if (sort === "price") return a.price - b.price;
     if (sort === "view") return b.view - a.view;
     if (sort === "like") return b.like - a.like;
@@ -52,6 +59,7 @@ const Layout = () => {
         sortedData,
         filteredData,
         setSort,
+        setSearch,
         setBahr,
         setNaz,
         setMehdi,
