@@ -12,9 +12,8 @@ export default {
       shabl: "shablon",
       BTi: "BTitrBd",
       Ord: "Ordibehesht",
-      irSans : "iranSans",
-      irSBold : "iranSansBold",
-
+      irSans: "iranSans",
+      irSBold: "iranSansBold",
     },
 
     extend: {
@@ -36,3 +35,10 @@ export default {
   },
   plugins: [],
 };
+//  zard : #fcbf49
+//  tosi 1 : #707070
+//  tosi 2 : #848484
+//  tosi 3 : #e7e8ec
+//  abi toosi : #f1f5f9
+//  red :#f00000
+//  kale ghaz : #334155
