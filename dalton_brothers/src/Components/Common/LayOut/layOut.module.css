@@ -114,7 +114,8 @@
   .sort {
     width: 100%;
   }
-  }
+}
+.progressWheel {
   position: fixed;
   top: 20px;
   left: 20px;
@@ -141,17 +142,3 @@
   width: 100px;
   height: 100px;
 }
-
-
-
-
-      
-      
-      
-      
-
-      
-
-        
-
-
