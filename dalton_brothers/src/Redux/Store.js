@@ -5,6 +5,7 @@ import sort from "./sort";
 import masterFilter from "./Filter/masterFilter";
 import priceFilter from "./Filter/priceFilter";
 import courseFilter from "./Filter/courseFilter";
+import token from "./token";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
     masterFilter,
     priceFilter,
     courseFilter,
+    token,
   },
 });
 

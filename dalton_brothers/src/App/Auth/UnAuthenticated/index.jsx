@@ -10,6 +10,10 @@ import { Identify } from "../../../Components/ForgetPass/ForgetSection/Identify"
 import { LayoutPanel } from "../../../Components/StudentPanel/LayoutPanel/LayoutPanel";
 import { NotAccess } from "../../../Components/Common/NotAccess";
 import { NotFound } from "../../../Components/Common/NotFound";
+import { CourseList } from "../../../Components/Course/CourseList";
+import { CourseDetail } from "../../../Components/CourseDetail/CourseDetail";
+import { ArticleNews } from "../../../Components/Article & News/Article & News";
+import { ArticleDetail } from "../../../Components/Article & News/ArticleDetail/ArticleDetail";
 const UnAuthenticated = () => {
   const router = [
     { path: "/403", element: <NotAccess /> },
@@ -18,10 +22,10 @@ const UnAuthenticated = () => {
     {
       element: <Layout />,
       children: [
-        { path: "/course", element: <Navigate to={"/403"} /> },
-        { path: "/courseDetail/:id", element: <Navigate to={"/403"} /> },
-        { path: "/news", element: <Navigate to={"/403"} /> },
-        { path: `/newsDetail/:id`, element: <Navigate to={"/403"} /> },
+        { path: "/course", element: <CourseList /> },
+        { path: "/courseDetail/:id", element: <CourseDetail /> },
+        { path: "/news", element: <ArticleNews /> },
+        { path: `/newsDetail/:id`, element: <ArticleDetail /> },
       ],
     },
     { path: "/signIn", element: <SignIn /> },

@@ -1,12 +1,15 @@
 import React from "react";
-import logo from "../../../../assets/Images/layOut-logo.png";
-import sun from "../../../../assets/Images/sun.png";
+import { useSelector } from "react-redux";
 
 import { NavLinks } from "../../../Common/Links/NavLinks";
+
+import logo from "../../../../assets/Images/layOut-logo.png";
+import sun from "../../../../assets/Images/sun.png";
 
 import style from "../../layOut.module.css";
 
 const LayHeaderNav = () => {
+  const token = useSelector((state) => state.token.token);
   return (
     <div className={style.headerBox1}>
       {/* logo */}
@@ -46,17 +49,21 @@ const LayHeaderNav = () => {
         <img src={sun} alt="" className=" w-[40px]" />
       </div>
       {/* button for sign in or enter */}
-      <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 bg-zinc-100  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-irSBold text-slate-600">
-        <NavLinks
-          path={"/register"}
-          className="bg-[#fff] w-[150px] h-11 text-center py-[12px] shadow-ri shadow-slate-400 rounded-full absolute left-[12px] top-[10px]"
-          Children={"ثبت نام"}
-        />
-        <NavLinks
-          path={"/signIn"}
-          className="bg-[#fcbf49] w-[150px] h-12 text-center py-[12px]  rounded-full"
-          Children={"ورود"}
-        />
+      <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 w-[300px]">
+        {!token && (
+          <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 bg-zinc-100  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-irSBold text-slate-600">
+            <NavLinks
+              path={"/register"}
+              className="bg-[#fff] w-[150px] h-11 text-center py-[12px] shadow-ri shadow-slate-400 rounded-full absolute left-[12px] top-[10px]"
+              Children={"ثبت نام"}
+            />
+            <NavLinks
+              path={"/signIn"}
+              className="bg-[#fcbf49] w-[150px] h-12 text-center py-[12px]  rounded-full"
+              Children={"ورود"}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
