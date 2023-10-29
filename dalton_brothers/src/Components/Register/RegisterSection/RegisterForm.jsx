@@ -116,7 +116,7 @@ const RegisterForm = () => {
                 "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
               }
               value={"ایجاد حساب"}
-              onClick={()=> navigate("/")}
+              onClick={() => navigate("/")}
             />
           </div>
           <div className="self-center flex flex-row-reverse items-center ">
@@ -124,8 +124,8 @@ const RegisterForm = () => {
               ایا حساب فعال دارید؟
             </span>
             <NavLinks
-              text={"ثبت نام"}
-              style={"text-[#fcbf49] font-thin text-[14px] font-irSans p-[0]"}
+              Children={"ثبت نام"}
+              className="text-[#fcbf49] font-thin text-[14px] font-irSans p-[0]"
               path={"/signIn"}
             />
           </div>

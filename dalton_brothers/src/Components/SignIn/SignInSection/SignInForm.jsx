@@ -17,7 +17,7 @@ const SignInForm = () => {
   const handleToggle = () => {
     navigate("/");
   };
- 
+
   // validation................................
   const validation = yup.object().shape({
     logInPassword: yup.string().required("این فیلد اجباریست"),
@@ -93,8 +93,8 @@ const SignInForm = () => {
               ایا رمز عبور خود را فراموش کردبد؟
             </span>
             <NavLinks
-              text={"بلی"}
-              style={"text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"}
+              Children={"بلی"}
+              className="text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"
               path={"/forget"}
             />
           </div>
@@ -103,8 +103,8 @@ const SignInForm = () => {
               حساب فعال ندارید؟
             </span>
             <NavLinks
-              text={"ایجاد حساب"}
-              style={"text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"}
+              Children={"ایجاد حساب"}
+              className="text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"
               path={"/register"}
             />
           </div>

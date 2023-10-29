@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
-
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
@@ -50,11 +49,11 @@ const ForgetForm = () => {
               "py-[7px] px-[60px] bg-[#fcbf49] font-irSans text-[13px] text-[#232323]"
             }
             value={"مرحله بعد"}
-            onClick={()=> navigate("/forget")}
+            onClick={() => navigate("/forget")}
           />
           <NavLinks
-            style={"font-irSans text-[13px] text-[#989898] mt-[-20px]"}
-            text={"بازگشت"}
+            className="font-irSans text-[13px] text-[#989898] mt-[-20px]"
+            Children={"بازگشت"}
             path={"/signIn"}
           />
         </Form>

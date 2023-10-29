@@ -14,12 +14,9 @@ const HeaderNavbar = () => {
         <img src={logo} alt="" className="w-full h-full" />
       </div>
       <div className="lg:w-fit lg:order-1 md:justify-center md:w-[100%] md:m-[5px] md:px-0 w-fit max-w-[2000px] whitespace-nowrap flex flex-row-reverse flex-wrap justify-between items-center p-0 m-0  order-3">
-        <Button
-          type={"button"}
-          text={"ورود/ثبت نام"}
-          style={
-            "bg-[#fff] text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer hover:bg-[#cccccc] transition-all duration-500 w-[150px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
-          }
+        <NavLinks
+          Children={"ورود/ثبت نام"}
+          className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 w-[150px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
           path={"/signIn"}
         />
       </div>
