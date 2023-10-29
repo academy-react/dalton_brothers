@@ -1,8 +1,8 @@
 import React from 'react'
 
-import icon1 from "../../../../../assets/Images/footer-icon1.png"
-import icon2 from "../../../../../assets/Images/footer-icon2.png"
-import icon3 from "../../../../../assets/Images/footer-icon3.png"
+import icon1 from "../../../../assets/Images/footer-icon1.png"
+import icon2 from "../../../../assets/Images/footer-icon2.png"
+import icon3 from "../../../../assets/Images/footer-icon3.png"
 
 
 const FooterIcon = () => {

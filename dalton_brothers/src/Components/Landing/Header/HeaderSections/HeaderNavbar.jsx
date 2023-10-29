@@ -25,14 +25,14 @@ const HeaderNavbar = () => {
       </div>
       <div className="xl:w-[70vw] lg:w-fit lg:gap-[30px] lg:order-2 md:justify-center md:mt-[10px] md:w-[100%] md:flex flex-row hidden">
         <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] flex flex-row flex-nowrap items-center justify-center gap-[10px] text-[#fdb501] text-base">
-          <NavLinks text={"دوره ها"} path={"/course"} />
-          <NavLinks text={"پشتیبانی"} path={"/"} />
-          <NavLinks text={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"دوره ها"} path={"/course"} />
+          <NavLinks Children={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"پشتیبانی"} path={"/"} />
         </div>
         <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] lg:text-[#707070] md:text-[#fdb501] flex flex-row flex-nowrap items-center justify-start gap-[10px] text-[#707070]">
-          <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
-          <NavLinks text={"ارتباط با ما"} path={"/"} />
-          <NavLinks text={"ارتباط با ما"} path={"/"} />
+          <NavLinks Children={"  اخبار و مقالات"} path={"/news"} />
+          <NavLinks Children={"ارتباط با ما"} path={"/"} />
+          <NavLinks Children={"ارتباط با ما"} path={"/"} />
         </div>
       </div>
       {/* md responsive navbar */}
@@ -50,12 +50,12 @@ const HeaderNavbar = () => {
         <div
           className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
         >
-          <NavLinks text={"دوره ها"} path={"/course"} />
-          <NavLinks text={"پشتیبانی"} path={"/"} />
-          <NavLinks text={"پشتیبانی"} path={"/"} />
-          <NavLinks text={"  اخبار و مقالات"} path={"/news"} />
-          <NavLinks text={"ارتباط با ما"} path={"/"} />
-          <NavLinks text={"ارتباط با ما"} path={"/"} />
+          <NavLinks Children={"دوره ها"} path={"/course"} />
+          <NavLinks Children={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"  اخبار و مقالات"} path={"/news"} />
+          <NavLinks Children={"ارتباط با ما"} path={"/"} />
+          <NavLinks Children={"ارتباط با ما"} path={"/"} />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { LayHeaderNav } from "./HeaderSection/LayHeaderNav";
 import { LaySort } from "./HeaderSection/Sort";
 import { useLocation } from "react-router-dom";
-import { onSearchChange } from "../../../../Redux/search";
+import { onSearchChange } from "../../../Redux/search";
 
 const LayHeader = ({ course, news, detailCourse }) => {
   const store = useSelector((state) => state.search);

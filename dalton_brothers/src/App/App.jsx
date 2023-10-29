@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Landing } from "../Components/Landing";
+import { Authenticated } from "./Auth/Authenticated";
+import { UnAuthenticated } from "./Auth/UnAuthenticated";
 
 const App = () => {
-  return (
-    <>
-      <Landing />
-    </>
-  );
+  const [token, setToken] = useState(true);
+  return <>{token ? <Authenticated /> : <UnAuthenticated />}</>;
 };
 
 export default App;

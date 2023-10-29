@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { onSortChange } from "../../../../../Redux/sort";
+import { onSortChange } from "../../../../Redux/sort";
 
 import style from "../../layOut.module.css";
 

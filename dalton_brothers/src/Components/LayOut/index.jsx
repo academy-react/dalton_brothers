@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 import { LayHeader } from "./Header";
 import LayFooter from "./Footer";
-import { courseData } from "../../../Core/Services/data";
+import { courseData } from "../../Core/Services/data";
 
 import style from "./layOut.module.css";
 
