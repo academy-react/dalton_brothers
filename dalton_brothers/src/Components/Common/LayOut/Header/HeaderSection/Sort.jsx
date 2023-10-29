@@ -7,6 +7,7 @@ import style from "../../layOut.module.css";
 
 const LaySort = () => {
   const store = useSelector((state) => state.sort);
+  console.log(store)
   const dispatch = useDispatch();
 
   return (
