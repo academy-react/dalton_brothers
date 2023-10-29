@@ -12,9 +12,11 @@ const Master = ({ id, master, topic }) => {
           id={`master${id}`}
           className={style.masterInput}
         />
-        <label htmlFor={`master${id}`} className={` ${style.masterLabel}`}></label>
+        <label htmlFor={``} className={` ${style.masterLabel}`}></label>
       </div>
-      <h1 className="lg:mt-[0px] font-irSBold text-neutral-700 text-xl mt-[30px]">{master}</h1>
+      <h1 className="lg:mt-[0px] font-irSBold text-neutral-700 text-xl mt-[30px]">
+        {master}
+      </h1>
       <h1 className="font-irSans text-[#909090] text-l mt-4">{topic}</h1>
     </div>
   );

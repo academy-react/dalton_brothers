@@ -1,3 +1,14 @@
+.hamInp:checked + .hamLabel {
+  right: 130px;
+}
+.hamInp:checked ~ .hamContent {
+  height: 100%;
+  /* width: 80px; */
+  padding: 10px 0px;
+  right: 0;
+  background: #fff8e9;
+}
+
 .container {
   width: 100%;
   max-width: 1750px;
@@ -5,17 +16,17 @@
 }
 .headerBox1 {
   /* border: 1px solid; */
-  width: 100vw;
+  width: 110%;
   display: flex;
   flex-flow: row-reverse wrap;
   justify-content: space-around;
   align-items: center;
-
+  position: relative;
   padding: 50px 80px;
   padding-bottom: 130px;
   padding-left: 0;
-  background: url(../../../assets/Images/header-bg.svg) no-repeat 130% -10%;
-  background-size: 80%  ;
+  background: url(../../../assets/Images/header-bg.svg) no-repeat 150% 0%;
+  background-size: 80%;
 }
 .inp {
   display: none;
@@ -25,7 +36,7 @@
   height: 100%;
   padding: 18px 45px;
   border-radius: 9999px;
-  
+
   text-align: center;
   white-space: nowrap;
   transition: 0.4s;
@@ -54,20 +65,14 @@
   width: 25%;
 }
 
-
-
 @media (max-width: 1600px) {
-  
   .headerBox1 {
     background: url(../../../assets/Images/header-bg.svg) no-repeat 130% -10%;
-    background-size: 80%  ;
+    background-size: 80%;
   }
-
-
 }
 
 @media (max-width: 1280px) {
-  
   .headerBox1 {
     /* background: #ffffff; */
     background: #fcbf49;
@@ -77,13 +82,12 @@
     /* border-radius:30px; */
     /* margin-top: 20px; */
     display: flex;
-    flex-flow: column ;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     gap: 50px;
-  padding: 30px ;
-  /* box-shadow:0 0 5px 1px #36353543 ; */
-
+    padding: 30px;
+    /* box-shadow:0 0 5px 1px #36353543 ; */
   }
 
   .footer {
@@ -91,17 +95,15 @@
     flex-flow: row-reverse nowrap;
     justify-content: center;
     align-items: center;
-    
+
     /* height: 500px; */
     background: #fcbf49;
   }
   .illustration {
     display: none;
   }
-
 }
-@media (max-width:1024px) {
-
+@media (max-width: 1024px) {
   .footer {
     display: flex;
     flex-flow: column;
@@ -109,40 +111,36 @@
     align-items: center;
   }
 
-
-      
   .sort {
     width: 100%;
   }
   }
-  .progressWheel{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    transform: rotate(-90deg);
-    width: 100px;
-    height: 100px;
-  }
-  .progress-wheel div {
-    stroke-dashoffset: 0;
-    stroke-width: 30%;
-    width: 100px;
-    height: 100px;
-    fill: none;
-  }
-  .progress-wheel .bg {
-    stroke: var(--accent);
-    opacity: 0.2;
-    width: 100px;
-    height: 100px;
-  }
-  .progress-wheel .progress {
-    stroke: var(--accent);
-    stroke-dasharray: 0, 1;
-    width: 100px;
-    height: 100px;
-  }
-  
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  transform: rotate(-90deg);
+  width: 100px;
+  height: 100px;
+}
+.progress-wheel div {
+  stroke-dashoffset: 0;
+  stroke-width: 30%;
+  width: 100px;
+  height: 100px;
+  fill: none;
+}
+.progress-wheel .bg {
+  stroke: var(--accent);
+  opacity: 0.2;
+  width: 100px;
+  height: 100px;
+}
+.progress-wheel .progress {
+  stroke: var(--accent);
+  stroke-dasharray: 0, 1;
+  width: 100px;
+  height: 100px;
+}
 
 
 

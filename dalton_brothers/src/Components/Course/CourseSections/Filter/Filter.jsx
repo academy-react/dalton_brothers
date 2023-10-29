@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Field, Formik, Form } from "formik";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Title } from "../../../Common/Title/Title";
-import { FilterMasters } from "./FilterMaster";
 import { FilterCourse } from "./FilterCourse";
-import { masterData, courseNameData } from "../../../../Core/Services/data";
+import { FilterMaster } from "./FilterMaster";
+import { RangeSlider } from "./RangePrice";
 
 import style from "./Filter.module.css";
-import { RangeSlider } from "./RangePrice/RangeSlider";
 const Filter = () => {
-  const [min, setMin] = useState(100);
-  const [max, setMax] = useState(1000000);
+  const minPrice = useSelector((state) => state.priceFilter.minPrice);
+  const maxPrice = useSelector((state) => state.priceFilter.maxPrice);
 
   return (
     <div className="w-[90%] m-auto ">
@@ -23,23 +22,19 @@ const Filter = () => {
       />
       <label
         htmlFor="Filter"
-        className={`${style.filterLabel} transition-all duration-700 relative left-0 w-fit px-[85px] py-[5px] border-2 bg-[#334155] text-white rounded-full font-irSBold text-lg cursor-pointer `}
+        className={`${style.filterLabel} min-[500px]:text-lg min-[500px]:px-[106px] text-xs px-[60px] py-[5px]  transition-all duration-700 relative left-0 w-fit border-2 bg-[#334155] text-white rounded-full font-irSBold cursor-pointer `}
       >
         فیلتر
       </label>
       <div
-        className={`${style.content} h-0 w-[80%] overflow-hidden  m-auto transition-all duration-700 rounded-[30px] bg-[#ebefff]`}
+        className={`${style.content} h-0 w-[80%] overflow-hidden  m-auto transition-all duration-700 rounded-[30px] bg-[#f1f5f9]`}
       >
         <div className="flex flex-col items-start">
           <Title
             topic={"استاد دوره"}
             style={"font-sha text-xl text-[#545454] my-[30px]"}
           />
-          <div className="w-full flex flex-row flex-wrap gap-[20px] justify-around font-irSans text-[#383838]">
-            {masterData.map((el) => (
-              <FilterMasters {...el} key={el.id} />
-            ))}
-          </div>
+          <FilterMaster />
         </div>
         <div className="h-[20%]">
           <Title
@@ -47,43 +42,13 @@ const Filter = () => {
             style={"font-sha text-xl text-[#545454] text-left my-[30px]"}
           />
           <div className={style.priceRange}>
-            {/* <Formik initialValues={{ priceFrom: "", priceTo: "" }}>
-              <Form className="flex flex-col gap-[20px] w-[60%] m-auto">
-                <div className=" flex justify-around">
-                  <div>meow1</div>
-                  <div>meow2</div>
-                </div>
-                <input
-                  type="range"
-                  name="price"
-                  id="priceFrom"
-                  min={0}
-                  max={1000000}
-                  value={min}
-                  className="appearance-none"
-                  onChange={(e) => console.log(e.target.value)}
-                />
-                <input
-                  type="range"
-                  name="price"
-                  id="priceTo"
-                  min={0}
-                  max={1000000}
-                  value={max}
-                  onChange={(e) => console.log(e.target.value)}
-                  className="appearance-none"
-                />
-              </Form>
-            </Formik> */}
             <RangeSlider
-              className="mx-auto w-max relative top-10 z-0"
-              minVal={min}
-              maxVal={max}
-              setMinVal={setMin}
-              setMaxVal={setMax}
-              min={0}
-              max={1000000}
-              step={100}
+              className="xl:w-[60%] sm:w-[90%] w-full mx-auto relative top-10 z-0"
+              minVal={minPrice}
+              maxVal={maxPrice}
+              min={250000}
+              max={5000000}
+              step={50000}
               priceCap={100}
             />
           </div>
@@ -93,11 +58,7 @@ const Filter = () => {
             topic={"موضوع دوره"}
             style={"font-sha text-xl text-[#545454] my-[30px]"}
           />
-          <div className="w-full flex flex-row flex-wrap gap-[20px] justify-around  font-irSans text-[#383838]">
-            {courseNameData.map((el) => (
-              <FilterCourse {...el} key={el.id} />
-            ))}
-          </div>
+          <FilterCourse />
         </div>
       </div>
     </div>

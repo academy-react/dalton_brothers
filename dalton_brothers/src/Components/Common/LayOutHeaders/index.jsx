@@ -7,7 +7,7 @@ import { Title } from "../Title/Title";
 const LayOutHeaders = ({ topic }) => {
   return (
     <div className="w-[90%] mx-auto flex flex-row-reverse justify-between items-center">
-      <Title topic={topic} style={"text-[#6b7280]"} />
+      <Title topic={topic} style={"text-[#6b7280] font-bold"} />
       <NavLinks path={"/"} text={"بازگشت به صفحه ی اصلی"}  style={'bg-[#334155] text-[#fff]'}/>
     </div>
   );

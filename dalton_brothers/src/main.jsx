@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import { Landing } from "../src/Components/Landing";
 import { CourseList } from "../src/Components/Course/CourseList";
@@ -21,6 +22,9 @@ import { ArticleDetail } from "./Components/Article & News/ArticleDetail/Article
 
 import "./index.css";
 import { Identify } from "./Components/ForgetPass/ForgetSection/Identify";
+import store from "./Redux/Store";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },
@@ -53,5 +57,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );
