@@ -116,7 +116,6 @@ const RegisterForm = () => {
                 "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
               }
               value={"ایجاد حساب"}
-              onClick={() => navigate("/")}
             />
           </div>
           <div className="self-center flex flex-row-reverse items-center ">
