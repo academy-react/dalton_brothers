@@ -16,7 +16,12 @@ export default {
         irSans: "iranSans",
         irSBold: "iranSansBold",
         },
-      colors:{pallete : { 100 : "#fcbf49"   } , mode : { 100 :"#f6f6f6"} },
+      colors:{
+      pallete : { 100 : "#fcbf49"   },
+      modePallete:{100:"#16A34A"} ,
+      mode : {50 :"#F1F5F9" , 100 :"#f6f6f6" , 700:"#707070"  ,900 :"#404042"},
+    error : {100 :"text-red-500"} },
+
       boxShadow: { ri: "0px 0px 10px black" },
       backgroundImage: {
         ham: "url(./src/assets/images/arrow-ng.png)",
