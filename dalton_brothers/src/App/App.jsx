@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { Landing } from "../Components/Landing";
+import { Authenticated } from "./Auth/Authenticated";
+import { UnAuthenticated } from "./Auth/UnAuthenticated";
 
 const App = () => {
-  return (
-    <>
-      <Landing />
-    </>
-  );
+  const token = useSelector((state) => state.token.token);
+  return <>{token ? <Authenticated /> : <UnAuthenticated />}</>;
 };
 
 export default App;

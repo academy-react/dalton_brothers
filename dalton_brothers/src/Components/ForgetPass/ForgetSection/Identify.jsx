@@ -6,8 +6,8 @@ const Identify = () => {
     <div className={`font-irSBold text-center text-2xl relative`}>
       waiting for api ...
       <NavLinks
-        style={" font-irSans text-[#ccc]"}
-        text={"click here to return"}
+        className={" font-irSans text-[#ccc]"}
+        Children={"click here to return"}
         path={"/forget"}
       />
     </div>

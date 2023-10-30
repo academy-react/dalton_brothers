@@ -16,9 +16,12 @@ const Input = ({ topic, style, placeHolder, type, name, as }) => {
         {topic}
       </span>
       <div className="w-full h-10 flex justify-center items-center">
-      
-      <ErrorMessage name={name} component={"p"} className="error text-red-500 text-center" />
-    </div>
+        <ErrorMessage
+          name={name}
+          component={"p"}
+          className="error text-red-500 text-center"
+        />
+      </div>
     </div>
   );
 };

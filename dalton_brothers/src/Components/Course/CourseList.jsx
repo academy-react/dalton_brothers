@@ -3,7 +3,7 @@ import React from "react";
 import "../../index.css";
 import { Course } from "./CourseSections/Course";
 import { LayOutHeaders } from "../Common/LayOutHeaders";
-import { useAppContext } from "../Common/LayOut";
+import { useAppContext } from "../LayOut";
 import { Filter } from "./CourseSections/Filter/Filter";
 
 const CourseList = () => {

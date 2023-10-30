@@ -1,7 +1,7 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // import { scroll } from "framer-motion/dom";
-// import style from "../../Components/Common/LayOut/layOut.module.css"
+// import style from "../../Components/Common/layOut.module.css"
 
 const ScrollAnimation = () => {
   //   const progressWheel = document.querySelector(".progress");
@@ -10,10 +10,10 @@ const ScrollAnimation = () => {
     const UpdateScroll = () => {
       const correctProgress = window.scrollY;
       const scrollHeight = document.body.scrollHeight - window.innerHeight;
-      if ( scrollHeight ){
+      if (scrollHeight) {
         setCompletion(
-            Number((correctProgress / scrollHeight).toFixed(2)) * 100
-        )
+          Number((correctProgress / scrollHeight).toFixed(2)) * 100
+        );
       }
     };
 

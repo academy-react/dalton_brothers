@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from "../../../../Common/LayOut/layOut.module.css";
+import style from "../../../../LayOut/layOut.module.css";
 
 
 const GotoArticle = () => {
