@@ -12,7 +12,7 @@ const HeaderNavbar = () => {
   const token = useSelector((state) => state.token.token);
   console.log(token);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="2xl:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around md:flex-row-reverse 2xl:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-between font-irSBold">
@@ -21,7 +21,13 @@ const HeaderNavbar = () => {
       </div>
 
       <div className="lg:w-[200px] lg:order-1 md:justify-center md:w-[100%] md:m-[5px] md:px-0 w-fit max-w-[2000px] whitespace-nowrap flex flex-row-reverse flex-wrap justify-between items-center p-0 m-0  order-3">
-        {!token && (
+        {token ? (
+          <NavLinks
+            Children={"ورود به پنل"}
+            className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+            path={"/panel"}
+          />
+        ) : (
           <NavLinks
             Children={"ورود/ثبت نام"}
             className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "

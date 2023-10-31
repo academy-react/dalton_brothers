@@ -50,7 +50,7 @@ const LayHeaderNav = () => {
       </div>
       {/* button for sign in or enter */}
       <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 w-[300px]">
-        {!token && (
+        {!token ? (
           <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 bg-zinc-100  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-irSBold text-slate-600">
             <NavLinks
               path={"/register"}
@@ -63,6 +63,12 @@ const LayHeaderNav = () => {
               Children={"ورود"}
             />
           </div>
+        ) : (
+          <NavLinks
+            Children={"ورود به پنل"}
+            className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+            path={"/panel"}
+          />
         )}
       </div>
     </div>
