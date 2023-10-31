@@ -12,7 +12,7 @@ import undrawSocial from "../../../../src/assets/Images/panel/undraw_social_thin
 const LayoutPanel = () => {
   const location = useLocation();
   return (
-    <div className='relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] justify-around flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-no-repeat bg-cover pt-2 '>
+    <div className='relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] justify-around flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-no-repeat bg-cover pt-2  max-xl:bg-white'>
       <div className="w-full h-20 flex justify-between items-center flex-row-reverse px-10">
         <div className=" flex justify-center items-center ">
           <Profile />
