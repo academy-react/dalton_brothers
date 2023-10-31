@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
+// import { useD}
 
 import { Button } from "../../Common/buttons";
 import { Input } from "../Inputs/Input";
@@ -17,7 +18,7 @@ const CommentPlace = () => {
       name: values.name,
       comment: values.comment,
     };
-    console.log(obj);
+    
   };
 
   return (

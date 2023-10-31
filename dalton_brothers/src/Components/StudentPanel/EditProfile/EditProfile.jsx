@@ -28,7 +28,7 @@ const EditProfile = () => {
       city: values.city,
       email: values.email,
     };
-    console.log(ooo);
+    // console.log(ooo);
   };
   return (
     <div>

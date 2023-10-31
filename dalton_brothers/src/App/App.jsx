@@ -7,12 +7,10 @@ import { UnAuthenticated } from "./Auth/UnAuthenticated";
 
 const App = () => {
   const token = useSelector((state) => state.token.token);
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+
   return (
     <>
+      <ScrollToTop />
       {token ? (
         <Authenticated location={location} />
       ) : (
@@ -23,3 +21,10 @@ const App = () => {
 };
 
 export default App;
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+};
