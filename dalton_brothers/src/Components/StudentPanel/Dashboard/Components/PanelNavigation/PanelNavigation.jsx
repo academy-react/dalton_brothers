@@ -76,7 +76,7 @@ const PanelNavigation = () => {
                     : "text-gray-500")
                 }
               >
-                {hover && item.name}
+                { item.name}
               </div>
 
               <img
