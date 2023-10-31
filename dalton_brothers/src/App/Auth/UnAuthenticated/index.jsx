@@ -6,7 +6,7 @@ import { Layout } from "../../../Components/LayOut";
 import { SignIn } from "../../../Components/SignIn/SignIn";
 import { Register } from "../../../Components/Register/Register";
 import { ForgetPass } from "../../../Components/ForgetPass/ForgetPass";
-import { Identify } from "../../../Components/ForgetPass/ForgetSection/Identify";
+import { Identify } from "../../../Components/ForgetPass/ForgetSection/Identify/Identify";
 import { LayoutPanel } from "../../../Components/StudentPanel/LayoutPanel/LayoutPanel";
 import { NotAccess } from "../../../Components/Common/NotAccess";
 import { NotFound } from "../../../Components/Common/NotFound";
