@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import { Landing } from "../../../Components/Landing";
 import { Layout } from "../../../Components/LayOut";
@@ -15,7 +16,7 @@ import { PanelCoursesList } from "../../../Components/StudentPanel/PanelCoursesL
 import { NotAccess } from "../../../Components/Common/NotAccess";
 import { NotFound } from "../../../Components/Common/NotFound";
 
-const Authenticated = () => {
+const Authenticated = ({ location }) => {
   const router = [
     { path: "/403", element: <NotAccess /> },
     { path: "/404", element: <NotFound /> },
@@ -49,16 +50,18 @@ const Authenticated = () => {
     { path: "/*", element: <NotFound /> },
   ];
   return (
-    <Routes>
-      {router.map((el, index) => (
-        <Route path={el.path} element={el.element} key={index}>
-          {el.children &&
-            el.children.map((el, index) => (
-              <Route path={el.path} element={el.element} key={index} />
-            ))}
-        </Route>
-      ))}
-    </Routes>
+    <AnimatePresence>
+      <Routes location={location} key={location.pathname}>
+        {router.map((el, index) => (
+          <Route path={el.path} element={el.element} key={index}>
+            {el.children &&
+              el.children.map((el, index) => (
+                <Route path={el.path} element={el.element} key={index} />
+              ))}
+          </Route>
+        ))}
+      </Routes>
+    </AnimatePresence>
   );
 };
 

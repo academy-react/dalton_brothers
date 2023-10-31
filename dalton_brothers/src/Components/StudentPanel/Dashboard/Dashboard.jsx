@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import { Profile } from "./Components/Profile/Profile";
 import { PanelNavigation } from "./Components/PanelNavigation/PanelNavigation";
 import { PanelSearch } from "./Components/PanelSearch/PanelSearch";

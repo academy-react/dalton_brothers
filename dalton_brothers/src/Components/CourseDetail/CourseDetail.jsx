@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import { AboutCourse } from "./components/AboutCourse/AboutCourse";
 import { CourseIntroduction } from "./components/CourseIntroduction/CourseIntroduction";
 import { Needs } from "./components/needs/Needs";
@@ -11,7 +11,12 @@ import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 
 const CourseDetail = () => {
   return (
-    <div className="">
+    <motion.div
+      className=""
+           initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="mt-5">
         {/* <ScrollAnimation/> */}
         <GoToCorse />
@@ -25,7 +30,7 @@ const CourseDetail = () => {
         <CourseComments />
         <RelatedCourses />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

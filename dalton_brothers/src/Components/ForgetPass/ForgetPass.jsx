@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { Identify } from "./ForgetSection/Identify/Identify";
 import { ForgetForm } from "./ForgetSection/ForgetForm/ForgetForm";
 
 const ForgetPass = () => {
   return (
-    <div
+    <motion.div
       className={`w-100% max-w-[2000px] h-[950px] m-auto flex border-2 relative overflow-hidden`}
+           initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <div
         dir="ltr"
@@ -15,7 +18,7 @@ const ForgetPass = () => {
       >
         <ForgetForm />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

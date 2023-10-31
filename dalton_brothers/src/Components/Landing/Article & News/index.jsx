@@ -17,7 +17,7 @@ const ArticleNews = () => {
         </div>
 
         <Link
-          onClick={() => (Document.documentElement.scrollTop = 0)}
+          // onClick={() => (Document.documentElement.scrollTop = 0)}
           to={"/news"}
           className="min-[500px]:w-[210px] w-[125px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
         >
