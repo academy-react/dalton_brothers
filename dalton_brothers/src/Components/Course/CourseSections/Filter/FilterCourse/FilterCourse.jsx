@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import style from "./Filter.Module.css";
-import { useAppContext } from "../../../Common/LayOut";
+import style from "../../Filter/Filter.Module.css";
+import { useAppContext } from "../../../../Common/LayOut";
 
 const FilterCourse = ({ id, courseName }) => {
   const [j, setJ] = useState(0);

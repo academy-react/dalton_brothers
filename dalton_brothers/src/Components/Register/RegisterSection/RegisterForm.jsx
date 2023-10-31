@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
-import { NavLinks } from "../../Common/Links/NavLinks";
+import { NavLinks } from "../../Common/Links/NavLinks/NavLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import defaultImg from "../../../assets/Images/register-person.png";
@@ -31,7 +31,7 @@ const RegisterForm = () => {
       className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center font-irSans`}
     >
       <Formik
-        initialValues={{ logInPassword: "", logInUserName: "" }}
+        initialValues={{ logInPassword: "", logInUserName: "" ,loginPhoneNumber:"",}}
         onSubmit={handleToggle}
         validationSchema={validation}
       >

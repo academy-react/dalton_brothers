@@ -4,13 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
+import { Title } from "../../../Common/Title/Title";
+import { Input } from "../../../Common/Inputs/Input";
+import { Button } from "../../../Common/buttons";
+import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
-import { Title } from "../../Common/Title/Title";
-import { Input } from "../../Common/Inputs/Input";
-import { Button } from "../../Common/buttons";
-import { NavLinks } from "../../Common/Links/NavLinks";
-
-import logo from "../../../assets/Images/logo.png";
+import logo from "../../../../assets/Images/logo.png";
 
 const ForgetForm = () => {
   const navigate = useNavigate();

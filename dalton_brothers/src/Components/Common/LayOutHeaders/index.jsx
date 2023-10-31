@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import {NavLinks} from "../Links/NavLinks";
+import {NavLinks} from "../Links/NavLinks/NavLinks";
 import { Title } from "../Title/Title";
 
 const LayOutHeaders = ({ topic }) => {

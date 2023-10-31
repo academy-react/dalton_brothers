@@ -1,10 +1,11 @@
 import React from "react";
 
-import logo from "../../../../../assets/Images/layOut-logo.png";
-import sun from "../../../../../assets/Images/sun.png";
+import logo from "../../../../../../assets/Images/layOut-logo.png";
+import sun from "../../../../../../assets/Images/sun.png";
 
-import style from "../../layOut.module.css";
-import { NavLinks } from "../../../Links/NavLinks";
+import style from "../../../layOut.module.css";
+import { NavLinks } from "../../../../Links/NavLinks/NavLinks";
+
 
 const LayHeaderNav = () => {
   return (
@@ -15,12 +16,12 @@ const LayHeaderNav = () => {
       </div>
       <div className=" flex flex-row-reverse flex-wrap justify-center gap-[75px] items-center font-irSans text-xl text-gray-500">
         {/* items */}
-        <NavLinks text={"خانه"} path={"/"} />
+        <NavLinks text={"خانه"} path={"/"}/>
         <NavLinks text={"دوره ها"} path={"/course"} />
         <NavLinks text={"اخبار و مقالات"} path={"/news"} />
-        <NavLinks text={"ارتباط با ما"} path={"/"} />
+        <NavLinks text={"ارتباط با ما"} path={"/"}  />
       </div>
-      {/* dark mode bliad */}
+      {/* dark mode */}
       <div className="">
         <img src={sun} alt="" className=" w-[40px]" />
       </div>

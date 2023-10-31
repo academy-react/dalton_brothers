@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 
 import { Course } from "../../Course/CourseSections/Course";
-import { Article } from "../../Article & News/ArticleSections/Article";
+import { Article } from "../../Article & News/ArticleSections/Article/Article";
 
 const SimpleSlider = ({ data, item }) => {
   const [component, setComponent] = useState(item);

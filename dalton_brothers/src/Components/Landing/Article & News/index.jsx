@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { Article } from "../../Article & News/ArticleSections/Article";
+import { Article } from "../../Article & News/ArticleSections/Article/Article";
 import { newsData } from "../../../Core/Services/data";
 import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
 

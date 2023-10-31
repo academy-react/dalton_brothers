@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Comments } from "../../../Common/Comment/Comments/Comments";
-import { AddComment } from "../../../Common/Comment/AddComment/AddComment";
-import { courseCommentData } from "../../../../Core/Services/data/";
+import { Comments } from "../../../../Common/Comment/Comments/Comments";
+import { AddComment } from "../../../../Common/Comment/AddComment/AddComment";
+import { ArticleCommentData } from "../../../../../Core/Services/data/";
 
 
-const CourseComments = () => {
-  const data = courseCommentData
+const ArticleComments = () => {
+  const data = ArticleCommentData
 
   const [modal, setModal] = useState(false)
-  // console.log();
+//   console.log();
   return (
     <div className=" w-full py-[30px] flex flex-col mb-[100px]">
       <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold"> نظرات </h2>
@@ -35,4 +35,4 @@ const CourseComments = () => {
   );
 };
 
-export { CourseComments };
+export { ArticleComments };

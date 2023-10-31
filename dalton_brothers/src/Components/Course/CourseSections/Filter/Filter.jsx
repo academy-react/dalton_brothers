@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Field, Formik, Form } from "formik";
 
 import { Title } from "../../../Common/Title/Title";
-import { FilterMasters } from "./FilterMaster";
-import { FilterCourse } from "./FilterCourse";
+import { FilterMasters } from "./FilterMaster/FilterMaster";
+import { FilterCourse } from "./FilterCourse/FilterCourse";
 import { masterData, courseNameData } from "../../../../Core/Services/data";
 
 import style from "./Filter.module.css";

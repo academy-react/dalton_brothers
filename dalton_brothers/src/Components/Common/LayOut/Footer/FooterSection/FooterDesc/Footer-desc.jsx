@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
-import FooterTitle from "./Footer-title";
-import FooterText from "./Footer-text";
-import { FooterIcon } from "./footer-icon";
+import { FooterIcon } from "../FooterIcon/Footer-icon";
+import FooterTitle from "../FooterTitle/Footer-title";
+import FooterText from "../FooterText/Footer-text";
 
 const FooterDesc = ({style}) => {
   return (

@@ -18,9 +18,9 @@ import { PanelCourses } from "./Components/StudentPanel/PanelCourses/PanelCourse
 import { PanelCoursesList } from "./Components/StudentPanel/PanelCoursesList/PanelCoursesList";
 import { Dashboard } from "./Components/StudentPanel/Dashboard/Dashboard";
 import { ArticleDetail } from "./Components/Article & News/ArticleDetail/ArticleDetail";
+import { Identify } from "./Components/ForgetPass/ForgetSection/Identify/Identify";
 
 import "./index.css";
-import { Identify } from "./Components/ForgetPass/ForgetSection/Identify";
 
 const router = createBrowserRouter([
   { path: "/", element: <Landing /> },

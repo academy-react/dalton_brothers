@@ -1,10 +1,13 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 .container {
   width: 100%;
   max-width: 1750px;
   margin: 0 auto;
 }
 .headerBox1 {
-  /* border: 1px solid; */
   width: 100vw;
   display: flex;
   flex-flow: row-reverse wrap;
@@ -19,21 +22,23 @@
 }
 .inp {
   display: none;
+  /* @apply hidden; */
 }
 .sort {
   width: 25%;
   height: 100%;
   padding: 18px 45px;
   border-radius: 9999px;
-  
   text-align: center;
   white-space: nowrap;
   transition: 0.4s;
   cursor: pointer;
+  /* @apply w-1/4 h-full py-4 px-11 rounded-full text-center whitespace-nowrap duration-300 cursor-pointer  */
 }
 .inp:checked + .sort {
   background: #fcbf49;
   color: #fff;
+  /* @apply bg-[#fcbf49] text-white  */
 }
 .footer {
   width: 100vw;
@@ -44,14 +49,17 @@
   display: flex;
   flex-flow: row-reverse nowrap;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 
-  /* height: 500px; */
-  background: url(../../../assets/Images/footer-bg.png) no-repeat 100% -10%;
-  background-size: 65% 460px;
+
+  /* background: url(../../../assets/Images/footer-bg.png) no-repeat 100% -10%; */
+  /* background-size: 65% 460px;
+
+  /* @apply w-[100vw] max-w-[1834px] mt-12 mb-[0px] mx-auto flex flex-row-reverse flex-nowrap justify-center items-center bg-[url('../../../assets/Images/footer-bg.png')] bg-no-repeat bg-contain  bg-right */
 }
 .illustration {
   width: 25%;
+  /* @apply w-1/4 */
 }
 
 
@@ -61,6 +69,8 @@
   .headerBox1 {
     background: url(../../../assets/Images/header-bg.svg) no-repeat 130% -10%;
     background-size: 80%  ;
+    /* @apply  bg-[url('../../../assets/Images/header-bg.png')] bg-no-repeat bg-right bg-contain  */
+
   }
 
 
@@ -69,21 +79,16 @@
 @media (max-width: 1280px) {
   
   .headerBox1 {
-    /* background: #ffffff; */
     background: #fcbf49;
-    /* border: 3px solid #fcbf49; */
     width: 100%;
     height: 100%;
-    /* border-radius:30px; */
-    /* margin-top: 20px; */
     display: flex;
     flex-flow: column ;
     align-items: center;
     justify-content: center;
     gap: 50px;
-  padding: 30px ;
-  /* box-shadow:0 0 5px 1px #36353543 ; */
-
+    padding: 30px ;
+    /* @apply bg-[#fcbf49] w-full h-full flex flex-col items-center justify-center gap-12 p-8 */
   }
 
   .footer {
@@ -91,12 +96,12 @@
     flex-flow: row-reverse nowrap;
     justify-content: center;
     align-items: center;
-    
-    /* height: 500px; */
     background: #fcbf49;
+    /* @apply flex flex-row-reverse flex-nowrap justify-center items-center bg-[#fcbf49] */
   }
   .illustration {
     display: none;
+    /* @apply hidden */
   }
 
 }
@@ -107,41 +112,17 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    /* @apply flex flex-col justify-center items-center  */
   }
-
 
       
   .sort {
     width: 100%;
+    /* @apply w-full */
   }
   }
-  .progressWheel{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    transform: rotate(-90deg);
-    width: 100px;
-    height: 100px;
-  }
-  .progress-wheel div {
-    stroke-dashoffset: 0;
-    stroke-width: 30%;
-    width: 100px;
-    height: 100px;
-    fill: none;
-  }
-  .progress-wheel .bg {
-    stroke: var(--accent);
-    opacity: 0.2;
-    width: 100px;
-    height: 100px;
-  }
-  .progress-wheel .progress {
-    stroke: var(--accent);
-    stroke-dasharray: 0, 1;
-    width: 100px;
-    height: 100px;
-  }
+
+
   
 
 

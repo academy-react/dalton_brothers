@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import style from "../../layOut.module.css";
-import { useAppContext } from "../..";
+import style from "../../../layOut.module.css";
+import { useAppContext } from "../../..";
 
 const LaySort = () => {
   const { setSort } = useAppContext();

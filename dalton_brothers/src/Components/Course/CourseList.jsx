@@ -5,6 +5,7 @@ import { Course } from "./CourseSections/Course";
 import { LayOutHeaders } from "../Common/LayOutHeaders";
 import { useAppContext } from "../Common/LayOut";
 import { Filter } from "./CourseSections/Filter/Filter";
+import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 
 const CourseList = () => {
   const { filteredData } = useAppContext();
@@ -17,6 +18,7 @@ const CourseList = () => {
           <Course {...course} key={index} />
         ))}
       </div>
+      <ScrollToTop/>
     </div>
   );
 };

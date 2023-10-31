@@ -1,8 +1,8 @@
 import React from "react";
 
-import { LayHeaderNav } from "./HeaderSection/LayHeaderNav";
-import { LaySort } from "./HeaderSection/Sort";
+import { LaySort } from "./HeaderSection/Sort/Sort";
 import { useLocation } from "react-router-dom";
+import { LayHeaderNav } from "./HeaderSection/LayHeaderNav/LayHeaderNav";
 
 const LayHeader = ({ course, news, detailCourse }) => {
   const location = useLocation();

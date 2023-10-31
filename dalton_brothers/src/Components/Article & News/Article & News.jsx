@@ -1,8 +1,10 @@
 import React from "react";
 
-import { Article } from "./ArticleSections/Article";
+// import { Article } from "./ArticleSections/Article";
+import { Article } from "./ArticleSections/Article/Article";
 import { newsData } from "../../Core/Services/data";
 import { LayOutHeaders } from "../Common/LayOutHeaders";
+import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 
 const ArticleNews = () => {
   const data = newsData;
@@ -14,6 +16,7 @@ const ArticleNews = () => {
           <Article {...news} key={index} />
         ))}
       </div>
+      <ScrollToTop />
     </div>
   );
 };

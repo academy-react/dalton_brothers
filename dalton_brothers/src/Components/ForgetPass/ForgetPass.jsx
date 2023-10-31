@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ForgetForm } from "./ForgetSection/ForgetForm";
-import { Identify } from "./ForgetSection/Identify";
+import { Identify } from "./ForgetSection/Identify/Identify";
+import { ForgetForm } from "./ForgetSection/ForgetForm/ForgetForm";
 
 const ForgetPass = () => {
   return (
