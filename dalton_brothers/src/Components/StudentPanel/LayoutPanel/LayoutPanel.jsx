@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { Profile } from "../Dashboard/Components/Profile/Profile";
 import { PanelNavigation } from "../Dashboard/Components/PanelNavigation/PanelNavigation";
 import { PanelSearch } from "../Dashboard/Components/PanelSearch/PanelSearch";

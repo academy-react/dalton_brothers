@@ -1,6 +1,6 @@
 import { React, createContext, useContext, useState } from "react";
 import { useSelector } from "react-redux";
-
+import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
 
 import { LayHeader } from "./Header";
@@ -58,7 +58,12 @@ const Layout = () => {
         filteredData,
       }}
     >
-      <div className={style.container}>
+      <motion.div
+        className={style.container}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <header className="flex flex-col gap-[80px] items-center mb-[80px]">
           <LayHeader
             course={"دوره ها"}
@@ -70,7 +75,7 @@ const Layout = () => {
         <footer className={`${style.footer}`}>
           <LayFooter />
         </footer>
-      </div>
+      </motion.div>
     </SortContext.Provider>
   );
 };
