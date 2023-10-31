@@ -45,7 +45,7 @@ const EditProfile = () => {
       onSubmit={(values) => onSubmit(values)}
       validationSchema={validation}
     >
-      <Form className=" w-[900px] pt-16 h-full flex flex-row-reverse font-irSans">
+      <Form className=" w-[900px]  h-full flex flex-row-reverse font-irSans">
         
         <div className="  w-1/2 h-full flex flex-col justify-center  ">
         <div className="rounded-full cursor-pointer self-center mb-5">
@@ -181,9 +181,8 @@ const EditProfile = () => {
 <ErrorMessage name="email" component={"div"} className="error text-red-500 text-center" />
 </div>
           </div>
-<Button value={'ثبت تغیرات'} className={'bg-orange-300 w-[50%] m-auto z-30'} type={'submit'}/>
+<Button value={'ثبت تغیرات'} className={'bg-pallete-100 w-[50%] m-auto z-30 text-mode-50'} type={'submit'}/>
           </div>
-          <Button text={'ثبت تغیرات'} style={'bg-orange-300 w-[50%] m-auto z-30'} type={'submit'}/>
         </div>
       </Form>
     </Formik>

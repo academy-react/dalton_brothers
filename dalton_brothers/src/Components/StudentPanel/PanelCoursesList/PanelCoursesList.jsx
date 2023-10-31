@@ -23,7 +23,7 @@ const PanelCoursesList = () => {
         <MyCourse coursePic={item.coursePic} courseName={item.courseName} courseMaster={item.courseMaster} term={item.term} date={item.date} price={item.price} key={index}  />
       ))}
     </div>
-    <div className='bg-red-200 w-full h-[90px] '>
+    <div className=' w-full h-[90px] '>
       <Pagination/>
     </div>
   </div>

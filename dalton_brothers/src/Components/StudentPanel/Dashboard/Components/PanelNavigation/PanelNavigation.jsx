@@ -54,7 +54,7 @@ const PanelNavigation = () => {
         </ul>
       </div>
 
-   <div className="flex justify-center items-center gap-3 w-[240px] flex-row-reverse mt-5  ">
+   <div className="flex justify-center items-center gap-3 w-[240px] flex-row-reverse mt-8 ">
 
       <Button 
        path={"./"}
