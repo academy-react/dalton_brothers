@@ -12,38 +12,28 @@ import undrawSocial from "../../../../src/assets/Images/panel/undraw_social_thin
 const LayoutPanel = () => {
   const location = useLocation();
   return (
-    <div className=' flex w-full h-[100vh] justify-between flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-cover bg-center pt-10 '>
-      
-        <div className=" flex flex-col gap-0  h-full 2xl:w-[310px] w-[220px]  ">
-          <div className="w-full  flex justify-center items-center">
-            <Profile />
-          </div>
-          <div className=" w-full  flex flex-col items-center justify-center gap-7 scale-[80%] ">
-            <PanelNavigation />
-          </div>
+    <div className='relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] justify-around flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-no-repeat bg-cover pt-10 '>
+      <div className="h-full 2xl:w-[310px] w-[220px] relative">
+        <div className="w-full flex justify-center items-center">
+          <Profile />
         </div>
-        <div className=" flex flex-col items-center  ">
-          <div className="border border-gray-300   w-[500px]    rounded-[30px]">
-            <PanelSearch />
-          </div>
-          <div className=" w-full pt-[10px]">
-            <Outlet />
-          </div>
+        <div className=" w-full scale-[80%] ">
+          <PanelNavigation />
         </div>
-        <div className="  flex flex-col 2xl:w-[300px] xl:w-[160px] lg:w-[110px] w-0  justify-between ">
-          <div className="flex   justify-center items-center ">
-            <Notification />
-          </div>
-          {/* <div className="2xl:h-[400px] 2xl:w-[470px] xl:h-[350px] xl:w-[410px] lg:h-[300px] lg:w-[360px] lg:flex hidden xl:mb-[20px] lg:mb-[30px]  ml-2 "> */}
-            {/* {location.pathname === "/panel/EditProfile" && (
-              <img src={ProfileDetails} alt="" className="w-full h-full"></img>
-            )} */}
-            {/* {location.pathname === "/panel" && (
-              <img src={undrawSocial} alt="" className="w-full h-full"></img>
-            )} */}
-          {/* </div> */}
+      </div>
+      <div className=" flex flex-col items-center">
+        <div className="border border-gray-300 w-[70%] rounded-[30px]">
+          <PanelSearch />
         </div>
-      
+        <div className=" w-full pt-[10px]">
+          <Outlet />
+        </div>
+      </div>
+      <div className="  flex flex-col 2xl:w-[300px] xl:w-[160px] lg:w-[110px] w-[100px]  justify-between ">
+        <div className="absolute top-[30px] left-[30px]">
+          <Notification />
+        </div>
+      </div>
     </div>
   );
 };

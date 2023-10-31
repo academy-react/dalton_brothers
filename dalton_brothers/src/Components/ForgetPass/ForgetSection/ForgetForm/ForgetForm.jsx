@@ -36,7 +36,7 @@ const ForgetForm = () => {
           <div className="w-[400px]">
             <Input
               topic={"ایمیل"}
-              style={"rounded-full border-[#bcbcbc] border-[2px]"}
+              className={"rounded-full w-full border-[#bcbcbc] border-[2px]"}
               placeHolder={"...ایمیل خود را وارد کنید"}
               type={"text"}
               name={"email"}
