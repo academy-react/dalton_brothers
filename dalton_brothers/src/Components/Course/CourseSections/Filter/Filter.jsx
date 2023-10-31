@@ -18,11 +18,10 @@ const Filter = () => {
         name="Filter"
         id="Filter"
         className={style.filterInput}
-        defaultChecked
       />
       <label
         htmlFor="Filter"
-        className={`${style.filterLabel} min-[500px]:text-lg min-[500px]:px-[88px] text-xs px-[60px] py-[5px]  transition-all duration-700 relative left-0 w-fit border-2 bg-[#334155] text-white rounded-full font-irSBold cursor-pointer `}
+        className={`${style.filterLabel} min-[500px]:text-lg min-[500px]:px-[107px] text-xs px-[60px] py-[5px]  transition-all duration-700 relative left-0 w-fit border-2 bg-[#334155] text-white rounded-full font-irSBold cursor-pointer `}
       >
         فیلتر
       </label>

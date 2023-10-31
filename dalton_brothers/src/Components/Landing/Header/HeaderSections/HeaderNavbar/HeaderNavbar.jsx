@@ -64,10 +64,10 @@ const HeaderNavbar = () => {
           className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
         >
           <NavLinks Children={"دوره ها"} path={"/course"} />
-          <NavLinks Children={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"دسته بندی"} path={"/"} />
           <NavLinks Children={"پشتیبانی"} path={"/"} />
           <NavLinks Children={"  اخبار و مقالات"} path={"/news"} />
-          <NavLinks Children={"ارتباط با ما"} path={"/"} />
+          <NavLinks Children={"اساتید"} path={"/"} />
           <NavLinks Children={"ارتباط با ما"} path={"/"} />
         </div>
       </div>
