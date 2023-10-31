@@ -255,18 +255,47 @@ const courseNameData = [
   { id: 4, courseName: "دوره اصلی" },
 ];
 const relatedData = [
-  { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
-  { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
-  { courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
+  { id: 1, courseName: " هااا ", courseMaster: "میو  نیگا", price: 100000 },
+  { id: 2, courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
+  { id: 3, courseName: " میو ", courseMaster: "میو  نیگا", price: 100000 },
 ];
 const relatedNews = [
   { id: 1, topic: "هوا", author: "فرامرز", number: 12 },
   { id: 2, topic: "هاوا", author: "فرامرز", number: 12 },
   { id: 3, topic: "هوا", author: "سمرز", number: 12 },
 ];
-const commentData = [
+const courseCommentData = [
   {
     text: "خووووووووووبببب بوووووووووووود",
+    userName: "امین",
+    userLogo: "https://picsum.photos/200/300",
+    Response: {},
+    date: "۳۰ مرداد",
+  },
+  {
+    text: "خوب بود",
+    userName: "محمد جواد",
+    userLogo: "https://picsum.photos/200/500",
+        Response: {
+          text: "خوب بود",
+          userName: "امی",
+          userLogo: "https://picsum.photos/200/700",
+          Response: {},
+          date: "۳۰ بهمن",
+        },
+    date: "۱۰ فروردین",
+  },
+  {
+    text: "بد بود",
+    userName: "اشکان محمدی اصل",
+    userLogo: "https://picsum.photos/200/400",
+    Response: {},
+    date: " دیروز ",
+  },
+];
+const ArticleCommentData = [
+  {
+    text: "نه حال نکردم",
     userName: "امین",
     userLogo: "https://picsum.photos/200/300",
     Response: {},
@@ -367,7 +396,8 @@ export {
   newsData,
   masterData,
   relatedData,
-  commentData,
+  courseCommentData,
+  ArticleCommentData,
   myCourseData,
   allCourseData,
   relatedNews,

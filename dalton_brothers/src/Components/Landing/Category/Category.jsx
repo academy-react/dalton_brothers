@@ -1,6 +1,6 @@
 import React from "react";
 import { Title } from "../../Common/Title/Title";
-import { CategoryKind } from "./CategorySections/CategoryKind";
+import { CategoryKind } from "./CategorySections/CategoryKind/CategoryKind";
 
 const Category = () => {
   return (

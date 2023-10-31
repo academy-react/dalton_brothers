@@ -54,12 +54,12 @@ const PanelNavigation = () => {
         </ul>
       </div>
 
-   <div className="flex justify-center items-center gap-3 w-[240px] flex-row-reverse  ">
+   <div className="flex justify-center items-center gap-3 w-[240px] flex-row-reverse mt-5  ">
 
       <Button 
        path={"./"}
-       style="  w-1/2 h-[50px] bg-[#F1F5F9]  rounded-l-[20px] text-center lg:text-xl text-lg text-gray-500 font-irSans flex justify-center items-center "
-       text={" بازگشت"}
+       className="  w-1/2 h-[50px] bg-[#F1F5F9]  rounded-l-[20px] text-center lg:text-xl text-lg text-gray-500 font-irSans flex justify-center items-center "
+       value={" بازگشت"}
        >
         {/* <img src={leaveIcon} alt="" /> */}
         {/* <IconArrowNarrowLeft
@@ -70,8 +70,8 @@ const PanelNavigation = () => {
 
       <Button 
        path={"./"}
-       style="  w-1/2 h-[50px] bg-red-400  rounded-r-[20px]  text-center lg:text-xl text-lg text-gray-100 font-irSans flex justify-center items-center "
-       text={" خروج "}
+       className="  w-1/2 h-[50px] bg-red-400  rounded-r-[20px]  text-center lg:text-xl text-lg text-gray-100 font-irSans flex justify-center items-center "
+       value={" خروج "}
        >
         {/* <img src={leaveIcon} alt="" /> */}
         {/* <IconArrowNarrowLeft

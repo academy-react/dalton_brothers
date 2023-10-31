@@ -2,13 +2,13 @@ import React from "react";
 
 import { Field, ErrorMessage } from "formik";
 
-const Input = ({ topic, style, placeHolder, type, name, as }) => {
+const Input = ({ topic, className, placeHolder, type, name, as }) => {
   return (
     <div className="flex flex-col w-full relative  sm:w-full px-[10px] font-irSans">
       <Field
         as={as}
         name={name}
-        className={`w-full text-right text-[13px] h-[45px] outline-none border-[#d5d5d5] border-[1px] peer px-5 ${style}`}
+        className={`w-full text-right text-[13px] h-[45px] outline-none border-[#d5d5d5] border-[1px] peer px-5 ${className}`}
         type={type}
         placeholder={placeHolder}
       />

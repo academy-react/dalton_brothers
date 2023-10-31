@@ -67,7 +67,7 @@ const Layout = () => {
           />
         </header>
         <Outlet />
-        <footer className={style.footer}>
+        <footer className={`${style.footer}`}>
           <LayFooter />
         </footer>
       </div>

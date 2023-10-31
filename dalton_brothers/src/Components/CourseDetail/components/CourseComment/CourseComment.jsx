@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Comments } from "../../../Common/Comment/Comments/Comments";
 import { AddComment } from "../../../Common/Comment/AddComment/AddComment";
-import { commentData } from "../../../../Core/Services/data/";
+import { courseCommentData } from "../../../../Core/Services/data";
 
 const CourseComments = () => {
   const token = useSelector((state) => state.token.token);
-  const data = commentData;
+  const data = courseCommentData;
 
   const [modal, setModal] = useState(false);
   console.log();

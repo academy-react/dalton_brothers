@@ -7,7 +7,7 @@ import { CourseTeacher } from "./components/CourseTeacher/CourseTeacher";
 import { RelatedCourses } from "./components/RelatedCourses/RelatedCourses";
 import { CourseComments } from "./components/CourseComment/CourseComment";
 import { GoToCorse } from "./components/GoToCorse/GoToCorse";
-// import { ScrollAnimation } from "../ScrollAnimation/ScrollAnimation";
+import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 
 const CourseDetail = () => {
   return (
@@ -15,6 +15,7 @@ const CourseDetail = () => {
       <div className="mt-5">
         {/* <ScrollAnimation/> */}
         <GoToCorse />
+        <ScrollToTop />
       </div>
       <div className=" flex flex-col gap-[100px] ">
         <AboutCourse />

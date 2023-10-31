@@ -1,6 +1,6 @@
 import React from "react";
 
-import searchIcon from "../../../../assets/Images/searchIcon.png";
+import searchIcon from "../../../../../assets/Images/searchIcon.png";
 
 const HeaderSearch = () => {
   return (

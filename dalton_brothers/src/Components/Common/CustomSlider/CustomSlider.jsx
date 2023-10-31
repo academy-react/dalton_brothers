@@ -1,13 +1,11 @@
 import React, { Component, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Article} from "../../Article & News/ArticleSections/Article/Article"
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-
-import {Article} from "../../Article & News/ArticleSections/Article"
-
 
 // import required modules
 import { EffectCards } from 'swiper/modules';

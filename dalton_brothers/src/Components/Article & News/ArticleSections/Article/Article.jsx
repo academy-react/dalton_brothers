@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import ArticleImage from "../../../Assets/Images/article.png";
-import ArticleWriter from "../../../Assets/Images/articleWriter.png";
-import likeCheck from "../../../Assets/Images/likeCheck.png";
-import like from "../../../Assets/Images/like.png";
-import comment from "../../../Assets/Images/comment.png";
-import bookmark from "../../../Assets/Images/bookMark.png";
-import bookmarkCheck from "../../../Assets/Images/bookmarkCheck.png";
+import ArticleImage from "../../../../Assets/Images/article.png";
+import ArticleWriter from "../../../../Assets/Images/articleWriter.png";
+import likeCheck from "../../../../Assets/Images/likeCheck.png";
+import like from "../../../../Assets/Images/like.png";
+import comment from "../../../../Assets/Images/comment.png";
+import bookmark from "../../../../Assets/Images/bookMark.png";
+import bookmarkCheck from "../../../../Assets/Images/bookmarkCheck.png";
 
 // import arrow from "../../../Assets/Images/arrow.png";
-import { Button } from "../../Common/buttons";
+import { Button } from "../../../Common/buttons";
 import { IconDots } from "@tabler/icons-react";
 
 const Article = ({ author, number, topic,id }) => {
@@ -65,9 +65,9 @@ const Article = ({ author, number, topic,id }) => {
               <img className="w-[30px]  opacity-40 cursor-pointer" src={comment} alt=""  onClick={()=> navigate(`/newsDetail/${id}`)}/>
             </div>
           </div>
-          <Button className="w-[45px] h-[45px] px-[0] py-[0] bg-orange-300 rounded-full flex items-center justify-center" onClick={()=> navigate(`/newsDetail/${id}`)}>
+          <Button value={"اطلاعات بیشتر"} className=" !px-[30px] py-[10px] bg-[#fcbf49] rounded-full flex items-center justify-center font-irSans" onClick={()=> navigate(`/newsDetail/${id}`)}>
 
-              <IconDots strokeWidth="2" className="w-full h-full text-black" />
+              {/* <IconDots strokeWidth="2" className="w-full h-full text-black" /> */}
             
           </Button>
         </div>

@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
-import { Title } from "../../Common/Title/Title";
-import { Input } from "../../Common/Inputs/Input";
-import { Button } from "../../Common/buttons";
-import { NavLinks } from "../../Common/Links/NavLinks";
+import { Title } from "../../../Common/Title/Title";
+import { Input } from "../../../Common/Inputs/Input";
+import { Button } from "../../../Common/buttons";
+import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
-import logo from "../../../assets/Images/logo.png";
+import logo from "../../../../assets/Images/logo.png";
 
 const ForgetForm = () => {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const ForgetForm = () => {
           <div className="w-[400px]">
             <Input
               topic={"ایمیل"}
-              style={"rounded-full border-[#bcbcbc] border-[2px]"}
+              className={"rounded-full w-full border-[#bcbcbc] border-[2px]"}
               placeHolder={"...ایمیل خود را وارد کنید"}
               type={"text"}
               name={"email"}

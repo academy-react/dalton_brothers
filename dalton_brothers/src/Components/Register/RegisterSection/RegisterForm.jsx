@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
-import { NavLinks } from "../../Common/Links/NavLinks";
+import { NavLinks } from "../../Common/Links/NavLinks/NavLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import defaultImg from "../../../assets/Images/register-person.png";
@@ -31,7 +31,7 @@ const RegisterForm = () => {
       className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center font-irSans`}
     >
       <Formik
-        initialValues={{ logInPassword: "", logInUserName: "" }}
+        initialValues={{ logInPassword: "", logInUserName: "" ,loginPhoneNumber:"",}}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
@@ -56,20 +56,20 @@ const RegisterForm = () => {
               onChange={(e) => setPersonImg(e.target.files[0])}
             />
           </div>
-          <div className="w-[90%]">
+          <div className="min-[500px]:w-[90%] w-full">
             <Input
               topic={"نام کاربر"}
-              style={"rounded-full w-[90%]"}
+              className={"rounded-full min-[500px]:w-[90%] w-full"}
               placeHolder={"... نام کاربری خود را انتخاب کنید"}
               type={"text"}
               name={"logInPassword"}
               as={"input"}
             />
           </div>
-          <div className="relative w-[90%]">
+          <div className="relative min-[500px]:w-[90%] w-full">
             <Input
               topic={"رمز عبور"}
-              style={"rounded-full w-full"}
+              className={"rounded-full w-full"}
               placeHolder={"www..example.com"}
               type={show ? "text" : "password"}
               name={"logInUserName"}
@@ -89,10 +89,10 @@ const RegisterForm = () => {
               )}
             </div>
           </div>
-          <div className="w-[90%]">
+          <div className="min-[500px]:w-[90%] w-full">
             <Input
               topic={"شماره تلفن"}
-              style={"rounded-full"}
+              className={"rounded-full"}
               placeHolder={"... شماره ی خود را وارد کنید"}
               type={"text"}
               name={"loginPhoneNumber"}

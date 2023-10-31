@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLinks } from "../../Common/Links/NavLinks";
+import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
 const Identify = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { HeaderText } from "./HeaderText";
-import { Button } from "../../../Common/buttons";
+import { HeaderText } from "../HeaderText/HeaderText";
+import { Button } from "../../../../Common/buttons";
 
 const HeaderContent = () => {
   return (
