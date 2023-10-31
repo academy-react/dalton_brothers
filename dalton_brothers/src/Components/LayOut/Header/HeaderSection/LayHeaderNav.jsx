@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { NavLinks } from "../../../Common/Links/NavLinks";
+import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
 import logo from "../../../../assets/Images/layOut-logo.png";
 import sun from "../../../../assets/Images/sun.png";
