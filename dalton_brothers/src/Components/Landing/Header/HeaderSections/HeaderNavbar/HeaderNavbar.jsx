@@ -1,16 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { Button } from "../../../Common/buttons";
-import { NavLinks } from "../../../Common/Links/NavLinks";
+import { Button } from "../../../../Common/buttons";
+import { NavLinks } from "../../../../Common/Links/NavLinks/NavLinks";
+import logo from "../../../../../assets/Images/logo.png";
 
-import logo from "../../../../assets/Images/logo.png";
-
-import style from "../header.module.css";
+import style from "../../header.module.css";
 
 const HeaderNavbar = () => {
   const token = useSelector((state) => state.token.token);
   console.log(token);
+
+  const navigate = useNavigate()
 
   return (
     <div className=" lg:items-center md:justify-around md:flex-row-reverse md:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-around font-irSBold">

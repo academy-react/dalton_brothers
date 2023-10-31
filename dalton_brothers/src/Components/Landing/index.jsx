@@ -10,10 +10,12 @@ import LandingComment from "./Comment/index.jsx";
 import { LandingFooter } from "./Footer/LandingFooter.jsx";
 
 import style from "./Landing.module.css";
+import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop.jsx";
 
 const Landing = () => {
   return (
     <div className={style.landingContainer}>
+      <ScrollToTop/>
       <Header />
       <Services />
       <Category />

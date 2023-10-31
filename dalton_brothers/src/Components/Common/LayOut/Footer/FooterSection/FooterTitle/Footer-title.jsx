@@ -1,5 +1,5 @@
 import React from "react";
-import FooterText from "./Footer-text";
+import FooterText from "../FooterText/Footer-text";
 
 const FooterTitle = ({ title }) => {
   return (

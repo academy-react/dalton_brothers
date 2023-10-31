@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FooterDesc } from "../../LayOut/Footer/FooterSection/Footer-desc";
+import { FooterDesc } from "../../Common/LayOut/Footer/FooterSection/FooterDesc/Footer-desc";
 
 import logo from "../../../assets/Images/namad.png";
 import rezi from "../../../assets/Images/rezi.png";

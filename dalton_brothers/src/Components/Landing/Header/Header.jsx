@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
-import { HeaderNavbar } from "./HeaderSections/HeaderNavbar";
-import { HeaderContent } from "./HeaderSections/HeaderContent";
-import HeaderSearch from "./HeaderSections/HeaderSearch";
+import { HeaderNavbar } from "./HeaderSections/HeaderNavbar/HeaderNavbar";
+import { HeaderContent } from "./HeaderSections/HeaderContent/HeaderContent";
+import HeaderSearch from "./HeaderSections/HeaderSearch/HeaderSearch";
 
 import styled from "./Header.module.css";
 

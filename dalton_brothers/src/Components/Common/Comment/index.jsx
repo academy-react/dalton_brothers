@@ -73,11 +73,11 @@ const CommentPlace = () => {
           </div>
           </div>
           <Button
-            style={
+            className={
               "bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] max-xl:bg-[#fff] max-xl:text-[#fcbf49]"
             }
             type={"submit"}
-            text={"ثبت"}
+            value={"ثبت"}
           />
         </Form>
       </Formik>

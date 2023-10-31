@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Article } from '../../../ArticleSections/Article'
+import { Article } from '../../../ArticleSections/Article/Article'
 import { relatedNews } from '../../../../../Core/Services/data'
 
 const RelatedArticle = () => {
