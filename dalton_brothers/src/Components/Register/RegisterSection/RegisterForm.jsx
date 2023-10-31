@@ -31,7 +31,11 @@ const RegisterForm = () => {
       className={`2xl:w-[40%] xl:w-[50%] lg:w-[60%] md:w-[80%] w-[100%] relative flex flex-row justify-center items-center font-irSans`}
     >
       <Formik
-        initialValues={{ logInPassword: "", logInUserName: "" ,loginPhoneNumber:"",}}
+        initialValues={{
+          logInPassword: "",
+          logInUserName: "",
+          loginPhoneNumber: "",
+        }}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
@@ -116,6 +120,13 @@ const RegisterForm = () => {
                 "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
               }
               value={"ایجاد حساب"}
+            />
+            <NavLinks
+              className={
+                "bg-[#fcbf49] w-[30%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+              }
+              Children={"خانه"}
+              path={"/"}
             />
           </div>
           <div className="self-center flex flex-row-reverse items-center ">
