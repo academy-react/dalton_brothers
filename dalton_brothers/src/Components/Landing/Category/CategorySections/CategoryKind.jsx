@@ -1,6 +1,6 @@
 import React from "react";
 
-import { OneServiceComponent } from "./OneCategoryComponent";
+import { OneCategoryComponent } from "./OneCategoryComponent";
 
 import security from "../../../../assets/Images/security.png";
 import math from "../../../../assets/Images/math.png";
@@ -37,12 +37,11 @@ const CategoryKind = () => {
       imgPath: ai,
       title: "هوش مصنوعی",
     },
-
   ];
   return (
     <div className="m-auto flex justify-center flex-wrap gap-9 mt-10 mb-16">
       {data.map((service, index) => (
-        <OneServiceComponent {...service} key={index} />
+        <OneCategoryComponent {...service} key={index} />
       ))}
     </div>
   );

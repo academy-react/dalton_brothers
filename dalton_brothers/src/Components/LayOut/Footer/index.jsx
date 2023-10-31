@@ -18,7 +18,7 @@ const LayFooter = () => {
           alt=""
         />
       </picture>
-      <div className="h-full">
+      <div className=" sm:w-[500px] w-[370px]">
         <CommentPlace />
       </div>
     </>

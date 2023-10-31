@@ -60,7 +60,7 @@ const ServiceKind = () => {
         }}
         pagination={false}
         modules={[EffectCube, Pagination, Autoplay, Navigation]}
-        className="lg:hidden mySwiper w-[300px] h-[300px]"
+        className="lg:hidden mySwiper min-[500px]:w-[300px] min-[500px]:h-[300px] w-[200px] h-[250px]"
       >
         {data.map((service, index) => (
           <SwiperSlide className="bg-center bg-cover" key={index}>
@@ -70,7 +70,7 @@ const ServiceKind = () => {
       </Swiper>
       <div className="lg:flex lg:justify-center h-[300px] w-[100%] hidden ">
         {data.map((service, index) => (
-            <OneServiceComponent {...service} key={index} />
+          <OneServiceComponent {...service} key={index} />
         ))}
       </div>
     </div>

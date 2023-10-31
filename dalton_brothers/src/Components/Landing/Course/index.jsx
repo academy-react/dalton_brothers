@@ -16,7 +16,7 @@ const CourseList = () => {
         <Link
           to={"/course"}
           onClick={() => (Document.documentElement.scrollTop = 0)}
-          className="w-[210px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
+          className="min-[500px]:w-[210px] w-[175px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
         >
           مشاهده ی تمام دوره ها
         </Link>

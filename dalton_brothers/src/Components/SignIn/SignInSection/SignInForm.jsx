@@ -38,20 +38,20 @@ const SignInForm = () => {
             topic={"صفحه ورود"}
             style={"leading-3 text-[20px] self-center text-[#9a9a9a]"}
           />
-          <div className="w-[80%]">
+          <div className="min-[500px]:w-[80%] w-full">
             <Input
               topic={"نام کاربر"}
-              style={"rounded-full"}
+              className={"rounded-full"}
               placeHolder={"... نام کاربری خود را وارد کنید"}
               type={"text"}
               name={"logInPassword"}
               as={"input"}
             />
           </div>
-          <div className="relative w-[80%] flex justify-end">
+          <div className="relative min-[500px]:w-[80%] w-full flex justify-end">
             <Input
               topic={"رمز عبور"}
-              style={"rounded-full"}
+              className={"rounded-full"}
               placeHolder={""}
               type={show ? "text" : "password"}
               name={"logInUserName"}
@@ -87,7 +87,7 @@ const SignInForm = () => {
             }
             value={"ورود"}
           />
-          <div className="self-end pr-[80px] flex flex-row-reverse items-center ">
+          <div className="self-end pr-[30px] sm:pr-[80px] whitespace-nowrap flex flex-row-reverse items-center ">
             <span className="text-[#868686] font-thin text-[14px] font-irSans">
               ایا رمز عبور خود را فراموش کردبد؟
             </span>
@@ -97,7 +97,7 @@ const SignInForm = () => {
               path={"/forget"}
             />
           </div>
-          <div className="self-end pr-[80px] flex flex-row-reverse items-center ">
+          <div className="self-end pr-[30px] sm:pr-[80px] whitespace-nowrap flex flex-row-reverse items-center ">
             <span className="text-[#868686] font-thin text-[14px] font-irSans">
               حساب فعال ندارید؟
             </span>

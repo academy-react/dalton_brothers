@@ -23,17 +23,16 @@ const Dashboard = () => {
         </div>
       </div>
       <div className=" flex flex-row-reverse  w-full    ">
-      {/* h-[430px] */}
-        <h4 className="w-full  text-right text-xl font-irSans pr-5">
-علاقه مندی ها        </h4>
+        {/* h-[430px] */}
+        <h4 className="w-full whitespace-nowrap text-right text-xl font-irSans pr-5">
+          علاقه مندی ها
+        </h4>
         <div className="     flex ">
           <div className="scale-75 ">
-          <CustomSlider component = "Article"  />
-
+            <CustomSlider component="Article" />
           </div>
           <div className="scale-75 ">
-          <CustomSlider component = "Course" />
-
+            <CustomSlider component="Course" />
           </div>
         </div>
       </div>
