@@ -31,36 +31,28 @@ const EditProfile = () => {
     // console.log(ooo);
   };
   return (
-    <div>
-      <Formik
-        initialValues={{
-          userName: "",
-          name: "",
-          phoneNumber: "",
-          nationalNumber: "",
-          region: "",
-          city: "",
-          email: "",
-        }}
-        onSubmit={(values) => onSubmit(values)}
-        validationSchema={validation}
-      >
-        <Form className=" w-[900px] pt-16 h-full flex flex-row-reverse font-irSans">
-          <div className="  w-1/2 h-full flex flex-col justify-center  ">
-            <div className="rounded-full cursor-pointer self-center mb-5">
-              <label htmlFor="pic" className="cursor-pointer">
-                <img
-                  src={personImg ? URL.createObjectURL(personImg) : defaultImg}
-                  alt=""
-                  className="w-[150px]"
-                />
-              </label>
-              <Field
-                type="file"
-                name="pic"
-                id="pic"
-                className="hidden"
-                onChange={(e) => setPersonImg(e.target.files[0])}
+    <Formik
+      initialValues={{
+        userName: "",
+        name: "",
+        phoneNumber: "",
+        nationalNumber: "",
+        region: "",
+        city: "",
+        email:""
+      }}
+      onSubmit={(values) => onSubmit(values)}
+      validationSchema={validation}
+    >
+      <Form className=" w-[900px]  h-full flex flex-row-reverse font-irSans">
+        
+        <div className="  w-1/2 h-full flex flex-col justify-center  ">
+        <div className="rounded-full cursor-pointer self-center mb-5">
+            <label htmlFor="pic" className="cursor-pointer">
+              <img
+                src={personImg ? URL.createObjectURL(personImg) : defaultImg}
+                alt=""
+                className="w-[150px]"
               />
             </div>
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">

@@ -41,7 +41,7 @@ const PanelCoursesList = () => {
           />
         ))}
       </div>
-      <div className="bg-red-200 w-full h-[90px] ">
+      <div className=" w-full h-[90px] ">
         <Pagination />
       </div>
     </div>
