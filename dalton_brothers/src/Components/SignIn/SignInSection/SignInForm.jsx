@@ -2,23 +2,24 @@ import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { useDispatch } from "react-redux";
 
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
 import { NavLinks } from "../../Common/Links/NavLinks/NavLinks";
+import { onTokenChange } from "../../../Redux/token";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 
 const SignInForm = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleToggle = (value) => {
-    if(value === ""){
-
-    }
     navigate("/");
+    dispatch(onTokenChange(true));
   };
 
   // validation................................
@@ -89,6 +90,13 @@ const SignInForm = () => {
               "bg-[#fcbf49] w-[60%] py-[5px] text-[13px] font-irSans text-[#595959]"
             }
             value={"ورود"}
+          />
+          <NavLinks
+            className={
+              "bg-[#fcbf49] w-[60%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+            }
+            Children={"خانه"}
+            path={"/"}
           />
           <div className="self-end pr-[30px] sm:pr-[80px] whitespace-nowrap flex flex-row-reverse items-center ">
             <span className="text-[#868686] font-thin text-[14px] font-irSans">
