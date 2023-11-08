@@ -17,7 +17,6 @@ const CommentPlace = () => {
       name: values.name,
       comment: values.comment,
     };
-    console.log(obj);
   };
 
   return (

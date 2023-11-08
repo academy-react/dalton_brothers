@@ -24,28 +24,28 @@ const HeaderNavbar = () => {
         {token ? (
           <NavLinks
             Children={"ورود به پنل"}
-            className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+            className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
             path={"/panel"}
           />
         ) : (
           <NavLinks
             Children={"ورود/ثبت نام"}
-            className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+            className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
             path={"/signIn"}
           />
         )}
       </div>
 
-      <div className="xl:w-[70vw] lg:gap-[30px] lg:order-2 md:justify-center md:mt-[10px] md:w-[100%] md:flex flex-row hidden">
-        <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] flex flex-row flex-nowrap items-center justify-center gap-[10px] text-[#fdb501] text-base">
+      <div className="xl:w-[70vw] lg:gap-[30px] lg:order-2 md:justify-center md:mt-[10px] md:w-[100%] md:flex flex-row hidden  ">
+        <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] flex flex-row flex-nowrap items-center justify-center gap-[10px] text-[#fdb501] text-base ">
           <NavLinks Children={"دوره ها"} path={"/course"} />
           <NavLinks Children={"پشتیبانی"} path={"/"} />
-          <NavLinks Children={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"اساتید"} path={"/"} />
         </div>
-        <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] lg:text-[#707070] md:text-[#fdb501] flex flex-row flex-nowrap items-center justify-center gap-[10px] text-[#707070]">
+        <div className="2xl:justify-around xl:w-[50%] xl:text-xl xl:gap-[20px] lg:text-mode-100 md:text-[#fdb501] flex flex-row flex-nowrap items-center justify-center gap-[10px] text-[#707070]">
+          <NavLinks Children={"دسته بندی"} path={"/"} />
+          <NavLinks Children={"ارتباط با ما"} path={"/"} />
           <NavLinks Children={"  اخبار و مقالات"} path={"/news"} />
-          <NavLinks Children={"ارتباط با ما"} path={"/"} />
-          <NavLinks Children={"ارتباط با ما"} path={"/"} />
         </div>
       </div>
       {/* md responsive navbar */}
@@ -64,10 +64,10 @@ const HeaderNavbar = () => {
           className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
         >
           <NavLinks Children={"دوره ها"} path={"/course"} />
-          <NavLinks Children={"پشتیبانی"} path={"/"} />
+          <NavLinks Children={"دسته بندی"} path={"/"} />
           <NavLinks Children={"پشتیبانی"} path={"/"} />
           <NavLinks Children={"  اخبار و مقالات"} path={"/news"} />
-          <NavLinks Children={"ارتباط با ما"} path={"/"} />
+          <NavLinks Children={"اساتید"} path={"/"} />
           <NavLinks Children={"ارتباط با ما"} path={"/"} />
         </div>
       </div>

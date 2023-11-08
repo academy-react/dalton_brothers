@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { Profile } from "../Dashboard/Components/Profile/Profile";
 import { PanelNavigation } from "../Dashboard/Components/PanelNavigation/PanelNavigation";
 import { PanelSearch } from "../Dashboard/Components/PanelSearch/PanelSearch";
@@ -12,27 +12,27 @@ import undrawSocial from "../../../../src/assets/Images/panel/undraw_social_thin
 const LayoutPanel = () => {
   const location = useLocation();
   return (
-    <div className='relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] justify-around flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-no-repeat bg-cover pt-10 '>
-      <div className="h-full 2xl:w-[310px] w-[220px] relative">
-        <div className="w-full flex justify-center items-center">
+    <div className='relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] justify-around flex-row-reverse bg-[url("../../../../src/assets/Images/panel/17.png")] bg-no-repeat bg-cover pt-2  max-xl:bg-white'>
+      <div className="w-full h-20 flex justify-between items-center flex-row-reverse px-10">
+        <div className=" flex justify-center items-center ">
           <Profile />
         </div>
-        <div className=" w-full scale-[80%] ">
-          <PanelNavigation />
-        </div>
-      </div>
-      <div className=" flex flex-col items-center">
-        <div className="border border-gray-300 w-[70%] rounded-[30px]">
+        <div className="border border-gray-200 w-[600px] rounded-[30px]">
           <PanelSearch />
         </div>
+        <div className="  flex flex-col  w-[200px]  justify-between items-center ">
+          <Notification />
+        </div>
+      </div>
+    <div className="w-full h-full flex justify-start flex-row-reverse  gap-10 pr-12" >
+      <div className="  scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
+        <PanelNavigation />
+      </div>
+      <div className="  flex flex-col items-center">
         <div className=" w-full pt-[10px]">
           <Outlet />
         </div>
       </div>
-      <div className="  flex flex-col 2xl:w-[300px] xl:w-[160px] lg:w-[110px] w-[100px]  justify-between ">
-        <div className="absolute top-[30px] left-[30px]">
-          <Notification />
-        </div>
       </div>
     </div>
   );

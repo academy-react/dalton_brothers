@@ -4,8 +4,8 @@ import wallet from "../../../../../assets/Images/panel/1.png";
 
 const YourStock = () => {
   return (
-    <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative">
-      <div className=" lg:w-1/2 w-full h-full flex flex-col justify-between  ">
+    <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white">
+      <div className=" lg:w-1/2 w-full h-full flex flex-col justify-between   ">
         <span className=" bg-white w-[120px]  flex justify-end items-center pr-4  text-lg absolute right-6 -top-4 ">
           موجودی شما
         </span>

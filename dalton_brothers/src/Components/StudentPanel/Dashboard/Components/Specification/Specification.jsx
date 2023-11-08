@@ -5,7 +5,7 @@ import { Button } from "../../../../Common/buttons";
 const Specification = () => {
   const navigate = useNavigate()
   return (
-    <div className="w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse xl:text-xl lg:text-lg whitespace-nowrap font-irSans">
+    <div className="w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse xl:text-xl lg:text-lg whitespace-nowrap font-irSans bg-white">
       <div className=" w-1/2 h-full flex flex-col items-end justify-evenly relative pr-3 pt-1">
         <span className="bg-white flex justify-end w-[110px] pr-4  text-xl absolute right-8 -top-4">
           {" "}
