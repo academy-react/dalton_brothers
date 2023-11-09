@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../../../Common/buttons";
 
 const Specification = () => {
+  const navigate = useNavigate()
   return (
     <div className="w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse xl:text-xl lg:text-lg whitespace-nowrap font-irSans bg-white">
       <div className=" w-1/2 h-full flex flex-col items-end justify-evenly relative pr-3 pt-1">
@@ -39,7 +42,8 @@ const Specification = () => {
           <p className=""></p>
         </div>
         <div className=" w-full h-[63px] mt-[20px] rounded-bl-[30px]">
-          <button className="bg-[#fcbf49] text-white font-irSBold text-[16px]  w-[75%] h-full rounded-tr-[30px] rounded-bl-[30px] "> ویرایش اطلاعات </button>
+          {/* <button ></button> */}
+          <Button className="bg-[#fcbf49] text-white font-irSBold text-[16px]  w-[75%] h-full rounded-tr-[30px] rounded-bl-[30px]  rounded-br-none rounded-tl-none " value={" ویرایش اطلاعات "} onClick={() => navigate("/panel/EditProfile")}/>
         </div>
       </div>
     </div>
