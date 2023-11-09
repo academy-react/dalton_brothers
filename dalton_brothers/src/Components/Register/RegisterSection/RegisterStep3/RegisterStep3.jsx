@@ -11,6 +11,7 @@ import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import defaultImg from "../../../../assets/Images/register-person.png";
+import { getItem } from "../../../../Core/Services/common/storage.services";
 const RegisterStep3 = () => {
   const [show, setShow] = useState(false);
   const [personImg, setPersonImg] = useState();
@@ -21,7 +22,7 @@ const RegisterStep3 = () => {
     const userDetail = {
       password: value.logInPassword,
       gmail: value.logInUserName,
-      phoneNumber: "09030441438",
+      phoneNumber: JSON.parse(getItem("userPhone")),
     };
     const user = await registerS3(userDetail);
   };
