@@ -16,11 +16,11 @@ const RegisterStep2 = () => {
   const handleToggle = async (value) => {
     navigate("/register/step3");
     const number = {
-      phoneNumber: getItem("userPhone"),
+      phoneNumber: JSON.parse(getItem("userPhone")),
       verifyCode: value.verifyCode,
     };
     const user = await registerS2(number);
-    // console.log(user);
+    console.log(number);
   };
 
   const validation = yup.object().shape({
