@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import axios from "axios";
 import { useDispatch } from "react-redux";
 
 import { Title } from "../../Common/Title/Title";
@@ -14,13 +15,27 @@ import { TbEye, TbEyeOff } from "react-icons/tb";
 
 const SignInForm = () => {
   const [show, setShow] = useState(false);
+  const [remember, setRemember] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleToggle = (value) => {
     navigate("/");
     dispatch(onTokenChange(true));
+    postLogin(value);
   };
+
+  const postLogin = async (item) => {
+    try {
+      const result = await axios.post(
+        "https://api-academy.iran.liara.run/api/Sign/Login",item
+      )
+      console.log(result);
+    } catch (error) {
+      alert("haaaaa",error)
+    }
+    alert("nale kon")
+  }
 
   // validation................................
   const validation = yup.object().shape({
@@ -33,7 +48,7 @@ const SignInForm = () => {
       className={`2xl:w-[40%] xl:w-1/2 lg:w-3/5 md:w-[80%] w-full relative flex flex-row justify-center items-center`}
     >
       <Formik
-        initialValues={{ logInPassword: "", logInUserName: "" }}
+        initialValues={{ logInPassword: "", logInUserName: "" , remember: "true" }}
         onSubmit={handleToggle}
         validationSchema={validation}
       >
@@ -75,11 +90,11 @@ const SignInForm = () => {
               )}
             </div>
           </div>
-          <div className="pr-[80px] flex flex-row-reverse items-center self-end gap-[10px]">
-            <input type="radio" name="" id="remember" className="hidden" />
+          <div className="pr-[70px] flex flex-row-reverse items-center self-end gap-[10px] h-12">
+            <Input type={"checkbox"} name={"remember"} id="remember" className="w-5 h-5 justify-center " as={"input"} onClick={()=> setRemember(!remember)}/>
             <label
               htmlFor="remember"
-              className="font-irSans font-thin text-[#939393] text-sm "
+              className="font-irSans font-thin text-[#939393] text-sm whitespace-nowrap"
             >
               مرا به خاطر بسپار
             </label>
