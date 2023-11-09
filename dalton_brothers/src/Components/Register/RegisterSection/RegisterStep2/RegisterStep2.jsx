@@ -8,6 +8,7 @@ import { Button } from "../../../Common/buttons";
 import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 import { Title } from "../../../Common/Title/Title";
 import { registerS2 } from "../../../../Core/Services/api/register/register.step2/register.step2";
+import { getItem } from "../../../../Core/Services/common/storage.services";
 
 const RegisterStep2 = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const RegisterStep2 = () => {
   const handleToggle = async (value) => {
     navigate("/register/step3");
     const number = {
-      phoneNumber: '09030441438',
+      phoneNumber: getItem("userPhone"),
       verifyCode: value.verifyCode,
     };
     const user = await registerS2(number);

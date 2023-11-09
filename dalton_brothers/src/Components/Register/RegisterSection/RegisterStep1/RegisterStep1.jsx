@@ -8,6 +8,7 @@ import { Button } from "../../../Common/buttons";
 import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 import { Title } from "../../../Common/Title/Title";
 import { registerS1 } from "../../../../Core/Services/api/register/register.step1/register.step1";
+import { setItem } from "../../../../Core/Services/common/storage.services";
 
 const RegisterStep1 = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const RegisterStep1 = () => {
     const number = {
       phoneNumber: value.loginPhoneNumber,
     };
+    setItem("userPhone", number.phoneNumber);
     const user = await registerS1(number);
     // console.log(user);
   };
