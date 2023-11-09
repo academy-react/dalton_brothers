@@ -15,6 +15,7 @@ import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
 import { NavLinks } from "../../Common/Links/NavLinks/NavLinks";
 import { onTokenChange } from "../../../Redux/token";
+import { loginValidation } from "../../../Core/Validation/yup";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 
@@ -45,17 +46,6 @@ const SignInForm = () => {
   };
 
   // validation................................
-  const validation = yup.object().shape({
-    logInUserName: yup
-      .string()
-      .email("ایمیل وارد کن خره")
-      .required("این فیلد اجباریست"),
-    logInPassword: yup
-      .number()
-      .positive()
-      .integer()
-      .required("این فیلد اجباریست"),
-  });
 
   return (
     <div
@@ -68,7 +58,7 @@ const SignInForm = () => {
           remember: "true",
         }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        validationSchema={loginValidation}
       >
         <Form className=" w-full flex flex-col justify-center items-center  gap-[20px] px-10 rounded-[30px]">
           <Title
