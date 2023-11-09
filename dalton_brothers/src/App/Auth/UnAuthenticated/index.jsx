@@ -15,6 +15,10 @@ import { CourseList } from "../../../Components/Course/CourseList";
 import { CourseDetail } from "../../../Components/CourseDetail/CourseDetail";
 import { ArticleNews } from "../../../Components/Article & News/Article & News";
 import { ArticleDetail } from "../../../Components/Article & News/ArticleDetail/ArticleDetail";
+import { RegisterStep1 } from "../../../Components/Register/RegisterSection/RegisterStep1/RegisterStep1";
+import { RegisterStep2 } from "../../../Components/Register/RegisterSection/RegisterStep2/RegisterStep2";
+import { RegisterStep3 } from "../../../Components/Register/RegisterSection/RegisterStep3/RegisterStep3";
+import { LayoutRegister } from "../../../Components/Register/RegisterSection/LayoutRegister/LayoutRegister";
 const UnAuthenticated = ({ location }) => {
   const router = [
     { path: "/403", element: <NotAccess /> },
@@ -30,7 +34,14 @@ const UnAuthenticated = ({ location }) => {
       ],
     },
     { path: "/signIn", element: <SignIn /> },
-    { path: "/register", element: <Register /> },
+    {
+      element: <Register />,
+      children: [
+        { path: "/register", element: <RegisterStep1 /> },
+        { path: "/register/step2", element: <RegisterStep2 /> },
+        { path: "/register/step3", element: < RegisterStep3 /> },
+      ],
+    },
     { path: "/forget", element: <ForgetPass /> },
     { path: "/identify", element: <Identify /> },
     {

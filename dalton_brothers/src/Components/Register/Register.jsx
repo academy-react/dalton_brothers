@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { RegisterForm } from "./RegisterSection/RegisterForm";
+import { RegisterStep2 } from "./RegisterSection/RegisterStep2/RegisterStep2";
+import { LayoutRegister } from "./RegisterSection/LayoutRegister/LayoutRegister";
 
 const Register = () => {
   return (
@@ -11,7 +13,8 @@ const Register = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <RegisterForm />
+      {/* <RegisterForm /> */}
+      <LayoutRegister/>
     </motion.div>
   );
 };
