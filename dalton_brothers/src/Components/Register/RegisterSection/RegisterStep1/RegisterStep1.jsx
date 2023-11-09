@@ -9,6 +9,7 @@ import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 import { Title } from "../../../Common/Title/Title";
 import { registerS1 } from "../../../../Core/Services/api/register/register.step1/register.step1";
 import { setItem } from "../../../../Core/Services/common/storage.services";
+import { registerS1Validation } from "../../../../Core/Validation/yup";
 
 const RegisterStep1 = () => {
   const navigate = useNavigate();
@@ -24,10 +25,6 @@ const RegisterStep1 = () => {
     // console.log(user);
   };
 
-  const validation = yup.object().shape({
-    loginPhoneNumber: yup.string().required("این فیلد اجباریست"),
-  });
-
   return (
     <div
       className={` w-[100%] mt-52 relative flex flex-row justify-center items-center font-irSans`}
@@ -37,7 +34,7 @@ const RegisterStep1 = () => {
           loginPhoneNumber: "",
         }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        validationSchema={registerS1Validation}
       >
         <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
           <Title

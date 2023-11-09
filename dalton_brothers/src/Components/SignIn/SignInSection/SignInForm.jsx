@@ -30,13 +30,17 @@ const SignInForm = () => {
     const userObj = {
       phoneOrGmail: value.logInUserName,
       password: value.logInPassword,
-      rememberMe: true,
+      rememberMe: value.remember,
     };
     const user = await loginAPI(userObj);
 
     if (user.token) {
-      setItem("token", user.token);
-      dispatch(onTokenChange(getItem("token")));
+      if (value.remember) {
+        setItem("token", user.token);
+        dispatch(onTokenChange(getItem("token")));
+      } else {
+        dispatch(onTokenChange(user.token));
+      }
     }
     if (!user.success) {
       alert("درست وارد کن خره");
@@ -55,7 +59,7 @@ const SignInForm = () => {
         initialValues={{
           logInPassword: "",
           logInUserName: "",
-          remember: "true",
+          remember: false,
         }}
         onSubmit={handleToggle}
         validationSchema={loginValidation}
