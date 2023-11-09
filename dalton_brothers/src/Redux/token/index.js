@@ -1,4 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getItem } from "../../Core/Services/common/storage.services";
+
+const tokenValue = getItem("token");
 
 const tokenSlice = createSlice({
   name: "token",
@@ -14,3 +17,4 @@ const tokenSlice = createSlice({
 export const { onTokenChange } = tokenSlice.actions;
 
 export default tokenSlice.reducer;
+// tokenValue ? tokenValue :

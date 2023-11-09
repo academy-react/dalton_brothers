@@ -2,8 +2,9 @@ import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import { useDispatch } from "react-redux";
 
+import { setItem } from "../../../Core/Services/common/storage.services";
+import { loginAPI } from "../../../Core/Services/api/auth";
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
@@ -15,11 +16,21 @@ import { TbEye, TbEyeOff } from "react-icons/tb";
 const SignInForm = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const handleToggle = (value) => {
+  const handleToggle = async (value) => {
     navigate("/");
-    dispatch(onTokenChange(true));
+
+    // ---------------- send to API ----------------
+    const userObj = {
+      phoneOrGmail: value.logInUserName,
+      password: value.logInPassword,
+      rememberMe: true,
+    };
+    console.log(userObj);
+
+    const user = await loginAPI(userObj);
+
+    setItem("token", user.token);
   };
 
   // validation................................
@@ -48,7 +59,7 @@ const SignInForm = () => {
               className={"rounded-full"}
               placeHolder={"... نام کاربری خود را وارد کنید"}
               type={"text"}
-              name={"logInPassword"}
+              name={"logInUserName"}
               as={"input"}
             />
           </div>
@@ -58,7 +69,7 @@ const SignInForm = () => {
               className={"rounded-full"}
               placeHolder={""}
               type={show ? "text" : "password"}
-              name={"logInUserName"}
+              name={"logInPassword"}
               as={"input"}
             />
             <div className="w-[25px] absolute left-[8%] top-[14%]">
