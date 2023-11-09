@@ -4,9 +4,12 @@ import { useSelector } from "react-redux";
 
 import { Authenticated } from "./Auth/Authenticated";
 import { UnAuthenticated } from "./Auth/UnAuthenticated";
+import { getItem } from "../Core/Services/common/storage.services";
 
 const App = () => {
   const token = useSelector((state) => state.token.token);
+
+  // const token = getItem("token");
 
   return (
     <>

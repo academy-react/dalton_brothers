@@ -5,7 +5,9 @@ const tokenValue = getItem("token");
 
 const tokenSlice = createSlice({
   name: "token",
-  initialState: { token: false },
+  initialState: {
+    token: tokenValue ? tokenValue : false,
+  },
 
   reducers: {
     onTokenChange: (state, action) => {
@@ -17,4 +19,3 @@ const tokenSlice = createSlice({
 export const { onTokenChange } = tokenSlice.actions;
 
 export default tokenSlice.reducer;
-// tokenValue ? tokenValue :

@@ -7,13 +7,19 @@ import { Input } from "../../../Common/Inputs/Input";
 import { Button } from "../../../Common/buttons";
 import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 import { Title } from "../../../Common/Title/Title";
+import { registerS1 } from "../../../../Core/Services/api/register/register.step1/register.step1";
 
 const RegisterStep1 = () => {
   const navigate = useNavigate();
 
-
-  const handleToggle = () => {
+  const handleToggle = async (value) => {
     navigate("/register/step2");
+
+    const number = {
+      phoneNumber: value.loginPhoneNumber,
+    };
+    const user = await registerS1(number);
+    // console.log(user);
   };
 
   const validation = yup.object().shape({

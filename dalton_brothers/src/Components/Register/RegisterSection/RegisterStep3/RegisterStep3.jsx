@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
+import { registerS3 } from "../../../../Core/Services/api/register/register.step3/register.step3";
 import { Title } from "../../../Common/Title/Title";
 import { Input } from "../../../Common/Inputs/Input";
 import { Button } from "../../../Common/buttons";
@@ -15,15 +16,24 @@ const RegisterStep3 = () => {
   const [personImg, setPersonImg] = useState();
   const navigate = useNavigate();
 
-  const handleToggle = () => {
+  const handleToggle = async (value) => {
     navigate("/signIn");
+    const userDetail = {
+      password: value.logInPassword,
+      gmail: value.logInUserName,
+      phoneNumber: "09030441438",
+    };
+    const user = await registerS3(userDetail);
   };
 
   // validation................................
   const validation = yup.object().shape({
     logInUserName: yup.string().required("این فیلد اجباریست"),
     logInPassword: yup.string().required("این فیلد اجباریست"),
-    logInPasswordRepeat: yup.string().required("این فیلد اجباریست"),
+    logInPasswordRepeat: yup
+      .string()
+      .oneOf([yup.ref("logInPassword"), null], "لطفا رمز  را درست تکرار کنید")
+      .required("این فیلد اجباریست"),
   });
 
   return (
@@ -62,21 +72,21 @@ const RegisterStep3 = () => {
           </div>
           <div className="min-[500px]:w-[90%] w-full">
             <Input
-              topic={"نام کاربر"}
+              topic={"ایمیل"}
               className={"rounded-full max-[500px]:w-[90%] w-full"}
-              placeHolder={"... نام کاربری خود را انتخاب کنید"}
+              placeHolder={"... ایمیل خود را وارد کنید"}
               type={"text"}
-              name={"logInPassword"}
+              name={"logInUserName"}
               as={"input"}
             />
           </div>
           <div className="relative min-[500px]:w-[90%] w-full">
             <Input
               topic={"رمز عبور"}
-              className={"rounded-full w-full"}
-              placeHolder={"www..example.com"}
+              className=" rounded-full w-full"
+              placeHolder={"... رمز عبور خود را وارد کنید"}
               type={show ? "text" : "password"}
-              name={"logInUserName"}
+              name={"logInPassword"}
               as={"input"}
             />
             <div className="w-[25px] absolute left-[6%] top-[14%]">
@@ -97,22 +107,12 @@ const RegisterStep3 = () => {
             <Input
               topic={" تکرار رمز عبور "}
               className={"rounded-full"}
-              placeHolder={"... رمز خود را وارد کنید"}
+              placeHolder={"... رمز عبور خود را تکرار وارد کنید"}
               type={"text"}
               name={"logInPasswordRepeat"}
               as={"input"}
             />
           </div>
-          <div className="pr-[20px] flex flex-row-reverse items-center gap-[10px]">
-            <input type="radio" name="" id="remember" className="hidden" />
-            <label
-              htmlFor="remember"
-              className="font-irSans font-thin text-[#5c5c5c] text-sm"
-            >
-              مرا به خاطر بسپار
-            </label>
-          </div>
-
           <div className="flex flex-row justify-around w-full gap-[20px]">
             <Button
               type={"submit"}

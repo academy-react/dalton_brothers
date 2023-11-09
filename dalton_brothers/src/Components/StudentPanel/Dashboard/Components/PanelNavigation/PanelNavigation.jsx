@@ -1,7 +1,13 @@
 import React, { Children } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../../../../Common/buttons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { onTokenChange } from "../../../../../Redux/token";
+import {
+  getItem,
+  removeItem,
+  setItem,
+} from "../../../../../Core/Services/common/storage.services";
 
 import {
   IconArrowNarrowLeft,
@@ -23,7 +29,6 @@ import panelHomeIconSel from "../../../../../assets/Images/panel/panelhomeSel.pn
 import panelEditIconSel from "../../../../../assets/Images/panel/paneleditSel.png";
 import panelCourseIconSel from "../../../../../assets/Images/panel/panelCourseSel.png";
 import panelListIconSel from "../../../../../assets/Images/panel/panellistSel.png";
-import { onTokenChange } from "../../../../../Redux/token";
 
 const panelList = [
   {
@@ -116,7 +121,8 @@ const PanelNavigation = () => {
         <Button
           onClick={() => {
             navigate("/");
-            dispatch(onTokenChange(false));
+            removeItem("token");
+            dispatch(onTokenChange(null));
           }}
           className="  w-1/2 h-[50px] bg-red-400  rounded-r-[20px]  text-center lg:text-xl text-lg text-gray-100 font-irSans flex justify-center items-center "
           value={" خروج "}

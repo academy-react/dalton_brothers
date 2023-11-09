@@ -10,7 +10,6 @@ import style from "../../header.module.css";
 
 const HeaderNavbar = () => {
   const token = useSelector((state) => state.token.token);
-  // console.log(token);
 
   const navigate = useNavigate();
 

@@ -9,7 +9,6 @@ const CourseComments = () => {
   const data = courseCommentData;
 
   const [modal, setModal] = useState(false);
-  console.log();
   return (
     <div className=" w-full py-[30px] flex flex-col mb-[100px]">
       <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold">

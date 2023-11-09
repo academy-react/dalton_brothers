@@ -3,8 +3,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
-import { setItem } from "../../../Core/Services/common/storage.services";
+import {
+  getItem,
+  setItem,
+} from "../../../Core/Services/common/storage.services";
 import { loginAPI } from "../../../Core/Services/api/auth";
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
@@ -18,40 +22,39 @@ const SignInForm = () => {
   const [show, setShow] = useState(false);
   const [remember, setRemember] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleToggle = async (value) => {
-    navigate("/");
-
     // ---------------- send to API ----------------
     const userObj = {
       phoneOrGmail: value.logInUserName,
       password: value.logInPassword,
       rememberMe: true,
     };
-    console.log(userObj);
-
     const user = await loginAPI(userObj);
 
-    setItem("token", user.token);
-  };
-
-  const postLogin = async (item) => {
-    try {
-      const result = await axios.post(
-        "https://api-academy.iran.liara.run/api/Sign/Login",
-        item
-      );
-      console.log(result);
-    } catch (error) {
-      alert("haaaaa", error);
+    if (user.token) {
+      setItem("token", user.token);
+      dispatch(onTokenChange(getItem("token")));
     }
-    alert("nale kon");
+    if (!user.success) {
+      alert("درست وارد کن خره");
+      return;
+    }
+    navigate("/");
   };
 
   // validation................................
   const validation = yup.object().shape({
-    logInPassword: yup.string().required("این فیلد اجباریست"),
-    logInUserName: yup.string().required("این فیلد اجباریست"),
+    logInUserName: yup
+      .string()
+      .email("ایمیل وارد کن خره")
+      .required("این فیلد اجباریست"),
+    logInPassword: yup
+      .number()
+      .positive()
+      .integer()
+      .required("این فیلد اجباریست"),
   });
 
   return (
@@ -74,9 +77,9 @@ const SignInForm = () => {
           />
           <div className="min-[500px]:w-[80%] w-full">
             <Input
-              topic={"نام کاربر"}
+              topic={"شماره تلفن یا ایمیل"}
               className={"rounded-full"}
-              placeHolder={"... نام کاربری خود را وارد کنید"}
+              placeHolder={""}
               type={"text"}
               name={"logInUserName"}
               as={"input"}
