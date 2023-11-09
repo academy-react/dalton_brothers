@@ -9,7 +9,7 @@ import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
 import { Button } from "../../Common/buttons";
 
-const Course = ({ courseName, courseMaster, price, like ,id}) => {
+const Course = ({ userFavorite, cost ,likeCount ,commandCount ,teacherName ,title ,describe}) => {
   const [save, setSave] = useState(false)
   const [Like, setLike] = useState(false)
 
@@ -31,18 +31,18 @@ const Course = ({ courseName, courseMaster, price, like ,id}) => {
                (<img className="w-[30px] cursor-pointer" src={bookmarkCheck} alt="" onClick={()=> setSave(!save)} />)
                :(<img className="w-[30px] cursor-pointer opacity-80" src={bookmark} alt="" onClick={()=> setSave(!save)} />)
                 }
-            <span className="w-[30px] text-center inline-block">{like}</span>
+            <span className="w-[30px] text-center inline-block">{userFavorite}</span>
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
           { Like?
                (<img className="w-[30px] cursor-pointer" src={likeCheck} alt="" onClick={()=> setLike(!Like)}/>)
                :(<img className="w-[30px] cursor-pointer  opacity-80" src={likes} alt="" onClick={()=> setLike(!Like)}/>)
                 }
-            <span className="w-[30px] text-center inline-block">{like}</span>
+            <span className="w-[30px] text-center inline-block">{likeCount}</span>
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img className="w-[30px] opacity-80 cursor-pointer" src={comment} alt=""  onClick={()=> navigate(`/courseDetail/${id}`)} />
-            <span className="w-[30px] text-center inline-block">{like}</span>
+            <img className="w-[30px] opacity-80 cursor-pointer" src={comment} alt=""  onClick={()=> navigate(`/courseDetail/${data.courseId}`)} />
+            <span className="w-[30px] text-center inline-block">{commandCount}</span>
           </div>
         </div>
       </div>
@@ -51,24 +51,24 @@ const Course = ({ courseName, courseMaster, price, like ,id}) => {
 
       {/* details & more info button start */}
 
-      <div className=" w-full h-[170px] flex flex-col gap-[10px] rounded-b-lg mt-7 ">
-        <span className="flex flex-row-reverse p-3 pb-1 text-base font-irSBold">
-          {courseName}
+      <div className=" w-full h-[170px] flex flex-col gap-[10px] rounded-b-lg mt-7 relative">
+        <span className="flex flex-row-reverse p-3 py-0  text-base font-irSBold">
+          {title}
         </span>
         <span className="flex flex-row-reverse pr-3 text-neutral-600 text-sm font-irSans">
-          {courseMaster}
+          {teacherName}
         </span>
-        <span className="flex flex-row-reverse pr-3 text-neutral-400 text-xs font-irSans">
-          توضیحات و توضیحات و توضیحات
+        <span className="flex flex-row-reverse pr-3 text-neutral-400 text-xs font-irSans text-right">
+          {describe}
         </span>
 
         {/* button & price start */}
 
-        <div className="w-full h-1/2  rounded-b-lg flex justify-center flex-row-reverse ">
+        <div className="w-full rounded-b-lg flex justify-center flex-row-reverse absolute bottom-0 ">
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-[#fcbf49] font-irSans">
-            {price} : قیمت
+            {cost} : قیمت
           </div>
-          <Button className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold"  onClick={()=> navigate(`/courseDetail/${id}`)} >
+          <Button className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold"  onClick={()=> navigate(`/courseDetail/${data.courseId}`)} >
             {"اطلاعات بیشتر"}
           </Button>
         </div>

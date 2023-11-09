@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -20,6 +20,7 @@ import { RegisterStep2 } from "../../../Components/Register/RegisterSection/Regi
 import { RegisterStep3 } from "../../../Components/Register/RegisterSection/RegisterStep3/RegisterStep3";
 import { LayoutRegister } from "../../../Components/Register/RegisterSection/LayoutRegister/LayoutRegister";
 const UnAuthenticated = ({ location }) => {
+
   const router = [
     { path: "/403", element: <NotAccess /> },
     { path: "/404", element: <NotFound /> },
@@ -28,7 +29,7 @@ const UnAuthenticated = ({ location }) => {
       element: <Layout />,
       children: [
         { path: "/course", element: <CourseList /> },
-        { path: "/courseDetail/:id", element: <CourseDetail /> },
+        { path: "/courseDetail/:courseId", element: <CourseDetail /> },
         { path: "/news", element: <ArticleNews /> },
         { path: `/newsDetail/:id`, element: <ArticleDetail /> },
       ],
