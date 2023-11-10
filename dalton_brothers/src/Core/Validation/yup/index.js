@@ -26,6 +26,36 @@ export const registerS1Validation = yup.object().shape({
     .required("وارد کردن شماره تلفن اجباریست"),
 });
 
+const verifyCode = /^[0-9]{4,5}$/;
+
+export const registerS2Validation = yup.object().shape({
+  verifyCode: yup
+    .string()
+    .matches(verifyCode, "کد تایید وارد شده مجاز نیست")
+    .required("پر کردن فیلد مربوط به کد تایید اجباریست"),
+});
+
+const emailValidation =
+  /^[\w]{5,15}@(gmail|yahoo|Outlook|Zoho Mail|ProtonMail).com$/;
+
+export const registerS3Validation = yup.object().shape({
+  registerUserName: yup
+    .string()
+    .matches(emailValidation, "ایمیل وارد شده معتبر نیست")
+    .required("این فیلد اجباریست"),
+  registerPassword: yup
+    .string()
+    .required("پسوورد را وارد کنید*")
+    .min(8, "باید حداقل شامل 8 کاراکتر باشد*")
+    .max(30, "باید حداکثر شامل 30 کاراکتر باشد*")
+    .matches(/[\w]/, "باید شامل حداقل یک حرف باشد*")
+    .matches(/[#$%&@_]/, "باید شامل حداقل یکی از # $ % _ & @ باشد*"),
+  registerPasswordRepeat: yup
+    .string()
+    .oneOf([yup.ref("registerPassword"), null], "لطفا رمز  را درست تکرار کنید")
+    .required("این فیلد اجباریست"),
+});
+
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const email = yup.string().required("ایمیل خود را وارد کنید*");

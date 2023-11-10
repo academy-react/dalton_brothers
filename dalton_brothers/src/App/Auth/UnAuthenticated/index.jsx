@@ -47,7 +47,7 @@ const UnAuthenticated = ({ location }) => {
     {
       element: <LayoutPanel />,
       children: [
-        { path: "/panel", element: <Navigate to={"/403"} /> },
+        { path: "/panel", element: <Navigate to={"/signIn"} /> },
         { path: "/panel/EditProfile", element: <Navigate to={"/403"} /> },
         { path: "/panel/PanelCourses", element: <Navigate to={"/403"} /> },
         { path: "/panel/PanelCoursesList", element: <Navigate to={"/403"} /> },

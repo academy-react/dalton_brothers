@@ -21,29 +21,33 @@ import { TbEye, TbEyeOff } from "react-icons/tb";
 
 const SignInForm = () => {
   const [show, setShow] = useState(false);
-  const [remember, setRemember] = useState(true);
+  const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  console.log(remember);
 
   const handleToggle = async (value) => {
     // ---------------- send to API ----------------
     const userObj = {
       phoneOrGmail: value.logInUserName,
       password: value.logInPassword,
-      rememberMe: value.remember,
+      rememberMe: remember,
     };
+
     const user = await loginAPI(userObj);
 
     if (user.token) {
-      if (value.remember) {
+      if (remember) {
         setItem("token", user.token);
+        setItem("userId", user.id);
         dispatch(onTokenChange(getItem("token")));
       } else {
         dispatch(onTokenChange(user.token));
       }
     }
     if (!user.success) {
-      alert("درست وارد کن خره");
+      alert("حسابی با این مشخصات وجود ندارد");
       return;
     }
     navigate("/");
@@ -59,7 +63,7 @@ const SignInForm = () => {
         initialValues={{
           logInPassword: "",
           logInUserName: "",
-          remember: false,
+          remember: remember,
         }}
         onSubmit={handleToggle}
         validationSchema={loginValidation}
@@ -72,23 +76,27 @@ const SignInForm = () => {
           <div className="min-[500px]:w-[80%] w-full">
             <Input
               topic={"شماره تلفن یا ایمیل"}
-              className={"rounded-full"}
+              className="rounded-full"
               placeHolder={""}
               type={"text"}
               name={"logInUserName"}
               as={"input"}
             />
           </div>
-          <div className="relative min-[500px]:w-[80%] w-full flex justify-end">
+          <div className="relative min-[500px]:w-[80%] w-full flex justify-end group ">
             <Input
               topic={"رمز عبور"}
               className={"rounded-full"}
               placeHolder={""}
               type={show ? "text" : "password"}
               name={"logInPassword"}
+              id={"logInPassword"}
               as={"input"}
             />
-            <div className="w-[25px] absolute left-[8%] top-[14%]">
+            <label
+              htmlFor="logInPassword"
+              className="w-[25px] absolute left-[8%] top-[14%] group-focus:text-[#fcbf49]"
+            >
               {show ? (
                 <TbEye
                   onClick={() => setShow(!show)}
@@ -97,23 +105,23 @@ const SignInForm = () => {
               ) : (
                 <TbEyeOff
                   onClick={() => setShow(!show)}
-                  className="w-full h-full opacity-50"
+                  className="w-full h-full opacity-50 "
                 />
               )}
-            </div>
+            </label>
           </div>
-          <div className="pr-[70px] flex flex-row-reverse items-center self-end gap-[10px] h-12">
-            <Input
-              type={"checkbox"}
-              name={"remember"}
-              id="remember"
-              className="w-5 h-5 justify-center "
+          <div className="mx-auto mb-[20px] flex flex-row-reverse items-center self-end gap-[10px] h-12">
+            <input
+              type="checkbox"
+              name="remember"
+              id="rememberMe"
+              className="hidden peer/remember"
               as={"input"}
               onClick={() => setRemember(!remember)}
             />
             <label
-              htmlFor="remember"
-              className="font-irSans font-thin text-[#939393] text-sm whitespace-nowrap"
+              htmlFor="rememberMe"
+              className="font-irSans font-thin text-[#939393] text-sm whitespace-nowrap pb-1 px-1 cursor-pointer transition-all hover:text-[#696969] peer-checked/remember:text-[#5c5c5c] peer-checked/remember:border-b-2 peer-checked/remember:border-b-[#fcbf49]"
             >
               مرا به خاطر بسپار
             </label>

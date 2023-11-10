@@ -9,23 +9,30 @@ import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 import { Title } from "../../../Common/Title/Title";
 import { registerS2 } from "../../../../Core/Services/api/register/register.step2/register.step2";
 import { getItem } from "../../../../Core/Services/common/storage.services";
+import { registerS2Validation } from "../../../../Core/Validation/yup";
+import { registerS1 } from "../../../../Core/Services/api/register/register.step1/register.step1";
 
 const RegisterStep2 = () => {
   const navigate = useNavigate();
 
   const handleToggle = async (value) => {
-    navigate("/register/step3");
     const number = {
       phoneNumber: JSON.parse(getItem("userPhone")),
       verifyCode: value.verifyCode,
     };
     const user = await registerS2(number);
-    console.log(number);
+    if (!user.success) {
+      alert("کد وارد شده صحیح نیست یا منقضی شده است");
+      return;
+    }
+    navigate("/register/step3");
   };
-
-  const validation = yup.object().shape({
-    verifyCode: yup.string().required("این فیلد اجباریست"),
-  });
+  const sendVerify = async () => {
+    const number = {
+      phoneNumber: JSON.parse(getItem("userPhone")),
+    };
+    const user = await registerS1(number);
+  };
 
   return (
     <div
@@ -36,7 +43,7 @@ const RegisterStep2 = () => {
           verifyCode: "",
         }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        validationSchema={registerS2Validation}
       >
         <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
           <Title
@@ -51,7 +58,7 @@ const RegisterStep2 = () => {
               name={"verifyCode"}
               as={"input"}
             />
-            <div className="w-full flex justify-start ">
+            <div className="w-full flex justify-start " onClick={sendVerify}>
               <NavLinks
                 Children={" ارسال دوباره رمز "}
                 className="text-[#4979fc] font-thin text-[14px] font-irSans p-[0] "

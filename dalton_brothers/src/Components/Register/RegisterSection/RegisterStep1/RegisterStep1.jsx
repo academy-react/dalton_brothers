@@ -15,13 +15,13 @@ const RegisterStep1 = () => {
   const navigate = useNavigate();
 
   const handleToggle = async (value) => {
-    navigate("/register/step2");
-
     const number = {
       phoneNumber: value.loginPhoneNumber,
     };
     setItem("userPhone", number.phoneNumber);
     const user = await registerS1(number);
+    
+    navigate("/register/step2");
     // console.log(user);
   };
 

@@ -11,31 +11,31 @@ import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import defaultImg from "../../../../assets/Images/register-person.png";
-import { getItem } from "../../../../Core/Services/common/storage.services";
+import {
+  getItem,
+  setItem,
+} from "../../../../Core/Services/common/storage.services";
+import { registerS3Validation } from "../../../../Core/Validation/yup";
 const RegisterStep3 = () => {
   const [show, setShow] = useState(false);
   const [personImg, setPersonImg] = useState();
   const navigate = useNavigate();
 
   const handleToggle = async (value) => {
-    navigate("/signIn");
     const userDetail = {
-      password: value.logInPassword,
-      gmail: value.logInUserName,
+      password: value.registerPassword,
+      gmail: value.registerUserName,
       phoneNumber: JSON.parse(getItem("userPhone")),
     };
     const user = await registerS3(userDetail);
+    if (!user.success) {
+      alert("از این ایمیل قبلا استفاده شده است");
+      return;
+    }
+    navigate("/signIn");
   };
 
   // validation................................
-  const validation = yup.object().shape({
-    logInUserName: yup.string().required("این فیلد اجباریست"),
-    logInPassword: yup.string().required("این فیلد اجباریست"),
-    logInPasswordRepeat: yup
-      .string()
-      .oneOf([yup.ref("logInPassword"), null], "لطفا رمز  را درست تکرار کنید")
-      .required("این فیلد اجباریست"),
-  });
 
   return (
     <div
@@ -43,12 +43,12 @@ const RegisterStep3 = () => {
     >
       <Formik
         initialValues={{
-          logInUserName: "",
-          logInPassword: "",
-          logInPasswordRepeat: "",
+          registerUserName: "",
+          registerPassword: "",
+          registerPasswordRepeat: "",
         }}
         onSubmit={handleToggle}
-        validationSchema={validation}
+        validationSchema={registerS3Validation}
       >
         <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
           <Title
@@ -77,7 +77,7 @@ const RegisterStep3 = () => {
               className={"rounded-full max-[500px]:w-[90%] w-full"}
               placeHolder={"... ایمیل خود را وارد کنید"}
               type={"text"}
-              name={"logInUserName"}
+              name={"registerUserName"}
               as={"input"}
             />
           </div>
@@ -87,7 +87,7 @@ const RegisterStep3 = () => {
               className=" rounded-full w-full"
               placeHolder={"... رمز عبور خود را وارد کنید"}
               type={show ? "text" : "password"}
-              name={"logInPassword"}
+              name={"registerPassword"}
               as={"input"}
             />
             <div className="w-[25px] absolute left-[6%] top-[14%]">
@@ -110,7 +110,7 @@ const RegisterStep3 = () => {
               className={"rounded-full"}
               placeHolder={"... رمز عبور خود را تکرار وارد کنید"}
               type={"text"}
-              name={"logInPasswordRepeat"}
+              name={"registerPasswordRepeat"}
               as={"input"}
             />
           </div>
