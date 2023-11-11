@@ -10,6 +10,7 @@ const Specification = () => {
 
   const getUserInfo = async () => {
     const user = await getCurrentUserInfo();
+    console.log(user);
     setUser(user);
   };
   useEffect(() => {
