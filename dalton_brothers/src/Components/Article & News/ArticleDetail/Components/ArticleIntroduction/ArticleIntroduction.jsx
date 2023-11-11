@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ArticleIntroduction = () => {
+const ArticleIntroduction = ({miniDescribe}) => {
   return (
     <div>
       <div className=" w-full mt-10 ">
@@ -9,7 +9,8 @@ const ArticleIntroduction = () => {
           {" "}
           معرفی مقاله{" "}
         </h4>
-        <div className=" px-[40px] py-[10px] ">
+        {miniDescribe}
+        {/* <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> پیش گفتار </h5>
           <p className="text-lg text-right my-[10px] text-gray-800">
             {" "}
@@ -24,8 +25,8 @@ const ArticleIntroduction = () => {
             دنیای اینترنت، از الگوریتم فید اخبار فیسبوک تا پیشنهادات آمازون به
             نوعی مدیون کارهای این مرد هستند.{" "}
           </p>
-        </div>
-        <div className=" px-[40px] py-[10px] ">
+        </div> */}
+        {/* <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> کاربرد های پایتون </h5>
           <p className="text-lg text-right my-[10px] text-gray-800">
             هرچند که مطالعه کل این مطلب از مجله فرادرس، در افزایش شناخت و آگاهی
@@ -39,8 +40,8 @@ const ArticleIntroduction = () => {
             از این فیلم‌های آموزش برای فراگیری پایتون برای کاربرد مورد نظر
             خودشان استفاده کنند.
           </p>
-        </div>
-        <div className=" px-[40px] py-[10px] ">
+        </div> */}
+        {/* <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> نتیجه مقاله </h5>
           <p className="text-lg text-right my-[10px] text-gray-800">
             پایتون امروزه از محبوبیت بسیار زیادی برخوردار است و برنامه‌نویسان
@@ -52,7 +53,7 @@ const ArticleIntroduction = () => {
             آن مسلط باشند یا بتوان همه نیروهای پروژه را برای کار با آن آموزش
             داد، دشوار است.
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   )

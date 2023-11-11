@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 // import { courseData } from "../../../Core/Services/data";
 import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
-import { landingCourseList } from "../../../Core/Services/api/course/courseList";
+import { basicGet } from "../../../Core/Services/api/course/courseList";
 
 const CourseList = () => {
   const [courseList, setCourseList] = useState([]);
 
   const getCourses = async () => {
-    const result = await landingCourseList();
+    const result = await basicGet("/Home/GetCoursesTop?count=3");
 
     console.log(result);
     setCourseList(result);

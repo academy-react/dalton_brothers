@@ -9,11 +9,10 @@ import comment from "../../../../Assets/Images/comment.png";
 import bookmark from "../../../../Assets/Images/bookMark.png";
 import bookmarkCheck from "../../../../Assets/Images/bookmarkCheck.png";
 
-// import arrow from "../../../Assets/Images/arrow.png";
 import { Button } from "../../../Common/buttons";
 import { IconDots } from "@tabler/icons-react";
 
-const Article = ({ author, number, topic,id }) => {
+const Article = ({ miniDescribe, addUserFullName, title,id ,currentImageAddressTumb}) => {
   const [save, setSave] = useState(false)
   const [Like, setLike] = useState(false)
 
@@ -24,8 +23,8 @@ const Article = ({ author, number, topic,id }) => {
       {/* image & 3 button start */}
       <div className="w-full h-1/2 rounded-t-lg flex justify-center flex-row-reverse">
         {/*img Container*/}
-        <div className="h-full rounded-tr-2xl ">
-          <img className="w-full h-full" src={ArticleImage} alt="" />
+        <div className="w-full h-full rounded-[20px] overflow-hidden ">
+          <img className="w-full h-full" src={currentImageAddressTumb} alt="" />
         </div>
       </div>
       {/* image & 3 button end */}
@@ -33,15 +32,15 @@ const Article = ({ author, number, topic,id }) => {
       {/* details & more info button start */}
 
       <div className=" w-full flex flex-col px-[5px] gap-5 rounded-b-lg mt-1 ">
-        <span className="flex flex-row-reverse font-irSBold text-gray-800">
-          {topic}
+        <span className="flex flex-row-reverse font-irSBold text-gray-800 ">
+          {title}
         </span>
         <span className="flex flex-row-reverse text-neutral-500 font-irSans text-sm">
-          مقاله شماره {number}
+            {miniDescribe}
         </span>
         <div className="flex justify-start items-center flex-row-reverse gap-1 font-irSans text-neutral-500 text-sm">
           <img className="w-[20px]" src={ArticleWriter} alt="" />
-          {author}
+          {addUserFullName}
         </div>
 
         {/* button & price start */}

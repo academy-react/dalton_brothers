@@ -1,6 +1,6 @@
 import React from "react";
 
-const CourseIntroduction = () => {
+const CourseIntroduction = ({describe}) => {
   return (
     <div>
       <div className=" w-full mt-10 ">
@@ -10,22 +10,12 @@ const CourseIntroduction = () => {
           معرفی دوره{" "}
         </h4>
         <div className=" px-[40px] py-[10px] ">
-          <h5 className=" text-xl text-right font-bold"> پیش گفتار </h5>
+          {/* <h5 className=" text-xl text-right font-bold"> پیش گفتار </h5> */}
           <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
-            {" "}
-            بیت تورنت به شکل مهیبی در بین کاربران محبوب شد و پیش‌بینی می‌شود بیش
-            از ربع میلیارد کاربر در سراسر جهان از آن استفاده می‌کنند. سال گذشته
-            تام یورک از گروه موسیقی رادیوهد، آلبوم جدیدش را به صوت اختصاصی روی
-            بیت تورنت منتشر کرد. با گذشت زمان ماهیت ناشناسی در بیت تورنت و سرعت
-            دانلود تشدید شده آن باعث شده که به فرمتی معمول و مشهور برای دانلود
-            غیرقانونی فیلم، موسیقی، کتاب یا بازی تبدیل شود. از دانشمندانی است که
-            به لطف تحقیقات و مطالعات دانشگاهی وسیع در زمینه علوم کامپیوتر، اکنون
-            عنوان “پدر تحلیل الگوریتم‌ها” را از آن خود کرده است. هر چیزی در
-            دنیای اینترنت، از الگوریتم فید اخبار فیسبوک تا پیشنهادات آمازون به
-            نوعی مدیون کارهای این مرد هستند.{" "}
+            {describe}
           </p>
         </div>
-        <div className=" px-[40px] py-[10px] ">
+        {/* <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> کاربرد های پایتون </h5>
           <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
             هرچند که مطالعه کل این مطلب از مجله فرادرس، در افزایش شناخت و آگاهی
@@ -39,8 +29,8 @@ const CourseIntroduction = () => {
             از این فیلم‌های آموزش برای فراگیری پایتون برای کاربرد مورد نظر
             خودشان استفاده کنند.
           </p>
-        </div>
-        <div className=" px-[40px] py-[10px] ">
+        </div> */}
+        {/* <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> اهداف دوره </h5>
           <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
             پایتون امروزه از محبوبیت بسیار زیادی برخوردار است و برنامه‌نویسان
@@ -52,7 +42,7 @@ const CourseIntroduction = () => {
             آن مسلط باشند یا بتوان همه نیروهای پروژه را برای کار با آن آموزش
             داد، دشوار است.
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

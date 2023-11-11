@@ -6,7 +6,8 @@ import { LayOutHeaders } from "../Common/LayOutHeaders";
 import { useAppContext } from "../LayOut";
 import { Filter } from "./CourseSections/Filter/Filter";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
-import { courseListApi } from "../../Core/Services/api/course/courseList";
+import { basicGet} from "../../Core/Services/api/course/courseList";
+import { Pagination } from "../StudentPanel/PanelCoursesList/Pagination/Pagination";
 
 const CourseList = () => {
   const { filteredData } = useAppContext();
@@ -14,7 +15,7 @@ const CourseList = () => {
   const [courseList, setCourseList] = useState([]);
 
   const getCourses = async () => {
-    const result = await courseListApi();
+    const result = await basicGet("/Home/GetCoursesTop?count=8");
 
     console.log(result);
     setCourseList(result);
@@ -39,9 +40,10 @@ const CourseList = () => {
             <Course {...course} key={index} />
           ))
         ) : (
-          <div></div>
+          <></>
         )}
       </div>
+      <Pagination/>
       <ScrollToTop />
     </motion.div>
   );
