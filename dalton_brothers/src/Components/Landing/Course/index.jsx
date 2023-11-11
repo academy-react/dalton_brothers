@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import { courseData } from "../../../Core/Services/data";
+// import { courseData } from "../../../Core/Services/data";
 import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
+import { basicGet } from "../../../Core/Services/api/course/courseList";
 
 const CourseList = () => {
-  const data = [courseData[0], courseData[1], courseData[2]];
+  const [courseList, setCourseList] = useState([]);
+
+  const getCourses = async () => {
+    const result = await basicGet("/Home/GetCoursesTop?count=3");
+
+    console.log(result);
+    setCourseList(result);
+  };
+
+  useEffect(() => {
+    getCourses();
+  }, []);
+
+  const data = [courseList[0], courseList[1], courseList[2]];
   return (
     <div className="w-100 flex flex-col gap-5 mt-10 ">
       <div className="w-[75%] h-16  flex flex-row-reverse justify-between items-center m-auto mb-10">
@@ -25,7 +39,7 @@ const CourseList = () => {
         {/* {data.map((course, index) => (
           <Course {...course} key={index} />
         ))} */}
-        <SimpleSlider data={courseData} item={"course"} />
+        <SimpleSlider data={courseList} item={"course"} />
       </div>
     </div>
   );

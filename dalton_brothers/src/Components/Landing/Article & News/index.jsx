@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
 import { Article } from "../../Article & News/ArticleSections/Article/Article";
 import { newsData } from "../../../Core/Services/data";
 import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
+import { basicGet } from "../../../Core/Services/api/course/courseList";
 
 const ArticleNews = () => {
+  const [articleList, setArticleList] = useState([])
+
+  const getSomeArticle = async () =>{
+    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10")
+
+    const response = result.news
+
+
+    console.log(result);
+    setArticleList(response)
+  }
+
+  useEffect(() => {
+    getSomeArticle()
+  }, [])
+  
+
   const data = [newsData[0], newsData[1], newsData[2]];
 
   return (
@@ -26,7 +44,7 @@ const ArticleNews = () => {
       </div>
 
       <div className=" w-11/12 mx-auto flex justify-center flex-wrap items-center gap-10 ">
-        <SimpleSlider data={newsData} item={"news"} />
+        <SimpleSlider data={articleList} item={"news"} />
       </div>
     </div>
   );

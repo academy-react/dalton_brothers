@@ -1,4 +1,4 @@
-import { React, createContext, useContext, useState } from "react";
+import { React, createContext, useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
@@ -14,6 +14,8 @@ export const SortContext = createContext();
 export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
+
+
   const search = useSelector((state) => state.search.search);
   const sort = useSelector((state) => state.sort.sort);
   const masterFilter = useSelector((state) => state.masterFilter);
