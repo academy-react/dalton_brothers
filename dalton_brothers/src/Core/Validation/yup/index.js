@@ -55,6 +55,23 @@ export const registerS3Validation = yup.object().shape({
     .oneOf([yup.ref("registerPassword"), null], "لطفا رمز  را درست تکرار کنید")
     .required("این فیلد اجباریست"),
 });
+export const editProfileValidation = yup.object().shape({
+  FName: yup.string().required("این فیلد اجباریست"),
+  LName: yup.string().required("این فیلد اجباریست"),
+  NationalCode: yup
+    .string()
+    .matches(/^[\d]+$/, "لطفا فقط از عدد استفاده کنید")
+    .matches(/^[\d]{10}$/, "شماره ملی باید 10 رقمی باشد")
+    .required("این فیلد اجباریست"),
+  TelegramLink: yup
+    .string()
+    .matches(/^@[A-Za-z._,<>?{}()+*&^%$#!]+$/, "با @ شروع کرده و از حروف انگلیسی استفاده شود")
+    .required("این فیلد اجباریست"),
+  HomeAdderess: yup.string().required("این فیلد اجباریست"),
+  UserAbout: yup.string().required("این فیلد اجباریست"),
+  LinkdinProfile: yup.string().required("این فیلد اجباریست"),
+  BirthDay: yup.string().required("این فیلد اجباریست"),
+});
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

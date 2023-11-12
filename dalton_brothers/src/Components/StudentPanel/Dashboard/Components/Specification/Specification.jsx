@@ -24,35 +24,35 @@ const Specification = () => {
           مشخصات
         </span>
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg ">
-          <p className="  pr-5 text-gray-600"> {user.fName}: نام </p>
+          <p className="  pr-5 text-gray-600"> نام:{user.fName} </p>
           <p className=""></p>
         </div>
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg ">
-          <p className="  pr-5 text-gray-600"> {user.lName}: نام خانوادگی </p>
+          <p className="  pr-5 text-gray-600"> نام خانوادگی :{user.lName} </p>
           <p className=""></p>
         </div>
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
           <p className="  pr-5 text-gray-600">
-            {JSON.parse(getItem("userPhone"))}: شماره تلفن
+            شماره تلفن : {JSON.parse(getItem("userPhone"))}
           </p>
           <p className=""></p>
         </div>
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
-          <p className="  pr-5 text-gray-600">{user.nationalCode}: شماره ملی</p>
+          <p className="  pr-5 text-gray-600">شماره ملی:{user.nationalCode} </p>
           <p className=""></p>
         </div>
       </div>
       <div className="w-1/2 h-full flex flex-col items-end justify-evenly">
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
-          <p className="  pr-5 text-gray-600"> {user.homeAdderess}: ادرس </p>
+          <p className="  pr-5 text-gray-600">ادرس : {user.homeAdderess} </p>
+          <p className=""></p>
+        </div>
+        <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg  overflow-auto">
+          <p className="  pr-5 text-gray-600">بیوگرافی :{user.userAbout} </p>
           <p className=""></p>
         </div>
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
-          <p className="  pr-5 text-gray-600"> {user.userAbout}: بیوگرافی </p>
-          <p className=""></p>
-        </div>
-        <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
-          <p className="  pr-5 text-gray-600"> {user.telegramLink}: تلگرام </p>
+          <p className="  pr-5 text-gray-600">{user.telegramLink} : تلگرام</p>
           <p className=""></p>
         </div>
         <div className=" w-full h-[63px] mt-[20px] rounded-bl-[30px]">

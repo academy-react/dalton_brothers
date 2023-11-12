@@ -9,7 +9,7 @@ import {
   getItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
-import { loginAPI } from "../../../Core/Services/api/auth";
+import { loginAPI } from '../../../Core/Services/api/Login/auth';
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
