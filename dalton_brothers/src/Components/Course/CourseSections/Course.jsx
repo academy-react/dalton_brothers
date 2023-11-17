@@ -8,12 +8,29 @@ import bookmarkCheck from "../../../Assets/Images/bookMarkCheck.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
 import { Button } from "../../Common/buttons";
+import { addLike } from "../../../Core/Services/api/course/addLike";
+import { getItem } from "../../../Core/Services/common/storage.services";
 
-const Course = ({ userFavorite, cost ,likeCount ,commandCount ,teacherName ,title ,describe,courseId}) => {
-  const [save, setSave] = useState(false)
-  const [Like, setLike] = useState(false)
+const Course = ({
+  userFavorite,
+  cost,
+  likeCount,
+  commandCount,
+  teacherName,
+  title,
+  describe,
+  courseId,
+}) => {
+  const [save, setSave] = useState(false);
+  const [Like, setLike] = useState(false);
 
-  const navigate = useNavigate()
+  const handleLike = async () => {
+    var formdata = new FormData();
+    formdata.append("CourseId", "ba930e3e-2676-ee11-b6c7-ca6d3e095898");
+
+    const user = await addLike(formdata);
+  };
+  const navigate = useNavigate();
 
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
@@ -27,22 +44,58 @@ const Course = ({ userFavorite, cost ,likeCount ,commandCount ,teacherName ,titl
         </div>
         <div className="w-1/3 flex flex-col items-center justify-center pt-[20px] text-[#090909] font-sha">
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-          { save?
-               (<img className="w-[30px] cursor-pointer" src={bookmarkCheck} alt="" onClick={()=> setSave(!save)} />)
-               :(<img className="w-[30px] cursor-pointer opacity-80" src={bookmark} alt="" onClick={()=> setSave(!save)} />)
-                }
-            <span className="w-[30px] text-center inline-block">{userFavorite}</span>
+            {save ? (
+              <img
+                className="w-[30px] cursor-pointer"
+                src={bookmarkCheck}
+                alt=""
+                onClick={() => setSave(!save)}
+              />
+            ) : (
+              <img
+                className="w-[30px] cursor-pointer opacity-80"
+                src={bookmark}
+                alt=""
+                onClick={() => setSave(!save)}
+              />
+            )}
+            <span className="w-[30px] text-center inline-block">
+              {userFavorite}
+            </span>
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-          { Like?
-               (<img className="w-[30px] cursor-pointer" src={likeCheck} alt="" onClick={()=> setLike(!Like)}/>)
-               :(<img className="w-[30px] cursor-pointer  opacity-80" src={likes} alt="" onClick={()=> setLike(!Like)}/>)
-                }
-            <span className="w-[30px] text-center inline-block">{likeCount}</span>
+            {Like ? (
+              <img
+                className="w-[30px] cursor-pointer"
+                src={likeCheck}
+                alt=""
+                onClick={() => setLike(!Like)}
+              />
+            ) : (
+              <img
+                className="w-[30px] cursor-pointer  opacity-80"
+                src={likes}
+                alt=""
+                onClick={() => {
+                  setLike(!Like);
+                  handleLike();
+                }}
+              />
+            )}
+            <span className="w-[30px] text-center inline-block">
+              {likeCount}
+            </span>
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img className="w-[30px] opacity-80 cursor-pointer" src={comment} alt=""  onClick={()=> navigate(`/courseDetail/${courseId}`)} />
-            <span className="w-[30px] text-center inline-block">{commandCount}</span>
+            <img
+              className="w-[30px] opacity-80 cursor-pointer"
+              src={comment}
+              alt=""
+              onClick={() => navigate(`/courseDetail/${courseId}`)}
+            />
+            <span className="w-[30px] text-center inline-block">
+              {commandCount}
+            </span>
           </div>
         </div>
       </div>
@@ -68,7 +121,10 @@ const Course = ({ userFavorite, cost ,likeCount ,commandCount ,teacherName ,titl
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-[#fcbf49] font-irSans">
             {cost} : قیمت
           </div>
-          <Button className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold"  onClick={()=> navigate(`/courseDetail/${courseId}`)} >
+          <Button
+            className="w-1/2  bg-[#fcbf49] text-gray-600 rounded-tr-2xl rounded-bl-lg rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold"
+            onClick={() => navigate(`/courseDetail/${courseId}`)}
+          >
             {"اطلاعات بیشتر"}
           </Button>
         </div>

@@ -19,6 +19,7 @@ import { RegisterStep1 } from "../../../Components/Register/RegisterSection/Regi
 import { RegisterStep2 } from "../../../Components/Register/RegisterSection/RegisterStep2/RegisterStep2";
 import { RegisterStep3 } from "../../../Components/Register/RegisterSection/RegisterStep3/RegisterStep3";
 import { LayoutRegister } from "../../../Components/Register/RegisterSection/LayoutRegister/LayoutRegister";
+import {ResetPass} from '../../../Components/ForgetPass/ForgetSection/ResetPass'
 const UnAuthenticated = ({ location }) => {
 
   const router = [
@@ -45,6 +46,7 @@ const UnAuthenticated = ({ location }) => {
     },
     { path: "/forget", element: <ForgetPass /> },
     { path: "/identify", element: <Identify /> },
+    { path: "/reset", element: <ResetPass /> },
     {
       element: <LayoutPanel />,
       children: [
