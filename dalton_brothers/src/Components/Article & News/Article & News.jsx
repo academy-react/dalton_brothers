@@ -5,16 +5,15 @@ import { Article } from "./ArticleSections/Article/Article";
 // import { newsData } from "../../Core/Services/data";
 import { LayOutHeaders } from "../Common/LayOutHeaders";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
-import { basicGet } from "../../Core/Services/api/course/courseList";
+import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
 
 const ArticleNews = () => {
-
   const [articleList, setArticleList] = useState([]);
 
   const getArticles = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
 
-    const response = result.news
+    const response = result.news;
     console.log(result);
     setArticleList(response);
   };
@@ -27,7 +26,7 @@ const ArticleNews = () => {
   return (
     <motion.div
       className="w-100 flex flex-col gap-5 "
-           initial={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >

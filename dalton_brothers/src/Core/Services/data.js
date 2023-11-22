@@ -276,13 +276,13 @@ const courseCommentData = [
     text: "خوب بود",
     userName: "محمد جواد",
     userLogo: "https://picsum.photos/200/500",
-        Response: {
-          text: "خوب بود",
-          userName: "امی",
-          userLogo: "https://picsum.photos/200/700",
-          Response: {},
-          date: "۳۰ بهمن",
-        },
+    Response: {
+      text: "خوب بود",
+      userName: "امی",
+      userLogo: "https://picsum.photos/200/700",
+      Response: {},
+      date: "۳۰ بهمن",
+    },
     date: "۱۰ فروردین",
   },
   {
@@ -305,13 +305,13 @@ const ArticleCommentData = [
     text: "خوب بود",
     userName: "محمد جواد",
     userLogo: "https://picsum.photos/200/500",
-        Response: {
-          text: "خوب بود",
-          userName: "امی",
-          userLogo: "https://picsum.photos/200/700",
-          Response: {},
-          date: "۳۰ بهمن",
-        },
+    Response: {
+      text: "خوب بود",
+      userName: "امی",
+      userLogo: "https://picsum.photos/200/700",
+      Response: {},
+      date: "۳۰ بهمن",
+    },
     date: "۱۰ فروردین",
   },
   {

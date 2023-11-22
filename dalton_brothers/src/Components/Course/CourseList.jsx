@@ -6,7 +6,7 @@ import { LayOutHeaders } from "../Common/LayOutHeaders";
 import { useAppContext } from "../LayOut";
 import { Filter } from "./CourseSections/Filter/Filter";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
-import { basicGet} from "../../Core/Services/api/course/courseList";
+import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
 import { Pagination } from "../StudentPanel/PanelCoursesList/Pagination/Pagination";
 
 const CourseList = () => {
@@ -15,7 +15,7 @@ const CourseList = () => {
   const [courseList, setCourseList] = useState([]);
 
   const getCourses = async () => {
-    const result = await basicGet("/Home/GetCoursesTop?count=8");
+    const result = await basicGet("/Home/GetCoursesTop?count=6");
 
     console.log(result);
     setCourseList(result);
@@ -36,14 +36,12 @@ const CourseList = () => {
       <Filter />
       <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
         {courseList && courseList.length > 0 ? (
-          courseList.map((course, index) => (
-            <Course {...course} key={index} />
-          ))
+          courseList.map((course, index) => <Course {...course} key={index} />)
         ) : (
           <></>
         )}
       </div>
-      <Pagination/>
+      <Pagination />
       <ScrollToTop />
     </motion.div>
   );

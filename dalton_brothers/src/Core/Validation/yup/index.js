@@ -65,12 +65,25 @@ export const editProfileValidation = yup.object().shape({
     .required("این فیلد اجباریست"),
   TelegramLink: yup
     .string()
-    .matches(/^@[A-Za-z._,<>?{}()+*&^%$#!]+$/, "با @ شروع کرده و از حروف انگلیسی استفاده شود")
+    .matches(
+      /^@[A-Za-z._,<>?{}()+*&^%$#!]+$/,
+      "با @ شروع کرده و از حروف انگلیسی استفاده شود"
+    )
     .required("این فیلد اجباریست"),
   HomeAdderess: yup.string().required("این فیلد اجباریست"),
   UserAbout: yup.string().required("این فیلد اجباریست"),
   LinkdinProfile: yup.string().required("این فیلد اجباریست"),
   BirthDay: yup.string().required("این فیلد اجباریست"),
+});
+export const commentValidation = yup.object().shape({
+  title: yup
+    .string()
+    .matches(/^[\w\u0600-\u06FF\s]{5,}$/, "عنوان حداقل باید 5 حرف باشد")
+    .required("این فیلد اجباریست"),
+  describe: yup
+    .string()
+    .matches(/^[\w\u0600-\u06FF\s ]{5,}$/, "کامنت حداقل باید 5 حرف باشد")
+    .required("این فیلد اجباریست"),
 });
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

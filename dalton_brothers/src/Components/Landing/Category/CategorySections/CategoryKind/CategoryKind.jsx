@@ -1,6 +1,4 @@
-import React from "react";
-
-// import { OneCategoryComponent } from "../OneCategoryComponent/OneCategoryComponent";
+import React, { useEz } from "react";
 
 import security from "../../../../../assets/Images/security.png";
 import math from "../../../../../assets/Images/math.png";
@@ -38,7 +36,6 @@ const CategoryKind = () => {
       imgPath: ai,
       title: "هوش مصنوعی",
     },
-
   ];
   return (
     <div className="m-auto flex justify-center flex-wrap gap-9 mt-10 mb-16">

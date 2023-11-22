@@ -7,7 +7,7 @@ import { GotoArticle } from "./Components/GoToArticle/GoToArticle";
 import { AboutArticle } from "./Components/AboutArticle/AboutArticle";
 import { ScrollToTop } from "../../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { ArticleComments } from "./Components/ArticleComent/ArticleComent";
-import { basicGet } from "../../../Core/Services/api/course/courseList";
+import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 
 const ArticleDetail = () => {
   const [ArticleDetail, setArticleDetail] = useState([]);

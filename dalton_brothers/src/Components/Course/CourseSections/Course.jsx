@@ -9,7 +9,10 @@ import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
 import { Button } from "../../Common/buttons";
 import { addLike } from "../../../Core/Services/api/course/addLike";
-import { getItem } from "../../../Core/Services/common/storage.services";
+import {
+  getItem,
+  setItem,
+} from "../../../Core/Services/common/storage.services";
 
 const Course = ({
   userFavorite,
@@ -23,14 +26,19 @@ const Course = ({
 }) => {
   const [save, setSave] = useState(false);
   const [Like, setLike] = useState(false);
+  const navigate = useNavigate();
 
   const handleLike = async () => {
-    var formdata = new FormData();
-    formdata.append("CourseId", "ba930e3e-2676-ee11-b6c7-ca6d3e095898");
-
-    const user = await addLike(formdata);
+    if (Like) {
+      setLike(!Like);
+      const user = await addLike(
+        `/Course/AddCourseDissLike?CourseId=${courseId}`
+      );
+      return;
+    }
+    setLike(!Like);
+    const user = await addLike(`/Course/AddCourseLike?CourseId=${courseId}`);
   };
-  const navigate = useNavigate();
 
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
@@ -69,17 +77,14 @@ const Course = ({
                 className="w-[30px] cursor-pointer"
                 src={likeCheck}
                 alt=""
-                onClick={() => setLike(!Like)}
+                onClick={() => handleLike()}
               />
             ) : (
               <img
                 className="w-[30px] cursor-pointer  opacity-80"
                 src={likes}
                 alt=""
-                onClick={() => {
-                  setLike(!Like);
-                  handleLike();
-                }}
+                onClick={() => handleLike()}
               />
             )}
             <span className="w-[30px] text-center inline-block">

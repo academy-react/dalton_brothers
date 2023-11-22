@@ -1,14 +1,27 @@
-import { masterData } from "../../../Core/Services/data";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import { EffectCube, Pagination, Autoplay, Navigation } from "swiper/modules";
+import { getMaster } from "../../../Core/Services/api/masters/master";
 
 import Master from "./BestMasterSection/Master";
+import { useState } from "react";
 
 const BestMasters = () => {
-  const data = masterData;
+  const [data, setData] = useState([]);
+
+  const Masters = async () => {
+    const result = await getMaster("/Home/GetTeachers");
+
+    setData([result[6], result[4], result[2], result[3]]);
+    console.log(result);
+  };
+
+  useEffect(() => {
+    Masters();
+  }, []);
 
   return (
     <div className="mx-auto mt-[100px]  ">

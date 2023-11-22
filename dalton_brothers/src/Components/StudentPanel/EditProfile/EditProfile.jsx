@@ -47,7 +47,7 @@ const EditProfile = () => {
     >
       <Form className=" w-[900px]   flex flex-col font-irSans">
         <div className="rounded-full cursor-pointer self-center mb-5">
-          <label htmlFor="pic" className="cursor-pointer">
+          <label htmlFor="pic1" className="cursor-pointer">
             <img
               src={personImg ? URL.createObjectURL(personImg) : defaultImg}
               alt=""

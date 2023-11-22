@@ -10,33 +10,22 @@ import { RelatedCourses } from "./components/RelatedCourses/RelatedCourses";
 import { CourseComments } from "./components/CourseComment/CourseComment";
 import { GoToCorse } from "./components/GoToCorse/GoToCorse";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
-import { basicGet } from "../../Core/Services/api/course/courseList";
+import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
 
 const CourseDetail = () => {
   const [CourseDetail, setCourseDetail] = useState([]);
   const params = useParams();
 
   const getCourseDetail = async () => {
-    const result = await basicGet("/Home/GetCoursesTop?count=400");
-    setCourseDetail(result);
-    console.log(result);
+    const result = await getDetail(`/Course/${params.id}`);
+    setCourseDetail([result]);
   };
+
+  console.log(CourseDetail);
+
   useEffect(() => {
     getCourseDetail();
-  }, [params.courseId]);
-
-  const item = CourseDetail.filter((item) => item.courseId === params.courseId).map(
-    (item, index) => (
-      <div className=" flex flex-col gap-[100px]" key={index}>
-        <AboutCourse {...item}/>
-        <CourseIntroduction {...item}/>
-        <Needs />
-        <CourseTeacher />
-        <CourseComments />
-        <RelatedCourses />
-      </div>
-    )
-  );
+  }, []);
 
   return (
     <motion.div
@@ -46,19 +35,19 @@ const CourseDetail = () => {
       exit={{ opacity: 0 }}
     >
       <div className="mt-5">
-        {/* <ScrollAnimation/> */}
         <GoToCorse />
         <ScrollToTop />
       </div>
-      {item}
-      {/* <div className=" flex flex-col gap-[100px] ">
-        <AboutCourse />
-        <CourseIntroduction />
-        <Needs />
-        <CourseTeacher />
-        <CourseComments />
-        <RelatedCourses />
-      </div> */}
+      {CourseDetail.map((item, index) => (
+        <div className=" flex flex-col gap-[100px]" key={index}>
+          <AboutCourse {...item} />
+          <CourseIntroduction {...item} />
+          <Needs />
+          <CourseTeacher />
+          <CourseComments id={item.courseId} />
+          <RelatedCourses />
+        </div>
+      ))}
     </motion.div>
   );
 };

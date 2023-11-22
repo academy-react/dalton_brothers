@@ -5,32 +5,30 @@ import { Link } from "react-router-dom";
 import { Article } from "../../Article & News/ArticleSections/Article/Article";
 import { newsData } from "../../../Core/Services/data";
 import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
-import { basicGet } from "../../../Core/Services/api/course/courseList";
+import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 
 const ArticleNews = () => {
-  const [articleList, setArticleList] = useState([])
+  const [articleList, setArticleList] = useState([]);
 
-  const getSomeArticle = async () =>{
-    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10")
+  const getSomeArticle = async () => {
+    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
 
-    const response = result.news
+    const response = result.news;
 
-
-    console.log(result);
-    setArticleList(response)
-  }
+    // console.log(result);
+    setArticleList(response);
+  };
 
   useEffect(() => {
-    getSomeArticle()
-  }, [])
-  
+    getSomeArticle();
+  }, []);
 
   const data = [newsData[0], newsData[1], newsData[2]];
 
   return (
     <div className="w-100   flex flex-col gap-5 mt-20 ">
       <div className="w-[75%]  flex flex-row-reverse justify-between items-center m-auto">
-      <div className="mr-3 ml-3 text-xl whitespace-nowrap h-28 flex justify-start items-center font-irSans text-[#fcbf49]">
+        <div className="mr-3 ml-3 text-xl whitespace-nowrap h-28 flex justify-start items-center font-irSans text-[#fcbf49]">
           اخبار و مقالات
         </div>
 
