@@ -16,7 +16,7 @@ const MyCourse = ({
 }) => {
   const location = useLocation();
   return (
-    <div className="bg-[#f1f5f9] rounded-[28px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-evenly items-center text-gray-800  whitespace-nowrap ">
+    <div className="bg-mode-50 rounded-[28px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-evenly items-center text-gray-800  whitespace-nowrap ">
       <div className=" w-[50px] h-[65px] text-center rounded-full flex justify-center items-center mr-5">
         {" "}
         <img

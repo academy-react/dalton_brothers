@@ -38,7 +38,7 @@ const Comments = ({ author, describe, title, likeCount, disslikeCount }) => {
               <IconHeart
                 strokeWidth="1"
                 fill="red"
-                className="w-full h-[70%] text-red-500 cursor-pointer"
+                className="w-full h-[70%] text-error-100 cursor-pointer"
                 onClick={() => setLike(!like)}
               />
             ) : (

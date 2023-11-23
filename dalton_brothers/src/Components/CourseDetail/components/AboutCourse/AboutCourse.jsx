@@ -17,7 +17,7 @@ const AboutCourse = ({
 }) => {
   return (
     <div>
-      <div className="bg-[#F1F5F9] w-[500px] h-[350px] rounded-[25px] flex justify-center items-center mx-auto mt-[100px] relative lg:w-[950px] md:w-[700px] ">
+      <div className="bg-mode-50 w-[500px] h-[350px] rounded-[25px] flex justify-center items-center mx-auto mt-[100px] relative lg:w-[950px] md:w-[700px] ">
         <div className=" md:w-[190px] md:h-[190px] absolute -top-[99px] w-[150px] h-[150px]">
           <img src={AboutCourseImg } alt="" className="w-full h-full"></img>
         </div>

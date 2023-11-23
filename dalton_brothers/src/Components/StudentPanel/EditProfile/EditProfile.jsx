@@ -71,7 +71,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="LName"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="UserAbout"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -107,7 +107,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="NationalCode"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="ReceiveMessageEvent"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -149,7 +149,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="HomeAdderess"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -169,7 +169,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="FName"
                   component={"div"}
-                  className="error  h-5 text-red-500 text-center "
+                  className="error  h-5 text-error-100 text-center "
                 />
               </div>
             </div>
@@ -187,7 +187,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="LinkdinProfile"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -205,7 +205,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="TelegramLink"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -225,7 +225,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="Gender"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>
@@ -243,7 +243,7 @@ const EditProfile = () => {
                 <ErrorMessage
                   name="BirthDay"
                   component={"div"}
-                  className="error text-red-500 text-center"
+                  className="error text-error-100 text-center"
                 />
               </div>
             </div>

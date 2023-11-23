@@ -67,7 +67,7 @@ const PanelNavigation = () => {
   };
   return (
     <>
-      <div className=" 2xl:w-[260px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  bg-[#F1F5F9] rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">
+      <div className=" 2xl:w-[260px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  bg-mode-50 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly gap-5 font-irSans ">
           {panelList.map((item, index) => (
             <li
@@ -114,7 +114,7 @@ const PanelNavigation = () => {
       <div className="flex justify-center items-center gap-3 w-[240px] flex-row-reverse mt-5  ">
         <Button
           onClick={() => navigate("/")}
-          className="  w-1/2 h-[50px] bg-[#F1F5F9]  rounded-l-[20px] text-center lg:text-xl text-lg text-gray-500 font-irSans flex justify-center items-center "
+          className="  w-1/2 h-[50px] bg-mode-50 rounded-l-[20px] text-center lg:text-xl text-lg text-gray-500 font-irSans flex justify-center items-center "
           value={" بازگشت"}
         ></Button>
 

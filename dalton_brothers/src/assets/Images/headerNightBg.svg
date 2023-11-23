@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1372" viewBox="0 0 1920 1372">
   <defs>
     <clipPath id="clip-path">
-      <rect id="Rectangle_167" data-name="Rectangle 167" width="1920" height="1372"/>
+      <rect id="Rectangle_165" data-name="Rectangle 165" width="1920" height="1372" fill="#27272a"/>
     </clipPath>
   </defs>
   <g id="Web_1920_10" data-name="Web 1920 – 10" clip-path="url(#clip-path)">
-    <rect id="Rectangle_166" data-name="Rectangle 166" width="1920" height="1372" fill="#fff"/>
-    <path id="Path_110" data-name="Path 110" d="M0,0H1122S955.62,283.021,951.672,489.292c-2.922,152.685,52.04,310.313-67.453,424.161-126.506,120.53-366.87,22.052-539.625,33.419C133.845,960.74,0,1069,0,1069Z" transform="translate(-44 -35)" fill="#fcbf49"/>
+    <rect id="Rectangle_164" data-name="Rectangle 164" width="1920" height="1372" fill="#27272a"/>
+    <path id="Path_110" data-name="Path 110" d="M0,0H1122S955.62,283.021,951.672,489.292c-2.922,152.685,52.04,310.313-67.453,424.161-126.506,120.53-366.87,22.052-539.625,33.419C133.845,960.74,0,1069,0,1069Z" transform="translate(-44 -35)" fill="#16a34a"/>
     <path id="Path_111" data-name="Path 111" d="M409,0C613.5,0,920.25,465,818,620S102.25,775,0,620,204.5,0,409,0Z" transform="translate(831.196 132.463) rotate(79)" fill="#707070"/>
     <path id="Path_112" data-name="Path 112" d="M409,0C613.5,0,920.25,465,818,620S102.25,775,0,620,204.5,0,409,0Z" transform="translate(916 210.19) rotate(90)" fill="#e6e6e6"/>
     <g id="undraw_launching_re_tomg" transform="translate(199.5 307.851)">

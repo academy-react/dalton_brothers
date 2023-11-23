@@ -19,7 +19,7 @@ const YourStock = () => {
             نوع شارژ{" "}
           </p>
           <div className="w-[90%] h-[35px] flex justify-between items-center  mt-5 text-center  ">
-            <div className="bg-[#e6e6e6] h-full w-[45%] rounded-r-md rounded-l-[30px] flex justify-center items-center text-sm ">
+            <div className="bg-mode-200 h-full w-[45%] rounded-r-md rounded-l-[30px] flex justify-center items-center text-sm ">
               دلار
             </div>
             <div className="bg-[#fcbf49] h-full w-[45%] rounded-l-md rounded-r-[30px] flex justify-center items-center text-sm">

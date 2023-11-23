@@ -20,7 +20,7 @@ const Input = ({ topic, className, placeHolder, type, name, as, id }) => {
         <ErrorMessage
           name={name}
           component={"p"}
-          className="error text-red-500 text-center"
+          className="error text-error-100 text-center"
         />
       </div>
     </div>
