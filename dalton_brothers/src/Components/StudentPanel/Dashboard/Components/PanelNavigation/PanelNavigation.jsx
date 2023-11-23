@@ -51,7 +51,7 @@ const PanelNavigation = () => {
     } else if (
       location.pathname === "/masterPanel" ||
       location.pathname === "/masterPanel/masterEditProfile" ||
-      location.pathname === "/masterPanel/PanelCoursesList" ||
+      location.pathname === "/masterPanel/masterPanelCoursesList" ||
       location.pathname === "/masterPanel/CreateCourse"
     ) {
       setPanelList(masterPanelList);

@@ -1,28 +1,56 @@
-import React from "react";
+import { useState, Fragment } from "react";
+import { Combobox } from "@headlessui/react";
+// import { CheckIcon } from "@heroicons/react/20/solid";
 
-import searchIcon from "../../../../../assets/Images/searchIcon.png";
+const people = [
+  { id: 1, name: "Durward Reynolds" },
+  { id: 2, name: "Kenton Towne" },
+  { id: 3, name: "Therese Wunsch" },
+  { id: 4, name: "Benedict Kessler" },
+  { id: 5, name: "Katelyn Rohan" },
+];
 
-const HeaderSearch = () => {
+function MyCombobox() {
+  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+  const [query, setQuery] = useState("");
+
+  const filteredPeople =
+    query === ""
+      ? people
+      : people.filter((person) => {
+          return person.name.toLowerCase().includes(query.toLowerCase());
+        });
+
   return (
-    <label
-      htmlFor="searchInput"
-      className="xl:mt-[300px] xl:w-[600px] lg:w-[50vw] lg:mt-[150px] relative flex flex-row flex-nowrap h-[65px] w-[70vw] mx-auto mt-[100px] border-2 rounded-full py-1 justify-start items-center px-5 gap-3"
-    >
-      <span className="absolute right-[32%] top-[-25%] whitespace-nowrap bg-white px-2 w-fit  text-[#707070]  font-irSans text-xl">
-        جستوجو در سایت
-      </span>
-      <picture className="w-[30px]">
-        <img src={searchIcon} alt="" />
-      </picture>
-      <input
-        type="text"
-        name=""
-        id="searchInput"
-        placeholder="جستوجو..."
-        className="w-96 text-right text-black outline-none font-irSans "
+    <Combobox value={selectedPerson} onChange={setSelectedPerson}>
+      <Combobox.Input
+        onChange={(event) => setQuery(event.target.value)}
+        displayValue={(person) => person.name}
+        className={'border-2 h'}
       />
-    </label>
+      <Combobox.Options>
+        {filteredPeople.map((person) => (
+          <Combobox.Option
+            key={person.id}
+            value={person}
+            as={Fragment}
+            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
+          >
+            {({ active, selected }) => (
+              <li
+                className={`${
+                  active ? "bg-blue-500 text-white" : "bg-white text-black"
+                }`}
+              >
+                {/* {selected && <CheckIcon />} */}
+                {person.name}
+              </li>
+            )}
+          </Combobox.Option>
+        ))}
+      </Combobox.Options>
+    </Combobox>
   );
-};
+}
 
-export default HeaderSearch;
+export default MyCombobox;

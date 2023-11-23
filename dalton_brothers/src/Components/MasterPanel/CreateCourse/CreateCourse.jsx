@@ -1,44 +1,56 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../../Common/buttons";
 import { editProfileValidation } from "../../../Core/Validation/yup";
 import { createCourse } from "../../../Core/Services/api/masterPanel/createCourse";
 
 import defaultImg from "../../../assets/Images/register-person.png";
 import { PanelInps } from "../../Common/Inputs/PanelInputs";
+import MasterSelectOption from "../MasterSelectOption";
+import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 
 const CreateCourse = () => {
   const [personImg, setPersonImg] = useState();
+  const [courseList, setCourseList] = useState([]);
+
+  const getCourses = async () => {
+    const result = await basicGet("/Home/GetCoursesWithPagination");
+
+    setCourseList(result.courseFilterDtos);
+  };
 
   const onSubmit = async (values) => {
     var formdata = new FormData();
-    // formdata.append("Title", values.Title);
-    // formdata.append("Describe", values.Describe);
-    // formdata.append("MiniDescribe", "<string>");
-    // formdata.append("Capacity", values.Capacity);
-    formdata.append("CourseTypeId", "<integer>");
-    // formdata.append("SessionNumber", values.SessionNumber);
-    // formdata.append("CurrentCoursePaymentNumber", "<integer>");
-    formdata.append("TremId", "<integer>");
-    formdata.append("ClassId", "<integer>");
-    formdata.append("CourseLvlId", "<integer>");
-    // formdata.append("Cost", values.Cost);
-    // formdata.append("UniqeUrlString", "<string>");
-    // formdata.append("Image", "<string>");
-    // formdata.append("StartTime", values.StartTime);
-    // formdata.append("EndTime", values.EndTime);
-    // formdata.append("GoogleSchema", "<string>");
-    // formdata.append("GoogleTitle", "<string>");
-    formdata.append("CoursePrerequisiteId", "<uuid>");
-    // formdata.append("ShortLink", "<string>");
-    // formdata.append("TumbImageAddress", "<string>");
-    // formdata.append("ImageAddress", "<string>");
+    formdata.append("Title", values.Title);
+    formdata.append("Describe", values.Describe);
+    formdata.append("MiniDescribe", "<string>");
+    formdata.append("Capacity", values.Capacity);
+    formdata.append("CourseTypeId", values.CourseTypeId);
+    formdata.append("SessionNumber", values.SessionNumber);
+    formdata.append(
+      "CurrentCoursePaymentNumber",
+      values.CurrentCoursePaymentNumber
+    );
+    formdata.append("TremId", values.TremId);
+    formdata.append("ClassId", values.ClassId);
+    formdata.append("CourseLvlId", values.CourseLvlId);
+    formdata.append("Cost", values.Cost);
+    formdata.append("UniqeUrlString", Date.now());
+    formdata.append("Image", "<string>");
+    formdata.append("StartTime", values.StartTime);
+    formdata.append("EndTime", values.EndTime);
+    formdata.append("GoogleSchema", "<string>");
+    formdata.append("GoogleTitle", "<string>");
+    formdata.append("CoursePrerequisiteId", values.CoursePrerequisiteId);
+    formdata.append("ShortLink", "<string>");
+    formdata.append("TumbImageAddress", "<string>");
+    formdata.append("ImageAddress", "<string>");
 
-    const user = await createCourse(userNewObj);
+    const user = await createCourse(formdata);
 
     console.log(user);
   };
-  const rightArrayInps = [
+  const inpArray = [
     {
       title: "عنوان",
       name: "Title",
@@ -47,6 +59,7 @@ const CreateCourse = () => {
     {
       title: "توضیحات کلی",
       name: "Describe",
+      as: "textarea",
       placeholder: "...توضیحات کلی",
     },
     {
@@ -59,12 +72,15 @@ const CreateCourse = () => {
       name: "SessionNumber",
       placeholder: "...تعداد سرفصل ها",
     },
-  ];
-  const leftArrayInps = [
     {
       title: "قیمت",
       name: "Cost",
       placeholder: "...قیمت ",
+    },
+    {
+      title: "پیش پرداخت",
+      name: "CurrentCoursePaymentNumber",
+      placeholder: "...پیش پرداخت",
     },
     {
       title: "تاریخ شروع",
@@ -79,85 +95,112 @@ const CreateCourse = () => {
       placeholder: "...تاریخ پایان",
     },
   ];
+  const selArray = [
+    {
+      title: "ترم برگذاری",
+      name: "TremId",
+      Children: [
+        <option value="1" key={1}>
+          ترم پاییز 1402
+        </option>,
+      ],
+    },
+    {
+      title: "نوع برگذاری",
+      name: "CourseTypeId",
+      Children: [
+        <option value="1" key={1}>
+          حضوری
+        </option>,
+        <option value="2" key={2}>
+          حضوری-انلاین
+        </option>,
+      ],
+    },
+    {
+      title: "شماره کلاس",
+      name: "ClassId",
+      Children: [
+        <option value="1" key={1}>
+          کلاس شماره 1
+        </option>,
+        <option value="2" key={2}>
+          کلاس شماره 2
+        </option>,
+      ],
+    },
+    {
+      title: "سطح کلاس",
+      name: "CourseLvlId",
+      Children: [
+        <option value="1" key={1}>
+          مقدماتی
+        </option>,
+        <option value="2" key={2}>
+          متوسط
+        </option>,
+        <option value="3" key={3}>
+          پیشرفته
+        </option>,
+      ],
+    },
+    {
+      title: "کلاس های پیش نیاز",
+      name: "CoursePrerequisiteId",
+      Children: [
+        courseList &&
+          courseList.map((el, index) => (
+            <option value={el.courseId} key={index}>
+              {el.title}
+            </option>
+          )),
+      ],
+    },
+  ];
+  useEffect(() => {
+    getCourses();
+  }, []);
   return (
     <Formik
       initialValues={{
-        Gender: "true",
-        ReceiveMessageEvent: "false",
         Title: "",
         Describe: "",
         Capacity: "",
         SessionNumber: "",
         Cost: "",
+        CurrentCoursePaymentNumber: "",
         StartTime: "00/00/0000",
         EndTime: "00/00/0000",
+        TremId: "1",
+        CourseTypeId: "2",
+        ClassId: "1",
+        CourseLvlId: "3",
+        CoursePrerequisiteId: "",
       }}
       onSubmit={onSubmit}
       // validationSchema={editProfileValidation}
     >
-      <Form className=" w-[900px]  h-[900px] overflow-scroll flex flex-col font-irSans">
-        <div className="rounded-full cursor-pointer self-center mb-5">
-          <label htmlFor="pic1" className="cursor-pointer">
-            <img
-              src={personImg ? URL.createObjectURL(personImg) : defaultImg}
-              alt=""
-              className="w-[150px]"
-            />
-          </label>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="  w-1/2  flex flex-col justify-start  ">
-            {rightArrayInps.map((el, index) => (
-              <PanelInps {...el} key={index} />
-            ))}
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
-              <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
-                اطلاع رویداد ها
-              </span>
-              <Field
-                as="select"
-                name="ReceiveMessageEvent"
-                className=" w-[85%] m-auto text-right bg-white text-[#9ca3af] h-[50px] rounded-full outline-none border-zinc-300 border-[2px] peer px-5 "
-              >
-                <option className=" font-irSans" value="true">
-                  بله
-                </option>
-                <option className=" font-irSans" value="false">
-                  خیر
-                </option>
-              </Field>
-              <div className="w-full h-10 flex justify-center items-center">
-                <ErrorMessage
-                  name="ReceiveMessageEvent"
-                  component={"div"}
-                  className="error text-red-500 text-center"
-                />
-              </div>
-            </div>
+      <Form className=" w-[900px] flex flex-col font-irSans">
+        <div className="w-full h-[650px] overflow-scroll mb-[50px]">
+          <div className=" self-center my-5 flex justify-center">
+            <label htmlFor="pic1" className="cursor-pointer">
+              <img
+                src={personImg ? URL.createObjectURL(personImg) : defaultImg}
+                alt=""
+                className="w-[150px]"
+              />
+            </label>
           </div>
-          <div className="  w-1/2  flex flex-col justify-start ">
-            {leftArrayInps.map((el, index) => (
-              <PanelInps {...el} key={index} />
-            ))}
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
-              <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
-                جنسیت
-              </span>
-              <Field
-                as="select"
-                name="Gender"
-                className="bg-white w-[85%] m-auto text-right h-[50px] text-[#9ca3af] rounded-full outline-none border-zinc-300 border-[2px] peer px-5"
-              >
-                <option value="true">مرد</option>
-                <option value="false">زن</option>
-              </Field>
-              <div className="w-full h-10 flex justify-center items-center">
-                <ErrorMessage
-                  name="Gender"
-                  component={"div"}
-                  className="error text-red-500 text-center"
-                />
-              </div>
+          <div className="flex flex-wrap">
+            <div className="  w-1/2  flex flex-col justify-start  ">
+              {inpArray.map((el, index) => (
+                <PanelInps {...el} key={index} />
+              ))}
+            </div>
+            <div className="  w-1/2  flex flex-col justify-start ">
+              {selArray.map((el, index) => (
+                <MasterSelectOption {...el} key={index} />
+              ))}
             </div>
           </div>
         </div>

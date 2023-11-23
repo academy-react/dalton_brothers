@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.7",
     "@tabler/icons": "^2.39.0",
     "@tabler/icons-react": "^2.39.0",
