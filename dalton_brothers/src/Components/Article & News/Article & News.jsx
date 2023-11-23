@@ -22,6 +22,7 @@ const ArticleNews = () => {
   useEffect(() => {
     getArticles();
   }, []);
+  
 
   // const data = ;
   return (
@@ -32,10 +33,12 @@ const ArticleNews = () => {
       exit={{ opacity: 0 }}
     >
       <LayOutHeaders topic={"اخبار و مقالات"} />
-      <div className="w-100 flex flex-row flex-wrap justify-center gap-3 scale-x-90">
+      <div className="w-100 flex flex-row flex-wrap justify-evenly gap-3 scale-x-90">
         {articleList.map((news, index) => (
-          <Article {...news} key={index} />
+          <Article {...news} key={index} insertDate={news.insertDate.split('T')[0]} updateDate={news.updateDate.split('T')[0]}/>
         ))}
+        <Article></Article>
+        <Article></Article>
       </div>
       <ScrollToTop />
     </motion.div>

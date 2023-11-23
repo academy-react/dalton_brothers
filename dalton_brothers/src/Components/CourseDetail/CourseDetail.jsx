@@ -19,11 +19,12 @@ const CourseDetail = () => {
   const getCourseDetail = async () => {
     const result = await basicGet("/Home/GetCoursesTop?count=400");
     setCourseDetail(result);
-    console.log(result);
+    console.log(params.courseId);
   };
   useEffect(() => {
     getCourseDetail();
   }, [params.courseId]);
+  
 
   const item = CourseDetail.filter((item) => item.courseId === params.courseId).map(
     (item, index) => (
