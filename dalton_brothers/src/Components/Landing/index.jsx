@@ -15,7 +15,7 @@ import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop.jsx";
 const Landing = () => {
   return (
     <motion.div
-      className={style.landingContainer}
+      className={style.landingContainer }
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

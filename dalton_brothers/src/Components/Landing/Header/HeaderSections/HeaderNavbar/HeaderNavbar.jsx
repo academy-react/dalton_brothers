@@ -9,20 +9,29 @@ import logo from "../../../../../assets/Images/logo.png";
 import style from "../../header.module.css";
 import useColorMode from "../../../../CustomHooks/UseColorMode";
 
+import darkModeImg from "../../../../../assets/Images/darkMode.png";
+import lightModeImg from "../../../../../assets/Images/darkMode.png";
+
 const HeaderNavbar = () => {
   const token = useSelector((state) => state.token.token);
 
-  const [colorMode,setColorMode] = useColorMode();
+  const [colorMode, setColorMode] = useColorMode();
 
   const navigate = useNavigate();
 
   return (
     <div className="2xl:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around md:flex-row-reverse 2xl:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-between font-irSBold">
-      <div className="lg:order-3 lg:mx-0 mx-[20px] w-[70px]  order-2">
-        <img src={logo} alt="" className="w-full h-full" />
+      <div className="lg:order-3 lg:mx-0 !mx-[20px] w-[70px]  order-2">
+        <img src={logo} alt="" className="" />
       </div>
       <div className=" flex justify-center items-center">
-        <button onClick={() => {setColorMode(colorMode === "light" ? "dark" : "light")}} className="w-16 h-8 dark:bg-lime-700 bg-black"></button>
+        <button
+          onClick={() => {
+            setColorMode(colorMode === "light" ? "dark" : "light");
+          }}
+          className="w-16 h-8 dark:bg-[url('../../../../../../../assets/Images/darkMode.png')] bg-[url({'../../../../../assets/Images/lightMode.png'})]  bg-[length:100%] "
+        ></button>
+
         <div className="lg:w-[200px] lg:order-1 md:justify-center md:w-[100%] md:m-[5px] md:px-0 w-fit max-w-[2000px] whitespace-nowrap flex flex-row-reverse flex-wrap justify-between items-center p-0 m-0  order-3 ">
           {token ? (
             <NavLinks
@@ -68,7 +77,7 @@ const HeaderNavbar = () => {
           className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
         >
           <NavLinks Children={"دوره ها"} path={"/course"} />
-          <NavLinks Children={"دسته بندی"} path={"/"} />
+          <NavLinks className={"mx-2"} Children={"دسته بندی"} path={"/"} />
           <NavLinks Children={"پشتیبانی"} path={"/"} />
           <NavLinks Children={"  اخبار و مقالات"} path={"/news"} />
           <NavLinks Children={"اساتید"} path={"/"} />
