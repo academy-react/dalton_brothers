@@ -35,15 +35,18 @@ const Article = ({
   currentLikeCount,
   currentUserIsLike,
 }) => {
-  // const [save, setSave] = useState(false)
   const [Like, setLike] = useState(currentUserIsLike);
-  // const tarikhSh = tarikh.slice(0,3);
 
-  // const navigate = useNavigate()
-  // const getInsertDate = () => {
-  //   tarikhSh.slice(0,'T')
-  // };
-  // console.log(insertDate);
+  const navigate = useNavigate()
+
+  const handleLike = () => {
+    if (Like == true) {
+      setLike(!Like)
+    }
+    else 
+    setLike(!Like)
+  }
+
 
   return (
     <div className="w-[780px]  border rounded-[30px] flex-col bg-[#F1F5F9] p-4 pb-0">
@@ -126,7 +129,7 @@ const Article = ({
           {Like ? (
             <div
               className="bg-red-300 w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-              onClick={() => setLike(!like)}
+              onClick={handleLike}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
                 <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
@@ -142,7 +145,7 @@ const Article = ({
           ) : (
             <div
               className="bg-white w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-              onClick={() => setLike(!like)}
+              onClick={handleLike}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
                 <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
@@ -157,18 +160,18 @@ const Article = ({
             </div>
           )}
         </div>
-        <div className="w-[150px] h-1/3 flex flex-row-reverse ">
-          <div className="w-2/3 h-full whitespace-nowrap font-irSans text-gray-500 font-bold flex justify-center items-center pr-2">
+        <Button className="w-[150px] h-1/3 flex flex-row-reverse !px-0 !py-0" onClick={()=> navigate(`/newsDetail/${id}`)}>
+          <div className="w-2/3 h-full whitespace-nowrap font-irSans text-gray-500 font-bold flex justify-center items-center pr-3">
             {" "}
-            جزپیات بیشتر{" "}
+            جزئیات بیشتر{" "}
           </div>
-          <div className="w-1/3 h-full  flex justify-center items-center ">
+          <div className="w-[50px] h-8  flex justify-center items-center ">
             <IconArrowNarrowLeft
               className="w-full h-full text-gray-500"
               strokeWidth={1.5}
             ></IconArrowNarrowLeft>
           </div>
-        </div>
+        </Button>
       </div>
 
       {/* <div className="w-full h-1/2 rounded-t-lg flex justify-center flex-row-reverse">
