@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import likeCheck from "../../../Assets/Images/likeCheck.png";
 import likes from "../../../Assets/Images/like.png";
@@ -117,7 +117,7 @@ const Course = ({
           {teacherName}
         </span>
         <span className="flex flex-row-reverse pr-3 text-neutral-400 text-xs font-irSans text-right text-ellipsis ">
-          {describe}
+          {describe && handleDescription( describe , 20) }
         </span>
 
         {/* button & price start */}
