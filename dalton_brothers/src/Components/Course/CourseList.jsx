@@ -15,7 +15,7 @@ const CourseList = () => {
   const [courseList, setCourseList] = useState([]);
 
   const getCourses = async () => {
-    const result = await basicGet("/Home/GetCoursesTop?count=6");
+    const result = await basicGet("/Home/GetCoursesTop?count=10");
 
     console.log(result);
     setCourseList(result);

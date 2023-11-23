@@ -1,88 +1,101 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { Button } from "../../Common/buttons";
-import { editUSerProfile } from "../../../Core/Services/api/studentPanel/updateProfileInfo/editProfile";
 import { editProfileValidation } from "../../../Core/Validation/yup";
+import { createCourse } from "../../../Core/Services/api/masterPanel/createCourse";
 
 import defaultImg from "../../../assets/Images/register-person.png";
 import { PanelInps } from "../../Common/Inputs/PanelInputs";
 
-const EditProfile = () => {
+const CreateCourse = () => {
   const [personImg, setPersonImg] = useState();
 
   const onSubmit = async (values) => {
-    console.log("triggered");
-    var userNewObj = new FormData();
-    userNewObj.append("LName", values.LName);
-    userNewObj.append("FName", values.FName);
-    userNewObj.append("UserAbout", values.UserAbout);
-    userNewObj.append("LinkdinProfile", "https://linkedin.com");
-    userNewObj.append("TelegramLink", "https://t.me");
-    userNewObj.append("ReceiveMessageEvent", values.ReceiveMessageEvent);
-    userNewObj.append("HomeAdderess", values.HomeAdderess);
-    userNewObj.append("NationalCode", values.NationalCode);
-    userNewObj.append("Gender", values.Gender);
-    userNewObj.append("BirthDay", values.BirthDay);
-    userNewObj.append("Latitude", "0");
-    userNewObj.append("Longitude", "53.05821549859579");
+    var formdata = new FormData();
+    // formdata.append("Title", values.Title);
+    // formdata.append("Describe", values.Describe);
+    // formdata.append("MiniDescribe", "<string>");
+    // formdata.append("Capacity", values.Capacity);
+    formdata.append("CourseTypeId", "<integer>");
+    // formdata.append("SessionNumber", values.SessionNumber);
+    // formdata.append("CurrentCoursePaymentNumber", "<integer>");
+    formdata.append("TremId", "<integer>");
+    formdata.append("ClassId", "<integer>");
+    formdata.append("CourseLvlId", "<integer>");
+    // formdata.append("Cost", values.Cost);
+    // formdata.append("UniqeUrlString", "<string>");
+    // formdata.append("Image", "<string>");
+    // formdata.append("StartTime", values.StartTime);
+    // formdata.append("EndTime", values.EndTime);
+    // formdata.append("GoogleSchema", "<string>");
+    // formdata.append("GoogleTitle", "<string>");
+    formdata.append("CoursePrerequisiteId", "<uuid>");
+    // formdata.append("ShortLink", "<string>");
+    // formdata.append("TumbImageAddress", "<string>");
+    // formdata.append("ImageAddress", "<string>");
 
-    const user = await editUSerProfile(userNewObj);
+    const user = await createCourse(userNewObj);
 
     console.log(user);
   };
   const rightArrayInps = [
     {
-      title: "نام خانوادگی",
-      name: "LName",
-      placeholder: "...نام خانوادگی",
+      title: "عنوان",
+      name: "Title",
+      placeholder: "...عنوان",
     },
     {
-      title: "بیوگرافی",
-      name: "UserAbout",
-      placeholder: "...بیوگرافی",
+      title: "توضیحات کلی",
+      name: "Describe",
+      placeholder: "...توضیحات کلی",
     },
     {
-      title: "ادرس",
-      name: "HomeAdderess",
-      placeholder: "              ...ادرس",
+      title: "ظرفیت",
+      name: "Capacity",
+      placeholder: "...ظرفیت",
+    },
+    {
+      title: "تعداد سرفصل ها",
+      name: "SessionNumber",
+      placeholder: "...تعداد سرفصل ها",
     },
   ];
   const leftArrayInps = [
     {
-      title: "نام",
-      name: "FName",
-      placeholder: "...نام ",
+      title: "قیمت",
+      name: "Cost",
+      placeholder: "...قیمت ",
     },
     {
-      title: "شماره ملی",
-      name: "NationalCode",
-      placeholder: "...شماره ملی",
-    },
-    {
-      title: "تاریخ تولد",
-      name: "BirthDay",
+      title: "تاریخ شروع",
+      name: "StartTime",
       type: "date",
-      placeholder: "...تاریخ تولد ",
+      placeholder: "...تاریخ شروع",
+    },
+    {
+      title: "تاریخ پایان",
+      name: "EndTime",
+      type: "date",
+      placeholder: "...تاریخ پایان",
     },
   ];
   return (
     <Formik
       initialValues={{
-        Gender: true,
-        ReceiveMessageEvent: false,
-        FName: "",
-        LName: "",
-        NationalCode: "",
-        TelegramLink: "",
-        HomeAdderess: "",
-        UserAbout: "",
-        LinkdinProfile: "",
-        BirthDay: "",
+        Gender: "true",
+        ReceiveMessageEvent: "false",
+        Title: "",
+        Describe: "",
+        Capacity: "",
+        SessionNumber: "",
+        Cost: "",
+        StartTime: "00/00/0000",
+        EndTime: "00/00/0000",
       }}
       onSubmit={onSubmit}
-      validationSchema={editProfileValidation}
+      // validationSchema={editProfileValidation}
     >
-      <Form className=" w-[900px]   flex flex-col font-irSans">
+      <Form className=" w-[900px]  h-[900px] overflow-scroll flex flex-col font-irSans">
         <div className="rounded-full cursor-pointer self-center mb-5">
           <label htmlFor="pic1" className="cursor-pointer">
             <img
@@ -158,4 +171,4 @@ const EditProfile = () => {
   );
 };
 
-export { EditProfile };
+export { CreateCourse };

@@ -41,6 +41,7 @@ const SignInForm = () => {
       if (remember) {
         setItem("token", user.token);
         setItem("userId", user.id);
+        setItem("userRole", user.roles);
         dispatch(onTokenChange(getItem("token")));
       } else {
         dispatch(onTokenChange(user.token));

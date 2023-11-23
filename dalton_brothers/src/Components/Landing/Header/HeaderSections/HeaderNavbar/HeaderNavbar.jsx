@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
-import { Button } from "../../../../Common/buttons";
 import { NavLinks } from "../../../../Common/Links/NavLinks/NavLinks";
 import logo from "../../../../../assets/Images/logo.png";
 
 import style from "../../header.module.css";
+import { getItem } from "../../../../../Core/Services/common/storage.services";
 
 const HeaderNavbar = () => {
+  const [roleName, setRoleName] = useState("");
   const token = useSelector((state) => state.token.token);
-
-  const navigate = useNavigate();
-
+  const role = getItem("userRole");
+  const getRole = () => {
+    if (role.indexOf("Student") !== -1) {
+      setRoleName("panel");
+      if (role.indexOf("Teacher") !== -1) {
+        setRoleName("masterPanel");
+      }
+    }
+    if (role.indexOf("Teacher") !== -1) {
+      setRoleName("masterPanel");
+    }
+     else if (role.indexOf("Administrator") !== -1) {
+      setRoleName("Administrator");
+    }
+    console.log(role);
+  };
+  useEffect(() => {
+    getRole();
+  }, []);
   return (
     <div className="2xl:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around md:flex-row-reverse 2xl:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-between font-irSBold">
       <div className="lg:order-3 lg:mx-0 mx-[20px] w-[70px]  order-2">
@@ -24,7 +40,7 @@ const HeaderNavbar = () => {
           <NavLinks
             Children={"ورود به پنل"}
             className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
-            path={"/panel"}
+            path={roleName}
           />
         ) : (
           <NavLinks
