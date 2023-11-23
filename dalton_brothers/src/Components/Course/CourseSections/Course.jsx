@@ -13,6 +13,7 @@ import {
   getItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
+import handleDescription from "../../Common/Functions/HandleDesc/HandleDesc";
 
 const Course = ({
   userFavorite,
@@ -117,7 +118,7 @@ const Course = ({
           {teacherName}
         </span>
         <span className="flex flex-row-reverse pr-3 text-neutral-400 text-xs font-irSans text-right text-ellipsis ">
-          {describe && handleDescription( describe , 20) }
+          {describe && handleDescription(describe, 20)}
         </span>
 
         {/* button & price start */}

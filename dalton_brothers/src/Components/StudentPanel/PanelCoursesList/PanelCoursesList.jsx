@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ReactPaginate from "react-paginate";
 import { MyCourse } from "../PanelCourses/Component/MyCourse/MyCourse";
-import { basicGet } from "../../../Core/Services/api/course/courseList";
+import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 
 const PanelCoursesList = () => {
-  
   const [courseList, setCourseList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(1);
 
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
-    setCurrentPage(numberOfCurrentPage)
-  }
+    setCurrentPage(numberOfCurrentPage);
+  };
 
   const getCourses = async () => {
     const result = await basicGet("/Home/GetCoursesTop?count=800");
@@ -26,10 +25,10 @@ const PanelCoursesList = () => {
     getCourses();
   }, []);
 
-  const lastPostIndex = currentPage * postsPerPage ;
-  const firstPostIndex = lastPostIndex - postsPerPage ;
-  const currentPosts = courseList.slice(firstPostIndex, lastPostIndex); 
-  const numberOfPage = Math.ceil(courseList.length / postsPerPage)
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = courseList.slice(firstPostIndex, lastPostIndex);
+  const numberOfPage = Math.ceil(courseList.length / postsPerPage);
 
   return (
     <div className=" w-full h-full flex flex-col pt-7 px-2 font-irSans">
@@ -68,24 +67,26 @@ const PanelCoursesList = () => {
         ))}
       </div>
       <div className=" w-full h-[90px]">
-      <ReactPaginate
-      previousLabel={"<"}
-      nextLabel={">"}
-      breakLabel={"..."}
-      pageCount={numberOfPage}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={2}
-      onPageChange={handlePageClick}
-      containerClassName={"flex justify-center mx-auto text-xl items-center p-1"}
-      pageClassName="mx-1"
-      nextClassName="mx-1 p-2 "
-      previousClassName="mx-1 p-2 "
-      nextLinkClassName="p-2 scale-120"
-      previousLinkClassName="p-2 scale-120"
-      pageLinkClassName="bg-gray-200 mx-1 px-[14px] py-2 rounded-md"
-      breakLinkClassName="mx-1 p-2"
-      activeLinkClassName="bg-orange-300 text-white"
-      ></ReactPaginate>
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={numberOfPage}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={2}
+          onPageChange={handlePageClick}
+          containerClassName={
+            "flex justify-center mx-auto text-xl items-center p-1"
+          }
+          pageClassName="mx-1"
+          nextClassName="mx-1 p-2 "
+          previousClassName="mx-1 p-2 "
+          nextLinkClassName="p-2 scale-120"
+          previousLinkClassName="p-2 scale-120"
+          pageLinkClassName="bg-gray-200 mx-1 px-[14px] py-2 rounded-md"
+          breakLinkClassName="mx-1 p-2"
+          activeLinkClassName="bg-orange-300 text-white"
+        ></ReactPaginate>
       </div>
     </div>
   );

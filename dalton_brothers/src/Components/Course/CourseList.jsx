@@ -7,7 +7,7 @@ import { LayOutHeaders } from "../Common/LayOutHeaders";
 import { useAppContext } from "../LayOut";
 import { Filter } from "./CourseSections/Filter/Filter";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
-import { basicGet } from "../../Core/Services/api/course/courseList";
+import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
 // import { Pagination } from "../StudentPanel/PanelCoursesList/Pagination/Pagination";
 
 const CourseList = () => {
