@@ -16,7 +16,6 @@ const BestMasters = () => {
     const result = await getMaster("/Home/GetTeachers");
 
     setData([result[6], result[4], result[2], result[3]]);
-    console.log(result);
   };
 
   useEffect(() => {

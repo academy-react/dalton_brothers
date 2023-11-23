@@ -1,51 +1,36 @@
-import { useState, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { Combobox } from "@headlessui/react";
-// import { CheckIcon } from "@heroicons/react/20/solid";
-
-const people = [
-  { id: 1, name: "Durward Reynolds" },
-  { id: 2, name: "Kenton Towne" },
-  { id: 3, name: "Therese Wunsch" },
-  { id: 4, name: "Benedict Kessler" },
-  { id: 5, name: "Katelyn Rohan" },
-];
+import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
 
 function MyCombobox() {
+  const [people, setPeople] = useState([]);
   const [selectedPerson, setSelectedPerson] = useState(people[0]);
   const [query, setQuery] = useState("");
+
+  const getCourses = async () => {
+    const result = await basicGet("/Home/GetCoursesWithPagination");
+    setPeople(result.courseFilterDtos);
+  };
 
   const filteredPeople =
     query === ""
       ? people
       : people.filter((person) => {
-          return person.name.toLowerCase().includes(query.toLowerCase());
+          return person.title.toLowerCase().includes(query.toLowerCase());
         });
-
+  useEffect(() => {
+    getCourses();
+  }, []);
   return (
     <Combobox value={selectedPerson} onChange={setSelectedPerson}>
       <Combobox.Input
         onChange={(event) => setQuery(event.target.value)}
         displayValue={(person) => person.name}
-        className={'border-2 h'}
       />
       <Combobox.Options>
         {filteredPeople.map((person) => (
-          <Combobox.Option
-            key={person.id}
-            value={person}
-            as={Fragment}
-            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
-          >
-            {({ active, selected }) => (
-              <li
-                className={`${
-                  active ? "bg-blue-500 text-white" : "bg-white text-black"
-                }`}
-              >
-                {/* {selected && <CheckIcon />} */}
-                {person.name}
-              </li>
-            )}
+          <Combobox.Option key={person.courseId} value={person}>
+            {person.title}
           </Combobox.Option>
         ))}
       </Combobox.Options>
