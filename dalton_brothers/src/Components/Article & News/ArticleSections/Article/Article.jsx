@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import ArticleImage from "../../../../Assets/Images/article.png";
@@ -10,6 +10,7 @@ import bookmark from "../../../../Assets/Images/bookMark.png";
 import bookmarkCheck from "../../../../Assets/Images/bookmarkCheck.png";
 
 import { Button } from "../../../Common/buttons";
+import { addArticleLike } from "../../../../Core/Services/api/course/Like/Like";
 import handleDescription from "../../../Common/Functions/HandleDesc/HandleDesc";
 import { IconDots } from "@tabler/icons-react";
 import {
@@ -37,16 +38,18 @@ const Article = ({
 }) => {
   const [Like, setLike] = useState(currentUserIsLike);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleLike = () => {
-    if (Like == true) {
-      setLike(!Like)
-    }
-    else 
-    setLike(!Like)
-  }
-
+  const handleLike = async () => {
+    if (Like) {
+      setLike(!Like);
+      console.log(Like);
+      // const user = await addArticleLike(
+      // `/News/NewsLike/:NewsId=${id}`
+      // )
+    } else setLike(!Like);
+  };
+  useEffect(() => {handleLike}, [Like]);
 
   return (
     <div className="w-[780px]  border rounded-[30px] flex-col bg-[#F1F5F9] p-4 pb-0">
@@ -102,7 +105,7 @@ const Article = ({
               ></IconUserEdit>
             </div>
             <div className="h-full w-3/4 whitespace-nowrap flex items-center mr-1 text-gray-700">
-              {addUserFullName && handleDescription(addUserFullName ,11 )}
+              {addUserFullName && handleDescription(addUserFullName, 11)}
             </div>
           </div>
         </div>
@@ -160,7 +163,10 @@ const Article = ({
             </div>
           )}
         </div>
-        <Button className="w-[150px] h-1/3 flex flex-row-reverse !px-0 !py-0" onClick={()=> navigate(`/newsDetail/${id}`)}>
+        <Button
+          className="w-[150px] h-1/3 flex flex-row-reverse !px-0 !py-0"
+          onClick={() => navigate(`/newsDetail/${id}`)}
+        >
           <div className="w-2/3 h-full whitespace-nowrap font-irSans text-gray-500 font-bold flex justify-center items-center pr-3">
             {" "}
             جزئیات بیشتر{" "}
