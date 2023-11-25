@@ -41,7 +41,7 @@ const Course = ({
   };
 
   return (
-    <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
+    <div className="w-[350px] h-96 border  rounded-2xl flex flex-col">
       {/* image & 3 button start */}
 
       <div className="w-full h-1/2  rounded-t-lg flex justify-center flex-row-reverse">
@@ -50,7 +50,7 @@ const Course = ({
         <div className="w-2/3 h-full rounded-tr-2xl ">
           <img className="w-full rounded-tr-2xl " src={courseImage} alt="" />
         </div>
-        <div className="w-1/3 flex flex-col items-center justify-center pt-[20px] text-[#090909] font-sha">
+        <div className="w-1/3 flex flex-col items-center justify-center pt-[20px] text-[#090909] font-irSans">
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
             {save ? (
               <img

@@ -17,9 +17,8 @@ export default {
         irSBold: "iranSansBold",
         },
       colors:{
-          modePallete:{100:"#16A34A"} ,
           mode : {50 :"#F1F5F9" , 100 :"#f6f6f6" , 200 : "#E6E6E6" , 700:"#707070"  ,800 :"#404042" , 900 : "#27272A"},
-        green : {100 : "#16A34A"},
+        DarkPallete : {100 : "#16A34A"},
 
     pallete : { 100 : "#fcbf49"   },
     error : {100 :"text-red-500"} ,

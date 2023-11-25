@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { onThemeChange } from "../../Redux/Theme";
 
 const useLocalStorage = (key, initialValue) => {
+  const dispatch = useDispatch();
+
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
@@ -26,6 +30,7 @@ const useLocalStorage = (key, initialValue) => {
           : storedValue;
       // Save state
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      dispatch(onThemeChange(valueToStore));
     } catch (error) {
       // A more advanced implementation would handle the error case
       console.log(error);
