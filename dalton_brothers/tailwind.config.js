@@ -21,7 +21,7 @@ export default {
         DarkPallete : {100 : "#16A34A"},
 
     pallete : { 100 : "#fcbf49"   },
-    error : {100 :"text-red-500"} ,
+    error : {100 :"#ef4444"} ,
   
     // mode: {
     //   50: "var(--theme-mode50)",

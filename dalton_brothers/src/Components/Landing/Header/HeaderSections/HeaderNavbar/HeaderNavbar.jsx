@@ -14,6 +14,7 @@ import lightModeImg from "../../../../../assets/Images/darkMode.png";
 import NightModeBtn from "../../../../../assets/Images/darkMode.png";
 import LightModeBtn from "../../../../../assets/Images/lightMode.png";
 import { getItem } from "../../../../../Core/Services/common/storage.services";
+import { useNavigate } from "react-router";
 
 const HeaderNavbar = () => {
   const [roleName, setRoleName] = useState("");
@@ -25,41 +26,42 @@ const HeaderNavbar = () => {
 
 
 
-  const role = getItem("userRole");
-  const getRole = () => {
-    if (role.indexOf("Student") !== -1) {
-      setRoleName("panel");
-      if (role.indexOf("Teacher") !== -1) {
-        setRoleName("masterPanel");
-      }
-    }
-    if (role.indexOf("Teacher") !== -1) {
-      setRoleName("masterPanel");
-    }
-     else if (role.indexOf("Administrator") !== -1) {
-      setRoleName("Administrator");
-    }
-    console.log(role);
-  };
-  useEffect(() => {
-    getRole();
-  }, []);
+  // const role = getItem("userRole");
+  // const getRole = () => {
+  //   if (role.indexOf("Student") !== -1) {
+  //     setRoleName("panel");
+  //     if (role.indexOf("Teacher") !== -1) {
+  //       setRoleName("masterPanel");
+  //     }
+  //   }
+  //   if (role.indexOf("Teacher") !== -1) {
+  //     setRoleName("masterPanel");
+  //   }
+  //    else if (role.indexOf("Administrator") !== -1) {
+  //     setRoleName("Administrator");
+  //   }
+  //   console.log(role);
+  // };
+  // useEffect(() => {
+  //   getRole();
+  // }, []);
   return (
     <div className="2xl:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around md:flex-row-reverse 2xl:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-between font-irSBold">
       <div className="lg:order-3 lg:mx-0 !mx-[20px] w-[70px]  order-2">
         {/* <img   alt="" className={colorMode==="dark" ? src={logo} : src={DarkModeLogo}}/> */}
         <img   alt="" src={colorMode==="dark" ? DarkModeLogo : logo}/>
       </div>
-      <div className=" flex justify-center items-center">
+      <div className=" flex justify-center items-center ">
         <button
           onClick={() => {
             setColorMode(colorMode === "light" ? "dark" : "light");
           }}
-          className="w-16 h-10 flex justify-center items-center mt-[2px]  "
+          className="w-16 h-10 flex justify-center items-center   mt-[2px]  "
         >
         <img   alt="" src={colorMode==="dark" ? NightModeBtn : LightModeBtn} className=""/>
           
         </button>
+        
 
       <div className="lg:w-[200px] lg:order-1 md:justify-center md:w-[100%] md:m-[5px] md:px-0 w-fit max-w-[2000px] whitespace-nowrap flex flex-row-reverse flex-wrap justify-between items-center p-0 m-0  order-3">
         {token ? (
@@ -75,7 +77,7 @@ const HeaderNavbar = () => {
             path={"/signIn"}
           />
         )}
-      </div>
+      </div></div>
 
       <div className="xl:w-[70vw] lg:gap-[30px] lg:order-2 md:justify-center md:mt-[10px] md:w-[100%] md:flex flex-row hidden  ">
         <div className="2xl:justify-around xl:w-[70%] xl:text-xl xl:gap-[40px] flex flex-row flex-nowrap items-center justify-center gap-[10px] dark:text-mode-50  text-[#fdb501] text-base ">
@@ -113,7 +115,7 @@ const HeaderNavbar = () => {
         </div>
       </div>
     </div>
-    </div>
+    
   )
 };
 
