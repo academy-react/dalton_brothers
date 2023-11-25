@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { SimpleSlider } from "../../Common/Sliders/SimpleSlider";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
@@ -12,7 +13,6 @@ const CourseList = () => {
   const getCourses = async () => {
     const result = await basicGet("/Home/GetCoursesTop?count=3");
 
-    console.log(result);
     setCourseList(result);
   };
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import likeCheck from "../../../Assets/Images/likeCheck.png";
 import likes from "../../../Assets/Images/like.png";
@@ -18,6 +18,7 @@ import {
   setItem,
 } from "../../../Core/Services/common/storage.services";
 import { useSelector } from "react-redux";
+import handleDescription from "../../Common/Functions/HandleDesc/HandleDesc";
 
 const Course = ({
   userFavorite,

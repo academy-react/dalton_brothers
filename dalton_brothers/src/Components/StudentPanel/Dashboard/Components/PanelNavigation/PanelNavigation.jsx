@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../../../../Common/buttons";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,34 +30,8 @@ import panelEditIconSel from "../../../../../assets/Images/panel/paneleditSel.pn
 import panelCourseIconSel from "../../../../../assets/Images/panel/panelCourseSel.png";
 import panelListIconSel from "../../../../../assets/Images/panel/panellistSel.png";
 
-const panelList = [
-  {
-    name: "داشبورد",
-    href: "/panel",
-    icon: panelHomeIcon,
-    selectIcon: panelHomeIconSel,
-  },
-  {
-    name: "ویرایش پروفایل",
-    href: "/panel/EditProfile",
-    icon: panelEditIcon,
-    selectIcon: panelEditIconSel,
-  },
-  {
-    name: " دوره های من ",
-    href: "/panel/PanelCourses",
-    icon: panelCourseIcon,
-    selectIcon: panelCourseIconSel,
-  },
-  {
-    name: " لیست دوره ها ",
-    href: "/panel/PanelCoursesList",
-    icon: panelListIcon,
-    selectIcon: panelListIconSel,
-  },
-];
-
 const PanelNavigation = () => {
+  const [panelList, setPanelList] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -65,6 +39,80 @@ const PanelNavigation = () => {
   const goTo = (link) => {
     navigate(link);
   };
+
+  const GetPanelName = () => {
+    if (
+      location.pathname === "/panel" ||
+      location.pathname === "/panel/EditProfile" ||
+      location.pathname === "/panel/PanelCoursesList" ||
+      location.pathname === "/panel/PanelCourses"
+    ) {
+      setPanelList(studentPanelList);
+    } else if (
+      location.pathname === "/masterPanel" ||
+      location.pathname === "/masterPanel/masterEditProfile" ||
+      location.pathname === "/masterPanel/masterPanelCoursesList" ||
+      location.pathname === "/masterPanel/CreateCourse"
+    ) {
+      setPanelList(masterPanelList);
+    }
+  };
+
+  const studentPanelList = [
+    {
+      name: "داشبورد",
+      href: "/panel",
+      icon: panelHomeIcon,
+      selectIcon: panelHomeIconSel,
+    },
+    {
+      name: "ویرایش پروفایل",
+      href: "/panel/EditProfile",
+      icon: panelEditIcon,
+      selectIcon: panelEditIconSel,
+    },
+    {
+      name: " دوره های من ",
+      href: "/panel/PanelCourses",
+      icon: panelCourseIcon,
+      selectIcon: panelCourseIconSel,
+    },
+    {
+      name: " لیست دوره ها ",
+      href: "/panel/PanelCoursesList",
+      icon: panelListIcon,
+      selectIcon: panelListIconSel,
+    },
+  ];
+  const masterPanelList = [
+    {
+      name: "داشبورد",
+      href: "/masterPanel",
+      icon: panelHomeIcon,
+      selectIcon: panelHomeIconSel,
+    },
+    {
+      name: "ویرایش پروفایل",
+      href: "/masterPanel/masterEditProfile",
+      icon: panelEditIcon,
+      selectIcon: panelEditIconSel,
+    },
+    {
+      name: " دوره های من ",
+      href: "/masterPanel/masterPanelCoursesList",
+      icon: panelCourseIcon,
+      selectIcon: panelCourseIconSel,
+    },
+    {
+      name: " لیست دوره ها ",
+      href: "/masterPanel/CreateCourse",
+      icon: panelListIcon,
+      selectIcon: panelListIconSel,
+    },
+  ];
+  useEffect(() => {
+    GetPanelName();
+  }, []);
   return (
     <>
       <div className=" 2xl:w-[260px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  bg-mode-50 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">

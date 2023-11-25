@@ -6,18 +6,18 @@ import { myCourseData } from "../../../Core/Services/data";
 const PanelCourses = () => {
   return (
     <div className=" w-full h-full flex flex-col pt-7 px-2 font-irSans">
-      <div className=" w-full h-[100px] flex justify-evenly items-center flex-row-reverse xl:text-xl text-lg whitespace-nowrap">
-        <div className="w-[130px] h-[50px] text-center text-gray-600">
+      <div className=" w-full h-[100px] flex xl:justify-evenly justify-start items-center flex-row-reverse xl:text-xl text-lg whitespace-nowrap">
+        <div className="w-[80px] h-[50px] text-center text-gray-600">
           تصویر
         </div>
-        <div className="w-[130px] h-[50px] text-center text-gray-600">
+        <div className="w-[210px] h-[50px] text-center text-gray-600">
           نام دوره
         </div>
-        <div className="w-[130px] h-[50px] text-center text-gray-600">مدرس</div>
-        <div className="w-[130px] h-[50px] text-center text-gray-600">ترم</div>
-        <div className="w-[130px] h-[50px] text-center text-gray-600 ">
+        <div className="w-[170px] h-[50px] text-center text-gray-600">مدرس</div>
+        <div className="w-[130px] h-[50px] text-center text-gray-600">وضعیت</div>
+        {/* <div className="w-[130px] h-[50px] text-center text-gray-600 ">
           تاریخ شروع
-        </div>
+        </div> */}
         <div className="w-[130px] h-[50px] text-center text-gray-600">قیمت</div>
         <div className="w-[60px] h-[50px] text-center text-gray-600"> </div>
       </div>
@@ -28,7 +28,7 @@ const PanelCourses = () => {
             courseName={item.courseName}
             courseMaster={item.courseMaster}
             term={item.term}
-            date={item.date}
+            state={item.state}
             price={item.price}
             key={index}
           />
