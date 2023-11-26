@@ -19,9 +19,8 @@ import { RegisterStep1 } from "../../../Components/Register/RegisterSection/Regi
 import { RegisterStep2 } from "../../../Components/Register/RegisterSection/RegisterStep2/RegisterStep2";
 import { RegisterStep3 } from "../../../Components/Register/RegisterSection/RegisterStep3/RegisterStep3";
 import { LayoutRegister } from "../../../Components/Register/RegisterSection/LayoutRegister/LayoutRegister";
-import {ResetPass} from '../../../Components/ForgetPass/ForgetSection/ResetPass'
+import { ResetPass } from "../../../Components/ForgetPass/ForgetSection/ResetPass";
 const UnAuthenticated = ({ location }) => {
-
   const router = [
     { path: "/403", element: <NotAccess /> },
     { path: "/404", element: <NotFound /> },
@@ -30,9 +29,9 @@ const UnAuthenticated = ({ location }) => {
       element: <Layout />,
       children: [
         { path: "/course", element: <CourseList /> },
-        { path: "/courseDetail/:courseId", element: <CourseDetail /> },
+        { path: "/courseDetail/:courseId", element: <Navigate to={"/403"} /> },
         { path: "/news", element: <ArticleNews /> },
-        { path: `/newsDetail/:id`, element: <ArticleDetail /> },
+        { path: `/newsDetail/:id`, element: <Navigate to={"/403"} /> },
       ],
     },
     { path: "/signIn", element: <SignIn /> },
@@ -41,7 +40,7 @@ const UnAuthenticated = ({ location }) => {
       children: [
         { path: "/register", element: <RegisterStep1 /> },
         { path: "/register/step2", element: <RegisterStep2 /> },
-        { path: "/register/step3", element: < RegisterStep3 /> },
+        { path: "/register/step3", element: <RegisterStep3 /> },
       ],
     },
     { path: "/forget", element: <ForgetPass /> },

@@ -10,7 +10,7 @@ import { getItem } from "../../../../../Core/Services/common/storage.services";
 const HeaderNavbar = () => {
   const [roleName, setRoleName] = useState("");
   const token = useSelector((state) => state.token.token);
-  const role = getItem("userRole");
+  const role = getItem("userRole") ? getItem("userRole") : "Student";
   const getRole = () => {
     if (role.indexOf("Student") !== -1) {
       setRoleName("panel");
@@ -20,8 +20,7 @@ const HeaderNavbar = () => {
     }
     if (role.indexOf("Teacher") !== -1) {
       setRoleName("masterPanel");
-    }
-     else if (role.indexOf("Administrator") !== -1) {
+    } else if (role.indexOf("Administrator") !== -1) {
       setRoleName("Administrator");
     }
     console.log(role);

@@ -14,10 +14,7 @@ const YourStock = () => {
           <p className="text-gray-600"> 250000 </p>
         </div>
         <div className=" w-full h-[70px] flex-col items-center ">
-          <p className=" w-full text-center text-sm text-gray-500 ">
-            {" "}
-            نوع شارژ{" "}
-          </p>
+          <p className=" w-full text-center text-sm text-gray-500 ">نوع شارژ</p>
           <div className="w-[90%] h-[35px] flex justify-between items-center  mt-5 text-center  ">
             <div className="bg-[#e6e6e6] h-full w-[45%] rounded-r-md rounded-l-[30px] flex justify-center items-center text-sm ">
               دلار
@@ -29,7 +26,7 @@ const YourStock = () => {
         </div>
         <div className=" w-full  h-[60px] mt-[20px] lg:text-right text-center rounded-bl-[30px] flex justify-end">
           <button className="bg-[#fcbf49]  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px] max-lg:rounded-tr-[30px] max-lg:rounded-b-md   flex justify-center items-center text-[16px] text-white font-irSBold">
-            شارژ حساب{" "}
+            شارژ حساب
           </button>
         </div>
       </div>

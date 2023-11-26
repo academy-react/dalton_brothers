@@ -7,9 +7,13 @@ import { FilterMaster } from "./FilterMaster";
 import { RangeSlider } from "./RangePrice";
 
 import style from "./Filter.module.css";
+import { Button } from "../../../Common/buttons";
+import { onTriggerChange } from "../../../../Redux/Filter/trigger";
 const Filter = () => {
   const minPrice = useSelector((state) => state.priceFilter.minPrice);
   const maxPrice = useSelector((state) => state.priceFilter.maxPrice);
+  const [trigger, setTrigger] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div className="w-[90%] m-auto ">
@@ -45,10 +49,11 @@ const Filter = () => {
               className="xl:w-[60%] sm:w-[90%] w-full mx-auto relative top-10 z-0"
               minVal={minPrice}
               maxVal={maxPrice}
-              min={250000}
-              max={5000000}
-              step={50000}
+              min={0}
+              max={2000000}
+              step={5000}
               priceCap={100}
+              trigger={trigger}
             />
           </div>
         </div>
@@ -59,6 +64,15 @@ const Filter = () => {
           />
           <FilterCourse />
         </div>
+        <Button
+          className={
+            "border-[5px] border-[#ecedf0] w-full mt-[100px] bg-[#fbbf24] hover:bg-[#bd942c] text-[#f1f5f9]"
+          }
+          onClick={() => {
+            dispatch(onTriggerChange(true));
+          }}
+          children={"اعمال فیلتر"}
+        />
       </div>
     </div>
   );

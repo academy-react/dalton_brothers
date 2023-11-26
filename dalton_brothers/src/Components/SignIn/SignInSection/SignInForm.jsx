@@ -37,7 +37,7 @@ const SignInForm = () => {
 
     const user = await loginAPI(userObj);
 
-    if (user.token) {
+    if (user.success) {
       if (remember) {
         setItem("token", user.token);
         setItem("userId", user.id);

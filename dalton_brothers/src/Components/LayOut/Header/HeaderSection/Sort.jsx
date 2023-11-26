@@ -7,7 +7,6 @@ import style from "../../layOut.module.css";
 
 const LaySort = () => {
   const store = useSelector((state) => state.sort);
-  // console.log(store)
   const dispatch = useDispatch();
 
   return (
@@ -19,7 +18,7 @@ const LaySort = () => {
           className={style.inp}
           id="newest"
           onChange={(e) =>
-            e.target.checked && dispatch(onSortChange("addTime"))
+            e.target.checked && dispatch(onSortChange("lastUpdate"))
           }
           defaultChecked
         />
@@ -31,10 +30,12 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="mostView"
-          onChange={(e) => e.target.checked && dispatch(onSortChange("view"))}
+          onChange={(e) =>
+            e.target.checked && dispatch(onSortChange("lastUpdate"))
+          }
         />
         <label htmlFor="mostView" className={style.sort}>
-          پربازدید ترین
+          امتیاز
         </label>
         <input
           type="radio"
@@ -51,10 +52,10 @@ const LaySort = () => {
           name="sort"
           className={style.inp}
           id="cheapest"
-          onChange={(e) => e.target.checked && dispatch(onSortChange("price"))}
+          onChange={(e) => e.target.checked && dispatch(onSortChange("cost"))}
         />
         <label htmlFor="cheapest" className={style.sort}>
-          ارزان ترین
+          قیمت
         </label>
       </div>
       <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[300px] font-irSBold text-stone-700 text-lg py-[28px] px-[70px] bg-[#fcbf49] max-lg:rounded-t-3xl max-lg:rounded-b-md">
