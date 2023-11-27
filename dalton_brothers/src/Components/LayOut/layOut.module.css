@@ -67,6 +67,16 @@
   background: #fcbf49;
   color: #fff;
 }
+
+.darkModeInp{
+  display: none;
+
+}
+.darkModeInp:checked + .sort {
+  background: #16A34A;
+  color: #fff;
+}
+
 .footer {
   width: 100vw;
   max-width: 1834px;
