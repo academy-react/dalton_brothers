@@ -28,6 +28,10 @@ const Course = ({
   const [save, setSave] = useState(false);
   const [Like, setLike] = useState(false);
   const navigate = useNavigate();
+// const test =async () => {
+// const response = await ;
+// }
+
 
   const handleLike = async () => {
     if (Like) {
