@@ -19,32 +19,27 @@ import { useNavigate } from "react-router";
 const HeaderNavbar = () => {
   const [roleName, setRoleName] = useState("");
   const token = useSelector((state) => state.token.token);
-
-  const [colorMode, setColorMode] = useColorMode();
-
-  const navigate = useNavigate();
+const [colorMode, setColorMode] = useColorMode();
 
 
-
-  // const role = getItem("userRole");
-  // const getRole = () => {
-  //   if (role.indexOf("Student") !== -1) {
-  //     setRoleName("panel");
-  //     if (role.indexOf("Teacher") !== -1) {
-  //       setRoleName("masterPanel");
-  //     }
-  //   }
-  //   if (role.indexOf("Teacher") !== -1) {
-  //     setRoleName("masterPanel");
-  //   }
-  //    else if (role.indexOf("Administrator") !== -1) {
-  //     setRoleName("Administrator");
-  //   }
-  //   console.log(role);
-  // };
-  // useEffect(() => {
-  //   getRole();
-  // }, []);
+  const role = getItem("userRole") ? getItem("userRole") : "Student";
+  const getRole = () => {
+    if (role.indexOf("Student") !== -1) {
+      setRoleName("panel");
+      if (role.indexOf("Teacher") !== -1) {
+        setRoleName("masterPanel");
+      }
+    }
+    if (role.indexOf("Teacher") !== -1) {
+      setRoleName("masterPanel");
+    } else if (role.indexOf("Administrator") !== -1) {
+      setRoleName("Administrator");
+    }
+    console.log(role);
+  };
+  useEffect(() => {
+    getRole();
+  }, []);
   return (
     <div className="2xl:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around md:flex-row-reverse 2xl:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-between font-irSBold">
       <div className="lg:order-3 lg:mx-0 !mx-[20px] w-[70px]  order-2">

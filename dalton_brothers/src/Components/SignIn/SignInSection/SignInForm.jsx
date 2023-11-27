@@ -6,10 +6,11 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 
 import {
+  clearStorage,
   getItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
-import { loginAPI } from '../../../Core/Services/api/Login/auth';
+import { loginAPI } from "../../../Core/Services/api/Login/auth";
 import { Title } from "../../Common/Title/Title";
 import { Input } from "../../Common/Inputs/Input";
 import { Button } from "../../Common/buttons";
@@ -37,14 +38,20 @@ const SignInForm = () => {
 
     const user = await loginAPI(userObj);
 
-    if (user.token) {
+    if (user.success) {
       if (remember) {
         setItem("token", user.token);
         setItem("userId", user.id);
         setItem("userRole", user.roles);
         dispatch(onTokenChange(getItem("token")));
       } else {
+        setItem("token", user.token);
+        setItem("userId", user.id);
+        setItem("userRole", user.roles);
         dispatch(onTokenChange(user.token));
+        window.onbeforeunload = function () {
+          clearStorage();
+        };
       }
     }
     if (!user.success) {

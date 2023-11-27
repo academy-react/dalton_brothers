@@ -104,7 +104,7 @@ const PanelNavigation = () => {
       selectIcon: panelCourseIconSel,
     },
     {
-      name: " لیست دوره ها ",
+      name: "ساخت دوره ی جدید",
       href: "/masterPanel/CreateCourse",
       icon: panelListIcon,
       selectIcon: panelListIconSel,

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const sortSlice = createSlice({
   name: "sort",
-  initialState: { sort: "addTime" },
+  initialState: { sort: "lastUpdate" },
 
   reducers: {
     onSortChange: (state, action) => {
