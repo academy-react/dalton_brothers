@@ -5,11 +5,16 @@ import { editUSerProfile } from "../../../Core/Services/api/studentPanel/updateP
 import { editProfileValidation } from "../../../Core/Validation/yup";
 
 import defaultImg from "../../../assets/Images/register-person.png";
+import defaulDarktImg from "../../../assets/Images/register-person DarkMode.png";
 import { PanelInps } from "../../Common/Inputs/PanelInputs";
+import { useSelector } from "react-redux";
 
 const EditProfile = () => {
   const [personImg, setPersonImg] = useState();
+  const colorMode = useSelector((state) => state.theme.theme);
 
+  const defaultPicture = colorMode === "dark" ? defaulDarktImg  :  defaultImg ;
+  
   const onSubmit = async (values) => {
     console.log("triggered");
     var userNewObj = new FormData();
@@ -27,6 +32,8 @@ const EditProfile = () => {
     userNewObj.append("Longitude", "53.05821549859579");
 
     const user = await editUSerProfile(userNewObj);
+
+
 
     console.log(user);
   };
@@ -65,6 +72,8 @@ const EditProfile = () => {
       placeholder: "...تاریخ تولد ",
     },
   ];
+
+
   return (
     <Formik
       initialValues={{
@@ -86,7 +95,7 @@ const EditProfile = () => {
         <div className="rounded-full cursor-pointer self-center mb-5">
           <label htmlFor="pic1" className="cursor-pointer">
             <img
-              src={personImg ? URL.createObjectURL(personImg) : defaultImg}
+              src={personImg ? URL.createObjectURL(personImg) : defaultPicture }
               alt=""
               className="w-[150px]"
             />
@@ -98,13 +107,13 @@ const EditProfile = () => {
               <PanelInps {...el} key={index} />
             ))}
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
-              <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
+              <span className="mx-[20%] dark:bg-mode-900 dark:text-mode-50  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
                 اطلاع رویداد ها
               </span>
               <Field
                 as="select"
                 name="ReceiveMessageEvent"
-                className=" w-[85%] m-auto text-right bg-white text-[#9ca3af] h-[50px] rounded-full outline-none border-zinc-300 border-[2px] peer px-5 "
+                className=" w-[85%] dark:bg-mode-900 dark:text-mode-50 m-auto text-right bg-white text-[#9ca3af] h-[50px] rounded-full outline-none border-zinc-300 border-[2px] peer px-5 "
               >
                 <option className=" font-irSans" value="true">
                   بله
@@ -127,13 +136,13 @@ const EditProfile = () => {
               <PanelInps {...el} key={index} />
             ))}
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
-              <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
+              <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white dark:bg-mode-900 dark:text-mode-50 absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
                 جنسیت
               </span>
               <Field
                 as="select"
                 name="Gender"
-                className="bg-white w-[85%] m-auto text-right h-[50px] text-[#9ca3af] rounded-full outline-none border-zinc-300 border-[2px] peer px-5"
+                className="bg-white w-[85%] m-auto text-right h-[50px] dark:bg-mode-900 dark:text-mode-50 text-[#9ca3af] rounded-full outline-none border-zinc-300 border-[2px] peer px-5"
               >
                 <option value="true">مرد</option>
                 <option value="false">زن</option>
@@ -150,7 +159,7 @@ const EditProfile = () => {
         </div>
         <Button
           value={"ثبت تغیرات"}
-          className={"bg-orange-300 w-[50%] m-auto z-30"}
+          className={"bg-pallete-100 dark:bg-DarkPallete-100 text-mode-50 w-[50%] mt-5 m-auto z-30"}
           type={"submit"}
         />
       </Form>

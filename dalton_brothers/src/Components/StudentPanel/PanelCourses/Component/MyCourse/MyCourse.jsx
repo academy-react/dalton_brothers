@@ -17,7 +17,7 @@ const MyCourse = ({
 }) => {
   const location = useLocation();
   return (
-    <div className="bg-[#f1f5f9] rounded-[28px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-evenly items-center text-gray-800  whitespace-nowrap">
+    <div className="bg-[#f1f5f9] dark:bg-mode-800 rounded-[50px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-evenly items-center text-gray-800  whitespace-nowrap">
       <div className=" w-[50px] h-[65px] text-center rounded-full flex justify-center items-center mr-2">
         <img
           src={coursePic}
@@ -25,35 +25,35 @@ const MyCourse = ({
           className="bg-red-200 w-[40px] h-[40px] rounded-full"
         ></img>
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
         {courseName}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
         {courseMaster}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
         {term}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50">
         {date}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50">
         {price}
       </div>
-      <div className="lg:w-[220px] w-[205px]  h-[25px] text-center bg-gray-200">
+      <div className="lg:w-[220px] w-[205px]  h-[25px] text-center  dark:text-mode-50">
         {courseName}
       </div>
-      <div className="lg:w-[180px] w-[205px]  h-[25px] text-center bg-green-300">
+      <div className="lg:w-[180px] w-[205px]  h-[25px] text-center  dark:text-mode-50">
         {courseMaster}
       </div>
       {/* <div className="lg:w-[130px] w-[205px]  h-[25px] text-center "> {term} </div> */}
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center bg-green-700 max-xl:hidden">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center  max-xl:hidden dark:text-mode-50">
         {state}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center bg-orange-300 lg">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center  lg dark:text-mode-50">
         {price}
       </div>
-      <div className="lg:w-[48px]  xl:w-[60px] w-[100px] xl:h-[55px] h-[40px] flex justify-center items-center">
+      <div className="lg:w-[48px]  xl:w-[60px] w-[100px] xl:h-[55px] h-[40px] flex justify-center items-center ">
         {location.pathname === "/panel/PanelCourses" ? (
           <div className="w-[40px] h-[40px] rounded-full bg-orange-300 flex justify-center items-center cursor-pointer">
             <img src={delIcon} className="w-[25px] h-[25px]" />
