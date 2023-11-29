@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import search from "./search";
 import sort from "./sort";
-import courses from "./course";
+import courses from "./reservedCourse";
 import masterFilter from "./Filter/masterFilter";
 import priceFilter from "./Filter/priceFilter";
 import courseFilter from "./Filter/courseFilter";

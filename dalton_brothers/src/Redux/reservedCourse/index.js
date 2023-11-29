@@ -2,15 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const courseSlice = createSlice({
   name: "courses",
-  initialState: [],
+  initialState: {},
 
   reducers: {
-    onAllCourseChange: (state, action) => {
+    onCourseChange: (state, action) => {
       state.courses = action.payload;
     },
   },
 });
 
-export const { onAllCourseChange } = courseSlice.actions;
+export const { onCourseChange } = courseSlice.actions;
 
 export default courseSlice.reducer;
