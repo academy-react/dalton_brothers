@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import likeCheck from "../../../Assets/Images/likeCheck.png";
-import likes from "../../../Assets/Images/like.png";
-import comment from "../../../Assets/Images/comment.png";
+import likeCheck from "../../../Assets/Images/like1check.png";
+import likes from "../../../Assets/Images/like1.png";
+import dislikeCheck from "../../../Assets/Images/dislikeCheck.png";
+import dislike from "../../../Assets/Images/dislike.png";
+// import comment from "../../../Assets/Images/comment.png";
 import bookmarkCheck from "../../../Assets/Images/bookMarkCheck.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
 import courseImage from "../../../Assets/Images/course.png";
+import  http  from "../../../Core/Services/interceptor"
 import { Button } from "../../Common/buttons";
-import { addLike } from "../../../Core/Services/api/course/addLike";
+import { addLike, deleteLike } from "../../../Core/Services/api/course/addLike";
 import {
   getItem,
   setItem,
@@ -24,22 +28,62 @@ const Course = ({
   title,
   describe,
   courseId,
+  userIsLiked,
+  userLikedId,
+  currentUserDissLike,
+  dissLikeCount,
 }) => {
   const [save, setSave] = useState(false);
-  const [Like, setLike] = useState(false);
+  const [Like, setLike] = useState(userIsLiked);
+  const [DisLike, setDisLike] = useState(currentUserDissLike);
+
+  const token = useSelector((state) => state.token.token);
+
   const navigate = useNavigate();
 
+  console.log(userIsLiked);
+  
   const handleLike = async () => {
-    if (Like) {
-      setLike(!Like);
-      const user = await addLike(
-        `/Course/AddCourseDissLike?CourseId=${courseId}`
-      );
-      return;
+    const data = new FormData()
+
+
+    if (token) {
+      if (Like == true) {
+        setLike(false);
+        try {
+        data.append('courseLikeId' , userLikedId )
+
+        const result = await http.delete(`/Course/DeleteCourseLike` , {data: data})
+        console.log(result);          
+        } catch (error) {
+          console.log(error);
+        }
+
+
+        // const userUnLike = await deleteLike(
+        //   `/Course/DeleteCourseLike?${userLikedId}`
+        // )
+        // console.log(userUnLike, userLikedId);
+        // return userUnLike;
+
+      } else {
+        setLike(true);
+        const userLike = await addLike(
+          `/Course/AddCourseDissLike?CourseId=${courseId}`
+        );
+        console.log(userLike);
+        return userLike;
+      }
+    } else {
+      console.log("token nadari");
     }
-    setLike(!Like);
-    const user = await addLike(`/Course/AddCourseLike?CourseId=${courseId}`);
+
+    // const user = await addLike(`/Course/AddCourseLike?CourseId=${courseId}`);
   };
+
+  useEffect(() => {
+    handleLike;
+  }, [setLike,Like]);
 
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
@@ -75,14 +119,15 @@ const Course = ({
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
             {Like ? (
               <img
-                className="w-[30px] cursor-pointer"
+                className="w-[30px] cursor-pointer scale-110"
+                dir="ltr"
                 src={likeCheck}
                 alt=""
                 onClick={() => handleLike()}
               />
             ) : (
               <img
-                className="w-[30px] cursor-pointer  opacity-80"
+                className="w-[30px] cursor-pointer scale-110 "
                 src={likes}
                 alt=""
                 onClick={() => handleLike()}
@@ -92,17 +137,33 @@ const Course = ({
               {likeCount}
             </span>
           </div>
+          {
+            DisLike ? (
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
             <img
-              className="w-[30px] opacity-80 cursor-pointer"
-              src={comment}
+              className="w-[30px] cursor-pointer scale-110"
+              src={dislikeCheck}
               alt=""
-              onClick={() => navigate(`/courseDetail/${courseId}`)}
+              onClick={()=> setDisLike(!DisLike)}
             />
             <span className="w-[30px] text-center inline-block">
-              {commandCount}
+              {dissLikeCount + 1}
             </span>
-          </div>
+          </div>              
+            ):
+            <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
+            <img
+              className="w-[30px] opacity-80 cursor-pointer scale-110"
+              src={dislike}
+              alt=""
+              onClick={()=> setDisLike(!DisLike)}
+            />
+            <span className="w-[30px] text-center inline-block">
+              { currentUserDissLike==0 ? (dissLikeCount) : (dissLikeCount)}
+            </span>
+          </div> 
+          }
+
         </div>
       </div>
 
