@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { IconTrash, IconPlus } from "@tabler/icons-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import delIcon from "../../../../../assets/Images/panel/panelDel.png";
 import addlIcon from "../../../../../assets/Images/panel/PanelAdd.png";
 import { deleteReserve } from "../../../../../Core/Services/api/course/reserve/deleteReserve";
+import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
 
 const MyCourse = ({
-  coursePic,
   courseName,
   courseMaster,
   term,
@@ -17,6 +17,7 @@ const MyCourse = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [imgUrl, setImgUrl] = useState(false);
   const deleteReservation = async () => {
     const obj = {
       id: reserveId,
@@ -25,17 +26,26 @@ const MyCourse = ({
   };
   const handleClick = async () => {
     if (courseId) navigate(`/courseDetail/${courseId}`);
-    // console.log(courseId);
   };
-
+  const getImg = async () => {
+    const img = await basicGet(`/Course/${courseId}`);
+    setImgUrl(img.imageAddress);
+  };
+  useEffect(() => {
+    getImg();
+  }, []);
   return (
     <div className="bg-[#f1f5f9] rounded-[28px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-between items-center text-gray-800 whitespace-nowrap">
       <div className=" w-[50px] h-[65px] text-center rounded-full flex justify-center items-center mr-2">
-        <img
-          src={coursePic}
-          alt=""
-          className="bg-red-200 w-[40px] h-[40px] rounded-full"
-        ></img>
+        {imgUrl ? (
+          <img
+            src={imgUrl}
+            alt=""
+            className="bg-red-200 w-[40px] h-[40px] rounded-full"
+          ></img>
+        ) : (
+          <div className="bg-red-200 w-[40px] h-[40px] rounded-full"></div>
+        )}
       </div>
       <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
         {courseName}

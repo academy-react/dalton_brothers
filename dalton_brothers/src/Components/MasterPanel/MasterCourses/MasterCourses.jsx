@@ -48,6 +48,7 @@ const MasterCourses = () => {
             date={el.lastUpdate.slice(0, 10)}
             price={el.cost}
             key={index}
+            courseId={el.courseId}
           />
         ))}
       </div>

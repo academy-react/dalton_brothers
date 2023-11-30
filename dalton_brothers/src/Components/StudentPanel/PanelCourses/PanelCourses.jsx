@@ -36,7 +36,6 @@ const PanelCourses = () => {
       setAllCosts(sum);
     }
   }
-
   useEffect(() => {
     getCount();
   }, []);

@@ -13,7 +13,6 @@ const PanelCoursesList = () => {
   const [postsPerPage, setPostsPerPage] = useState(5);
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
-    console.log(numberOfCurrentPage);
     setCurrentPage(numberOfCurrentPage);
   };
 
@@ -67,7 +66,6 @@ const PanelCoursesList = () => {
         {courseList && courseList.length > 0 ? (
           courseList.map((item, index) => (
             <MyCourse
-              coursePic={item.tumbImageAddress}
               courseName={item.title}
               courseMaster={item.teacherName}
               term={item.levelName}

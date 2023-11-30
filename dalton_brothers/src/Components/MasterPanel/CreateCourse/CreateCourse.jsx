@@ -36,15 +36,15 @@ const CreateCourse = () => {
     formdata.append("CourseLvlId", values.CourseLvlId);
     formdata.append("Cost", values.Cost);
     formdata.append("UniqeUrlString", Date.now());
-    formdata.append("Image", "<string>");
+    formdata.append("Image", personImg);
     formdata.append("StartTime", values.StartTime);
     formdata.append("EndTime", values.EndTime);
     formdata.append("GoogleSchema", "<string>");
     formdata.append("GoogleTitle", "<string>");
     formdata.append("CoursePrerequisiteId", values.CoursePrerequisiteId);
     formdata.append("ShortLink", "<string>");
-    formdata.append("TumbImageAddress", "<string>");
-    formdata.append("ImageAddress", "<string>");
+    formdata.append("TumbImageAddress", personImg);
+    formdata.append("ImageAddress", personImg);
 
     const user = await createCourse(formdata);
 
@@ -183,13 +183,22 @@ const CreateCourse = () => {
       <Form className=" w-[900px] flex flex-col font-irSans">
         <div className="w-full h-[650px] overflow-scroll mb-[50px]">
           <div className=" self-center my-5 flex justify-center">
-            <label htmlFor="pic1" className="cursor-pointer">
+            <label
+              htmlFor="pic1"
+              className="cursor-pointer w-[100px] rounded-lg"
+            >
               <img
                 src={personImg ? URL.createObjectURL(personImg) : defaultImg}
                 alt=""
                 className="w-[150px]"
               />
             </label>
+            <input
+              className="hidden"
+              type="file"
+              id="pic1"
+              onChange={(e) => setPersonImg(e.target.files[0])}
+            />
           </div>
           <div className="flex flex-wrap">
             <div className="  w-1/2  flex flex-col justify-start  ">
