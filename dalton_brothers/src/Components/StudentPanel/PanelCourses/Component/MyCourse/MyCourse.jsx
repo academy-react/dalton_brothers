@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { IconTrash, IconPlus } from "@tabler/icons-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import delIcon from "../../../../../assets/Images/panel/panelDel.png";
 import addlIcon from "../../../../../assets/Images/panel/PanelAdd.png";
 import { deleteReserve } from "../../../../../Core/Services/api/course/reserve/deleteReserve";
@@ -13,20 +13,23 @@ const MyCourse = ({
   term,
   price,
   reserveId,
+  courseId,
 }) => {
+  const navigate = useNavigate();
   const location = useLocation();
-  // console.log(reserveId);
   const deleteReservation = async () => {
     const obj = {
       id: reserveId,
     };
-    console.log(obj);
     const result = await deleteReserve(obj);
-    console.log(result);
+  };
+  const handleClick = async () => {
+    if (courseId) navigate(`/courseDetail/${courseId}`);
+    // console.log(courseId);
   };
 
   return (
-    <div className="bg-[#f1f5f9] rounded-[28px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-between items-center text-gray-800  whitespace-nowrap">
+    <div className="bg-[#f1f5f9] rounded-[28px] w-full lg:h-[65px] h-[55px] xl:my-3 my-1 flex flex-row-reverse justify-between items-center text-gray-800 whitespace-nowrap">
       <div className=" w-[50px] h-[65px] text-center rounded-full flex justify-center items-center mr-2">
         <img
           src={coursePic}
@@ -56,8 +59,11 @@ const MyCourse = ({
             <img src={delIcon} className="w-[25px] h-[25px]" />
           </div>
         ) : (
-          location.pathname === "panel/PanelCourses" && (
-            <div className="w-[40px] h-[40px] rounded-full bg-orange-300 flex justify-center items-center cursor-pointer">
+          location.pathname === "/panel/PanelCoursesList" && (
+            <div
+              className="w-[40px] h-[40px] rounded-full bg-orange-300 flex justify-center items-center cursor-pointer"
+              onClick={handleClick}
+            >
               <img src={addlIcon} className="w-[25px] h-[25px]" />
             </div>
           )

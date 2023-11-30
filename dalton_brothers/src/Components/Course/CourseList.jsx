@@ -79,15 +79,15 @@ const CourseList = () => {
         )}
       </div>
       <ReactPaginate
-        previousLabel={">"}
-        nextLabel={"<"}
+        previousLabel={"<"}
+        nextLabel={">"}
         breakLabel={"..."}
         pageCount={numberOfPage}
         marginPagesDisplayed={2}
         pageRangeDisplayed={2}
         onPageChange={handlePageClick}
         containerClassName={
-          "flex justify-content mx-auto text-xl items-center p-1 flex-row-reverse"
+          "flex justify-center mx-auto text-xl items-center p-1"
         }
         pageClassName="mx-1"
         nextClassName="mx-1 p-2 "

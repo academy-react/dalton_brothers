@@ -17,22 +17,22 @@ const LayoutPanel = () => {
         <div className=" flex justify-center items-center ">
           <Profile />
         </div>
-        <div className="border border-gray-200 w-[600px] rounded-[30px]">
-          <PanelSearch />
+        <div className=" w-[600px] rounded-[30px]">
+          {location.pathname === "/panel/PanelCoursesList" && <PanelSearch />}
         </div>
         <div className="  flex flex-col  w-[200px]  justify-between items-center ">
           <Notification />
         </div>
       </div>
-    <div className="w-full h-full flex justify-start flex-row-reverse  gap-10 pr-12" >
-      <div className="  scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
-        <PanelNavigation />
-      </div>
-      <div className="  flex flex-col items-center">
-        <div className=" w-full pt-[10px]">
-          <Outlet />
+      <div className="w-full h-[90%] flex justify-start flex-row-reverse  gap-10 pr-12">
+        <div className="  scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
+          <PanelNavigation />
         </div>
-      </div>
+        <div className="  flex flex-col items-center">
+          <div className=" w-full pt-[10px]">
+            <Outlet />
+          </div>
+        </div>
       </div>
     </div>
   );

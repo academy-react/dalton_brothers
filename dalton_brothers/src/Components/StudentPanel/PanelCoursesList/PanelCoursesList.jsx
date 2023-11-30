@@ -3,32 +3,42 @@ import { motion } from "framer-motion";
 import ReactPaginate from "react-paginate";
 import { MyCourse } from "../PanelCourses/Component/MyCourse/MyCourse";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
+import { useDispatch, useSelector } from "react-redux";
 
 const PanelCoursesList = () => {
+  const search = useSelector((state) => state.search.search);
+  const [totalCount, setTotalCount] = useState();
   const [courseList, setCourseList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(1);
-
+  const [postsPerPage, setPostsPerPage] = useState(5);
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
+    console.log(numberOfCurrentPage);
     setCurrentPage(numberOfCurrentPage);
   };
 
-  const getCourses = async () => {
-    const result = await basicGet("/Home/GetCoursesTop?count=800");
-
-    console.log(result);
-    setCourseList(result);
+  const getCount = async () => {
+    const Count = await basicGet("/Home/GetCoursesWithPagination");
+    setTotalCount(Count.totalCount);
   };
+
+  const getSearch = search ? `Query=${search}` : "";
+
+  const getCourses = async () => {
+    const result = await basicGet(
+      `/Home/GetCoursesWithPagination?${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}`
+    );
+    setCourseList(result.courseFilterDtos);
+  };
+  const numberOfPage = Math.ceil(totalCount / postsPerPage);
 
   useEffect(() => {
     getCourses();
+    getCount();
   }, []);
-
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = courseList.slice(firstPostIndex, lastPostIndex);
-  const numberOfPage = Math.ceil(courseList.length / postsPerPage);
+  useEffect(() => {
+    getCourses();
+  }, [search, currentPage]);
 
   return (
     <div className=" w-full h-full flex flex-col pt-7 px-2 font-irSans">
@@ -54,17 +64,22 @@ const PanelCoursesList = () => {
         <div className="w-[60px] xl:h-[50px] h-[40px] text-center text-gray-600"></div>
       </div>
       <div className="w-full h-[500px] pt-3 flex flex-col gap-1">
-        {currentPosts.map((item, index) => (
-          <MyCourse
-            coursePic={item.tumbImageAddress}
-            courseName={item.title}
-            courseMaster={item.teacherName}
-            term={item.levelName}
-            state={item.statusName}
-            price={item.cost}
-            key={index}
-          />
-        ))}
+        {courseList && courseList.length > 0 ? (
+          courseList.map((item, index) => (
+            <MyCourse
+              coursePic={item.tumbImageAddress}
+              courseName={item.title}
+              courseMaster={item.teacherName}
+              term={item.levelName}
+              state={item.statusName}
+              price={item.cost}
+              key={index}
+              courseId={item.courseId}
+            />
+          ))
+        ) : (
+          <></>
+        )}
       </div>
       <div className=" w-full h-[90px]">
         <ReactPaginate
