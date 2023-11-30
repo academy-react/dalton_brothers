@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import ReactTooltip from "react-tooltip";
+import toast from "react-hot-toast";
 
 import style from "../../../Landing/Header/header.module.css";
 import ArticleImage from "../../../../Assets/Images/article.png";
@@ -49,54 +49,17 @@ const Article = ({
       if (Like == true) {
         setLike(false);
       } else {
-        setLike(true);
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
         console.log(userIsLike);
+        setLike(true);
         return;
       }
-      // setLike(!Like)
     } else {
+      toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
 
-  const LikeTooltipWrapper = Like ? (
-    <div
-      className="bg-red-300 w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-      onClick={handleLike}
-    >
-      <div className="w-4/5 h-4/5 flex flex-row-reverse">
-        <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
-          {" "}
-          {currentLikeCount}{" "}
-        </div>
-        <IconHeartFilled
-          strokeWidth={1.5}
-          className="text-red-500 w-1/2 h-full cursor-pointer"
-        ></IconHeartFilled>
-      </div>
-    </div>
-  ) : (
-    <div
-      className="bg-white w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-      onClick={handleLike}
-    >
-      <div className="w-4/5 h-4/5 flex flex-row-reverse">
-        <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
-          {" "}
-          {currentLikeCount}{" "}
-        </div>
-        <IconHeart
-          strokeWidth={1.5}
-          className="text-red-500 w-1/2 h-full cursor-pointer"
-        ></IconHeart>
-      </div>
-    </div>
-  );
-
-  // console.log(currentUserIsLike);
-  useEffect(() => {
-    handleLike;
-  }, [setLike]);
+  console.log(currentUserIsLike);
 
   return (
     <>
@@ -178,15 +141,38 @@ const Article = ({
             </div>
           </div>
           <div className="w-[87px] h-[36%] ml-3 mr-1">
-            {!token ? (
-              <span
-                className={style.likeTooltip}
-                data-tooltip="تنها کاربران سایت قادر به لایک  می باشند "
+            {Like ? (
+              <div
+                className="bg-red-300 w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
+                onClick={()=> handleLike()}
               >
-                {LikeTooltipWrapper}
-              </span>
+                <div className="w-4/5 h-4/5 flex flex-row-reverse">
+                  <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
+                    {" "}
+                    {currentUserIsLike ? currentLikeCount : currentLikeCount+1}{" "}
+                  </div>
+                  <IconHeartFilled
+                    strokeWidth={1.5}
+                    className="text-red-500 w-1/2 h-full cursor-pointer"
+                  ></IconHeartFilled>
+                </div>
+              </div>
             ) : (
-              <>{LikeTooltipWrapper}</>
+              <div
+                className="bg-white w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
+                onClick={()=> handleLike()}
+              >
+                <div className="w-4/5 h-4/5 flex flex-row-reverse">
+                  <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
+                    {" "}
+                    {currentUserIsLike ? currentLikeCount : currentLikeCount -1}{" "}
+                  </div>
+                  <IconHeart
+                    strokeWidth={1.5}
+                    className="text-red-500 w-1/2 h-full cursor-pointer"
+                  ></IconHeart>
+                </div>
+              </div>
             )}
           </div>
           <Button

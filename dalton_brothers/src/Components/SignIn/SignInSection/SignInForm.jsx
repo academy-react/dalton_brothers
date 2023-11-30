@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 import {
   getItem,
@@ -18,6 +19,7 @@ import { onTokenChange } from "../../../Redux/token";
 import { loginValidation } from "../../../Core/Validation/yup";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
+import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 
 const SignInForm = () => {
   const [show, setShow] = useState(false);
@@ -35,6 +37,7 @@ const SignInForm = () => {
       rememberMe: remember,
     };
 
+
     const user = await loginAPI(userObj);
 
     if (user.token) {
@@ -46,12 +49,19 @@ const SignInForm = () => {
       } else {
         dispatch(onTokenChange(user.token));
       }
+      const userFName = await basicGet(
+        "/SharePanel/GetProfileInfo"
+      )
+
+      // console.log(userFName.fName);
+    
     }
     if (!user.success) {
-      alert("حسابی با این مشخصات وجود ندارد");
+      toast.error("حسابی با این مشخصات وجود ندارد");
       return;
     }
     navigate("/");
+    toast.success(`${ /*userFName.fName &&*/ "کاربر"}   عزیز به سایت خوش آمدید `);
   };
 
   // validation................................

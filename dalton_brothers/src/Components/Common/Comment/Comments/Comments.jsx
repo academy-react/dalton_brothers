@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
+
 
 import user from "../../../../assets/Images/panel/user.png";
 import {
@@ -22,43 +24,60 @@ const Comments = ({
 }) => {
   const [like, setLike] = useState();
   const [DisLike, setDisLike] = useState();
+  // const [LikeNumber, setLikeNumber] = useState(likeCount);
 
   const token = useSelector((state) => state.token.token);
-
-  if (currentUserEmotion == "-") {
-    console.log("no reactions yet");
-    like == false;
-    DisLike == false;
-  } else if (currentUserEmotion == "LIKED") {
-    console.log("liked", id);
-    like == true;
-    DisLike == false;
-  } else {
-    console.log("disLiked", id);
-    like == false;
-    DisLike == true;
-  }
 
   const handleLike = async () => {
     if (token) {
       if (like == false) {
-        setLike(!like);
         const userLike = await addLike(
           `/Course/AddCourseCommentLike?CourseCommandId=${id}`
         );
+        setLike(!like);
+        setDisLike(false);
+        // setLikeNumber(likeCount + 1)
+        // console.log(setLikeNumber);
         console.log(userLike);
-        return userLike;
+        // return userLike;
       } else {
         setLike(!like);
       }
     } else {
-      alert("You are not allowed to reaction");
+      toast.error("برای لایک باید در سایت ثبت نام کنید");
+    }
+  };
+
+  const handleDisLike = async () => {
+    if (token) {
+      if (DisLike == false) {
+        const userLike = await addLike(
+          `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
+        );
+        setDisLike(!DisLike);
+        setLike(false);
+        console.log(userLike);
+        // return userLike;
+      } else {
+        setDisLike(!like);
+      }
+    } else {
+      toast.error("برای ذیس لایک باید در سایت ثبت نام کنید");
     }
   };
 
   useEffect(() => {
-    handleLike();
-  }, [setLike]);
+    if (currentUserEmotion == "-") {
+      setLike(false);
+      setDisLike(false);
+    } else if (currentUserEmotion == "LIKED") {
+      setLike(true);
+      setDisLike(false);
+    } else {
+      setLike(false);
+      setDisLike(true);
+    }
+  }, []);
 
   return (
     <>
@@ -93,7 +112,7 @@ const Comments = ({
                   fill="gray"
                   className="w-full h-full scale-110"
                   strokeWidth="1"
-                  onClick={()=> setDisLike(!DisLike)}
+                  onClick={() => handleDisLike()}
                 ></IconThumbDown>
                 <span className="ml-[19px]">{disslikeCount}</span>
               </>
@@ -102,7 +121,7 @@ const Comments = ({
                 <IconThumbDown
                   className="w-full h-full scale-110"
                   strokeWidth="1"
-                  onClick={()=>setDisLike(!DisLike)}
+                  onClick={() => handleDisLike()}
                 ></IconThumbDown>
                 <span className="ml-[19px]">{disslikeCount}</span>
               </>

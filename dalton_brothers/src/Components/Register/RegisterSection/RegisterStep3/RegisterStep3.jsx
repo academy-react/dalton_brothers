@@ -2,6 +2,8 @@ import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
 
 import { registerS3 } from "../../../../Core/Services/api/register/register.step3/register.step3";
 import { Title } from "../../../Common/Title/Title";
@@ -29,7 +31,7 @@ const RegisterStep3 = () => {
     };
     const user = await registerS3(userDetail);
     if (!user.success) {
-      alert("از این ایمیل قبلا استفاده شده است");
+      toast.error("از این ایمیل قبلا استفاده شده است");
       return;
     }
     navigate("/signIn");

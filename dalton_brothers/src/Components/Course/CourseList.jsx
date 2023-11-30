@@ -27,16 +27,13 @@ const CourseList = () => {
   };
 
   const getCourses = async () => {
-    if (token) {
+
       const result = await basicGet("/Home/GetCoursesWithPagination");
 
       const response = result.courseFilterDtos
       setCourseList(response);
       // console.log(response);
-    }
-    else{
-     console.log("Please select"); 
-    }
+
   };
 
   useEffect(() => {

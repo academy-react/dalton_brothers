@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import toast ,{ Toaster } from "react-hot-toast"
 
 import { Authenticated } from "./Auth/Authenticated";
 import { UnAuthenticated } from "./Auth/UnAuthenticated";
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
+      <Toaster duration="500"/>
       {token ? (
         <Authenticated location={location} />
       ) : (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 import likeCheck from "../../../Assets/Images/like1check.png";
 import likes from "../../../Assets/Images/like1.png";
@@ -48,6 +49,7 @@ const Course = ({
 
 
     if (token) {
+
       if (Like == true) {
         setLike(false);
         try {
@@ -56,15 +58,8 @@ const Course = ({
         const result = await http.delete(`/Course/DeleteCourseLike` , {data: data})
         console.log(result);          
         } catch (error) {
-          console.log(error);
+          toast.error(error);
         }
-
-
-        // const userUnLike = await deleteLike(
-        //   `/Course/DeleteCourseLike?${userLikedId}`
-        // )
-        // console.log(userUnLike, userLikedId);
-        // return userUnLike;
 
       } else {
         setLike(true);
@@ -75,15 +70,40 @@ const Course = ({
         return userLike;
       }
     } else {
-      console.log("token nadari");
+      toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
 
     // const user = await addLike(`/Course/AddCourseLike?CourseId=${courseId}`);
   };
+  const handleDisLike = async () => {
+    // const data = new FormData()
 
-  useEffect(() => {
-    handleLike;
-  }, [setLike,Like]);
+
+    if (token) {
+
+      if (DisLike == true) {
+        setDisLike(false);
+        try {
+        // data.append('courseLikeId' , userLikedId )
+
+        // const result = await http.delete(`/Course/DeleteCourseLike` , {data: data})
+        // console.log(result);          
+        } catch (error) {
+          toast.error(error);
+        }
+
+      } else {
+        setDisLike(true);
+        // const userLike = await addLike(
+        //   `/Course/AddCourseDissLike?CourseId=${courseId}`
+        // );
+        // console.log(userLike);
+        // return userLike;
+      }
+    } else {
+      toast.error("برای ذیس لایک باید در سایت ثبت نام کنید");
+    }
+  };
 
   return (
     <div className="w-[350px] h-96 border  rounded-lg flex flex-col">
@@ -144,7 +164,7 @@ const Course = ({
               className="w-[30px] cursor-pointer scale-110"
               src={dislikeCheck}
               alt=""
-              onClick={()=> setDisLike(!DisLike)}
+              onClick={()=> handleDisLike()}
             />
             <span className="w-[30px] text-center inline-block">
               {dissLikeCount + 1}
@@ -156,7 +176,7 @@ const Course = ({
               className="w-[30px] opacity-80 cursor-pointer scale-110"
               src={dislike}
               alt=""
-              onClick={()=> setDisLike(!DisLike)}
+              onClick={()=> handleDisLike()}
             />
             <span className="w-[30px] text-center inline-block">
               { currentUserDissLike==0 ? (dissLikeCount) : (dissLikeCount)}
