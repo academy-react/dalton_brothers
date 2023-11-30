@@ -20,6 +20,8 @@ const store = configureStore({
     courseFilter,
     token,
     theme,
+    trigger
+    ,
   },
 });
 

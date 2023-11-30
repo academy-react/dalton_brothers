@@ -49,6 +49,8 @@ const PanelNavigation = () => {
 
   const colorMode = useSelector((state) => state.theme.theme);
 
+// console.log(colorMode);
+
   const goTo = (link) => {
     navigate(link);
   };
@@ -70,6 +72,7 @@ const PanelNavigation = () => {
       setPanelList(masterPanelList);
     }
   };
+
 
   const studentPanelList = [
     {
@@ -97,6 +100,10 @@ const PanelNavigation = () => {
       selectIcon: colorMode === "dark" ? darkListSel : panelListIconSel,
     },
   ];
+
+
+
+
   const masterPanelList = [
     {
       name: "داشبورد",
@@ -123,9 +130,12 @@ const PanelNavigation = () => {
       selectIcon: colorMode === "dark" ? darkListSel : panelListIconSel,
     },
   ];
+
+  // masterPanelList.map((el ) => (console.log(el.icon)));
+  
   useEffect(() => {
     GetPanelName();
-  }, []);
+  }, [masterPanelList ,studentPanelList ]);
   return (
     <>
       <div className=" 2xl:w-[290px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">
