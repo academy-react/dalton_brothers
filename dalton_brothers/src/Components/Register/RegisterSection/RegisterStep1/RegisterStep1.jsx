@@ -2,6 +2,7 @@ import React from "react";
 import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import { Input } from "../../../Common/Inputs/Input";
 import { Button } from "../../../Common/buttons";
@@ -22,6 +23,7 @@ const RegisterStep1 = () => {
     const user = await registerS1(number);
     
     navigate("/register/step2");
+    toast.success(" رمز برای شما ارسال شد ")
     // console.log(user);
   };
 
