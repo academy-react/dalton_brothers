@@ -1,0 +1,60 @@
+import { Field, Form, Formik } from "formik";
+import React from "react";
+import { addComment } from "../../../../Core/Services/api/course/comment/addComment/addComment";
+import { Input } from "../../Inputs/Input";
+import { Button } from "../../buttons";
+import { commentValidation } from "../../../../Core/Validation/yup";
+
+const AddComment = ({ id }) => {
+  const onSubmit = async (values) => {
+    var formdata = new FormData();
+    formdata.append("CourseId", id);
+    formdata.append("Title", values.title);
+    formdata.append("Describe", values.describe);
+    const user = await addComment(formdata);
+  };
+  return (
+    <div className=" w-full flex ">
+      <div className=" w-[1000px] m-auto flex justify-evenly">
+        <Formik
+          initialValues={{
+            title: "",
+            describe: "",
+          }}
+          validationSchema={commentValidation}
+          onSubmit={(values) => onSubmit(values)}
+        >
+          <Form className=" flex w-full flex-col items-center font-irSans transition-all">
+            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
+              <Input
+                topic={"عنوان نظر"}
+                className="rounded-[20px]"
+                placeHolder={"...عنوان نظر"}
+                type={"text"}
+                name={"title"}
+                as={"input"}
+              />
+            </div>
+            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px]">
+              <Input
+                topic={"پیام شما"}
+                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5"
+                placeHolder={"...متن پیام"}
+                type={"text"}
+                name={"describe"}
+                as={"textarea"}
+              />
+            </div>
+            <Button
+              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"
+              type={"submit"}
+              children={"ثبت"}
+            />
+          </Form>
+        </Formik>
+      </div>
+    </div>
+  );
+};
+
+export { AddComment };

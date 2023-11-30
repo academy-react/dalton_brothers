@@ -1,0 +1,140 @@
+.filterInput {
+  display: none;
+}
+.filterInput:checked + .filterLabel {
+  left: 40%;
+}
+.filterInput:checked ~ .content {
+  height: 1200px;
+  padding: 20px 50px;
+}
+.content {
+  direction: rtl;
+}
+.masterInp:checked + .masterLabel {
+  border: 5px solid #fcbf49;
+  width: 175px;
+  height: 175px;
+  background: url(../../../../assets/Images/filter/selMaster.png) white
+    no-repeat 50% 0%;
+  background-size: 85%;
+  border-radius: 30px;
+}
+.masterInpResponsive:checked + .masterLabelResponsive {
+  border: 5px solid #fcbf49;
+  width: 100%;
+  height: 100%;
+  background: url(../../../../assets/Images/filter/selMaster.png) white
+    no-repeat 50% 0%;
+  background-size: 85%;
+  border-radius: 30px;
+}
+.masterLabel {
+  background: url(../../../../assets/Images/filter/defMaster.png) white
+    no-repeat 50% 0%;
+  background-size: 85%;
+  border-radius: 30px;
+}
+.masterLabelResponsive {
+  background: url(../../../../assets/Images/filter/defMaster.png) white
+    no-repeat 50% 0%;
+  background-size: 85%;
+  border-radius: 30px;
+}
+.priceRange {
+  direction: ltr;
+}
+.courseInp:checked + .pythonLabel,
+.courseInpResponsive:checked + .pythonLabelResponsive {
+  border: 5px solid #fcbf49;
+
+  background: url(../../../../assets/Images/filter/selpython.png) white
+    no-repeat 50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+.courseInp:checked + .pythonLabel {
+  width: 180px;
+  height: 180px;
+}
+.courseInpResponsive:checked + .pythonLabelResponsive {
+  width: 100%;
+  height: 100%;
+}
+.pythonLabel,
+.pythonLabelResponsive {
+  background: url(../../../../assets/Images/filter/defpython.png) white
+    no-repeat 50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+
+.courseInp:checked + .reactLabel,
+.courseInpResponsive:checked + .reactLabelResponsive {
+  border: 5px solid #fcbf49;
+  background: url(../../../../assets/Images/filter/selReact.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+.courseInp:checked + .reactLabel {
+  width: 180px;
+  height: 180px;
+}
+.courseInpResponsive:checked + .reactLabelResponsive {
+  width: 100%;
+  height: 100%;
+}
+.reactLabel,
+.reactLabelResponsive {
+  background: url(../../../../assets/Images/filter/defReact.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+.courseInp:checked + .designLabel,
+.courseInpResponsive:checked + .designLabelResponsive {
+  border: 5px solid #fcbf49;
+  background: url(../../../../assets/Images/filter/selDesign.png) white
+    no-repeat 50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+.courseInp:checked + .designLabel {
+  width: 180px;
+  height: 180px;
+}
+.courseInpResponsive:checked + .designLabelResponsive {
+  width: 100%;
+  height: 100%;
+}
+.designLabel,
+.designLabelResponsive {
+  background: url(../../../../assets/Images/filter/defDesign.png) white
+    no-repeat 50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+.courseInp:checked + .mainLabel,
+.courseInpResponsive:checked + .mainLabelResponsive {
+  border: 5px solid #fcbf49;
+  background: url(../../../../assets/Images/filter/selMain.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
+.courseInp:checked + .mainLabel {
+  width: 180px;
+  height: 180px;
+}
+.courseInpResponsive:checked + .mainLabelResponsive {
+  width: 100%;
+  height: 100%;
+}
+.mainLabel,
+.mainLabelResponsive {
+  background: url(../../../../assets/Images/filter/defMain.png) white no-repeat
+    50% 30%;
+  background-size: 60%;
+  border-radius: 30px;
+}
