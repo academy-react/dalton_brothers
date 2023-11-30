@@ -8,6 +8,7 @@ import LayFooter from "./Footer";
 import { courseData } from "../../Core/Services/data";
 
 import style from "./layOut.module.css";
+import useColorMode from "../CustomHooks/UseColorMode";
 
 export const SortContext = createContext();
 
@@ -15,6 +16,8 @@ export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
 
+  // const [colorMode, setColorMode] = useColorMode();
+  const colorMode = useSelector((state) => state.theme.theme);
 
   const search = useSelector((state) => state.search.search);
   const sort = useSelector((state) => state.sort.sort);
@@ -66,7 +69,7 @@ const Layout = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <header className="flex flex-col gap-[80px] items-center mb-[80px]">
+        <header className="flex flex-col gap-[80px] items-center mb-[80px] ">
           <LayHeader
             course={"دوره ها"}
             news={"اخبار و مقالات"}
@@ -74,7 +77,7 @@ const Layout = () => {
           />
         </header>
         <Outlet />
-        <footer className={`${style.footer}`}>
+        <footer className={`${ colorMode==="dark" ? style.darkModeFooter:   style.footer}`}>
           <LayFooter />
         </footer>
       </motion.div>

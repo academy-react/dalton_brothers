@@ -33,10 +33,10 @@ const CommentPlace = () => {
         validationSchema={validation}
       >
         <Form className=" flex w-full flex-col items-center font-irSans">
-          <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
+          <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px] dark:bg-mode-900">
             <Input
               topic={"نام کاربر"}
-              className="rounded-[20px]"
+              className="rounded-[20px] dark:bg-mode-900 dark:text-mode-50"
               placeHolder={"...نام کاربری"}
               type={"text"}
               name={"name"}
@@ -46,7 +46,7 @@ const CommentPlace = () => {
           <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px]">
             <Input
               topic={"پیام شما"}
-              className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5"
+              className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5 dark:bg-mode-900 dark:text-mode-50"
               placeHolder={"...متن پیام"}
               type={"text"}
               name={"comment"}
@@ -54,7 +54,7 @@ const CommentPlace = () => {
             />
           </div>
           <Button
-            className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"
+            className="bg-pallete-100 dark:bg-DarkPallete-100 hover:bg-[#c89c44] text-[#fff]"
             type={"submit"}
             children={"ثبت"}
           />

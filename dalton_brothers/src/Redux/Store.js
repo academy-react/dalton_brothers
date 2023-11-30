@@ -9,6 +9,7 @@ import courseFilter from "./Filter/courseFilter";
 import trigger from "./Filter/trigger";
 import token from "./token";
 import money from "./money";
+import theme from "./Theme";
 
 const store = configureStore({
   reducer: {
@@ -21,6 +22,8 @@ const store = configureStore({
     token,
     trigger,
     money,
+    theme,
+    
   },
 });
 

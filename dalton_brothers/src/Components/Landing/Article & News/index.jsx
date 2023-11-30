@@ -11,7 +11,7 @@ const ArticleNews = () => {
   const [articleList, setArticleList] = useState([]);
 
   const getSomeArticle = async () => {
-    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
+    const result = await basicGet("/News?PageNumber=1&RowsOfPage=3");
 
     const response = result.news;
 
@@ -23,7 +23,7 @@ const ArticleNews = () => {
     getSomeArticle();
   }, []);
 
-  const data = [newsData[0], newsData[1], newsData[2]];
+  // const data = [newsData[0], newsData[1], newsData[2]];
 
   return (
     <div className="w-100   flex flex-col gap-5 mt-20 ">

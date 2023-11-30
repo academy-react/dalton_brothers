@@ -40,7 +40,7 @@ const SimpleSlider = ({ data, item }) => {
             },
           }}
           modules={[Pagination, Navigation]}
-          className="2xl:w-[85%] md:w-[80%] mySwiper w-[100%] h-[100%] "
+          className="2xl:w-[90%] md:w-[80%] mySwiper w-[100%] h-[100%] "
         >
           {data.map((el, index) => (
             <SwiperSlide
@@ -79,7 +79,7 @@ const SimpleSlider = ({ data, item }) => {
               spaceBetween: 25,
             },
             1536: {
-              slidesPerView: 3,
+              slidesPerView: 1,
               // spaceBetween: 25,
             },
           }}
@@ -88,7 +88,7 @@ const SimpleSlider = ({ data, item }) => {
         >
           {data.map((el, index) => (
             <SwiperSlide
-              className="flex justify-center items-center"
+              className="flex justify-center items-center "
               key={index}
             >
               <Article {...el} />

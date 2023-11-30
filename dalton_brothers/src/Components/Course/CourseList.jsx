@@ -49,7 +49,7 @@ const CourseList = () => {
   }, []);
   useEffect(() => {
     getCourses();
-  }, [currentPage, sort, search, trigger]);
+  }, [currentPage, sort, search,trigger]);
   useEffect(() => {
     const handleTrigger = () => {
       dispatch(onTriggerChange(false));

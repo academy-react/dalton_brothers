@@ -4,24 +4,32 @@ import { useSelector } from "react-redux";
 import { NavLinks } from "../../../Common/Links/NavLinks/NavLinks";
 
 import logo from "../../../../assets/Images/layOut-logo.png";
+import modeLogo from "../../../../assets/Images/layOut-logo-mode.png";
 import sun from "../../../../assets/Images/sun.png";
+import NightModeBtn from "../../../../assets/Images/darkMode.png";
+import LightModeBtn from "../../../../assets/Images/lightMode.png";
 
 import style from "../../layOut.module.css";
+import useColorMode from "../../../CustomHooks/UseColorMode";
+
+
 
 const LayHeaderNav = () => {
   const token = useSelector((state) => state.token.token);
+  const [colorMode, setColorMode] = useColorMode();
+
   return (
-    <div className={style.headerBox1}>
+    <div className={colorMode === "dark" ? style.darkHeaderBox1 : style.headerBox1  }>
       {/* logo */}
       <div className="w-16 h-18">
-        <img className="xl:order-1 w-full h-full" src={logo} alt="" />
+        <img className="xl:order-1 w-full h-full" src={colorMode === "dark" ? modeLogo : logo} alt="" />
       </div>
       <div className="lg:w-fit lg:gap-[30px] lg:order-2 md:justify-center md:mt-[30px] md:w-[100%] md:flex  hidden  flex-row-reverse flex-wrap justify-center gap-[75px] items-center font-irSans text-xl text-gray-500">
         {/* items */}
-        <NavLinks Children={"خانه"} path={"/"} />
-        <NavLinks Children={"دوره ها"} path={"/course"} />
-        <NavLinks Children={"اخبار و مقالات"} path={"/news"} />
-        <NavLinks Children={"ارتباط با ما"} path={"/"} />
+        <NavLinks className={"dark:text-mode-50"} Children={"خانه"} path={"/"} />
+        <NavLinks className={"dark:text-mode-50"} Children={"دوره ها"} path={"/course"} />
+        <NavLinks className={"dark:text-mode-50"} Children={"اخبار و مقالات"} path={"/news"} />
+        <NavLinks className={"dark:text-mode-50"} Children={"ارتباط با ما"} path={"/"} />
       </div>
       {/* md responsive navbar */}
       <div className="w-[100px] bg-cover bg-center md:hidden order-1 flex">
@@ -45,11 +53,19 @@ const LayHeaderNav = () => {
         </div>
       </div>
       {/* dark mode*/}
-      <div className="xl:order-3">
-        <img src={sun} alt="" className=" w-[40px]" />
-      </div>
+
       {/* button for sign in or enter */}
-      <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 w-[300px]">
+      <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 w-[400px] flex justify-center items-center gap-4 flex-row-reverse">
+      <div className=" flex justify-center items-center ">
+        <button
+          onClick={() => {
+            setColorMode(colorMode === "light" ? "dark" : "light");
+          }}
+          className="w-16 h-10 flex justify-center items-center   mt-[2px]  "
+        >
+        <img   alt="" src={colorMode==="dark" ? NightModeBtn : LightModeBtn} className=""/>
+          
+        </button></div>
         {!token ? (
           <div className=" 2xl:ml-0 xl:order-4 xl:ml-[20px] xl: mr-0 bg-zinc-100  w-[300px] p-2 flex flex-row-reverse  rounded-full relative font-irSBold text-slate-600">
             <NavLinks
@@ -59,14 +75,14 @@ const LayHeaderNav = () => {
             />
             <NavLinks
               path={"/signIn"}
-              className="bg-[#fcbf49] w-[150px] h-12 text-center py-[12px]  rounded-full"
+              className="bg-pallete-100 dark:bg-DarkPallete-100 dark:text-mode-50 w-[150px] h-12 text-center py-[12px]  rounded-full"
               Children={"ورود"}
             />
           </div>
         ) : (
           <NavLinks
             Children={"ورود به پنل"}
-            className=" text-[#707070] whitespace-nowrap hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[300px] w-[100px] h-[40px] bg-#f6f6f6 rounded-full flex justify-center items-center text-[15px]"
+            className=" text-mode-700 whitespace-nowrap hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[300px] w-[100px] h-[40px] bg-mode-100 rounded-full flex justify-center items-center text-[15px]"
             path={"/panel"}
           />
         )}

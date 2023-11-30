@@ -11,10 +11,10 @@ const Master = ({ fullName,pictureAddress }) => {
           <img src={pictureAddress} alt="" className="w-[90%] rounded-full absolute top-[-20px] left-[5%]"/>
         </label>
       </div>
-      <h1 className="lg:mt-[0px] font-irSBold text-neutral-700 text-xl mt-[30px]">
+      <h1 className="lg:mt-[0px] font-irSBold text-mode-800 dark:text-mode-50 text-xl mt-[30px]">
         {fullName}
       </h1>
-      <h1 className="font-irSans text-[#909090] text-l mt-4">مدرس</h1>
+      <h1 className="font-irSans text-mode-700 dark:text-mode-200 dark:opacity-60 text-l mt-4">مدرس</h1>
     </div>
   );
 };

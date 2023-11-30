@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
 export default {
+  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    
     extend: {
       fontFamily: {
         sha: "shabnam",
@@ -17,10 +17,33 @@ export default {
         irSBold: "iranSansBold",
         },
       colors:{
-      pallete : { 100 : "#fcbf49"   },
-      modePallete:{100:"#16A34A"} ,
-      mode : {50 :"#F1F5F9" , 100 :"#f6f6f6" , 700:"#707070"  ,900 :"#404042"},
-    error : {100 :"text-red-500"} },
+          mode : {50 :"#F1F5F9" , 100 :"#f6f6f6" , 200 : "#E6E6E6" ,300 : "#9ca3af"  , 700:"#707070"  ,800 :"#404042" , 900 : "#27272A"},
+        DarkPallete : {100 : "#16A34A"},
+
+    pallete : { 100 : "#fcbf49"   },
+    error : {100 :"#ef4444"} ,
+  
+    // mode: {
+    //   50: "var(--theme-mode50)",
+    //   100: "var(--theme-mode100)",
+    //   200: "var(--theme-mode200)",
+    //   700: "var(--theme-mode700)",
+    //   800: "var(--theme-mode800)",
+    //   900: "var(--theme-mode900)",
+    //   },
+
+    //   pallete: {
+    //     100: "var(--theme-pallete100)"},
+    //    green : {
+    //     100: " var(--theme-green100)" } ,
+
+  
+  },
+
+
+
+
+
 
       boxShadow: { ri: "0px 0px 10px black" },
       backgroundImage: {
