@@ -17,6 +17,7 @@ import { NotAccess } from "../../../Components/Common/NotAccess";
 import { NotFound } from "../../../Components/Common/NotFound";
 import { MasterCourses } from "../../../Components/MasterPanel/MasterCourses/MasterCourses";
 import { CreateCourse } from "../../../Components/MasterPanel/CreateCourse/CreateCourse";
+import { EditProfileImg } from "../../../Components/StudentPanel/EditProfile/EditImg";
 
 const Authenticated = ({ location }) => {
   const router = [
@@ -45,11 +46,15 @@ const Authenticated = ({ location }) => {
       children: [
         { path: "/panel", element: <Dashboard /> },
         { path: "/panel/EditProfile", element: <EditProfile /> },
+        { path: "/panel/EditProfileImg", element: <EditProfileImg /> },
         { path: "/panel/PanelCourses", element: <PanelCourses /> },
         { path: "/panel/PanelCoursesList", element: <PanelCoursesList /> },
         { path: "/masterPanel", element: <Dashboard /> },
         { path: "/masterPanel/masterEditProfile", element: <EditProfile /> },
-        { path: "/masterPanel/masterPanelCoursesList", element: <MasterCourses /> },
+        {
+          path: "/masterPanel/masterPanelCoursesList",
+          element: <MasterCourses />,
+        },
         { path: "/masterPanel/createCourse", element: <CreateCourse /> },
       ],
     },

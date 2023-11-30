@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 import wallet from "../../../../../assets/Images/panel/1.png";
+import { useDispatch, useSelector } from "react-redux";
+import { onMoneyChange } from "../../../../../Redux/money";
 
 const YourStock = () => {
+  const money = useSelector((state) => state.money.money);
+  const dispatch = useDispatch();
+  const handleIncrease = () => {
+    const newAmount = money + 100000;
+    dispatch(onMoneyChange(money + 100000));
+    if (newAmount === 1000000) alert("بسه دیگه  برو خونتون");
+    if (newAmount === 1500000) alert("چه خبرته بانک نیومدی که");
+    if (newAmount === 2000000) alert("خیلی خری");
+  };
   return (
     <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white">
       <div className=" lg:w-1/2 w-full h-full flex flex-col justify-between   ">
@@ -11,7 +22,7 @@ const YourStock = () => {
         </span>
         <div className=" w-[150px] flex h-[60px] gap-1 xl:text-xl lg:text-lg justify-center items-center pt-8">
           <p className="text-gray-600"> تومان </p>
-          <p className="text-gray-600"> 250000 </p>
+          <p className="text-gray-600"> {money} </p>
         </div>
         <div className=" w-full h-[70px] flex-col items-center ">
           <p className=" w-full text-center text-sm text-gray-500 ">نوع شارژ</p>
@@ -25,7 +36,10 @@ const YourStock = () => {
           </div>
         </div>
         <div className=" w-full  h-[60px] mt-[20px] lg:text-right text-center rounded-bl-[30px] flex justify-end">
-          <button className="bg-[#fcbf49]  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px] max-lg:rounded-tr-[30px] max-lg:rounded-b-md   flex justify-center items-center text-[16px] text-white font-irSBold">
+          <button
+            className="bg-[#fcbf49]  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px] max-lg:rounded-tr-[30px] max-lg:rounded-b-md   flex justify-center items-center text-[16px] text-white font-irSBold"
+            onClick={() => handleIncrease()}
+          >
             شارژ حساب
           </button>
         </div>

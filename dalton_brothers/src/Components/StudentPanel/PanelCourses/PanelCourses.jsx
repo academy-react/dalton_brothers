@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { MyCourse } from "./Component/MyCourse/MyCourse";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
+import { useSelector } from "react-redux";
 
 const PanelCourses = () => {
   const [courseListCount, setCourseListCount] = useState(null);
   const [courseList, setCourseList] = useState(null);
   const [reservedCourses, setReservedCourses] = useState([]);
   const [allCosts, setAllCosts] = useState(0);
+  const money = useSelector((state) => state.money.money);
 
+  console.log(money);
+  console.log(allCosts);
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
     setCourseListCount(count);

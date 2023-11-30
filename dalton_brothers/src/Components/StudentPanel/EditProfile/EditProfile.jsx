@@ -6,10 +6,10 @@ import { editProfileValidation } from "../../../Core/Validation/yup";
 
 import defaultImg from "../../../assets/Images/register-person.png";
 import { PanelInps } from "../../Common/Inputs/PanelInputs";
+import { addPic } from "../../../Core/Services/api/studentPanel/addImg";
 
 const EditProfile = () => {
   const [personImg, setPersonImg] = useState();
-
   const onSubmit = async (values) => {
     console.log("triggered");
     var userNewObj = new FormData();
@@ -28,7 +28,10 @@ const EditProfile = () => {
 
     const user = await editUSerProfile(userNewObj);
 
-    console.log(user);
+    var formdata = new FormData();
+    formdata.append("formFile", personImg);
+
+    const newImg = await addPic(formdata);
   };
   const rightArrayInps = [
     {
@@ -84,13 +87,19 @@ const EditProfile = () => {
     >
       <Form className=" w-[900px]   flex flex-col font-irSans">
         <div className="rounded-full cursor-pointer self-center mb-5">
-          <label htmlFor="pic1" className="cursor-pointer">
+          <label htmlFor="pic2" className="cursor-pointer">
             <img
               src={personImg ? URL.createObjectURL(personImg) : defaultImg}
               alt=""
               className="w-[150px]"
             />
           </label>
+          <input
+            className="hidden"
+            type="file"
+            id="pic2"
+            onChange={(e) => setPersonImg(e.target.files[0])}
+          />
         </div>
         <div className="flex flex-wrap">
           <div className="  w-1/2  flex flex-col justify-start  ">
