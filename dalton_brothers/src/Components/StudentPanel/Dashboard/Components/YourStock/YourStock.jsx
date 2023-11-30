@@ -3,13 +3,21 @@ import React, { useState } from "react";
 import wallet from "../../../../../assets/Images/panel/1.png";
 import { useDispatch, useSelector } from "react-redux";
 import { onMoneyChange } from "../../../../../Redux/money";
+import {
+  getItem,
+  setItem,
+} from "../../../../../Core/Services/common/storage.services";
 
 const YourStock = () => {
-  const money = useSelector((state) => state.money.money);
   const dispatch = useDispatch();
+  const currentAmount = JSON.parse(getItem("newAmount"));
+  dispatch(onMoneyChange(currentAmount));
+  const money = useSelector((state) => state.money.money);
   const handleIncrease = () => {
-    const newAmount = money + 100000;
-    dispatch(onMoneyChange(money + 100000));
+    const newAmount = currentAmount + 100000;
+    console.log(currentAmount);
+    setItem("newAmount", newAmount);
+    dispatch(onMoneyChange(newAmount));
     if (newAmount === 1000000) alert("بسه دیگه  برو خونتون");
     if (newAmount === 1500000) alert("چه خبرته بانک نیومدی که");
     if (newAmount === 2000000) alert("خیلی خری");
@@ -22,7 +30,7 @@ const YourStock = () => {
         </span>
         <div className=" w-[150px] flex h-[60px] gap-1 xl:text-xl lg:text-lg justify-center items-center pt-8">
           <p className="text-gray-600"> تومان </p>
-          <p className="text-gray-600"> {money} </p>
+          <p className="text-gray-600">{money ? money : 0}</p>
         </div>
         <div className=" w-full h-[70px] flex-col items-center ">
           <p className=" w-full text-center text-sm text-gray-500 ">نوع شارژ</p>

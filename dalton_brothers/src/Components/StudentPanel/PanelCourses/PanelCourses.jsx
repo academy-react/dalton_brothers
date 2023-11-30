@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { MyCourse } from "./Component/MyCourse/MyCourse";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { onMoneyChange } from "../../../Redux/money";
+import {
+  getItem,
+  setItem,
+} from "../../../Core/Services/common/storage.services";
 
 const PanelCourses = () => {
   const [courseListCount, setCourseListCount] = useState(null);
   const [courseList, setCourseList] = useState(null);
   const [reservedCourses, setReservedCourses] = useState([]);
-  const [allCosts, setAllCosts] = useState(0);
+  const [allCosts, setAllCosts] = useState("پرداخت شد");
+  const payCheck = getItem("payCheck");
   const money = useSelector((state) => state.money.money);
+  const dispatch = useDispatch();
 
-  console.log(money);
-  console.log(allCosts);
+  console.log(payCheck);
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
     setCourseListCount(count);
@@ -26,11 +32,10 @@ const PanelCourses = () => {
       );
       const reservedCourses = reservedCoursesArray.map((el) => el[0]);
       setReservedCourses(reservedCourses);
-      console.log(reservedCourses.length);
     }
   };
   function SumCalculator() {
-    if (reservedCourses) {
+    if (reservedCourses && !payCheck) {
       const costArray = reservedCourses.map((el) => el.cost);
       const numbers = costArray;
       const sum = numbers.reduce(
@@ -40,6 +45,16 @@ const PanelCourses = () => {
       setAllCosts(sum);
     }
   }
+  const handlePay = () => {
+    if (money >= allCosts) {
+      alert("پرداخت با موفقیت انجام شد");
+      dispatch(onMoneyChange(money - allCosts));
+      setAllCosts("پرداخت شد");
+      setItem("payCheck", true);
+    } else if (allCosts > money) {
+      alert("شارژ حساب شما به اندازه ی کافی نیست");
+    }
+  };
   useEffect(() => {
     getCount();
   }, []);
@@ -93,8 +108,11 @@ const PanelCourses = () => {
               <div className=" rounded-lg w-[300px] h-[50px] flex flex-wrap flex-row-reverse gap-[5px] justify-center items-center bg-[#fff2da]">
                 <span>مجموع</span>:<span>{allCosts}</span>
               </div>
-              <button className="w-full h-[50px] bg-[#fdba74] transition-all hover:bg-[#e2a96c] rounded-lg">
-                click me
+              <button
+                className="w-full h-[50px] bg-[#fdba74] transition-all hover:bg-[#e2a96c] rounded-lg"
+                onClick={handlePay}
+              >
+                پرداخت
               </button>
             </div>
           </div>
