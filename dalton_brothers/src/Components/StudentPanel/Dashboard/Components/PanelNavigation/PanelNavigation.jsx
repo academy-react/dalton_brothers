@@ -42,37 +42,11 @@ import darkCourseSel from "../../../../../assets/Images/panel/dark-nav-icon/dark
 import darkListSel from "../../../../../assets/Images/panel/dark-nav-icon/darkListSel.png";
 
 const PanelNavigation = () => {
-  const [panelList, setPanelList] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const colorMode = useSelector((state) => state.theme.theme);
-
-// console.log(colorMode);
-
-  const goTo = (link) => {
-    navigate(link);
-  };
-
-  const GetPanelName = () => {
-    if (
-      location.pathname === "/panel" ||
-      location.pathname === "/panel/EditProfile" ||
-      location.pathname === "/panel/PanelCoursesList" ||
-      location.pathname === "/panel/PanelCourses"
-    ) {
-      setPanelList(studentPanelList);
-    } else if (
-      location.pathname === "/masterPanel" ||
-      location.pathname === "/masterPanel/masterEditProfile" ||
-      location.pathname === "/masterPanel/masterPanelCoursesList" ||
-      location.pathname === "/masterPanel/CreateCourse"
-    ) {
-      setPanelList(masterPanelList);
-    }
-  };
-
 
   const studentPanelList = [
     {
@@ -101,46 +75,11 @@ const PanelNavigation = () => {
     },
   ];
 
-
-
-
-  const masterPanelList = [
-    {
-      name: "داشبورد",
-      href: "/masterPanel",
-      icon: colorMode === "dark" ? darkHomeIcon : panelHomeIcon,
-      selectIcon: colorMode === "dark" ? darkHomeSel : panelHomeIconSel,
-    },
-    {
-      name: "ویرایش پروفایل",
-      href: "/masterPanel/masterEditProfile",
-      icon: colorMode === "dark" ? darkEditIcon : panelEditIcon,
-      selectIcon: colorMode === "dark" ? darkEditSel : panelEditIconSel,
-    },
-    {
-      name: " دوره های من ",
-      href: "/masterPanel/masterPanelCoursesList",
-      icon: colorMode === "dark" ? darkCourseIcon : panelCourseIcon,
-      selectIcon: colorMode === "dark" ? darkCourseSel : panelCourseIconSel,
-    },
-    {
-      name: "ساخت دوره ی جدید",
-      href: "/masterPanel/CreateCourse",
-      icon: colorMode === "dark" ? darkListIcon : panelListIcon,
-      selectIcon: colorMode === "dark" ? darkListSel : panelListIconSel,
-    },
-  ];
-
-  // masterPanelList.map((el ) => (console.log(el.icon)));
-  
-  useEffect(() => {
-    GetPanelName();
-  }, [masterPanelList ,studentPanelList ]);
   return (
     <>
       <div className=" 2xl:w-[290px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly gap-5 font-irSans ">
-          {panelList.map((item, index) => (
+          {studentPanelList.map((item, index) => (
             <li
               key={index}
               onClick={() => goTo(item.href)}

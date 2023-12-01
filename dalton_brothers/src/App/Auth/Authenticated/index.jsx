@@ -49,13 +49,6 @@ const Authenticated = ({ location }) => {
         { path: "/panel/EditProfileImg", element: <EditProfileImg /> },
         { path: "/panel/PanelCourses", element: <PanelCourses /> },
         { path: "/panel/PanelCoursesList", element: <PanelCoursesList /> },
-        { path: "/masterPanel", element: <Dashboard /> },
-        { path: "/masterPanel/masterEditProfile", element: <EditProfile /> },
-        {
-          path: "/masterPanel/masterPanelCoursesList",
-          element: <MasterCourses />,
-        },
-        { path: "/masterPanel/createCourse", element: <CreateCourse /> },
       ],
     },
     { path: "/*", element: <NotFound /> },
