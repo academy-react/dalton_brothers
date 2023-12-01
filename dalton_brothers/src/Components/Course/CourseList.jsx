@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import ReactPaginate from "react-paginate";
+
 import "../../index.css";
 import { Course } from "./CourseSections/Course";
 import { LayOutHeaders } from "../Common/LayOutHeaders";
@@ -48,7 +49,7 @@ const CourseList = () => {
   }, []);
   useEffect(() => {
     getCourses();
-  }, [currentPage, sort, search, trigger]);
+  }, [currentPage, sort, search,trigger]);
   useEffect(() => {
     const handleTrigger = () => {
       dispatch(onTriggerChange(false));

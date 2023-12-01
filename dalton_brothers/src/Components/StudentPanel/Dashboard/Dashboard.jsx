@@ -18,13 +18,13 @@ const Dashboard = () => {
         <div className=" 2xl:w-[370px] xl:w-[350px] lg:w-[300px] w-[400px] xl:h-[250px] lg:h-[250px] h-[200px]">
           <YourStock />
         </div>
-        <div className=" 2xl:w-[650px] xl:w-[430px] lg:w-[350px]  xl:h-[250px] lg:h-[250px] ">
+        <div className=" 2xl:w-[800px] xl:w-[430px] lg:w-[350px]  xl:h-[250px] lg:h-[250px] ">
           <Specification />
         </div>
       </div>
       <div className=" flex flex-row-reverse  w-full    ">
         {/* h-[430px] */}
-        <h4 className="w-full whitespace-nowrap text-right text-xl font-irSans pr-5">
+        <h4 className="w-full whitespace-nowrap text-right text-xl font-irSans pr-5 dark:text-mode-50">
           علاقه مندی ها
         </h4>
         <div className="     flex ">

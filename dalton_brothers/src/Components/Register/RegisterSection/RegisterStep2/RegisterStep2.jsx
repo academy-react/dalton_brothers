@@ -2,6 +2,7 @@ import React from "react";
 import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import { Input } from "../../../Common/Inputs/Input";
 import { Button } from "../../../Common/buttons";
@@ -22,7 +23,7 @@ const RegisterStep2 = () => {
     };
     const user = await registerS2(number);
     if (!user.success) {
-      alert("کد وارد شده صحیح نیست یا منقضی شده است");
+      toast.error("کد وارد شده صحیح نیست یا منقضی شده است");
       return;
     }
     navigate("/register/step3");

@@ -5,13 +5,20 @@ import { editProfileValidation } from "../../../Core/Validation/yup";
 import { createCourse } from "../../../Core/Services/api/masterPanel/createCourse";
 
 import defaultImg from "../../../assets/Images/register-person.png";
+import defaulDarktImg from "../../../assets/Images/register-person DarkMode.png";
+
 import { PanelInps } from "../../Common/Inputs/PanelInputs";
 import MasterSelectOption from "../MasterSelectOption";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
+import { useSelector } from "react-redux";
 
 const CreateCourse = () => {
   const [personImg, setPersonImg] = useState();
   const [courseList, setCourseList] = useState([]);
+
+  const colorMode = useSelector((state) => state.theme.theme);
+
+  const defaultPicture = colorMode === "dark" ? defaulDarktImg  :  defaultImg ;
 
   const getCourses = async () => {
     const result = await basicGet("/Home/GetCoursesWithPagination");
@@ -188,7 +195,7 @@ const CreateCourse = () => {
               className="cursor-pointer w-[100px] rounded-lg"
             >
               <img
-                src={personImg ? URL.createObjectURL(personImg) : defaultImg}
+                src={personImg ? URL.createObjectURL(personImg) : defaultPicture}
                 alt=""
                 className="w-[150px]"
               />
@@ -215,7 +222,7 @@ const CreateCourse = () => {
         </div>
         <Button
           value={"ثبت تغیرات"}
-          className={"bg-orange-300 w-[50%] m-auto z-30"}
+          className={"bg-pallete-100 dark:bg-DarkPallete-100 dark:text-mode-50 w-[50%] m-auto z-30"}
           type={"submit"}
         />
       </Form>

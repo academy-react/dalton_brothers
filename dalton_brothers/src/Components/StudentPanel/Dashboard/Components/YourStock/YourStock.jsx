@@ -23,9 +23,9 @@ const YourStock = () => {
     if (newAmount === 2000000) alert("خیلی خری");
   };
   return (
-    <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white">
+    <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white dark:bg-mode-900 dark:border-DarkPallete-100">
       <div className=" lg:w-1/2 w-full h-full flex flex-col justify-between   ">
-        <span className=" bg-white w-[120px]  flex justify-end items-center pr-4  text-lg absolute right-6 -top-4 ">
+        <span className=" bg-white dark:bg-mode-900 dark:text-mode-50 w-[120px]  flex justify-end items-center pr-4  text-lg absolute right-6 -top-4 ">
           موجودی شما
         </span>
         <div className=" w-[150px] flex h-[60px] gap-1 xl:text-xl lg:text-lg justify-center items-center pt-8">
@@ -35,10 +35,10 @@ const YourStock = () => {
         <div className=" w-full h-[70px] flex-col items-center ">
           <p className=" w-full text-center text-sm text-gray-500 ">نوع شارژ</p>
           <div className="w-[90%] h-[35px] flex justify-between items-center  mt-5 text-center  ">
-            <div className="bg-[#e6e6e6] h-full w-[45%] rounded-r-md rounded-l-[30px] flex justify-center items-center text-sm ">
+            <div className="bg-mode-200 h-full w-[45%] rounded-r-md rounded-l-[30px] flex justify-center items-center text-sm ">
               دلار
             </div>
-            <div className="bg-[#fcbf49] h-full w-[45%] rounded-l-md rounded-r-[30px] flex justify-center items-center text-sm">
+            <div className="bg-pallete-100 dark:bg-DarkPallete-100 dark:text-mode-50 h-full w-[45%] rounded-l-md rounded-r-[30px] flex justify-center items-center text-sm">
               تومان
             </div>
           </div>

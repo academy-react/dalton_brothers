@@ -30,7 +30,7 @@ const Filter = () => {
         فیلتر
       </label>
       <div
-        className={`${style.content} h-0 w-[80%] overflow-hidden  m-auto transition-all duration-700 rounded-[30px] bg-[#f1f5f9]`}
+        className={`${style.content} h-0 w-[80%] overflow-hidden  m-auto transition-all duration-700 rounded-[30px] bg-mode-50`}
       >
         <div className="flex flex-col items-start">
           <Title
