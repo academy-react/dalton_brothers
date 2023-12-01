@@ -48,6 +48,12 @@ const PanelNavigation = () => {
 
   const colorMode = useSelector((state) => state.theme.theme);
 
+  // console.log(colorMode);
+
+  const goTo = (link) => {
+    navigate(link);
+  };
+
   const studentPanelList = [
     {
       name: "داشبورد",
@@ -74,6 +80,8 @@ const PanelNavigation = () => {
       selectIcon: colorMode === "dark" ? darkListSel : panelListIconSel,
     },
   ];
+
+  // masterPanelList.map((el ) => (console.log(el.icon)));
 
   return (
     <>
