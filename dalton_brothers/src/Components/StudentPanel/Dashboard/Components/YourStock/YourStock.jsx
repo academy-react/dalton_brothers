@@ -45,7 +45,7 @@ const YourStock = () => {
         </div>
         <div className=" w-full  h-[60px] mt-[20px] lg:text-right text-center rounded-bl-[30px] flex justify-end">
           <button
-            className="bg-[#fcbf49]  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px] max-lg:rounded-tr-[30px] max-lg:rounded-b-md   flex justify-center items-center text-[16px] text-white font-irSBold"
+            className="bg-[#fcbf49] dark:bg-DarkPallete-100  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px] max-lg:rounded-tr-[30px] max-lg:rounded-b-md   flex justify-center items-center text-[16px] text-white font-irSBold"
             onClick={() => handleIncrease()}
           >
             شارژ حساب

@@ -18,7 +18,7 @@ export default {
         },
       colors:{
           mode : {50 :"#F1F5F9" , 100 :"#f6f6f6" , 200 : "#E6E6E6" ,300 : "#9ca3af"  , 700:"#707070"  ,800 :"#404042" , 900 : "#27272A"},
-        DarkPallete : {100 : "#16A34A"},
+        DarkPallete : { 50 : "#bbf7d0" ,   100 : "#16A34A"},
 
     pallete : { 100 : "#fcbf49"   },
     error : {100 :"#ef4444"} ,

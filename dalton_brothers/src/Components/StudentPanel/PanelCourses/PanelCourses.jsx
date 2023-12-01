@@ -8,6 +8,7 @@ import {
   setItem,
 } from "../../../Core/Services/common/storage.services";
 
+
 const PanelCourses = () => {
   const [courseListCount, setCourseListCount] = useState(null);
   const [courseList, setCourseList] = useState(null);
@@ -71,22 +72,22 @@ const PanelCourses = () => {
           <div className=" flex flex-row-reverse items-start gap-16 justify-between w-full pt-[10px]">
             <div className=" w-full h-full flex flex-col pt-7 px-2 font-irSans">
               <div className=" w-full h-[100px] flex xl:justify-evenly justify-start items-center flex-row-reverse xl:text-xl text-lg whitespace-nowrap">
-                <div className="w-[80px] h-[50px] text-center text-gray-600">
+                <div className="w-[80px] h-[50px] text-center text-gray-600 dark:text-mode-200">
                   تصویر
                 </div>
-                <div className="w-[210px] h-[50px] text-center text-gray-600">
+                <div className="w-[210px] h-[50px] text-center text-gray-600 dark:text-mode-200">
                   نام دوره
                 </div>
-                <div className="w-[170px] h-[50px] text-center text-gray-600">
+                <div className="w-[170px] h-[50px] text-center text-gray-600 dark:text-mode-200">
                   مدرس
                 </div>
-                <div className="w-[130px] h-[50px] text-center text-gray-600">
+                <div className="w-[130px] h-[50px] text-center text-gray-600 dark:text-mode-200">
                   وضعیت
                 </div>
-                <div className="w-[130px] h-[50px] text-center text-gray-600">
+                <div className="w-[130px] h-[50px] text-center text-gray-600 dark:text-mode-200">
                   قیمت
                 </div>
-                <div className="w-[60px] h-[50px] text-center text-gray-600"></div>
+                <div className="w-[150px] h-[50px] text-center text-gray-600 "></div>
               </div>
               <div className="w-full min-h-[200px]  h-[500px] overflow-scroll pt-3 flex flex-col gap-1">
                 {reservedCourses.map((item, index) => (
@@ -105,11 +106,11 @@ const PanelCourses = () => {
               </div>
             </div>
             <div className="flex flex-col items-center gap-[10px] font-irSBold text-[#636363] mt-[160px]">
-              <div className=" rounded-lg w-[300px] h-[50px] flex flex-wrap flex-row-reverse gap-[5px] justify-center items-center bg-[#fff2da]">
+              <div className=" rounded-lg w-[300px] h-[50px] flex flex-wrap flex-row-reverse gap-[5px] justify-center items-center bg-[#fff2da] dark:bg-DarkPallete-50">
                 <span>مجموع</span>:<span>{allCosts}</span>
               </div>
               <button
-                className="w-full h-[50px] bg-[#fdba74] transition-all hover:bg-[#e2a96c] rounded-lg"
+                className="w-full h-[50px] bg-pallete-100 transition-all hover:bg-[#f59e0b] dark:bg-DarkPallete-100 text-mode-50 rounded-lg"
                 onClick={handlePay}
               >
                 پرداخت
