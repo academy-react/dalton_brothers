@@ -71,11 +71,11 @@ const SimpleSlider = ({ data, item }) => {
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 25,
             },
             1280: {
-              slidesPerView: 3,
+              slidesPerView: 1,
               spaceBetween: 25,
             },
             1536: {

@@ -26,11 +26,11 @@ const HeaderNavbar = () => {
   };
 
   return (
-    <div className="lg:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around md:flex-row-reverse 2xl:gap-[30px] md:items-end pt-[10px] px-[20px] flex flex-wrap justify-between font-irSBold">
+    <div className="lg:flex-nowrap 2xl:justify-around xl:justify-start lg:items-center md:justify-around 2xl:gap-[30px] md:items-end sm:justify-start sm:mt-0 sm:gap-0 gap-5 mt-[20px] justify-center flex-row-reverse pt-[10px] px-[20px] flex flex-wrap font-irSBold">
       <div className="lg:order-3 lg:mx-0 !mx-[20px] w-[70px]  order-2">
         <img alt="" src={colorMode === "dark" ? DarkModeLogo : logo} />
       </div>
-      <div className=" flex justify-between items-center ">
+      <div className="xl:gap-5 lg:w-fit lg:px-0 lg:gap-0 px-[20px] md:w-[650px] gap-5 flex justify-between items-center ">
         <button
           onClick={() => {
             setColorMode(colorMode === "light" ? "dark" : "light");
@@ -43,23 +43,23 @@ const HeaderNavbar = () => {
             className=""
           />
         </button>
-        <div className="xl:w-[200px] lg:order-1 md:justify-center md:w-[100%] md:m-[5px] md:px-0 w-[100px] whitespace-nowrap flex flex-row-reverse flex-wrap justify-between items-center p-0 m-0  order-3">
+        <div className="xl:w-[165px] lg:order-1 md:justify-center md:m-[5px] md:px-0 w-[150px] whitespace-nowrap flex flex-row-reverse flex-wrap justify-between items-center p-0 m-0  order-3">
           {token ? (
             <NavLinks
               Children={"ورود به پنل"}
-              className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+              className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 w-full h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
               path={"/panel"}
             />
           ) : (
             <NavLinks
               Children={"ورود/ثبت نام"}
-              className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+              className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 w-full h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
               path={"/signIn"}
             />
           )}
         </div>
       </div>
-      <div className=" xl:w-[70vw] xl:justify-center lg:order-2 md:gap-[30px] md:mt-[10px] md:w-[100%] md:flex justify-between flex-row hidden">
+      <div className=" xl:w-[70vw] xl:justify-center lg:order-2 lg:justify-between md:gap-[30px] md:mt-[10px] md:w-full md:flex justify-center flex-row hidden">
         <div className="2xl:justify-around 2xl:gap-[40px] xl:w-[70%] xl:text-xl xl:gap-[10px] lg:text-lg flex flex-row flex-nowrap items-center justify-center gap-[10px] dark:text-mode-50  text-[#fdb501] text-base ">
           <NavLinks Children={"دوره ها"} path={"/course"} />
           <NavLinks Children={"پشتیبانی"} path={"/"} />
@@ -80,11 +80,11 @@ const HeaderNavbar = () => {
           id="hamMenuLayout"
         />
         <label
-          className={`w-[40px] h-[40px] absolute top-[30px] right-[10px] cursor-pointer transition-all duration-500 bg-[url('../../../../../src/assets/Images/hamMenu.png')] bg-no-repeat bg-[length:50%] bg-center  ${style.hamLabel}`}
+          className={`w-[40px] h-[40px] absolute top-[30px] right-[10px] cursor-pointer transition-all duration-500 bg-[url('../../../../../src/assets/Images/hamMenu.png')] bg-no-repeat bg-[length:50%] bg-center ${style.hamLabel}`}
           htmlFor="hamMenuLayout"
         ></label>
         <div
-          className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
+          className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] dark:text-[#16a34a] text-[12px] ${style.hamContent}`}
         >
           <NavLinks Children={"دوره ها"} path={"/course"} />
           <NavLinks Children={"دسته بندی"} path={"/"} />

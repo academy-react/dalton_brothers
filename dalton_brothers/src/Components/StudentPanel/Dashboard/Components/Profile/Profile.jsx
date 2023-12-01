@@ -44,7 +44,7 @@ const Profile = () => {
     const formdata = new FormData();
     formdata.append("DeleteEntityId", selectedPic.id);
     const result = await deletePic(formdata);
-    console.log(selectedPic);
+    getProfile();
   };
 
   useEffect(() => {

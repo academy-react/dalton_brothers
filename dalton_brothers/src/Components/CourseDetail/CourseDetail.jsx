@@ -17,12 +17,11 @@ const CourseDetail = () => {
   const params = useParams();
 
   const getCourseDetail = async () => {
-    const result = await getDetail(`/Home/GetCourseDetails?CourseId=${params.id}`);
+    const result = await getDetail(
+      `/Home/GetCourseDetails?CourseId=${params.id}`
+    );
     setCourseDetail([result]);
   };
-
-  console.log(CourseDetail);
-
   useEffect(() => {
     getCourseDetail();
   }, []);
@@ -39,8 +38,12 @@ const CourseDetail = () => {
         <ScrollToTop />
       </div>
       {CourseDetail.map((item, index) => (
-        <div className=" flex flex-col gap-[100px]" key={index}> 
-          <AboutCourse {...item} startTime={item.startTime.split('T')[0].replaceAll("-"," / ")} endTime={item.endTime.split('T')[0].replaceAll("-"," / ")}/>
+        <div className=" flex flex-col gap-[100px]" key={index}>
+          <AboutCourse
+            {...item}
+            startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
+            endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
+          />
           <CourseIntroduction {...item} />
           <Needs />
           <CourseTeacher />

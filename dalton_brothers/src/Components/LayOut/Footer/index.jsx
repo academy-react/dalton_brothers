@@ -19,7 +19,7 @@ const LayFooter = () => {
         />
       </picture>
       <div className=" sm:w-[500px] w-[370px]">
-        <CommentPlace />
+        {/* <CommentPlace /> */}
       </div>
     </>
   );
