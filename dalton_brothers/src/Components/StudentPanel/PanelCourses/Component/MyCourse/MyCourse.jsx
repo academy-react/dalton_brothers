@@ -14,11 +14,13 @@ const MyCourse = ({
   price,
   reserveId,
   courseId,
+  setCourseDeleteId,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [imgUrl, setImgUrl] = useState(false);
   const deleteReservation = async () => {
+    setCourseDeleteId(courseId);
     const obj = {
       id: reserveId,
     };

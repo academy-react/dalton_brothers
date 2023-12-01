@@ -9,29 +9,33 @@ import {
 } from "../../../Core/Services/common/storage.services";
 
 const PanelCourses = () => {
-  const [courseListCount, setCourseListCount] = useState(null);
+  const [courseListCount, setCourseListCount] = useState([]);
   const [courseList, setCourseList] = useState(null);
   const [reservedCourses, setReservedCourses] = useState([]);
+  const [courseDeleteId, setCourseDeleteId] = useState("");
   const [allCosts, setAllCosts] = useState("پرداخت شد");
   const payCheck = getItem("payCheck");
   const money = useSelector((state) => state.money.money);
   const dispatch = useDispatch();
 
-  console.log(payCheck);
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
     setCourseListCount(count);
     const result = await basicGet("/Home/GetCoursesWithPagination");
     setCourseList(result.courseFilterDtos);
   };
-
   const getCourseDetail = async () => {
     if (courseList) {
       const reservedCoursesArray = courseListCount.map((el) =>
         courseList.filter((ele) => ele.courseId === el.courseId)
       );
       const reservedCourses = reservedCoursesArray.map((el) => el[0]);
-      setReservedCourses(reservedCourses);
+      const afterDelete = reservedCourses.filter(
+        (el) => el.courseId !== courseDeleteId
+      );
+      setReservedCourses(afterDelete);
+      console.log(afterDelete);
+      console.log(courseDeleteId);
     }
   };
   function SumCalculator() {
@@ -60,7 +64,7 @@ const PanelCourses = () => {
   }, []);
   useEffect(() => {
     getCourseDetail();
-  }, [courseList]);
+  }, [courseList, courseDeleteId]);
   useEffect(() => {
     SumCalculator();
   }, [reservedCourses]);
@@ -100,6 +104,7 @@ const PanelCourses = () => {
                     key={index}
                     courseId={item.courseId}
                     reserveId={courseListCount[index].reserveId}
+                    setCourseDeleteId={setCourseDeleteId}
                   />
                 ))}
               </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useReducer } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import userImage from "../../../../../assets/Images/panel/user.png";
 import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +17,6 @@ const Profile = () => {
   const [selModal, setSelModal] = useState(false);
   const [selectedPicture, setSelectedPicture] = useState();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [counter, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const getProfile = async () => {
     const user = await basicGet("/SharePanel/GetProfileInfo");
@@ -34,6 +33,7 @@ const Profile = () => {
     const formdata = new FormData();
     formdata.append("ImageId", selectedPic.id);
     const result = await changePic(formdata);
+    getProfile();
   };
   const handleDelete = async (i) => {
     const selectedPic = imgCount.find(
