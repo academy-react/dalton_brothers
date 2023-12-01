@@ -17,6 +17,7 @@ const AboutCourse = ({
   imageAddress,
   capacity,
   currentRate,
+  courseId,
 }) => {
   const selectedCourse = {
     courseId: courseId,

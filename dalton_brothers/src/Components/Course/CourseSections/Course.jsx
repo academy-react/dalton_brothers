@@ -23,7 +23,6 @@ import {
   getItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
-import { useSelector } from "react-redux";
 import handleDescription from "../../Common/Functions/HandleDesc/HandleDesc";
 
 const Course = ({
