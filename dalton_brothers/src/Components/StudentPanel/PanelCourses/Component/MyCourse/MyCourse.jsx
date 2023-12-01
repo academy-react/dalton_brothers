@@ -76,7 +76,7 @@ const MyCourse = ({
         ) : (
           location.pathname === "/panel/PanelCoursesList" && (
             <div
-              className="w-[40px] h-[40px] rounded-full bg-pallete-100 flex justify-center items-center cursor-pointer"
+              className="w-[40px] h-[40px] rounded-full bg-pallete-100 dark:bg-DarkPallete-100   flex justify-center items-center cursor-pointer"
               onClick={handleClick}
             >
               {/* <img src={addlIcon} className="w-[25px] h-[25px]" /> */}

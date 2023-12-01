@@ -30,31 +30,10 @@ const LayoutPanel = () => {
           <Notification />
         </div>
       </div>
-      <div className="w-full h-[90%] flex justify-start flex-row-reverse  gap-10 pr-12 max-md:hidden">
+      <div className="w-full h-[90%] flex justify-start flex-row-reverse  gap-10 pr-12 ">
         <div className="  scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
           <PanelNavigation />
 
-          <div className="w-[40px] bg-cover bg-center md:hidden order-1 flex">
-            <input
-              className={`hidden ${style.hamInp}`}
-              type="checkbox"
-              name=""
-              id="hamMenuLayout"
-            />
-            <label
-              className={`w-[40px] h-[40px] absolute top-[30px] right-[10px] cursor-pointer transition-all duration-500 bg-[url('../../../../../src/assets/Images/hamMenu.png')] bg-no-repeat bg-[length:50%] bg-center  ${style.hamLabel}`}
-              htmlFor="hamMenuLayout"
-            ></label>
-            <div
-              className={` absolute top-0 right-[-200px] rounded-l-[10px] transition-all duration-500 overflow-hidden flex flex-col gap-[10px] text-base text-[#fdb501] text-[12px] ${style.hamContent}`}
-            >
-
-
-<PanelNavigation />
-
-
-            </div>
-          </div>
         </div>
         <div className="  flex flex-col items-center">
           <div className=" w-full pt-[10px]">

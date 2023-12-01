@@ -42,25 +42,25 @@ const PanelCoursesList = () => {
   return (
     <div className=" w-full h-full flex flex-col pt-7 px-2 font-irSans">
       <div className=" w-full xl:h-[100px] h-[60px] flex xl:justify-evenly justify-start items-center flex-row-reverse xl:text-xl text-lg whitespace-nowrap">
-        <div className="w-[80px] xl:h-[50px] h-[40px] text-center text-gray-600 bg-red-300">
+        <div className="w-[80px] xl:h-[50px] h-[40px] text-center text-gray-600 dark:text-mode-50">
           تصویر
         </div>
-        <div className="w-[210px] xl:h-[50px] h-[40px] text-center text-gray-600 bg-red-500">
+        <div className="w-[210px] xl:h-[50px] h-[40px] text-center text-gray-600 dark:text-mode-50">
           نام دوره
         </div>
-        <div className="w-[170px] xl:h-[50px] h-[40px] text-center text-gray-600 bg-green-300">
+        <div className="w-[170px] xl:h-[50px] h-[40px] text-center text-gray-600 dark:text-mode-50">
           مدرس
         </div>
         {/* <div className="w-[130px] xl:h-[50px] h-[40px] text-center text-gray-600">
         سطح دوره   
         </div> */}
-        <div className="w-[130px] xl:h-[50px] h-[40px] text-center text-gray-600 bg-green-600 max-xl:hidden">
+        <div className="w-[130px] xl:h-[50px] h-[40px] text-center text-gray-600  dark:text-mode-50  max-xl:hidden">
           وضعیت
         </div>
-        <div className="w-[130px] xl:h-[50px] h-[40px] text-center text-gray-600 bg-yellow-300">
+        <div className="w-[130px] xl:h-[50px] h-[40px] text-center text-gray-600 dark:text-mode-50">
           قیمت
         </div>
-        <div className="w-[60px] xl:h-[50px] h-[40px] text-center text-gray-600"></div>
+        <div className="w-[60px] xl:h-[50px] h-[40px] text-center text-gray-600  dark:text-mode-50"></div>
       </div>
       <div className="w-full h-[500px] pt-3 flex flex-col gap-1">
         {courseList && courseList.length > 0 ? (
@@ -94,11 +94,11 @@ const PanelCoursesList = () => {
           pageClassName="mx-1"
           nextClassName="mx-1 p-2 "
           previousClassName="mx-1 p-2 "
-          nextLinkClassName="p-2 scale-120"
+          nextLinkClassName="p-2 scale-120 "
           previousLinkClassName="p-2 scale-120"
           pageLinkClassName="bg-gray-200 mx-1 px-[14px] py-2 rounded-md"
           breakLinkClassName="mx-1 p-2"
-          activeLinkClassName="bg-orange-300 text-white"
+          activeLinkClassName="bg-pallete-100 dark:bg-DarkPallete-100 text-white"
         ></ReactPaginate>
       </div>
     </div>

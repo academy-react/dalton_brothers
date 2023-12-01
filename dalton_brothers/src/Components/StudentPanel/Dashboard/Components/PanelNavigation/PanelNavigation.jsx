@@ -87,7 +87,7 @@ const PanelNavigation = () => {
 
   return (
     <>
-      <div className=" 2xl:w-[290px] w-[213px] xl:h-[300px] lg:h-[280px] h-[230px]  bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">
+      <div className=" 2xl:w-[290px] w-[213px] xl:h-[300px] xl:w-[290px] lg:h-[280px] h-[230px]  bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0 lg:mt-0 mt-8 whitespace-nowrap py-10  ">
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly gap-5 font-irSans ">
           {studentPanelList.map((item, index) => (
             <li
