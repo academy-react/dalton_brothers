@@ -60,7 +60,7 @@ const Article = ({
     }
   };
 
-  console.log(currentUserIsLike);
+  // console.log(currentUserIsLike);
 
   return (
     <div className="w-[780px]  border rounded-[30px] flex-col bg-mode-50 text-mode-900 dark:bg-mode-800 dark:border-none p-4 pb-0">
@@ -143,7 +143,7 @@ const Article = ({
           {Like ? (
             <div
               className="bg-red-300 w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-              onClick={handleLike}
+              onClick={()=> handleLike()}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
                 <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
@@ -159,7 +159,7 @@ const Article = ({
           ) : (
             <div
               className="bg-white w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-              onClick={handleLike}
+              onClick={()=> handleLike()}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
                 <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">

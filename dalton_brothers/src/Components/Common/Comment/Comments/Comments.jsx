@@ -50,6 +50,7 @@ const Comments = ({
 
   const handleDisLike = async () => {
     if (token) {
+
       if (DisLike == false) {
         const userLike = await addLike(
           `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
@@ -114,7 +115,7 @@ const Comments = ({
                   strokeWidth="1"
                   onClick={() => handleDisLike()}
                 ></IconThumbDown>
-                <span className="ml-[19px]">{disslikeCount}</span>
+                <span className="ml-[19px]">{ disslikeCount}</span>
               </>
             ) : (
               <>
@@ -123,7 +124,7 @@ const Comments = ({
                   strokeWidth="1"
                   onClick={() => handleDisLike()}
                 ></IconThumbDown>
-                <span className="ml-[19px]">{disslikeCount}</span>
+                <span className="ml-[19px]">{ disslikeCount}</span>
               </>
             )}
           </div>
@@ -137,7 +138,7 @@ const Comments = ({
                   className="w-full h-[70%] text-red-500 cursor-pointer"
                   onClick={() => handleLike()}
                 />
-                <span className="ml-[19px]">{likeCount}</span>
+                <span className="ml-[19px]">{ likeCount}</span>
               </>
             ) : (
               <>

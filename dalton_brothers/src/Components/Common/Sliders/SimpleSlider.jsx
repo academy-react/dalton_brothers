@@ -91,7 +91,7 @@ const SimpleSlider = ({ data, item }) => {
               className="flex justify-center items-center "
               key={index}
             >
-              <Article {...el} />
+              <Article {...el} insertDate={el.insertDate.split('T')[0].replaceAll("-","/")} updateDate={el.updateDate.split('T')[0].replaceAll("-","/")}/>
             </SwiperSlide>
           ))}
         </Swiper>
