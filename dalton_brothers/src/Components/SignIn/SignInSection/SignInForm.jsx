@@ -153,7 +153,7 @@ const SignInForm = () => {
           />
           <NavLinks
             className={
-              "bg-white border-2 border-pallete-100 dark:border-DarkPallete-100 dark:text-DarkPallete-100  w-[60%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+              "bg-white   dark:bg-mode-900 border-2 border-pallete-100 dark:border-DarkPallete-100 dark:text-DarkPallete-100  w-[60%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
             }
             Children={"خانه"}
             path={"/"}

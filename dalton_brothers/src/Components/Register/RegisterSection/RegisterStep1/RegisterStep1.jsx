@@ -38,15 +38,15 @@ const RegisterStep1 = () => {
         onSubmit={handleToggle}
         validationSchema={registerS1Validation}
       >
-        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px]">
+        <Form className=" w-[100%] flex flex-col justify-center items-center  gap-[30px] px-10 rounded-[30px] ">
           <Title
             topic={"صفحه ایجاد حساب"}
-            style={"leading-3 self-center text-[20px] h-auto "}
+            style={"leading-3 self-center text-[20px] h-auto dark:text-mode-50"}
           />
-          <div className="min-[500px]:w-[90%] w-full h-52 flex items-center">
+          <div className="min-[500px]:w-[90%] w-full h-52 flex items-center ">
             <Input
               topic={"شماره تلفن"}
-              className={"rounded-full "}
+              className={"rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"}
               placeHolder={"... شماره ی خود را وارد کنید"}
               type={"text"}
               name={"loginPhoneNumber"}
@@ -58,13 +58,13 @@ const RegisterStep1 = () => {
             <Button
               type={"submit"}
               className={
-                "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
+                "bg-[#fcbf49] text-mode-50 dark:bg-DarkPallete-100 font-irSans text-[17px] py-[5px] "
               }
               value={" ارسال رمز "}
             />
             <NavLinks
               className={
-                "bg-[#fcbf49] w-[30%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+                " w-[30%] py-[5px] text-[13px] font-irSans text-lg   bg-white dark:bg-mode-900 border-2 border-pallete-100 text-pallete-100 dark:border-DarkPallete-100 dark:text-DarkPallete-100 "
               }
               Children={"خانه"}
               path={"/"}

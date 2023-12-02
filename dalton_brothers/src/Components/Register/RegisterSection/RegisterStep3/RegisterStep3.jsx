@@ -76,7 +76,7 @@ const RegisterStep3 = () => {
           <div className="min-[500px]:w-[90%] w-full">
             <Input
               topic={"ایمیل"}
-              className={"rounded-full max-[500px]:w-[90%] w-full"}
+              className={"rounded-full max-[500px]:w-[90%] w-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"}
               placeHolder={"... ایمیل خود را وارد کنید"}
               type={"text"}
               name={"registerUserName"}
@@ -86,7 +86,7 @@ const RegisterStep3 = () => {
           <div className="relative min-[500px]:w-[90%] w-full">
             <Input
               topic={"رمز عبور"}
-              className=" rounded-full w-full"
+              className=" rounded-full w-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"
               placeHolder={"... رمز عبور خود را وارد کنید"}
               type={show ? "text" : "password"}
               name={"registerPassword"}
@@ -109,7 +109,7 @@ const RegisterStep3 = () => {
           <div className="min-[500px]:w-[90%] w-full">
             <Input
               topic={" تکرار رمز عبور "}
-              className={"rounded-full"}
+              className={"rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"}
               placeHolder={"... رمز عبور خود را تکرار وارد کنید"}
               type={"text"}
               name={"registerPasswordRepeat"}
@@ -120,25 +120,25 @@ const RegisterStep3 = () => {
             <Button
               type={"submit"}
               className={
-                "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
+                "bg-[#fcbf49]  font-irSans text-[17px] py-[5px] text-mode-50 dark:bg-DarkPallete-100"
               }
               value={"ایجاد حساب"}
             />
             <NavLinks
               className={
-                "bg-[#fcbf49] w-[30%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+                " w-[30%] py-[5px] text-[13px] font-irSans text-lg  bg-white dark:bg-mode-900 border-2 border-pallete-100 text-pallete-100 dark:border-DarkPallete-100 dark:text-DarkPallete-100"
               }
               Children={"خانه"}
               path={"/"}
             />
           </div>
           <div className="self-center flex flex-row-reverse items-center ">
-            <span className="text-[#313131] font-thin text-[14px] font-irSans">
+            <span className="text-[#313131] dark:text-mode-200 font-thin text-[14px] font-irSans">
               ایا حساب فعال دارید؟
             </span>
             <NavLinks
               Children={"ثبت نام"}
-              className="text-[#fcbf49] font-thin text-[14px] font-irSans p-[0]"
+              className="text-[#fcbf49] dark:text-DarkPallete-100 font-thin text-[14px] font-irSans p-[0]"
               path={"/signIn"}
             />
           </div>
