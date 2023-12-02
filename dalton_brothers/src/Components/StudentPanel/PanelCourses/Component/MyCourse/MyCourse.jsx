@@ -55,7 +55,7 @@ const MyCourse = ({
       <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
         {courseMaster}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 max-xl:hidden">
         {term}
       </div>
 

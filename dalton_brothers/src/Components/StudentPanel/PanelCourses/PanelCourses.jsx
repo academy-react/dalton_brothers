@@ -69,7 +69,7 @@ const PanelCourses = () => {
     <>
       {reservedCourses.length !== 0 ? (
         <>
-          <div className=" flex flex-row-reverse items-start gap-16 justify-between w-full pt-[10px]">
+          <div className=" flex flex-row-reverse items-start gap-16 justify-between w-full pt-[10px]  max-2xl:flex-col max-2xl:justify-center max-2xl:items-center">
             <div className=" w-full h-full flex flex-col pt-7 px-2 font-irSans">
               <div className=" w-full h-[100px] flex xl:justify-evenly justify-start items-center flex-row-reverse xl:text-xl text-lg whitespace-nowrap">
                 <div className="w-[80px] h-[50px] text-center text-gray-600 dark:text-mode-200">
@@ -81,7 +81,7 @@ const PanelCourses = () => {
                 <div className="w-[170px] h-[50px] text-center text-gray-600 dark:text-mode-200">
                   مدرس
                 </div>
-                <div className="w-[130px] h-[50px] text-center text-gray-600 dark:text-mode-200">
+                <div className="w-[130px] h-[50px] text-center text-gray-600 dark:text-mode-200 max-xl:hidden">
                   وضعیت
                 </div>
                 <div className="w-[130px] h-[50px] text-center text-gray-600 dark:text-mode-200">
@@ -89,7 +89,7 @@ const PanelCourses = () => {
                 </div>
                 <div className="w-[150px] h-[50px] text-center text-gray-600 "></div>
               </div>
-              <div className="w-full min-h-[200px]  h-[500px] overflow-scroll pt-3 flex flex-col gap-1">
+              <div className="w-full min-h-[200px] max-2xl:h-auto  h-[500px] overflow-scroll pt-3 flex flex-col gap-1">
                 {reservedCourses.map((item, index) => (
                   <MyCourse
                     coursePic={item.tumbImageAddress}
@@ -105,7 +105,7 @@ const PanelCourses = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col items-center gap-[10px] font-irSBold text-[#636363] mt-[160px]">
+            <div className="flex flex-col items-center gap-[10px] font-irSBold text-[#636363] mt-[160px] max-2xl:mt-[20px]">
               <div className=" rounded-lg w-[300px] h-[50px] flex flex-wrap flex-row-reverse gap-[5px] justify-center items-center bg-[#fff2da] dark:bg-DarkPallete-50">
                 <span>مجموع</span>:<span>{allCosts}</span>
               </div>

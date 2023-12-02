@@ -94,8 +94,8 @@ const EditProfile = () => {
       onSubmit={onSubmit}
       validationSchema={editProfileValidation}
     >
-      <Form className=" w-[900px] max-xl:w-[600px]   flex flex-col font-irSans">
-        <div className="rounded-full cursor-pointer self-center  mb-5">
+      <Form className=" w-[900px] max-lg:w-auto   flex flex-col  font-irSans">
+        <div className="rounded-full cursor-pointer   self-center max-xl:self-end max-xl:mr-40 max-lg:self-center max-lg:mr-0  mb-5">
           <label htmlFor="pic2" className="cursor-pointer">
             <img
               src={personImg ? URL.createObjectURL(personImg) : defaultPicture }
@@ -110,12 +110,12 @@ const EditProfile = () => {
             onChange={(e) => setPersonImg(e.target.files[0])}
           />
         </div>
-        <div className="flex flex-wrap max-xl:flex-col max-xl:items-end">
-          <div className="  w-1/2  flex flex-col justify-start   ">
+        <div className="flex flex-wrap max-xl:flex-col max-xl:items-end max-lg:items-center">
+          <div className="  w-1/2 max-lg:w-full flex flex-col justify-start   ">
             {rightArrayInps.map((el, index) => (
               <PanelInps {...el} key={index} />
             ))}
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
+            <div className="flex flex-col w-full relative   lg:w-full mt-[10px]  px-[40px]">
               <span className="mx-[20%] dark:bg-mode-900 dark:text-mode-50  peer-focus:right-[65%]  whitespace-nowrap bg-white absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
                 اطلاع رویداد ها
               </span>
@@ -140,11 +140,11 @@ const EditProfile = () => {
               </div>
             </div>
           </div>
-          <div className="  w-1/2  flex flex-col justify-start ">
+          <div className="  w-1/2 max-lg:w-full flex flex-col justify-start ">
             {leftArrayInps.map((el, index) => (
               <PanelInps {...el} key={index} />
             ))}
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
+            <div className="flex flex-col w-full relative   lg:w-full mt-[10px]  px-[40px]">
               <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white dark:bg-mode-900 dark:text-mode-50 absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
                 جنسیت
               </span>
