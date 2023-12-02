@@ -18,7 +18,7 @@ const LayoutPanel = () => {
 
   const location = useLocation();
   return (
-    <div className="relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] justify-around flex-row-reverse    max-xl:bg-white">
+    <div className="relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] max-2xl:h-[130vh] max-lg:h-[150vh] justify-around flex-row-reverse    ">
       <div className="w-full  flex justify-between items-center flex-row-reverse px-10  py-4">
         <div className=" flex justify-center items-center ">
           <Profile />
@@ -26,12 +26,12 @@ const LayoutPanel = () => {
         <div className=" w-[600px] rounded-[30px]   flex justify-center items-center ">
           {location.pathname === "/panel/PanelCoursesList" && <PanelSearch />}
         </div>
-        <div className="  flex    justify-between items-center ">
+        <div className="  flex    justify-between items-center ml-8 ">
           <Notification />
         </div>
       </div>
-      <div className="w-full h-[90%] flex justify-start flex-row-reverse  gap-10 pr-12 ">
-        <div className="  scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
+      <div className="w-full h-[85%] flex justify-start flex-row-reverse  gap-10 pr-12 max-lg:pr-0 max-lg:flex-col  ">
+        <div className="  lg:scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
           <PanelNavigation />
 
         </div>

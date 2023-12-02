@@ -94,8 +94,8 @@ const EditProfile = () => {
       onSubmit={onSubmit}
       validationSchema={editProfileValidation}
     >
-      <Form className=" w-[900px]   flex flex-col font-irSans">
-        <div className="rounded-full cursor-pointer self-center mb-5">
+      <Form className=" w-[900px] max-xl:w-[600px]   flex flex-col font-irSans">
+        <div className="rounded-full cursor-pointer self-center  mb-5">
           <label htmlFor="pic2" className="cursor-pointer">
             <img
               src={personImg ? URL.createObjectURL(personImg) : defaultPicture }
@@ -110,8 +110,8 @@ const EditProfile = () => {
             onChange={(e) => setPersonImg(e.target.files[0])}
           />
         </div>
-        <div className="flex flex-wrap">
-          <div className="  w-1/2  flex flex-col justify-start  ">
+        <div className="flex flex-wrap max-xl:flex-col max-xl:items-end">
+          <div className="  w-1/2  flex flex-col justify-start   ">
             {rightArrayInps.map((el, index) => (
               <PanelInps {...el} key={index} />
             ))}
