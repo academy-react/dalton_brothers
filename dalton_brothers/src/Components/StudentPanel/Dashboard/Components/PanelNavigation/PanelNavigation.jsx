@@ -91,19 +91,19 @@ const PanelNavigation = () => {
       
       
       
-      max-sm:w-auto  h-[300px] max-lg:h-auto max-lg:rounded-[10px] max-lg:px-8     bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0  lg:mt-0 mt-8 whitespace-nowrap py-10  ">
+      max-sm:w-auto  h-[300px] max-lg:h-auto max-lg:rounded-[10px] max-lg:px-8     bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0  lg:mt-0 mt-8 whitespace-nowrap max-sm:whitespace-normal py-10  ">
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly max-lg:flex-row-reverse max-lg:gap-10 gap-5 font-irSans  ">
           {studentPanelList.map((item, index) => (
             <li
               key={index}
               onClick={() => goTo(item.href)}
-              className=" w-full lg:h-[49px] h-[40px]  flex cursor-pointer justify-evenly items-center max-md:flex-col-reverse max-md:justify-center max-md:gap-2  "
+              className=" w-full lg:h-[49px] h-[40px]   flex cursor-pointer justify-evenly items-center max-md:flex-col-reverse max-md:justify-center  max-md:gap-2  "
             >
               <div
                 className={
-                  "h-full w-full flex items-center text-right justify-end lg:text-xl text-lg pt-1 pr-[15px] max-md:pr-0 " +
+                  "h-full w-full flex items-center text-right justify-end lg:text-xl text-sm pt-1 pr-[15px] max-md:pr-0 max-sm:text-center   " +
                   (location.pathname == item.href
-                    ? "text-yellow-500 dark:text-DarkPallete-100  "
+                    ? "text-yellow-500 dark:text-DarkPallete-100   "
                     : "text-gray-500 dark:text-mode-50 ")
                 }
               >

@@ -57,7 +57,7 @@ const Profile = () => {
         className="w-[60px] h-[60px] rounded-full bg-[#F1F5F9] flex justify-center items-center overflow-hidden "
         onClick={() => setOpenSlider(true)}
       >
-        <img className="w-[40px] h-[40px]" src={imgPath} alt="" />
+        <img className="w-[45px] h-[45px] rounded-full" src={imgPath} alt="" />
       </div>
       {openSlider && (
         <div className="absolute top-[10%] left-[20%] w-[60vw] h-[600px] bg-[#f1f5f9] z-40 rounded-lg">

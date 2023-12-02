@@ -18,7 +18,7 @@ const LayoutPanel = () => {
 
   const location = useLocation();
   return (
-    <div className="relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] max-2xl:h-[130vh] max-lg:h-[150vh] justify-around flex-row-reverse    ">
+    <div className="relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[100vh] max-2xl:h-[130vh] max-lg:h-[150vh] max-sm:h-[170vh] justify-around flex-row-reverse    ">
       <div className="w-full  flex justify-between items-center flex-row-reverse px-10  py-4">
         <div className=" flex justify-center items-center ">
           <Profile />
