@@ -38,7 +38,6 @@ const SignInForm = () => {
       rememberMe: remember,
     };
 
-
     const user = await loginAPI(userObj);
 
     if (user.success) {
@@ -46,29 +45,30 @@ const SignInForm = () => {
         setItem("token", user.token);
         setItem("userId", user.id);
         setItem("userRole", user.roles);
+        setItem("phoneNumber", user.phoneNumber);
         dispatch(onTokenChange(getItem("token")));
       } else {
         setItem("token", user.token);
         setItem("userId", user.id);
         setItem("userRole", user.roles);
+        setItem("phoneNumber", user.phoneNumber);
         dispatch(onTokenChange(user.token));
         window.onbeforeunload = function () {
           clearStorage();
         };
       }
-      const userFName = await basicGet(
-        "/SharePanel/GetProfileInfo"
-      )
+      const userFName = await basicGet("/SharePanel/GetProfileInfo");
 
       // console.log(userFName.fName);
-    
     }
     if (!user.success) {
       toast.error("حسابی با این مشخصات وجود ندارد");
       return;
     }
     navigate("/");
-    toast.success(`${ /*userFName.fName &&*/ "کاربر"}   عزیز به سایت خوش آمدید `);
+    toast.success(
+      `${/*userFName.fName &&*/ "کاربر"}   عزیز به سایت خوش آمدید `
+    );
   };
 
   // validation................................

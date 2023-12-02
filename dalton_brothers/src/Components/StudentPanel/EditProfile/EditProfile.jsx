@@ -9,14 +9,35 @@ import defaulDarktImg from "../../../assets/Images/register-person DarkMode.png"
 import { PanelInps } from "../../Common/Inputs/PanelInputs";
 import { useSelector } from "react-redux";
 import { addPic } from "../../../Core/Services/api/studentPanel/addImg";
-
-
+import DatePicker from "react-multi-date-picker";
+import parsi from "react-date-object/locales/gregorian_fa";
+import size from "react-element-popper/animations/size";
+import transition from "react-element-popper/animations/transition";
+import opacity from "react-element-popper/animations/opacity";
+const weekDays = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
+import InputIcon from "react-multi-date-picker/components/input_icon";
+import "react-multi-date-picker/styles/colors/yellow.css";
+import "react-multi-date-picker/styles/colors/teal.css";
+import "react-multi-date-picker/styles/backgrounds/bg-dark.css";
+import DatePickerHeader from "react-multi-date-picker/plugins/date_picker_header";
+import weekends from "react-multi-date-picker/plugins/highlight_weekends";
 const EditProfile = () => {
   const [personImg, setPersonImg] = useState();
+  const [date, setDate] = useState("2011/11/11");
   const colorMode = useSelector((state) => state.theme.theme);
 
-  const defaultPicture = colorMode === "dark" ? defaulDarktImg  :  defaultImg ;
-  
+  const defaultPicture = colorMode === "dark" ? defaulDarktImg : defaultImg;
+
+  const handleDate = (e) => {
+    const all = e.toDate();
+    const year = all.getFullYear();
+    const month = all.getMonth();
+    const day = all.getDate();
+    const final = year + "/" + month + "/" + day;
+    console.log(final);
+    setDate(final);
+  };
+
   const onSubmit = async (values) => {
     console.log("triggered");
     var userNewObj = new FormData();
@@ -29,7 +50,7 @@ const EditProfile = () => {
     userNewObj.append("HomeAdderess", values.HomeAdderess);
     userNewObj.append("NationalCode", values.NationalCode);
     userNewObj.append("Gender", values.Gender);
-    userNewObj.append("BirthDay", values.BirthDay);
+    userNewObj.append("BirthDay", date);
     userNewObj.append("Latitude", "0");
     userNewObj.append("Longitude", "53.05821549859579");
 
@@ -68,15 +89,7 @@ const EditProfile = () => {
       name: "NationalCode",
       placeholder: "...شماره ملی",
     },
-    {
-      title: "تاریخ تولد",
-      name: "BirthDay",
-      type: "date",
-      placeholder: "...تاریخ تولد ",
-    },
   ];
-
-
   return (
     <Formik
       initialValues={{
@@ -98,7 +111,7 @@ const EditProfile = () => {
         <div className="rounded-full cursor-pointer self-center mb-5">
           <label htmlFor="pic2" className="cursor-pointer">
             <img
-              src={personImg ? URL.createObjectURL(personImg) : defaultPicture }
+              src={personImg ? URL.createObjectURL(personImg) : defaultPicture}
               alt=""
               className="w-[150px]"
             />
@@ -144,7 +157,43 @@ const EditProfile = () => {
             {leftArrayInps.map((el, index) => (
               <PanelInps {...el} key={index} />
             ))}
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
+            <div className="flex flex-col items-center w-full relative sm:w-3/4 lg:w-full mt-[10px] mb-[35px] ">
+              <DatePicker
+                style={{
+                  textAlign: "right",
+                  backgroundColor: colorMode === "dark" ? "#27272a" : "white",
+                  height: "50px",
+                  outlineColor: "none",
+                  border: "2px solid #ccc",
+                  width: "330px",
+                  margin: "auto",
+                  borderRadius: "1000px",
+                  fontSize: "14px",
+                  padding: "15px 25px",
+                  color: colorMode === "dark" ? "white" : "#a9afba",
+                }}
+                plugins={[<DatePickerHeader />, weekends()]}
+                className={colorMode === "dark" ? "teal bg-dark" : "yellow"}
+                value={date}
+                onChange={(date) => {
+                  handleDate(date?.isValid ? date : "");
+                }}
+                format="YYYY/MM/DD"
+                weekDays={weekDays}
+                locale={parsi}
+                maxDate={new Date()}
+                minDate={"1923/01/01"}
+                animations={[
+                  transition({
+                    from: 10,
+                    transition:
+                      "all 400ms cubic-bezier(0.335, 0.010, 0.030, 1.360)",
+                  }),
+                  opacity({ from: 0.1, to: 1, duration: 1000 }),
+                ]}
+              />
+            </div>
+            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
               <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white dark:bg-mode-900 dark:text-mode-50 absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
                 جنسیت
               </span>
@@ -168,7 +217,9 @@ const EditProfile = () => {
         </div>
         <Button
           value={"ثبت تغیرات"}
-          className={"bg-pallete-100 dark:bg-DarkPallete-100 text-mode-50 w-[50%] mt-5 m-auto z-30"}
+          className={
+            "bg-pallete-100 dark:bg-DarkPallete-100 text-mode-50 w-[50%] mt-5 m-auto z-30"
+          }
           type={"submit"}
         />
       </Form>

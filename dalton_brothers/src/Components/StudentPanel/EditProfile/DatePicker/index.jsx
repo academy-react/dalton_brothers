@@ -1,14 +1,9 @@
 import React from "react";
-import DayJsAdapter from "@date-io/dayjs";
+import DatePicker from "react-multi-date-picker";
+import { Calendar } from "react-multi-date-picker";
 
-createVuetify({
-  date: {
-    adapter: DayJsAdapter,
-  },
-});
-
-const DatePicker = () => {
-  return DatePicker;
+const DatePick = () => {
+  return <div></div>;
 };
 
-export { DatePicker };
+export { DatePick };

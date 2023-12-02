@@ -32,7 +32,7 @@ const Specification = () => {
         </div>
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
           <p className="  pr-5 text-gray-600 dark:text-mode-200">
-            شماره تلفن : {JSON.parse(getItem("userPhone"))}
+            شماره تلفن : {JSON.parse(getItem("phoneNumber"))}
           </p>
           <p className=""></p>
         </div>
