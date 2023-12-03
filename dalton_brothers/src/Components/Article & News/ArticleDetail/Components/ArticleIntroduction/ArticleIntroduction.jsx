@@ -1,31 +1,32 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
 
-const ArticleIntroduction = ({miniDescribe}) => {
+const ArticleIntroduction = ({id}) => {
+  const getIntro = async () => {
+    const getDiscribe = await basicGet(
+      `/News/${id}`
+    ) 
+    const fa = (getDiscribe.detailsNewsDto.describe);
+
+    console.log(fa);
+  }
+  useEffect(() => {
+    getIntro()
+  }, [])
+  
   return (
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
         <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-bold">
           {" "}
-          معرفی مقاله{" "}
+          متن خبر{" "}
         </h4>
-        {miniDescribe}
-        {/* <div className=" px-[40px] py-[10px] ">
-          <h5 className=" text-xl text-right font-bold"> پیش گفتار </h5>
+        <div className=" px-[40px] py-[10px] ">
           <p className="text-lg text-right my-[10px] text-gray-800">
-            {" "}
-            بیت تورنت به شکل مهیبی در بین کاربران محبوب شد و پیش‌بینی می‌شود بیش
-            از ربع میلیارد کاربر در سراسر جهان از آن استفاده می‌کنند. سال گذشته
-            تام یورک از گروه موسیقی رادیوهد، آلبوم جدیدش را به صوت اختصاصی روی
-            بیت تورنت منتشر کرد. با گذشت زمان ماهیت ناشناسی در بیت تورنت و سرعت
-            دانلود تشدید شده آن باعث شده که به فرمتی معمول و مشهور برای دانلود
-            غیرقانونی فیلم، موسیقی، کتاب یا بازی تبدیل شود. از دانشمندانی است که
-            به لطف تحقیقات و مطالعات دانشگاهی وسیع در زمینه علوم کامپیوتر، اکنون
-            عنوان “پدر تحلیل الگوریتم‌ها” را از آن خود کرده است. هر چیزی در
-            دنیای اینترنت، از الگوریتم فید اخبار فیسبوک تا پیشنهادات آمازون به
-            نوعی مدیون کارهای این مرد هستند.{" "}
+            {/* {fa} */}
           </p>
-        </div> */}
+        </div>
         {/* <div className=" px-[40px] py-[10px] ">
           <h5 className=" text-xl text-right font-bold"> کاربرد های پایتون </h5>
           <p className="text-lg text-right my-[10px] text-gray-800">
@@ -56,7 +57,7 @@ const ArticleIntroduction = ({miniDescribe}) => {
         </div> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export  {ArticleIntroduction}
+export { ArticleIntroduction };

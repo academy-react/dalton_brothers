@@ -10,7 +10,7 @@ import dislike from "../../../Assets/Images/dislike.png";
 // import comment from "../../../Assets/Images/comment.png";
 import bookmarkCheck from "../../../Assets/Images/bookMarkCheck.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
-import  http  from "../../../Core/Services/interceptor"
+import http from "../../../Core/Services/interceptor";
 import DarkModelikes from "../../../Assets/Images/modeLike.png";
 import comment from "../../../Assets/Images/comment.png";
 import darkModeComment from "../../../Assets/Images/modeComment.png";
@@ -24,6 +24,7 @@ import {
   setItem,
 } from "../../../Core/Services/common/storage.services";
 import handleDescription from "../../Common/Functions/HandleDesc/HandleDesc";
+import { addSave } from "../../../Core/Services/api/course/addSave";
 
 const Course = ({
   userFavorite,
@@ -38,41 +39,64 @@ const Course = ({
   userLikedId,
   currentUserDissLike,
   dissLikeCount,
+  userFavoriteId,
 }) => {
-  const [save, setSave] = useState(false);
+  const [save, setSave] = useState(userFavorite);
   const [Like, setLike] = useState(userIsLiked);
   const [DisLike, setDisLike] = useState(currentUserDissLike);
 
   const token = useSelector((state) => state.token.token);
-
-  const navigate = useNavigate();
-// const test =async () => {
-// const response = await ;
-// }
-
-
-  console.log(userIsLiked);
-  
   const colorMode = useSelector((state) => state.theme.theme);
+  
+  const navigate = useNavigate();
 
 
-  const handleLike = async () => {
-    const data = new FormData()
-
+  const handleSave = async () => {
+    const saveData = new FormData();
 
     if (token) {
-
-      if (Like == true) {
-        setLike(false);
+      if (save == false) {
+        setSave(true);
+        const obj = {
+          courseId: courseId,
+        };
+        console.log(obj.courseId);
+        const userSave = await addSave(obj.courseId);
+        console.log(userSave);
+      } else {
+        setSave(false);
         try {
-        data.append('courseLikeId' , userLikedId )
+          saveData.append("CourseFavoriteId", userFavoriteId);
 
-        const result = await http.delete(`/Course/DeleteCourseLike` , {data: data})
-        console.log(result);          
+          const saveResult = await http.delete(`/Course/DeleteCourseFavorite`, {
+            data: saveData,
+          });
+          console.log(saveResult);
         } catch (error) {
           toast.error(error);
         }
+      }
+    } else {
+      toast.error("برای ذخیره دوره باید در سایت ثبت نام کنید");
+    }
+  };
 
+  const handleLike = async () => {
+    const data = new FormData();
+
+    if (token) {
+      if (Like == true) {
+        setLike(false);
+        try {
+          data.append("courseLikeId", userLikedId);
+
+          const result = await http.delete(`/Course/DeleteCourseLike`, {
+            data: data,
+          });
+          console.log(result);
+        } catch (error) {
+          toast.error(error);
+        }
       } else {
         setLike(true);
         const userLike = await addLike(
@@ -84,33 +108,17 @@ const Course = ({
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
-
-    // const user = await addLike(`/Course/AddCourseLike?CourseId=${courseId}`);
   };
   const handleDisLike = async () => {
-    // const data = new FormData()
-
-
     if (token) {
-
       if (DisLike == true) {
         setDisLike(false);
         try {
-        // data.append('courseLikeId' , userLikedId )
-
-        // const result = await http.delete(`/Course/DeleteCourseLike` , {data: data})
-        // console.log(result);          
         } catch (error) {
           toast.error(error);
         }
-
       } else {
         setDisLike(true);
-        // const userLike = await addLike(
-        //   `/Course/AddCourseDissLike?CourseId=${courseId}`
-        // );
-        // console.log(userLike);
-        // return userLike;
       }
     } else {
       toast.error("برای ذیس لایک باید در سایت ثبت نام کنید");
@@ -125,7 +133,11 @@ const Course = ({
         {/*img Container*/}
 
         <div className="w-2/3 flex justify-center items-center  h-full rounded-tr-2xl ">
-          <img className="w-[180px] rounded-tr-2xl " src={  colorMode === "dark" ? courseImageMode :  courseImage} alt="" />
+          <img
+            className="w-[180px] rounded-tr-2xl "
+            src={colorMode === "dark" ? courseImageMode : courseImage}
+            alt=""
+          />
         </div>
         <div className="w-1/3 flex flex-col items-center justify-center  pt-[20px] text-[#090909] font-irSans">
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
@@ -134,14 +146,14 @@ const Course = ({
                 className="w-[30px] cursor-pointer"
                 src={bookmarkCheck}
                 alt=""
-                onClick={() => setSave(!save)}
+                onClick={() => handleSave()}
               />
             ) : (
               <img
                 className="w-[30px] cursor-pointer opacity-80"
-                src={colorMode === "dark" ?  darkModeBookmark  :   bookmark}
+                src={colorMode === "dark" ? darkModeBookmark : bookmark}
                 alt=""
-                onClick={() => setSave(!save)}
+                onClick={() => handleSave()}
               />
             )}
             <span className="w-[30px] text-center inline-block dark:text-mode-200 ">
@@ -160,42 +172,40 @@ const Course = ({
             ) : (
               <img
                 className="w-[30px] cursor-pointer  opacity-80"
-                src={ colorMode === "dark" ? DarkModelikes : likes}
+                src={colorMode === "dark" ? DarkModelikes : likes}
                 alt=""
                 onClick={() => handleLike()}
               />
             )}
-            <span className="w-[30px] text-center inline-block dark:text-mode-200" >
+            <span className="w-[30px] text-center inline-block dark:text-mode-200">
               {likeCount}
             </span>
           </div>
-          {
-            DisLike ? (
-          <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img
-              className="w-[30px] cursor-pointer scale-110"
-              src={dislikeCheck}
-              alt=""
-              onClick={()=> handleDisLike()}
-            />
-            <span className="w-[30px] text-center inline-block">
-              {dissLikeCount + 1}
-            </span>
-          </div>              
-            ):
+          {DisLike ? (
             <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-            <img
-              className="w-[30px] opacity-80 cursor-pointer scale-110"
-              src={dislike}
-              alt=""
-              onClick={()=> handleDisLike()}
-            />
-            <span className="w-[30px] text-center inline-block">
-              { currentUserDissLike==0 ? (dissLikeCount) : (dissLikeCount)}
-            </span>
-          </div> 
-          }
-
+              <img
+                className="w-[30px] cursor-pointer scale-110"
+                src={dislikeCheck}
+                alt=""
+                onClick={() => handleDisLike()}
+              />
+              <span className="w-[30px] text-center inline-block">
+                {dissLikeCount + 1}
+              </span>
+            </div>
+          ) : (
+            <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
+              <img
+                className="w-[30px] opacity-80 cursor-pointer scale-110"
+                src={dislike}
+                alt=""
+                onClick={() => handleDisLike()}
+              />
+              <span className="w-[30px] text-center inline-block">
+                {currentUserDissLike == 0 ? dissLikeCount : dissLikeCount}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 

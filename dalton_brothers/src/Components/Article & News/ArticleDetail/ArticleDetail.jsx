@@ -14,11 +14,10 @@ const ArticleDetail = () => {
   const params = useParams();
 
   const getArticleDetail = async () => {
-    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
-    const response = result.news;
+    const result = await basicGet("/News?PageNumber=1&RowsOfPage=20");
+    const response = result.news
 
     setArticleDetail(response);
-    console.log(response);
   };
   useEffect(() => {
     getArticleDetail();
@@ -27,8 +26,8 @@ const ArticleDetail = () => {
   const item = ArticleDetail.filter((item) => item.id === params.id).map(
     (item, index) => (
       <div className="flex flex-col gap-[100px]" key={index}>
-        <AboutArticle {...item} />
-        <ArticleIntroduction {...item} />
+        <AboutArticle {...item} insertDate={item.insertDate.split('T')[0].replaceAll("-"," / ")}  updateDate={item.updateDate.split('T')[0].replaceAll("-"," / ")}/>
+        <ArticleIntroduction {...item}/>
         <ArticleComments />
         <RelatedArticle />
       </div>

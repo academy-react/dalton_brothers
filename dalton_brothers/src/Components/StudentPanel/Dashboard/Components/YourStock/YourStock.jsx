@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 import wallet from "../../../../../assets/Images/panel/1.png";
-import { useDispatch, useSelector } from "react-redux";
 import { onMoneyChange } from "../../../../../Redux/money";
 import {
   getItem,
@@ -18,9 +19,9 @@ const YourStock = () => {
     console.log(currentAmount);
     setItem("newAmount", newAmount);
     dispatch(onMoneyChange(newAmount));
-    if (newAmount === 1000000) alert("بسه دیگه  برو خونتون");
-    if (newAmount === 1500000) alert("چه خبرته بانک نیومدی که");
-    if (newAmount === 2000000) alert("خیلی خری");
+    if (newAmount === 1000000) toast.custom(<div className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl" duration='700'>بسه دیگه  برو خونتون</div>)
+    if (newAmount === 1500000) toast.custom(<div className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl" duration='700'> چه خبرته بانک نیومدی که </div>)
+    if (newAmount === 2000000) toast.custom(<div className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl" duration='700'> خیلی خری </div>)
   };
   return (
     <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white dark:bg-mode-900 dark:border-DarkPallete-100">
