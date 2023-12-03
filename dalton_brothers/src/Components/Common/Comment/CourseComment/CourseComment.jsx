@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Comments } from "../../../Common/Comment/Comments/Comments";
-import { AddComment } from "../../../Common/Comment/AddComment/AddComment";
+import { Comments } from "../Comments/Comments";
+import { AddComment } from "../AddComment/AddComment";
 import { getComment } from "../../../../Core/Services/api/course/comment/getComment/getComment";
-import { ReplayComment } from "../../../Common/Comment/ReplayComment";
+import { ReplayComment } from "../ReplayComment";
 
 const CourseComments = ({ id }) => {
   const [modal, setModal] = useState(false);

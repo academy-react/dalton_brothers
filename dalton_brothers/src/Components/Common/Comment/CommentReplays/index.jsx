@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
-import { Comments } from "../../../Common/Comment/Comments/Comments";
-import { ReplayComment } from "../../../Common/Comment/ReplayComment";
+import { Comments } from "../Comments/Comments";
+import { ReplayComment } from "../ReplayComment";
 
 const CommentReplays = ({ id, courseId, className }) => {
   const [replayList, setReplayList] = useState([]);
