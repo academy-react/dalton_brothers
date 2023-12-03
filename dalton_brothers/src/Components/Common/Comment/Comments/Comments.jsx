@@ -11,6 +11,7 @@ import {
 } from "@tabler/icons-react";
 import { addLike } from "../../../../Core/Services/api/course/addLike";
 import { CommentReplays } from "../CommentReplays";
+import { useLocation } from "react-router-dom";
 
 const Comments = ({
   className,
@@ -19,6 +20,7 @@ const Comments = ({
   title,
   likeCount,
   disslikeCount,
+  dissLikeCount,
   id,
   currentUserEmotion,
   acceptReplysCount,
@@ -27,23 +29,40 @@ const Comments = ({
   setReplay,
   setReplayedCommentId,
   courseId,
+  newsId,
+  currentUserIsLike,
+  currentUserIsDissLike,
 }) => {
+  const location = useLocation();
   const [like, setLike] = useState();
   const [DisLike, setDisLike] = useState();
 
   const token = useSelector((state) => state.token.token);
-
   const handleLike = async () => {
     if (token) {
-      if (like == false) {
-        const userLike = await addLike(
-          `/Course/AddCourseCommentLike?CourseCommandId=${id}`
-        );
-        setLike(true);
-        setDisLike(false);
-        setEmotion(true);
-      } else {
-        return;
+      if (location.pathname === `/courseDetail/${courseId}`) {
+        if (like == false) {
+          const userLike = await addLike(
+            `/Course/AddCourseCommentLike?CourseCommandId=${id}`
+          );
+          setLike(true);
+          setDisLike(false);
+          setEmotion(true);
+        } else {
+          return;
+        }
+      } else if (location.pathname === `/newsDetail/${newsId}`) {
+        if (like == false) {
+          const userLike = await addLike(
+            `/News/CommentLike/${id}?LikeType=true`
+          );
+          console.log("ok");
+          setLike(true);
+          setDisLike(false);
+          setEmotion(true);
+        } else {
+          return;
+        }
       }
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
@@ -52,34 +71,58 @@ const Comments = ({
 
   const handleDisLike = async () => {
     if (token) {
-
-      if (DisLike == false) {
-        const userLike = await addLike(
-          `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
-        );
-        setDisLike(true);
-        setLike(false);
-        setEmotion(false);
-      } else {
-        return;
+      if (location.pathname === `/courseDetail/${courseId}`) {
+        if (DisLike == false) {
+          const userLike = await addLike(
+            `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
+          );
+          setDisLike(true);
+          setLike(false);
+          setEmotion(false);
+        } else {
+          return;
+        }
+      } else if (location.pathname === `/newsDetail/${newsId}`) {
+        if (DisLike == false) {
+          // const userLike = await addLike(
+          //   `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
+          // );
+          setDisLike(true);
+          setLike(false);
+          setEmotion(false);
+        } else {
+          return;
+        }
       }
     } else {
-      toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
+      toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
-
-  useEffect(() => {
-    if (currentUserEmotion == "-") {
-      setLike(false);
-      setDisLike(false);
-    } else if (currentUserEmotion == "LIKED") {
-      setLike(true);
-      setDisLike(false);
-    } else {
-      setLike(false);
-      setDisLike(true);
-    }
-  }, []);
+  if (location.pathname === `/courseDetail/${courseId}`) {
+    useEffect(() => {
+      if (currentUserEmotion == "-") {
+        setLike(false);
+        setDisLike(false);
+      } else if (currentUserEmotion == "LIKED") {
+        setLike(true);
+        setDisLike(false);
+      } else if (currentUserEmotion == "DISSLIKED") {
+        setLike(false);
+        setDisLike(true);
+      }
+    }, []);
+  } else if (location.pathname === `/newsDetail/${newsId}`) {
+    useEffect(() => {
+      if (currentUserIsLike) {
+        setLike(true);
+        setDisLike(false);
+      }
+      if (currentUserIsDissLike) {
+        setLike(false);
+        setDisLike(true);
+      }
+    }, []);
+  }
 
   return (
     <div
@@ -117,7 +160,9 @@ const Comments = ({
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
-              <span className="ml-[19px]">{disslikeCount}</span>
+              <span className="ml-[19px]">
+                {disslikeCount || dissLikeCount}
+              </span>
             </>
           ) : (
             <>
@@ -126,7 +171,9 @@ const Comments = ({
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
-              <span className="ml-[19px]">{disslikeCount}</span>
+              <span className="ml-[19px]">
+                {disslikeCount || dissLikeCount}
+              </span>
             </>
           )}
         </div>
