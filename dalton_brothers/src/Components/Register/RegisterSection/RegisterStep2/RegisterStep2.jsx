@@ -53,7 +53,7 @@ const RegisterStep2 = () => {
           />
           <div className="min-[500px]:w-[90%] w-full h-52 flex items-center flex-col pt-12">
             <Input
-              className={"rounded-full "}
+              className={"rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"}
               placeHolder={"کد ارسال شده را وارد کنید  "}
               type={"text"}
               name={"verifyCode"}
@@ -70,13 +70,13 @@ const RegisterStep2 = () => {
             <Button
               type={"submit"}
               className={
-                "bg-[#fcbf49] text-[#595959] font-irSans text-[17px] py-[5px]"
+                "bg-[#fcbf49]  text-mode-50 dark:bg-DarkPallete-100 font-irSans text-[17px] py-[5px]"
               }
               value={"مرحله بعد "}
             />
             <NavLinks
               className={
-                "bg-[#fcbf49] w-[30%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+                " w-[30%] py-[5px] text-[13px] font-irSans text-lg  bg-white dark:bg-mode-900 border-2 border-pallete-100 text-pallete-100 dark:border-DarkPallete-100 dark:text-DarkPallete-100"
               }
               Children={"مرحله قبل"}
               path={"/register"}

@@ -13,24 +13,24 @@ import { CustomSlider } from "../../Common/CustomSlider/CustomSlider";
 
 const Dashboard = () => {
   return (
-    <div className=" w-full h-full flex-col mt-10 ">
-      <div className="flex justify-evenly max-2xl:flex-col-reverse max-2xl:justify-center max-2xl:items-center max-2xl:gap-[100px] max-2xl:mt-[50px] max-2xl:mb-[150px] w-full max-lg:items-center lg:h-[40%] h-[600px] gap-8 ">
-        <div className=" 2xl:w-[370px] xl:w-[350px] lg:w-[300px] w-[400px] xl:h-[250px] lg:h-[250px] h-[200px]">
+    <div className=" w-full h-full flex-col mt-10  ">
+      <div className="flex justify-evenly max-2xl:flex-col-reverse max-2xl:justify-center max-2xl:items-center max-2xl:gap-[100px] max-2xl:mt-[50px] max-2xl:mb-[50px]   w-full max-lg:items-center  gap-8 ">
+        <div className="   lg:w-[350px] w-[400px] xl:h-[250px] lg:h-[250px] h-[200px]">
           <YourStock />
         </div>
-        <div className=" 2xl:w-[800px] xl:w-[430px] lg:w-[350px]  xl:h-[250px] lg:h-[250px] ">
+        <div className=" 2xl:w-[780px] lg:w-[750px] max-sm:w-full   xl:justify-start   xl:h-[250px] lg:h-[250px] ">
           <Specification />
         </div>
       </div>
-      <div className=" flex flex-row-reverse  w-full    ">
+      <div className=" flex flex-row-reverse  w-full mt-5 max-2xl:flex-col max-2xl:items-center   ">
         {/* h-[430px] */}
-        <h4 className="w-full whitespace-nowrap text-right text-xl font-irSans pr-5 dark:text-mode-50">
+        <p className="w-1/3 whitespace-nowrap text-right text-xl font-irSans pt-5 pr-5 dark:text-mode-50">
           علاقه مندی ها
-        </h4>
-        <div className="     flex ">
-          <div className="scale-75 ">
+        </p>
+        <div className="   flex justify-start items-center mt-6 ">
+          {/* <div className="scale-75 ">
             <CustomSlider component="Article" />
-          </div>
+          </div> */}
           <div className="scale-75 ">
             <CustomSlider component="Course" />
           </div>

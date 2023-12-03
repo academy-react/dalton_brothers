@@ -13,7 +13,7 @@ const Input = ({ topic, className, placeHolder, type, name, as, id }) => {
         type={type}
         placeholder={placeHolder}
       />
-      <span className="mx-[10%] peer-focus:text-[#fcbf49] peer-invalid:border-pink-500 whitespace-nowrap bg-white rounded-full absolute right-2 transition-all px-2 w-fit -top-4 text-[#808080] dark:bg-mode-900 dark:text-mode-50">
+      <span className="mx-[10%] peer-focus:text-[#fcbf49] peer-focus:dark:text-DarkPallete-100 peer-invalid:border-pink-500 whitespace-nowrap bg-white rounded-full absolute right-2 transition-all px-2 w-fit -top-4 text-[#808080] dark:bg-mode-900 dark:text-mode-50">
         {topic}
       </span>
       <div className="w-full h-10 flex justify-center items-center">

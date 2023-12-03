@@ -89,12 +89,12 @@ const SignInForm = () => {
         <Form className=" w-full flex flex-col justify-center items-center  gap-[20px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
-            style={"leading-3 text-[20px] self-center text-[#9a9a9a]"}
+            style={"leading-3 text-[20px] self-center text-[#9a9a9a] dark:text-mode-50"}
           />
           <div className="min-[500px]:w-[80%] w-full">
             <Input
               topic={"شماره تلفن یا ایمیل"}
-              className="rounded-full"
+              className="rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-200"
               placeHolder={""}
               type={"text"}
               name={"logInUserName"}
@@ -104,7 +104,7 @@ const SignInForm = () => {
           <div className="relative min-[500px]:w-[80%] w-full flex justify-end group ">
             <Input
               topic={"رمز عبور"}
-              className={"rounded-full"}
+              className={"rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 text"}
               placeHolder={""}
               type={show ? "text" : "password"}
               name={"logInPassword"}
@@ -113,17 +113,17 @@ const SignInForm = () => {
             />
             <label
               htmlFor="logInPassword"
-              className="w-[25px] absolute left-[8%] top-[14%] group-focus:text-[#fcbf49]"
+              className="w-[25px] absolute left-[8%] top-[14%] group-focus:text-[#fcbf49] "
             >
               {show ? (
                 <TbEye
                   onClick={() => setShow(!show)}
-                  className="w-full h-full opacity-50"
+                  className="w-full h-full opacity-50 dark:text-mode-50 dark:opacity-80"
                 />
               ) : (
                 <TbEyeOff
                   onClick={() => setShow(!show)}
-                  className="w-full h-full opacity-50 "
+                  className="w-full h-full opacity-50 dark:text-mode-50 dark:opacity-80 "
                 />
               )}
             </label>
@@ -133,13 +133,13 @@ const SignInForm = () => {
               type="checkbox"
               name="remember"
               id="rememberMe"
-              className="hidden peer/remember"
+              className="hidden peer/remember "
               as={"input"}
               onClick={() => setRemember(!remember)}
             />
             <label
               htmlFor="rememberMe"
-              className="font-irSans font-thin text-[#939393] text-sm whitespace-nowrap pb-1 px-1 cursor-pointer transition-all hover:text-[#696969] peer-checked/remember:text-[#5c5c5c] peer-checked/remember:border-b-2 peer-checked/remember:border-b-[#fcbf49]"
+              className="font-irSans font-thin text-[#939393] dark:text-mode-30 text-sm whitespace-nowrap pb-1 px-1 cursor-pointer transition-all hover:text-[#696969] peer-checked/remember:text-[#5c5c5c] dark:peer-checked/remember:text-mode-200 peer-checked/remember:border-b-2 peer-checked/remember:border-b-[#fcbf49] dark:peer-checked/remember:border-b-DarkPallete-100"
             >
               مرا به خاطر بسپار
             </label>
@@ -147,13 +147,13 @@ const SignInForm = () => {
           <Button
             type={"submit"}
             className={
-              "bg-[#fcbf49] w-[60%] py-[5px] text-[13px] font-irSans text-[#595959]"
+              "bg-[#fcbf49] dark:bg-DarkPallete-100  w-[60%] py-[5px] text-[13px] font-irSans text-mode-50"
             }
             value={"ورود"}
           />
           <NavLinks
             className={
-              "bg-[#fcbf49] w-[60%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
+              "bg-white   dark:bg-mode-900 border-2 border-pallete-100 dark:border-DarkPallete-100 dark:text-DarkPallete-100  w-[60%] py-[5px] text-[13px] font-irSans text-lg  text-[#595959]"
             }
             Children={"خانه"}
             path={"/"}
@@ -164,7 +164,7 @@ const SignInForm = () => {
             </span>
             <NavLinks
               Children={"بلی"}
-              className="text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"
+              className="text-[#fcbf49] font-thin text-[14px] font-irSans py-[0] dark:text-DarkPallete-100"
               path={"/forget"}
             />
           </div>
@@ -174,7 +174,7 @@ const SignInForm = () => {
             </span>
             <NavLinks
               Children={"ایجاد حساب"}
-              className="text-[#fcbf49] font-thin text-[14px] font-irSans py-[0]"
+              className="text-[#fcbf49] font-thin text-[14px] font-irSans py-[0] dark:text-DarkPallete-100"
               path={"/register"}
             />
           </div>

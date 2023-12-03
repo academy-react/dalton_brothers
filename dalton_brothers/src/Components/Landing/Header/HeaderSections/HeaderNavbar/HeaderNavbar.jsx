@@ -47,13 +47,13 @@ const HeaderNavbar = () => {
           {token ? (
             <NavLinks
               Children={"ورود به پنل"}
-              className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 w-full h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+              className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] dark:hover:bg-DarkPallete-50 hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
               path={"/panel"}
             />
           ) : (
             <NavLinks
               Children={"ورود/ثبت نام"}
-              className=" text-[#707070] hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 w-full h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
+              className=" text-[#707070] 2xl:w-[165px] hover:bg-[#ffefc8] dark:hover:bg-DarkPallete-50  hover:cursor-pointer transition-all duration-500 max-[500px]:w-[150px] w-[100px] h-[40px] bg-slate-100 rounded-full flex justify-center items-center text-[15px] "
               path={"/signIn"}
             />
           )}

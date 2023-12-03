@@ -17,8 +17,8 @@ const Specification = () => {
   }, []);
 
   return (
-    <div className="w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse gap-5 xl:text-xl lg:text-lg whitespace-nowrap font-irSans bg-white dark:bg-mode-900 dark:border-DarkPallete-100">
-      <div className=" w-1/3 h-full flex flex-col items-end justify-evenly relative pr-3 pt-1">
+    <div className="w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse max-sm:flex-col max-sm:justify-center max-sm:items-center  gap-5 xl:text-xl lg:text-lg whitespace-nowrap font-irSans bg-white dark:bg-mode-900 dark:border-DarkPallete-100">
+      <div className=" w-1/3 max-sm:w-full h-full flex flex-col items-end justify-evenly relative pr-3 pt-1">
         <span className="bg-white dark:bg-mode-900 dark:text-mode-50 flex justify-end w-[110px] pr-4  text-xl absolute right-8 -top-4">
           مشخصات
         </span>
@@ -41,7 +41,7 @@ const Specification = () => {
           <p className=""></p>
         </div>
       </div>
-      <div className="w-2/3 h-full flex flex-col items-end justify-evenly">
+      <div className="w-2/3 max-sm:w-full h-full flex flex-col items-end justify-evenly max-sm:pr-3 ">
         <div className=" w-full h-[60px] text-right flex justify-end items-center text-lg">
           <p className="  pr-5 text-gray-600 dark:text-mode-200">ادرس : {user.homeAdderess} </p>
           <p className=""></p>

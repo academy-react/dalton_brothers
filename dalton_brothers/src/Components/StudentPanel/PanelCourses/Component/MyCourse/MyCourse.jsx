@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-import { IconTrash, IconPlus } from "@tabler/icons-react";
+import {   IconTrashFilled, IconSquareRoundedPlusFilled } from "@tabler/icons-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import delIcon from "../../../../../assets/Images/panel/panelDel.png";
 import addlIcon from "../../../../../assets/Images/panel/PanelAdd.png";
 import { deleteReserve } from "../../../../../Core/Services/api/course/reserve/deleteReserve";
 import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
+
+
 
 const MyCourse = ({
   courseName,
@@ -55,28 +57,32 @@ const MyCourse = ({
       <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
         {courseMaster}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 max-xl:hidden">
         {term}
       </div>
 
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
         {price}
       </div>
       <div className="lg:w-[48px]  xl:w-[60px] w-[100px] xl:h-[55px] h-[40px] flex justify-center items-center ">
         {location.pathname === "/panel/PanelCourses" ? (
           <div
-            className="w-[40px] h-[40px] rounded-full bg-orange-300 flex justify-center items-center cursor-pointer"
+            className="w-[40px] h-[40px] rounded-full bg-pallete-100 dark:bg-DarkPallete-100 flex justify-center items-center cursor-pointer"
             onClick={deleteReservation}
           >
-            <img src={delIcon} className="w-[25px] h-[25px]" />
+            {/* <img src={delIcon} className="w-[25px] h-[25px]" /> */}
+
+            <IconTrashFilled className="text-mode-50"> </IconTrashFilled>
+
           </div>
         ) : (
           location.pathname === "/panel/PanelCoursesList" && (
             <div
-              className="w-[40px] h-[40px] rounded-full bg-orange-300 flex justify-center items-center cursor-pointer"
+              className="w-[40px] h-[40px] rounded-full bg-pallete-100 dark:bg-DarkPallete-100   flex justify-center items-center cursor-pointer"
               onClick={handleClick}
             >
-              <img src={addlIcon} className="w-[25px] h-[25px]" />
+              {/* <img src={addlIcon} className="w-[25px] h-[25px]" /> */}
+              <IconSquareRoundedPlusFilled className="text-mode-50"></IconSquareRoundedPlusFilled>
             </div>
           )
         )}

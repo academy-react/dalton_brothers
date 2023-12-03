@@ -95,9 +95,9 @@ const CourseList = () => {
         previousClassName="mx-1 p-2 "
         nextLinkClassName="p-2 scale-120"
         previousLinkClassName="p-2 scale-120"
-        pageLinkClassName="bg-gray-200 mx-1 px-[14px] py-2 rounded-md"
+        pageLinkClassName="bg-gray-200  mx-1 px-[14px] py-2 rounded-md"
         breakLinkClassName="mx-1 p-2"
-        activeLinkClassName="bg-orange-300 text-white"
+        activeLinkClassName="bg-pallete-100 dark:bg-DarkPallete-100 text-white"
       ></ReactPaginate>
       <ScrollToTop />
     </motion.div>

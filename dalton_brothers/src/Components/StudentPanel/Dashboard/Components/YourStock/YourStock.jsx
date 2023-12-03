@@ -24,7 +24,7 @@ const YourStock = () => {
   };
   return (
     <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white dark:bg-mode-900 dark:border-DarkPallete-100">
-      <div className=" lg:w-1/2 w-full h-full flex flex-col justify-between   ">
+      <div className=" w-1/2  h-full flex flex-col justify-between   ">
         <span className=" bg-white dark:bg-mode-900 dark:text-mode-50 w-[120px]  flex justify-end items-center pr-4  text-lg absolute right-6 -top-4 ">
           موجودی شما
         </span>
@@ -45,14 +45,14 @@ const YourStock = () => {
         </div>
         <div className=" w-full  h-[60px] mt-[20px] lg:text-right text-center rounded-bl-[30px] flex justify-end">
           <button
-            className="bg-[#fcbf49]  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px] max-lg:rounded-tr-[30px] max-lg:rounded-b-md   flex justify-center items-center text-[16px] text-white font-irSBold"
+            className="bg-[#fcbf49] dark:bg-DarkPallete-100  lg:w-full w-[100%] h-full rounded-tl-[30px] rounded-br-[30px]     flex justify-center items-center text-[16px] text-white font-irSBold"
             onClick={() => handleIncrease()}
           >
             شارژ حساب
           </button>
         </div>
       </div>
-      <div className="lg:w-1/2 h-full lg:flex hidden ">
+      <div className="lg:w-1/2 h-full lg:flex  ">
         <img
           src={wallet}
           alt=""

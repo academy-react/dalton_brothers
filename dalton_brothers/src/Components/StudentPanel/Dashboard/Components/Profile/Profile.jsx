@@ -51,13 +51,13 @@ const Profile = () => {
     getProfile();
   }, []);
   return (
-    <div className=" w-[270px] h-[70px] flex justify-center items-center gap-3 font-irSBold">
+    <div className=" w-[270px] max-sm:w-[180px] h-[70px] flex justify-center items-center gap-3 font-irSBold">
       <h3 className=" text-lg text-gray-500 "> امین قادری </h3>
       <div
         className="w-[60px] h-[60px] rounded-full bg-[#fcbe49] dark:bg-[#15a349] flex justify-center items-center overflow-hidden "
         onClick={() => setOpenSlider(true)}
       >
-        <img className="w-[50px] h-[50px] rounded-full" src={imgPath} alt="" />
+        <img className="w-[45px] h-[45px] rounded-full" src={imgPath} alt="" />
       </div>
       {openSlider && (
         <div className="absolute top-[10%] left-[20%] w-[60vw] h-[600px] bg-[#f1f5f9] z-40 rounded-lg">

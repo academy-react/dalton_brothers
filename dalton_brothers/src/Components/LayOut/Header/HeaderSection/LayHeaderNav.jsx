@@ -106,7 +106,7 @@ const LayHeaderNav = () => {
         ) : (
           <NavLinks
             Children={"ورود به پنل"}
-            className=" text-mode-700 whitespace-nowrap hover:bg-[#ffefc8] hover:cursor-pointer transition-all duration-500 max-[500px]:w-[300px] w-[100px] h-[40px] bg-mode-100 rounded-full flex justify-center items-center text-[15px]"
+            className=" text-mode-700 whitespace-nowrap hover:bg-[#ffefc8] dark:hover:bg-DarkPallete-50  hover:cursor-pointer transition-all duration-500 max-[500px]:w-[300px] w-[100px] h-[40px] bg-mode-100 rounded-full flex justify-center items-center text-[15px]"
             path={"/panel"}
           />
         )}
