@@ -25,6 +25,7 @@ import {
   IconHeartFilled,
   IconArrowNarrowLeft,
 } from "@tabler/icons-react";
+import { deleteArticleLike } from "../../../../Core/Services/api/course/addSave";
 
 const Article = ({
   miniDescribe,
@@ -39,6 +40,7 @@ const Article = ({
   updateDate,
   currentLikeCount,
   currentUserIsLike,
+  likeId,
 }) => {
   const [Like, setLike] = useState(currentUserIsLike);
   const token = useSelector((state) => state.token.token);
@@ -49,6 +51,11 @@ const Article = ({
     if (token) {
       if (Like == true) {
         setLike(false);
+        const obj ={
+          deleteEntityId : likeId
+        }
+        const userDeleteArticleLike = await deleteArticleLike(obj)
+        console.log(userDeleteArticleLike);
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
         console.log(userIsLike);
@@ -60,7 +67,6 @@ const Article = ({
     }
   };
 
-  // console.log(currentUserIsLike);
 
   return (
     <div className="w-[780px]  border rounded-[30px] flex-col bg-mode-50 text-mode-900 dark:bg-mode-800 dark:border-none p-4 pb-0">

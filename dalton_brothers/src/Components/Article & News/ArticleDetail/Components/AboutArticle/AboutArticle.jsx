@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
+import newsImage from "../../../../../Assets/Images/newsImage.jpg";
+
+
 import {
   IconHeart,
   IconHeartFilled,
@@ -10,6 +13,7 @@ import {
 } from "@tabler/icons-react";
 
 import { addLike } from "../../../../../Core/Services/api/course/addLike";
+import { deleteArticleLike } from "../../../../../Core/Services/api/course/addSave";
 
 const AboutArticle = ({
   currentView,
@@ -23,6 +27,8 @@ const AboutArticle = ({
   currentLikeCount,
   currentRate,
   updateDate,
+  id,
+  likeId,
 }) => {
   const [Like, setLike] = useState(currentUserIsLike);
   const token = useSelector((state) => state.token.token);
@@ -31,6 +37,12 @@ const AboutArticle = ({
     if (token) {
       if (Like == true) {
         setLike(false);
+        const obj ={
+          deleteEntityId : likeId
+        }
+        console.log(obj);
+        const userDeleteArticleLike = await deleteArticleLike(obj)
+        console.log(userDeleteArticleLike);
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
         console.log(userIsLike);
@@ -79,11 +91,11 @@ const AboutArticle = ({
     // </div>
     <div className="w-full h-[480px] mt-32 bg-[#fEF3C7] rounded-[20px] flex">
       <div className="w-[40%] h-full  flex justify-center items-center">
-        <div className="w-[660px] h-[640px] bg-orange-300 opacity-95 rounded-full flex justify-center items-center">
+        <div className="w-[660px] h-[640px] bg-pallete-100 opacity-95 rounded-full flex justify-center items-center">
           <div className=" w-[95%] h-[95%]  bg-gray-300 rounded-full">
             <img
-              className="w-full h-full flex justify-center items-center"
-              src={currentImageAddressTumb}
+              className="w-full h-full flex justify-center rounded-full items-center"
+              src={currentImageAddressTumb ? true : newsImage}
               alt="عکسی یافت نشد "
             ></img>
           </div>

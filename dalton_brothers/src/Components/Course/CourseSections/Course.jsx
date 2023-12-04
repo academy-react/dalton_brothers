@@ -60,8 +60,8 @@ const Course = ({
         const obj = {
           courseId: courseId,
         };
-        console.log(obj.courseId);
-        const userSave = await addSave(obj.courseId);
+        console.log(obj);
+        const userSave = await addSave(obj);
         console.log(userSave);
       } else {
         setSave(false);
