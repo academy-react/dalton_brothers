@@ -52,6 +52,7 @@ const Comments = ({
 
   const handleDisLike = async () => {
     if (token) {
+
       if (DisLike == false) {
         const userLike = await addLike(
           `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`

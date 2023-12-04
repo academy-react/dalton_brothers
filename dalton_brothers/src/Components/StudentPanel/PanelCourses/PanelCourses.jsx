@@ -3,6 +3,7 @@ import { MyCourse } from "./Component/MyCourse/MyCourse";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 import { useDispatch, useSelector } from "react-redux";
 import { onMoneyChange } from "../../../Redux/money";
+import toast from "react-hot-toast"
 import {
   getItem,
   setItem,
@@ -52,12 +53,12 @@ const PanelCourses = () => {
   }
   const handlePay = () => {
     if (money >= allCosts) {
-      alert("پرداخت با موفقیت انجام شد");
+      toast.success("پرداخت با موفقیت انجام شد");
       dispatch(onMoneyChange(money - allCosts));
       setAllCosts("پرداخت شد");
       setItem("payCheck", true);
     } else if (allCosts > money) {
-      alert("شارژ حساب شما به اندازه ی کافی نیست");
+      toast.error("شارژ حساب شما به اندازه ی کافی نیست");
     }
   };
   useEffect(() => {

@@ -57,18 +57,17 @@ const SignInForm = () => {
           clearStorage();
         };
       }
-      const userFName = await basicGet("/SharePanel/GetProfileInfo");
-
-      // console.log(userFName.fName);
     }
     if (!user.success) {
       toast.error("حسابی با این مشخصات وجود ندارد");
       return;
     }
+      const userName = await basicGet(
+        "/SharePanel/GetProfileInfo"
+      ) 
+      console.log(userName);
     navigate("/");
-    toast.success(
-      `${/*userFName.fName &&*/ "کاربر"}   عزیز به سایت خوش آمدید `
-    );
+    toast.success(`${ userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `);
   };
 
   // validation................................
