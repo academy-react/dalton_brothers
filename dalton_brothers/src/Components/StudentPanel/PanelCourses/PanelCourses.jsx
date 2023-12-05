@@ -3,12 +3,11 @@ import { MyCourse } from "./Component/MyCourse/MyCourse";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 import { useDispatch, useSelector } from "react-redux";
 import { onMoneyChange } from "../../../Redux/money";
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
 import {
   getItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
-
 
 const PanelCourses = () => {
   const [courseListCount, setCourseListCount] = useState([]);
@@ -28,14 +27,21 @@ const PanelCourses = () => {
   };
   const getCourseDetail = async () => {
     if (courseList) {
-      const reservedCoursesArray = courseListCount.map((el) =>
-        courseList.filter((ele) => ele.courseId === el.courseId)
-      );
-      const reservedCourses = reservedCoursesArray.map((el) => el[0]);
-      const afterDelete = reservedCourses.filter(
-        (el) => el.courseId !== courseDeleteId
-      );
-      setReservedCourses(afterDelete);
+      const reservedCoursesArray =
+        courseListCount.length !== 0
+          ? courseListCount.map((el) =>
+              courseList.filter((ele) => ele.courseId === el.courseId)
+            )
+          : [];
+      console.log(reservedCoursesArray[0]);
+      const reservedCourses = reservedCoursesArray.map((el) => el[1]);
+      const afterDelete =
+        reservedCoursesArray.length !== 0
+          ? reservedCoursesArray[0].filter(
+              (el) => el.courseId !== courseDeleteId
+            )
+          : [];
+      setReservedCourses(afterDelete ? afterDelete : []);
       console.log(afterDelete);
       console.log(courseDeleteId);
     }
