@@ -18,12 +18,12 @@ const ArticleIntroduction = ({id}) => {
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
-        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-bold">
+        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-bold dark:text-mode-50">
           {" "}
           متن خبر{" "}
         </h4>
         <div className=" px-[40px] py-[10px] ">
-          <p className="text-lg text-right my-[10px] text-gray-800">
+          <p className="text-lg text-right my-[10px] text-gray-800 dark:text-mode-200">
             {/* {fa} */}
           </p>
         </div>

@@ -11,8 +11,8 @@ const ArticleComments = () => {
 //   console.log();
   return (
     <div className=" w-full py-[30px] flex flex-col mb-[100px]">
-      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold"> نظرات </h2>
-      <p className="text-center lg:text-xl text-lg py-[20px] text-gray-800 font-irSans">
+      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold dark:text-mode-50"> نظرات </h2>
+      <p className="text-center lg:text-xl text-lg py-[20px] text-gray-800 dark:text-mode-200 font-irSans">
         {" "}
         .تنها کاربران سایت قادر به ثبت نظر هستند. برای ثبت نظر لازم است تا ثبت
         نام نمایید یا وارد شوید{" "}

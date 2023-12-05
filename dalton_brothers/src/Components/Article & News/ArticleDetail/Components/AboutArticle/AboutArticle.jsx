@@ -89,9 +89,9 @@ const AboutArticle = ({
     //     </p>
     //   </div>
     // </div>
-    <div className="w-full h-[480px] mt-32 bg-[#fEF3C7] rounded-[20px] flex">
+    <div className="w-full h-[480px] mt-32 bg-pallete-50 dark:bg-mode-800  flex">
       <div className="w-[40%] h-full  flex justify-center items-center">
-        <div className="w-[660px] h-[640px] bg-pallete-100 opacity-95 rounded-full flex justify-center items-center">
+        <div className="w-[660px] h-[640px] bg-pallete-100 dark:bg-DarkPallete-100 opacity-95 rounded-full flex justify-center items-center">
           <div className=" w-[95%] h-[95%]  bg-gray-300 rounded-full">
             <img
               className="w-full h-full flex justify-center rounded-full items-center"
@@ -103,19 +103,19 @@ const AboutArticle = ({
       </div>
       <div className="w-[60%] h-full  flex flex-col p-7 text-right">
         <div className=" w-full h-[45%] flex flex-col ">
-          <h4 className="mb-5 mt-1 text-xl  text-gray-600 font-irSBold ">
+          <h4 className="mb-5 mt-1 text-xl  text-gray-600 dark:text-mode-50 font-irSBold ">
             {title}
           </h4>
-          <p className="text-xl text-gray-500 font-irSans leading-8">
+          <p className="text-xl text-gray-500 dark:text-mode-200 font-irSans leading-8">
             {miniDescribe}
           </p>
         </div>
         <div className="  w-full h-[17%] flex flex-row-reverse">
-          <div className=" w-1/3 h-full flex justify-center items-center">
-            <div className="w-[160px] h-[60px]">
+          <div className=" w-1/3 h-full flex justify-end items-center">
+            <div className="w-[140px] h-[50px]">
               {Like ? (
                 <div
-                  className="bg-red-300 w-full h-full rounded-[25px] flex justify-center items-center cursor-pointer pl-1"
+                  className="bg-red-300 w-full h-full rounded-full flex justify-center items-center cursor-pointer pl-1"
                   onClick={() => handleLike()}
                 >
                   <div className="w-4/5 h-4/5 flex ">
@@ -131,7 +131,7 @@ const AboutArticle = ({
                 </div>
               ) : (
                 <div
-                  className="bg-white w-full h-full rounded-[25px] flex justify-center items-center cursor-pointer pl-1"
+                  className="bg-white w-full h-full rounded-full flex justify-center items-center cursor-pointer pl-1"
                   onClick={() => handleLike()}
                 >
                   <div className="w-4/5 h-4/5 flex">
@@ -182,11 +182,11 @@ const AboutArticle = ({
                 className="w-full h-full flex justify-center items-center text-center"
               ></img>
             </div>
-            <div className="w-80 h-24 flex flex-col mr-5 font-irSans text-xl text-gray-600">
+            <div className="w-80 h-24 flex flex-col mr-5 font-irSans text-xl text-gray-600 dark:text-mode-100">
               <div className="w-full h-1/2  flex items-center justify-end">
                 {addUserFullName}
               </div>
-              <div className="w-full h-1/2  flex items-center justify-end">
+              <div className="w-full h-1/2  flex items-center justify-end dark:text-mode-300">
                 نویسنده منتخب
               </div>
             </div>
@@ -198,7 +198,7 @@ const AboutArticle = ({
                 <p className="h-full w-[160px] flex justify-center items-center pl-2 pt-1 dark:text-mode-300">
                   {insertDate}
                 </p>
-                <p className="h-full w-[130px] text-right dark:text-mode-300">
+                <p className="h-full w-[130px] text-right dark:text-mode-300 ">
                   {" "}
                   : انتشار خبر{" "}
                 </p>
