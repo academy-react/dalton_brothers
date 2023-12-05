@@ -65,7 +65,7 @@ export const editProfileValidation = yup.object().shape({
     .required("این فیلد اجباریست"),
   HomeAdderess: yup.string().required("این فیلد اجباریست"),
   UserAbout: yup.string().required("این فیلد اجباریست"),
-  BirthDay: yup.string().required("این فیلد اجباریست"),
+  // BirthDay: yup.string().required("این فیلد اجباریست"),
 });
 export const commentValidation = yup.object().shape({
   title: yup
