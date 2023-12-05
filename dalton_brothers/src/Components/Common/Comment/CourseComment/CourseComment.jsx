@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Comments } from "../../../Common/Comment/Comments/Comments";
-import { AddComment } from "../../../Common/Comment/AddComment/AddComment";
+import { Comments } from "../Comments/Comments";
+import { AddComment } from "../AddComment/AddComment";
 import { getComment } from "../../../../Core/Services/api/course/comment/getComment/getComment";
-import { ReplayComment } from "../../../Common/Comment/ReplayComment";
+import { ReplayComment } from "../ReplayComment";
+import { array } from "yup";
+import { useLocation } from "react-router-dom";
 
 const CourseComments = ({ id }) => {
+  const location = useLocation();
   const [modal, setModal] = useState(false);
   const [comment, setComment] = useState([]);
   const [emotion, setEmotion] = useState();
@@ -14,13 +17,18 @@ const CourseComments = ({ id }) => {
   const token = useSelector((state) => state.token.token);
 
   const getCourseComment = async () => {
-    const result = await getComment(`/Course/GetCourseCommnets/${id}`);
-    setComment(result);
+    if (location.pathname === `/courseDetail/${id}`) {
+      const result = await getComment(`/Course/GetCourseCommnets/${id}`);
+      setComment(result);
+    }
+    if (location.pathname === `/newsDetail/${id}`) {
+      const result = await getComment(`/News/GetNewsComments?NewsId=${id}`);
+      setComment(result);
+    }
   };
   useEffect(() => {
     getCourseComment();
   }, [emotion]);
-
   return (
     <div className=" w-full py-[30px] flex flex-col mb-[10px] relative">
       {replay && (

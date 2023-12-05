@@ -7,7 +7,7 @@ import { CourseIntroduction } from "./components/CourseIntroduction/CourseIntrod
 import { Needs } from "./components/needs/Needs";
 import { CourseTeacher } from "./components/CourseTeacher/CourseTeacher";
 import { RelatedCourses } from "./components/RelatedCourses/RelatedCourses";
-import { CourseComments } from "./components/CourseComment/CourseComment";
+import { CourseComments } from "../Common/Comment/CourseComment/CourseComment";
 import { GoToCorse } from "./components/GoToCorse/GoToCorse";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
