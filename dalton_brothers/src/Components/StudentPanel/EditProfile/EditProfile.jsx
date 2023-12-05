@@ -172,7 +172,7 @@ const EditProfile = () => {
                   padding: "15px 25px",
                   color: colorMode === "dark" ? "white" : "#a9afba",
                 }}
-                plugins={[<DatePickerHeader />, weekends()]}
+                plugins={[ weekends()]}
                 className={colorMode === "dark" ? "teal bg-dark" : "yellow"}
                 value={date}
                 onChange={(date) => {
