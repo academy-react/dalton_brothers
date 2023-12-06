@@ -40,7 +40,7 @@ const CommentReplays = ({ id, courseId, className }) => {
       <input type="checkbox" id={id} className="peer hidden" />
       <label
         htmlFor={id}
-        className="font-irSans mt-[10px] flex justify-center text-[#4b5563]"
+        className="font-irSans mt-[10px] flex justify-center text-mode-800 dark:text-mode-50 cursor-pointer"
         onClick={() => {
           handleClick();
           handleText();
@@ -48,7 +48,7 @@ const CommentReplays = ({ id, courseId, className }) => {
       >
         {text}
       </label>
-      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0">
+      <div className="peer-checked:h-fit  peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0">
         {/* each comment */}
         {replayList.map((el, index) => (
           <Comments

@@ -11,6 +11,7 @@ import { Filter } from "./CourseSections/Filter/Filter";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
 import { onTriggerChange } from "../../Redux/Filter/trigger";
+import Loading from "../Loading/Loading";
 
 const CourseList = () => {
   const dispatch = useDispatch();
@@ -65,6 +66,8 @@ const CourseList = () => {
     >
       <LayOutHeaders topic={"لیست دوره ها"} />
       <Filter />
+    <Loading/>
+
       <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
         {courseList && courseList.length > 0 ? (
           courseList.map((course, index) => (
