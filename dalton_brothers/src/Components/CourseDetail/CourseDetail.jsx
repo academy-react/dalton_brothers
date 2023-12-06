@@ -48,7 +48,7 @@ const CourseDetail = () => {
           <Needs />
           <CourseTeacher />
           <CourseComments id={item.courseId} />
-          <RelatedCourses />
+          <RelatedCourses teacherName={item.teacherName} courseId={item.courseId}/>
         </div>
       ))}
     </motion.div>

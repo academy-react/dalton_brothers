@@ -34,10 +34,10 @@ const AboutCourse = ({
         </div> */}
         <div className=" w-1/2 h-[300px] flex flex-col items-center justify-center">
           <div className=" md:w-[200px] md:h-[200px] h-[150px] w-[150px] flex justify-center items-center ">
-            <img src={imageAddress }  alt="" className="w-3/4 h-3/4"></img>
+            <img src={imageAddress != null ? imageAddress : userGold}  alt="" className="w-3/4 h-3/4"></img>
           </div>
           <div className="flex justify-center w-full p-[15px] text-center mt-[10px] lg:text-2xl  md:text-xl  text-lg text-gray-800 font-irSans">
-            <div className=" pr-2">{teacherName}</div>
+            <div className=" pr-2">{teacherName != null ? teacherName: "استاد بحر"}</div>
             <div className="text-gray-500">: مدرس </div>
           </div>
           <div className="flex justify-end text-right lg:text-2xl  md:text-xl  text-lg text-gray-800 font-irSans">

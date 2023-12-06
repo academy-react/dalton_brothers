@@ -19,3 +19,15 @@ export const deleteArticleLike = async (deleteEntityId) => {
     console.log(error);
   }
 };
+
+export const deleteArticleSave = async (deleteEntityId) => {
+  try {
+    const response = await http.delete("/News/DeleteFavoriteNews", {
+      data: deleteEntityId,
+      headers: { "Content-Type": "application/json" },
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -9,7 +9,7 @@ import {
   IconMessageCircle2,
   IconThumbDown,
 } from "@tabler/icons-react";
-import { addLike } from "../../../../Core/Services/api/course/addLike";
+import { addLike, deleteLike } from "../../../../Core/Services/api/course/addLike";
 import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
 
 const Comments = ({
@@ -43,7 +43,13 @@ const Comments = ({
         setDisLike(false);
         setEmotion(true);
       } else {
-        return;
+
+        const userDeleteLike = await deleteLike(
+          `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
+        )
+        console.log(userDeleteLike,id);
+        setLike(false);
+        // return;
       }
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");

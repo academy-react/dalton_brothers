@@ -47,9 +47,8 @@ const Course = ({
 
   const token = useSelector((state) => state.token.token);
   const colorMode = useSelector((state) => state.theme.theme);
-  
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
 
   const handleSave = async () => {
     const saveData = new FormData();
@@ -86,9 +85,8 @@ const Course = ({
 
     if (token) {
       if (Like == true) {
-        setLike(false);
         try {
-          data.append("courseLikeId", userLikedId);
+          data.append("CourseLikeId", userLikedId);
 
           const result = await http.delete(`/Course/DeleteCourseLike`, {
             data: data,
@@ -97,28 +95,47 @@ const Course = ({
         } catch (error) {
           toast.error(error);
         }
+        setLike(false);
       } else {
-        setLike(true);
         const userLike = await addLike(
-          `/Course/AddCourseDissLike?CourseId=${courseId}`
+          `/Course/AddCourseLike?CourseId=${courseId}`
         );
         console.log(userLike);
-        return userLike;
+        setLike(true);
+        setDisLike(false)
       }
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
+  console.log(userIsLiked,currentUserDissLike);
   const handleDisLike = async () => {
+    const data = new FormData();
+
     if (token) {
       if (DisLike == true) {
+        try {
+          data.append("CourseLikeId", userLikedId);
+
+          const result = await http.delete(`/Course/DeleteCourseLike`, {
+            data: data,
+          });
+          console.log(result);
+        } catch (error) {
+          toast.error(error);
+        }
         setDisLike(false);
         try {
         } catch (error) {
           toast.error(error);
         }
       } else {
+        const userDisLike = await addLike(
+          `/Course/AddCourseDissLike?CourseId=${courseId}`
+        );
+        console.log(userDisLike);
         setDisLike(true);
+        setLike(false);
       }
     } else {
       toast.error("برای ذیس لایک باید در سایت ثبت نام کنید");
@@ -163,7 +180,7 @@ const Course = ({
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start gap-1">
             {Like ? (
               <img
-                className="w-[30px] cursor-pointer scale-110"
+                className="w-[30px] cursor-pointer "
                 dir="ltr"
                 src={likeCheck}
                 alt=""
@@ -190,7 +207,7 @@ const Course = ({
                 onClick={() => handleDisLike()}
               />
               <span className="w-[30px] text-center inline-block">
-                {dissLikeCount + 1}
+                {dissLikeCount}
               </span>
             </div>
           ) : (

@@ -29,7 +29,7 @@ const ArticleDetail = () => {
         <AboutArticle {...item} insertDate={item.insertDate.split('T')[0].replaceAll("-"," / ")}  updateDate={item.updateDate.split('T')[0].replaceAll("-"," / ")}/>
         <ArticleIntroduction {...item}/>
         <ArticleComments />
-        <RelatedArticle />
+        <RelatedArticle addUserFullName={item.addUserFullName} id={item.id}/>
       </div>
     )
   );
@@ -45,12 +45,6 @@ const ArticleDetail = () => {
         <ScrollToTop />
       </div>
       {item}
-      {/* <div className="flex flex-col gap-[100px]">
-        <AboutArticle />
-        <ArticleIntroduction />
-        <ArticleComments />
-        <RelatedArticle />
-      </div> */}
     </motion.div>
   );
 };
