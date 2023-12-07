@@ -83,7 +83,7 @@ const Comments = ({
 
   return (
     <div
-      className={`xl:w-[1290px] lg:w-[1020px]  md:w-[780px]  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className}`}
+      className={`xl:w-[1290px] max-lg:w-auto max  md:w-[780px] max-sm:pr-0  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className}`}
     >
       <div className="relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3">
         {/*--------------------------------------------------------------- user img --------------------------------------------------------------- */}
