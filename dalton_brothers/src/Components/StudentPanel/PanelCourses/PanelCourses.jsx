@@ -33,17 +33,14 @@ const PanelCourses = () => {
               courseList.filter((ele) => ele.courseId === el.courseId)
             )
           : [];
-      console.log(reservedCoursesArray[0]);
-      const reservedCourses = reservedCoursesArray.map((el) => el[1]);
+      console.log(reservedCoursesArray);
+      const reservedCourses = reservedCoursesArray.map((el) => el[0]);
       const afterDelete =
-        reservedCoursesArray.length !== 0
-          ? reservedCoursesArray[0].filter(
-              (el) => el.courseId !== courseDeleteId
-            )
+        reservedCourses.length !== 0
+          ? reservedCourses.filter((el) => el.courseId !== courseDeleteId)
           : [];
       setReservedCourses(afterDelete ? afterDelete : []);
-      console.log(afterDelete);
-      console.log(courseDeleteId);
+      console.log(reservedCourses);
     }
   };
   function SumCalculator() {
