@@ -22,7 +22,7 @@ const CourseComments = ({ id }) => {
   }, [emotion]);
 
   return (
-    <div className=" w-full py-[30px] flex flex-col mb-[10px] relative">
+    <div className=" w-full py-[30px] flex flex-col  relative">
       {replay && (
         <ReplayComment
           setReplay={setReplay}

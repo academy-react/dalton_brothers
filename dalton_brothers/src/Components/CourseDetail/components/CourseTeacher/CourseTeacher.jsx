@@ -8,7 +8,7 @@ const CourseTeacher = () => {
 
   return (
     <div className=" w-full flex flex-col gap-5 ">
-      <p className="text-center py-8 font-bold text-2xl "> اساتید دوره </p>
+      <p className="text-center py-8 font-bold text-2xl dark:text-mode-50 "> اساتید دوره </p>
       <div>
         <div className=" mx-auto flex  flex-row-reverse flex-wrap justify-center gap-[50px] items-center">
           {data.map((master) => (

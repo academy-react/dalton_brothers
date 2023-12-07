@@ -38,28 +38,28 @@ const AboutCourse = ({
     console.log(result);
   };
   return (
-    <div className="h-[500px] bg-pallete-100 bg-opacity-20 w-full mt-10 flex justify-center items-center px-10 pt-10 pb-5   ">
+    <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-10 flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto   ">
       {/* ------------------------  title  & info -------------------------------------------------- */}
 
       {/*--------------------- title  & teacher  ------------------------------- */}
       <div className="w-3/5 h-full flex flex-col items-end gap-10 ">
-        <p className="text-end font-irSBold text-2xl text-mode-800">
+        <p className="text-end font-irSBold text-2xl text-mode-800 dark:text-mode-50">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
         </p>
-        <div className="flex justify-start items-center text-mode-700 flex-row-reverse gap-3  font-irSBold">
-          <IconUserCheck className="text-mode-700 w-8 h-8 " />
+        <div className="flex justify-start items-center text-mode-700 dark:text-mode-200 dark:opacity-90 flex-row-reverse gap-3  font-irSBold">
+          <IconUserCheck className="text-mode-700 w-8 h-8 dark:text-mode-200  dark:opacity-90 " />
           مدرس دوره
         </div>
         {/* ---------------------------------------------------- */}
 
         {/* capility & rate & info */}
-        <div className="flex justify-center items-center flex-row-reverse  bg-white w-4/5 h-[250px] rounded-[30px]">
+        <div className="flex justify-center items-center flex-row-reverse  bg-white dark:bg-mode-700 w-4/5 h-[250px] rounded-[30px]">
           <div className="w-2/5 h-full  flex flex-col justify-evenly items-center">
-            <div className="bg-mode-50 w-28 h-28 rounded-full flex flex-col justify-center items-center gap-2 text-mode-700 font-irSans text-sm">
-              <p className="text-mode-800 font-irSBold text-xl"> 80%</p>
+            <div className="bg-mode-50 dark:bg-mode-700  border-2  border-mode-50 dark:border-DarkPallete-100 dark:text-mode-200 w-28 h-28 rounded-full flex flex-col justify-center items-center gap-2 text-mode-700 font-irSans text-sm">
+              <p className="text-mode-800 font-irSBold text-xl dark:text-mode-200 "> 80%</p>
               ظرفیت پرشده
             </div>
-            <p className="text-mode-700 font-irSans text-lg">4/5</p>
+            <p className="text-mode-700 font-irSans text-lg dark:text-mode-200">4/5</p>
             <div className="flex justify-center items-center">
               <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
@@ -67,9 +67,9 @@ const AboutCourse = ({
               <IconStarFilled className="text-pallete-100" />
               <IconStar className="text-pallete-100" />
             </div>
-            <p className="text-mode-700 font-irSans text-base flex flex-row-reverse gap-2 ">
+            <p className="text-mode-700 dark:text-mode-200 font-irSans text-base flex flex-row-reverse gap-2 ">
               {" "}
-              <p>92</p>نفر{" "}
+              <span >92</span>نفر{" "}
             </p>
           </div>
 
@@ -77,28 +77,28 @@ const AboutCourse = ({
           {/* ----------------------------  info --------------------------------------- */}
           <div className="w-3/5 h-full flex flex-col gap-6 items-end justify-center font-irSans">
             {/* one item */}
-            <div className="text-mode-700  flex flex-row-reverse ">
+            <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200 ">
               : وضعیت
-              <span className="font-irSBold mr-2">شروع نشده</span>{" "}
+              <span className="font-irSBold mr-2 dark:text-mode-50">شروع نشده</span>{" "}
             </div>
             {/* --------------- */}
             {/* one item */}
-            <div className="text-mode-700  flex flex-row-reverse ">
+            <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               : (تومان) هزینه دوره
-              <span className="font-irSBold mr-2 flex "> 500000 </span>{" "}
+              <span className="font-irSBold mr-2 flex dark:text-mode-50 "> 500000 </span>{" "}
             </div>
             {/* --------------- */}
             {/* one item */}
-            <div className="text-mode-700  flex flex-row-reverse ">
+            <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               :  تاریخ شروع دوره{" "}
-              <span className="font-irSBold mr-2">1402 / 08 /03</span>{" "}
+              <span className="font-irSBold mr-2 dark:text-mode-50">1402 / 08 /03</span>{" "}
             </div>
             {/* --------------- */}
 
             {/* one item */}
-            <div className="text-mode-700  flex flex-row-reverse ">
+            <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               :  سطح دوره{" "}
-              <span className="font-irSBold mr-2">پیشرفته</span>{" "}
+              <span className="font-irSBold mr-2 dark:text-mode-50">پیشرفته</span>{" "}
             </div>
             {/* --------------- */}
 
@@ -123,27 +123,27 @@ const AboutCourse = ({
         <div className="h-[30%] w-[80%] m-auto flex justify-between items-center flex-row-reverse ">
           <div className="w-full flex justify-end">
             <button
-              className="  bg-pallete-100  text-xl px-16 py-2 rounded-[40px] text-white font-irSans"
+              className="  bg-pallete-100 dark:bg-DarkPallete-100  text-xl px-16 py-2 rounded-[40px] text-white font-irSans"
               onClick={() => handleClick()}
             >
               ثبت نام
             </button>
           </div>
           <div className="h-full w-full flex justify-start items-center gap-3 ">
-            <div className="w-12 h-12 bg-white rounded-full flex justify-center items-center  cursor-pointer">
-              <IconBookmarks className="text-mode-700" />
+            <div className="w-12 h-12 bg-white dark:bg-mode-700 rounded-full flex justify-center items-center  cursor-pointer">
+              <IconBookmarks className="text-mode-700 dark:text-mode-50" />
             </div>
             <div className="flex justify-center items-center gap-2">
-              <div className="w-20 h-[44px] bg-white rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer">
-                <IconThumbUp className="text-mode-700 w-6 h-6" stroke={1.8} />
-                <p className="text-mode-700 "> 25</p>
+              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer">
+                <IconThumbUp className="text-mode-700 dark:text-mode-50 w-6 h-6" stroke={1.8} />
+                <p className="text-mode-700 dark:text-mode-50"> 25</p>
               </div>
-              <div className="w-20 h-[44px] bg-white rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer ">
+              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer ">
                 <IconThumbDown
-                  className="text-mode-700 w-6 h-6 relative top-[2px]"
+                  className="text-mode-700 dark:text-mode-50 w-6 h-6 relative top-[2px]"
                   stroke={1.8}
                 />
-                <p className="text-mode-700 "> 10</p>
+                <p className="text-mode-700 dark:text-mode-50 "> 10</p>
               </div>
             </div>
           </div>

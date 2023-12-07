@@ -1,12 +1,17 @@
 import React from 'react'
 
 import style from "../../../LayOut/layOut.module.css";
+import { useSelector } from 'react-redux';
 
 
 const GoToCorse = () => {
+
+  const colorMode = useSelector((state) => state.theme.theme);
+
+
   return (
     <div className="flex flex-row-reverse justify-center items-center gap-[10px] max-lg:flex-col-reverse ">
-      <div className="border-2 border-[#eaeaea] flex flex-row-reverse justify-start items-center    p-[10px] gap-[10px] rounded-full font-irSans text-slate-500 text-lg  max-lg:flex-col max-lg:rounded-t-md max-lg:rounded-b-3xl  ">
+      <div className="bg-mode-50 dark:bg-mode-800 flex flex-row-reverse justify-start items-center    p-[10px] gap-[10px] rounded-full font-irSans text-slate-500 text-lg  max-lg:flex-col max-lg:rounded-t-md max-lg:rounded-b-3xl  ">
         <input
           type="radio"
           name="GoTO"
@@ -15,13 +20,13 @@ const GoToCorse = () => {
           onClick={()=> document.documentElement.scrollTop = "1200"}
         //   onChange={(e) => e.target.checked && setSort("addTime")}
         />
-        <label htmlFor="intro" className={style.sort}>
+        <label htmlFor="intro" className={   style.sort}>
            معرفی
         </label>
         <input
           type="radio"
           name="GoTO"
-          className={style.inp}
+          className={ colorMode==="dark" ? style.inp  : style.darkModeInp}
           id="need"
           onClick={()=> document.documentElement.scrollTop = "1600"}
         //   onChange={(e) => e.target.checked && setSort("view")}

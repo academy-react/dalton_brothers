@@ -5,13 +5,13 @@ const CourseIntroduction = ({describe}) => {
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
-        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold">
+        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold dark:text-mode-50">
           {" "}
           معرفی دوره{" "}
         </h4>
         <div className=" px-[40px] py-[10px] ">
           {/* <h5 className=" text-xl text-right font-bold"> پیش گفتار </h5> */}
-          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
+          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans dark:text-mode-200">
             {describe}
           </p>
         </div>
