@@ -10,7 +10,7 @@ import {
   IconThumbDown,
 } from "@tabler/icons-react";
 import { addLike, deleteLike } from "../../../../Core/Services/api/course/addLike";
-import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
+// import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
 import { deleteArticleCommentLike } from "../../../../Core/Services/api/course/addSave";
 import { CommentArtReplays } from "../../../CourseDetail/components/CommentArtReplays";
 
