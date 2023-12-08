@@ -30,7 +30,7 @@ const CourseComments = ({ id }) => {
     getCourseComment();
   }, [emotion]);
   return (
-    <div className=" w-full py-[30px] flex flex-col mb-[10px] relative">
+    <div className=" w-full py-[30px] flex flex-col  relative">
       {replay && (
         <ReplayComment
           setReplay={setReplay}
@@ -40,7 +40,7 @@ const CourseComments = ({ id }) => {
           emotion={emotion}
         />
       )}
-      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold">
+      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold dark:text-mode-50">
         نظرات
       </h2>
       {!token && (
@@ -49,8 +49,8 @@ const CourseComments = ({ id }) => {
           نام نمایید یا وارد شوید
         </p>
       )}
-      <div className="w-full my-[50px] grid grid-col justify-items-end gap-12 relative">
-        <div className="w-fit h-[600px] overflow-scroll grid grid-col justify-items-end gap-12  pt-[50px]">
+      <div className="w-full my-[50px] grid grid-col justify-items-center gap-12">
+        <div className="w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ">
           {/* each comment */}
           {comment.length == 0 ? 
           <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">تاکنون کامنتی در این مورد ثبت نشده  </div>
@@ -66,7 +66,7 @@ const CourseComments = ({ id }) => {
           ))}
         </div>
         <button
-          className=" lg:px-8 lg:py-4 md:px-6 md:py-3 px-4 py-2 text-xl bg-orange-400 m-auto rounded-[20px] cursor-pointer"
+          className=" lg:px-8 lg:py-4 md:px-6 md:py-3 px-4 py-2 text-xl font-irSBold bg-white border-2 border-pallete-100 dark:border-DarkPallete-100 dark:bg-mode-900 m-auto rounded-full cursor-pointer text-pallete-100 dark:text-DarkPallete-100"
           onClick={() => setModal(!modal)}
         >
           {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}

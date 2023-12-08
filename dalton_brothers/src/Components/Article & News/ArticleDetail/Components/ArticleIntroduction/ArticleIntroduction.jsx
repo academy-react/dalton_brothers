@@ -21,7 +21,7 @@ const ArticleIntroduction = ({id}) => {
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
-        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-bold">
+        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-bold dark:text-mode-50">
           {" "}
           متن خبر{" "}
         </h4>

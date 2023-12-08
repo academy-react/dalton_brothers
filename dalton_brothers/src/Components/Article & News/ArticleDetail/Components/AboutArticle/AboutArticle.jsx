@@ -89,10 +89,10 @@ const AboutArticle = ({
     //     </p>
     //   </div>
     // </div>
-    <div className="w-full h-[480px] mt-32 bg-[#fEF3C7] rounded-[20px] flex">
-      <div className="w-[40%] h-full  flex justify-center items-center">
-        <div className="w-[660px] h-[640px] bg-pallete-100 opacity-95 rounded-full flex justify-center items-center">
-          <div className=" w-[95%] h-[95%]  bg-gray-300 rounded-full">
+    <div className="w-full h-[480px] mt-32 bg-pallete-50 dark:bg-mode-800  flex max-xl:flex-col max-xl:justify-center max-xl:items-center max-xl:h-auto max-xl:py-10">
+      <div className="w-[40%] max-lg:w-auto  h-full  flex justify-center items-center">
+        <div className="w-[660px] h-[640px] max-2xl:w-[500px] max-2xl:h-[500px] max-xl:w-[400px] max-xl:h-[400px] bg-pallete-100 dark:bg-DarkPallete-100 opacity-95 rounded-full flex justify-center items-center">
+          <div className=" w-[95%] h-[95%]   bg-gray-300 rounded-full">
             <img
               className="w-full h-full flex justify-center rounded-full items-center"
               src={currentImageAddressTumb ? true : newsImage}
@@ -101,67 +101,67 @@ const AboutArticle = ({
           </div>
         </div>
       </div>
-      <div className="w-[60%] h-full  flex flex-col p-7 text-right">
+      <div className="w-[60%] max-xl:w-full max-xl:gap-8  h-full  flex flex-col p-7 text-right">
         <div className=" w-full h-[45%] flex flex-col ">
-          <h4 className="mb-5 mt-1 text-xl  text-gray-600 font-irSBold ">
+          <h4 className="mb-5 mt-1 text-xl  text-gray-600 dark:text-mode-50 font-irSBold ">
             {title}
           </h4>
-          <p className="text-xl text-gray-500 font-irSans leading-8">
+          <p className="text-xl text-gray-500 dark:text-mode-200 font-irSans leading-8">
             {miniDescribe}
           </p>
         </div>
-        <div className="  w-full h-[17%] flex flex-row-reverse">
-          <div className=" w-1/3 h-full flex justify-center items-center">
-            <div className="w-[160px] h-[60px]">
+        <div className="  w-full h-[17%] flex flex-row-reverse ">
+          <div className=" w-[110px] h-full flex justify-end items-center">
+            <div className="w-[120px] h-[50px]">
               {Like ? (
                 <div
-                  className="bg-red-300 w-full h-full rounded-[25px] flex justify-center items-center cursor-pointer pl-1"
+                  className="bg-red-300 w-full h-full rounded-full flex justify-center items-center cursor-pointer pl-1"
                   onClick={() => handleLike()}
                 >
-                  <div className="w-4/5 h-4/5 flex ">
+                  <div className="w-4/5 h-4/5 flex justify-center items-center ">
                     <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-2xl">
                       {" "}
                       {currentLikeCount}{" "}
                     </div>
                     <IconHeartFilled
                       strokeWidth={1.5}
-                      className="text-red-500 w-1/2 h-full cursor-pointer "
+                      className="text-red-500 w-[35px] h-[35px] cursor-pointer "
                     ></IconHeartFilled>
                   </div>
                 </div>
               ) : (
                 <div
-                  className="bg-white w-full h-full rounded-[25px] flex justify-center items-center cursor-pointer pl-1"
+                  className="bg-white w-full h-full rounded-full flex justify-center items-center cursor-pointer pl-1"
                   onClick={() => handleLike()}
                 >
-                  <div className="w-4/5 h-4/5 flex">
+                  <div className="w-4/5 h-4/5 flex justify-center items-center">
                     <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-2xl">
                       {" "}
                       {currentLikeCount}{" "}
                     </div>
                     <IconHeart
                       strokeWidth={1.5}
-                      className="text-red-500 w-1/2 h-full cursor-pointer"
+                      className="text-red-500 w-[35px] h-[35px] cursor-pointer"
                     ></IconHeart>
                   </div>
                 </div>
               )}
             </div>
           </div>
-          <div className=" w-1/3 h-full flex justify-center items-center font-irSans text-2xl">
-            <div className="w-1/2  h-2/3 flex ">
-              <div className="w-1/3 text-right flex justify-end items-center pt-[2px] text-mode-700 dark:text-mode-200">
+          <div className=" w-[200px] h-full flex justify-center items-center font-irSans text-2xl">
+            <div className="w-1/2 max-md:w-full  h-2/3 flex justify-center items-center ">
+              <div className="w-1/3 text-right text-xl flex justify-end items-center pt-[2px] text-mode-700 dark:text-mode-200 ">
                 نفر
               </div>
-              <div className="w-1/3  flex justify-center items-center text-lg pt-[2px] text-mode-700 dark:text-mode-200">
+              <div className="w-[40px]  flex justify-center items-center text-xl pt-[2px] text-mode-700 dark:text-mode-200 font-irSans">
                 {" "}
                 {currentView}{" "}
               </div>
-              <IconEye className="w-1/3 h-full text-mode-700 dark:text-mode-200 flex justify-center items-center pl-2"></IconEye>
+              <IconEye className="w-[50px] h-[50px] text-mode-700 dark:text-mode-200 flex justify-center items-center pl-2"></IconEye>
             </div>
           </div>
-          <div className=" w-1/3 h-full flex justify-center items-center font-irSans text-2xl">
-            <div className="w-1/3 h-2/3 flex justify-end items-center ">
+          <div className=" w-[100px] h-full flex justify-center items-center font-irSans text-2xl">
+            <div className="w-[100px] h-2/3 flex justify-end items-center ">
               <div className=" text-orange-300 flex justify-center items-center pt-1">
                 {" "}
                 {currentRate}{" "}
@@ -173,8 +173,8 @@ const AboutArticle = ({
             </div>
           </div>
         </div>
-        <div className=" w-full h-[38%] flex flex-row-reverse">
-          <div className=" flex w-1/2 h-full justify-start items-center flex-row-reverse">
+        <div className=" w-full h-[38%] flex flex-row-reverse justify-center items-center max-md:flex-col">
+          <div className=" flex w-1/2 max-md:w-full h-full justify-start items-center flex-row-reverse">
             <div className="w-32 h-32 bg-yellow-300 rounded-full mr-1">
               <img
                 src={currentImageAddress}
@@ -182,28 +182,28 @@ const AboutArticle = ({
                 className="w-full h-full flex justify-center items-center text-center"
               ></img>
             </div>
-            <div className="w-80 h-24 flex flex-col mr-5 font-irSans text-xl text-gray-600">
+            <div className="w-80 h-24 flex flex-col mr-5 font-irSans text-xl text-gray-600 dark:text-mode-100">
               <div className="w-full h-1/2  flex items-center justify-end">
                 {addUserFullName}
               </div>
-              <div className="w-full h-1/2  flex items-center justify-end">
+              <div className="w-full h-1/2   flex items-center justify-end dark:text-mode-300">
                 نویسنده منتخب
               </div>
             </div>
           </div>
           <div className=" flex border h-3/4 my-auto border-gray-400"></div>
-          <div className=" flex w-1/2 h-full pr-5 items-center justify-end font-irSans text-xl">
-            <div className="w-4/5 h-4/5 flex flex-col justify-evenly text-gray-500">
-              <div className="w-full h-1/4 flex">
+          <div className=" flex w-1/2 max-md:w-full h-full pr-5 items-center justify-end font-irSans max-md:justify-center text-xl">
+            <div className="w-4/5 max-md:w-full max-md:h-full max-md:mt-6 h-4/5 flex flex-col justify-evenly text-gray-500 gap-3">
+              <div className="w-full h-1/4 flex max-md:justify-end">
                 <p className="h-full w-[160px] flex justify-center items-center pl-2 pt-1 dark:text-mode-300">
                   {insertDate}
                 </p>
-                <p className="h-full w-[130px] text-right dark:text-mode-300">
+                <p className="h-full w-[130px] text-right dark:text-mode-300 ">
                   {" "}
                   : انتشار خبر{" "}
                 </p>
               </div>
-              <div className="w-full h-1/4 flex">
+              <div className="w-full h-1/4 flex max-md:justify-end ">
                 <p className="h-full w-[160px] flex justify-center items-center pl-2 pt-1 dark:text-mode-300">
                   {updateDate}
                 </p>

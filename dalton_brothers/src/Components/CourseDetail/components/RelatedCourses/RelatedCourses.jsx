@@ -33,7 +33,7 @@ const RelatedCourses = ({ teacherName,courseId}) => {
         <></>
       ) : (
         <div className=" w-full">
-          <p className="text-center h-[80px] w-full font-bold text-2xl mb-[50px] p-[30px]">
+          <p className="text-center h-[80px] w-full font-bold text-2xl mb-[50px] p-[30px] dark:text-mode-50">
             {" "}
             دیگر دوره های این استاد{" "}
           </p>

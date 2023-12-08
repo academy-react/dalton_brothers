@@ -69,7 +69,7 @@ const Layout = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <header className="flex flex-col gap-[80px] items-center mb-[80px] ">
+        <header className="flex flex-col gap-[40px] items-center mb-[30px] ">
           <LayHeader
             course={"دوره ها"}
             news={"اخبار و مقالات"}
