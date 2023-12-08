@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import toast from "react-hot-toast";
 
 import {
@@ -21,14 +21,18 @@ import { loginValidation } from "../../../Core/Validation/yup";
 
 import { TbEye, TbEyeOff } from "react-icons/tb";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
+import { onUserChange } from "../../../Redux/userDetail";
 
 const SignInForm = () => {
+  const [User, setUser] = useState(false);
   const [show, setShow] = useState(false);
   const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  console.log(remember);
+  
+  // console.log(remember);
+  // console.log(useSelector((state)=> state.userDetail));
+  console.log(User);
 
   const handleToggle = async (value) => {
     // ---------------- send to API ----------------
@@ -39,19 +43,24 @@ const SignInForm = () => {
     };
 
     const user = await loginAPI(userObj);
+    setUser(user);
+    // console.log(user);
 
     if (user.success) {
+      dispatch(onUserChange(user))
       if (remember) {
         setItem("token", user.token);
         setItem("userId", user.id);
         setItem("userRole", user.roles);
         setItem("phoneNumber", user.phoneNumber);
+        setItem("userDetail", user);
         dispatch(onTokenChange(getItem("token")));
       } else {
         setItem("token", user.token);
         setItem("userId", user.id);
         setItem("userRole", user.roles);
         setItem("phoneNumber", user.phoneNumber);
+        setItem("userDetail", user);
         dispatch(onTokenChange(user.token));
         window.onbeforeunload = function () {
           clearStorage();
@@ -65,7 +74,7 @@ const SignInForm = () => {
       const userName = await basicGet(
         "/SharePanel/GetProfileInfo"
       ) 
-      console.log(userName);
+      // console.log(userName);
     navigate("/");
     toast.success(`${ userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `);
   };

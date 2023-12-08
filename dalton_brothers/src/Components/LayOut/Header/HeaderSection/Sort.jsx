@@ -36,7 +36,7 @@ const LaySort = () => {
           className={ colorMode=== "dark"  ? style.darkModeInp :  style.inp}
           id="mostView"
           onChange={(e) =>
-            e.target.checked && dispatch(onSortChange("lastUpdate"))
+            e.target.checked && dispatch(onSortChange("courseRate"))
           }
         />
         <label htmlFor="mostView" className={style.sort}>
@@ -47,7 +47,7 @@ const LaySort = () => {
           name="sort"
           className={ colorMode=== "dark"  ? style.darkModeInp :  style.inp}
           id="mostFavorite"
-          onChange={(e) => e.target.checked && dispatch(onSortChange("like"))}
+          onChange={(e) => e.target.checked && dispatch(onSortChange("likeCount"))}
         />
         <label htmlFor="mostFavorite" className={style.sort}>
           محبوب ترین

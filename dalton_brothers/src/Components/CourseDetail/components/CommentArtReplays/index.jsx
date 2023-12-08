@@ -4,7 +4,7 @@ import { Comments } from "../../../Common/Comment/Comments/Comments";
 import { ReplayComment } from "../../../Common/Comment/ReplayComment";
 import { ArticComments } from "../../../Common/Comment/ArticleComments";
 
-const CommentReplays = ({ id, courseId, className }) => {
+const CommentArtReplays = ({ id,className }) => {
   const [replayList, setReplayList] = useState([]);
   const [emotion, setEmotion] = useState();
   const [replay, setReplay] = useState(false);
@@ -12,7 +12,7 @@ const CommentReplays = ({ id, courseId, className }) => {
   const [text, setText] = useState("نمایش پاسخ ها");
   const handleClick = async () => {
     const result = await basicGet(
-      `/Course/GetCourseReplyCommnets/${courseId}/${id}`
+      `/News/GetRepliesComments?Id=${id}`
     );
     setReplayList(result);
   };
@@ -65,4 +65,4 @@ const CommentReplays = ({ id, courseId, className }) => {
   );
 };
 
-export { CommentReplays };
+export { CommentArtReplays };

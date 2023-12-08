@@ -10,6 +10,7 @@ import trigger from "./Filter/trigger";
 import token from "./token";
 import money from "./money";
 import theme from "./Theme";
+import userDetail from "./userDetail";
 
 const store = configureStore({
   reducer: {
@@ -23,6 +24,7 @@ const store = configureStore({
     trigger,
     money,
     theme,
+    userDetail,
     
   },
 });

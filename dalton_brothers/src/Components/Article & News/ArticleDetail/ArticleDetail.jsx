@@ -28,7 +28,7 @@ const ArticleDetail = () => {
       <div className="flex flex-col gap-[100px]" key={index}>
         <AboutArticle {...item} insertDate={item.insertDate.split('T')[0].replaceAll("-"," / ")}  updateDate={item.updateDate.split('T')[0].replaceAll("-"," / ")}/>
         <ArticleIntroduction {...item}/>
-        <ArticleComments />
+        <ArticleComments id={item.id}/>
         <RelatedArticle addUserFullName={item.addUserFullName} id={item.id}/>
       </div>
     )
