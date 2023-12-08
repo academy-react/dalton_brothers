@@ -6,8 +6,10 @@ import toast from "react-hot-toast";
 import style from "../../../Landing/Header/header.module.css";
 import ArticleImage from "../../../../Assets/Images/article.png";
 import ArticleWriter from "../../../../Assets/Images/articleWriter.png";
-import likeCheck from "../../../../Assets/Images/likeCheck.png";
-import like from "../../../../Assets/Images/like.png";
+import disLikeCheck from "../../../../Assets/Images/icons8-dislike-48(3).png";
+import disLike from "../../../../Assets/Images/icons8-dislike-48(4).png";
+import likeCheck from "../../../../Assets/Images/icons8-facebook-like-48.png";
+import like from "../../../../Assets/Images/icons8-facebook-like-48(1).png";
 import comment from "../../../../Assets/Images/comment.png";
 import bookmark from "../../../../Assets/Images/bookMark.png";
 import bookmarkCheck from "../../../../Assets/Images/bookmarkCheck.png";
@@ -25,7 +27,7 @@ import {
   IconHeartFilled,
   IconArrowNarrowLeft,
 } from "@tabler/icons-react";
-import { deleteArticleLike } from "../../../../Core/Services/api/course/addSave";
+import { deleteArticleLike, deleteArticleSave } from "../../../../Core/Services/api/course/addSave";
 
 const Article = ({
   miniDescribe,
@@ -41,25 +43,73 @@ const Article = ({
   currentLikeCount,
   currentUserIsLike,
   likeId,
+  currentDissLikeCount,
+  currentUserIsDissLike,
+  isCurrentUserFavorite,
+  currentUserFavoriteId,
 }) => {
+  const [Save, setSave] = useState(isCurrentUserFavorite);
   const [Like, setLike] = useState(currentUserIsLike);
+  const [DissLike, setDissLike] = useState(currentUserIsDissLike);
   const token = useSelector((state) => state.token.token);
 
   const navigate = useNavigate();
+
+  const handleSave = async () => {
+    if (token) {
+      if (Save == true) {
+        setSave(false);
+        const obj = {
+          deleteEntityId: currentUserFavoriteId,
+        };
+        const userDeleteArticleLike = await deleteArticleSave(obj);
+        console.log(userDeleteArticleLike);
+      } else {
+        const userIsSave = await addLike(`/News/AddFavoriteNews?NewsId=${id}`);
+        console.log(userIsSave);
+        setSave(true);
+      }
+    } else {
+      toast.error("برای ذخیره کردن باید در سایت ثبت نام کنید");
+    }
+  };
+
+  const handleDissLike = async () => {
+    if (token) {
+      if (DissLike == true) {
+        setDissLike(false);
+         const obj = {
+           deleteEntityId: likeId,
+         };
+         const userDeleteArticleLike = await deleteArticleLike(obj);
+         console.log(userDeleteArticleLike);
+      } else {
+        const userIsDissLike = await addLike(`/News/NewsDissLike/${id}`);
+        setDissLike(true);
+        setLike(false);
+        console.log(userIsDissLike);
+        return;
+      }
+    } else {
+      toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
+    }
+    console.log(currentUserIsDissLike);
+  };
 
   const handleLike = async () => {
     if (token) {
       if (Like == true) {
         setLike(false);
-        const obj ={
-          deleteEntityId : likeId
-        }
-        const userDeleteArticleLike = await deleteArticleLike(obj)
+        const obj = {
+          deleteEntityId: likeId,
+        };
+        const userDeleteArticleLike = await deleteArticleLike(obj);
         console.log(userDeleteArticleLike);
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
         console.log(userIsLike);
         setLike(true);
+        setDissLike(false);
         return;
       }
     } else {
@@ -67,12 +117,11 @@ const Article = ({
     }
   };
 
-
   return (
     <div className="w-[780px]  border rounded-[30px] flex-col bg-mode-50 text-mode-900 dark:bg-mode-800 dark:border-none p-4 pb-0">
       <div className=" w-full h-44 flex">
         <div className=" h-full w-3/5 flex-col pr-4">
-          <h3 className=" w-full h-1/4 flex items-center justify-end font-irSBold text-xl dark:text-mode-50" >
+          <h3 className=" w-full h-1/4 flex items-center justify-end font-irSBold text-xl dark:text-mode-50">
             {title}{" "}
           </h3>
           <h5 className=" w-full h-1/4 flex items-center justify-end font-irSans text-lg text-mode-800 dark:text-mode-200">
@@ -103,79 +152,137 @@ const Article = ({
             <p className="h-full w-[160px] flex justify-center items-center pl-2 pt-1 dark:text-mode-300">
               {insertDate}
             </p>
-            <p className="h-full w-[130px] text-right dark:text-mode-300"> : انتشار خبر </p>
+            <p className="h-full w-[130px] text-right dark:text-mode-300">
+              {" "}
+              : انتشار خبر{" "}
+            </p>
           </div>
-          <div className="w-full h-1/4 flex">
+          {/* <div className="w-full h-1/4 flex">
             <p className="h-full w-[160px] flex justify-center items-center pl-2 pt-1 dark:text-mode-300">
               {updateDate}
             </p>
             <p className="h-full w-[130px] text-right dark:text-mode-300"> : آپدیت خبر </p>
-          </div>
-        </div>
-        <div className="w-[180px]  h-full flex relative ">
-          <div className="h-3/5 border border-mode-700 dark:border-mode-300 border-r-0 absolute right-0 top-6"></div>
-          <div className="w-4/5 h-1/2 m-auto  flex flex-row-reverse items-center">
-            <div className="h-3/5 w-1/4 flex justify-center items-center">
+          </div> */}
+          <div className="w-full h-1/4  flex flex-row-reverse items-center">
+            <div className=" flex justify-center items-center">
               <IconUserEdit
                 strokeWidth={1.5}
                 className="w-full h-full text-mode-800 dark:text-mode-100"
               ></IconUserEdit>
             </div>
-            <div className="h-full w-3/4 whitespace-nowrap flex items-center mr-1 text-mode-800 dark:text-mode-100">
-              {addUserFullName && handleDescription(addUserFullName, 11)}
+            <div className="h-full w-full whitespace-nowrap flex items-center justify-center text-mode-800 dark:text-mode-100">
+              {addUserFullName && handleDescription(addUserFullName, 15)}
             </div>
           </div>
         </div>
-        <div className="w-[130px] h-1/3 flex flex-row-reverse items-center">
-          <div className="w-1/2 h-2/3 flex flex-row-reverse">
-            <div className="w-1/2 text-orange-300 flex justify-center items-center text-lg pt-[3px]">
-              {" "}
-              {currentRate}{" "}
+        <div className="w-[190px] h-full flex justify-center items-center relative">
+          <div className=" h-1/3 w-2/5 flex justify-center items-center">
+            <IconEye className="w-7 h-7"></IconEye>
+            <div className="text-center text-xl ml-1 pt-1">
+              {currentView}
             </div>
-            <IconStarFilled
-              className="w-1/2 text-orange-300 flex justify-center items-center pl-2"
-              fill="orange-300"
-            ></IconStarFilled>
           </div>
-          <div className="w-1/2  h-2/3 flex flex-row-reverse">
-            <div className="w-1/2  flex justify-center items-center text-lg pt-[2px] text-mode-700 dark:text-mode-200">
-              {" "}
-              {currentView}{" "}
+          <div className=" h-1/3 w-2/5 flex justify-center items-center">
+            <IconStarFilled className="w-7 h-7 text-orange-300" ></IconStarFilled>
+            <div className="text-center text-xl ml-1 text-orange-300 pt-1">
+              {currentRate}
             </div>
-            <IconEye className="w-1/2 h-full text-mode-700 dark:text-mode-200 flex justify-center items-center pl-2"></IconEye>
+          </div>
+          <div className="border border-r border-gray-400 h-2/3 absolute right-0"></div>
+        </div>
+        <div className="w-20 h-full flex items-center relative ">
+          <div className="w-full h-1/3 pl-2">
+            {Save ? (
+              <div className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
+                <img
+                  className="w-[30px]"
+                  src={bookmarkCheck}
+                  alt=""
+                 
+                />
+              </div>
+            ) : (
+              <div className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
+                <img
+                  className="w-[30px]  opacity-40"
+                  src={bookmark}
+                  alt=""
+                />
+              </div>
+            )}
           </div>
         </div>
-        <div className="w-[87px] h-[36%] ml-3 mr-1">
-          {Like ? (
+        <div className="w-20 h-[36%] rounded-[20px]  flex flex-row-reverse items-center">
+          {DissLike ? (
             <div
-              className="bg-red-300 w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-              onClick={()=> handleLike()}
+              className="bg-red-300 w-full h-full rounded-[20px] rounded-l flex justify-center items-center cursor-pointer pl-1"
+              onClick={() => handleDissLike()}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
                 <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
                   {" "}
-                  {currentLikeCount}{" "}
+                  {currentDissLikeCount}{" "}
                 </div>
-                <IconHeartFilled
-                  strokeWidth={1.5}
-                  className="text-red-500 w-1/2 h-full cursor-pointer "
-                ></IconHeartFilled>
+                <img
+                  src={disLikeCheck}
+                  alt=""
+                  className="text-red-500 w-1/2 h-full cursor-pointer"
+                ></img>
               </div>
             </div>
           ) : (
             <div
-              className="bg-white w-full h-full rounded-[20px] flex justify-center items-center cursor-pointer pl-1"
-              onClick={()=> handleLike()}
+              className="bg-white w-full h-full rounded-[20px]  rounded-l flex justify-center items-center cursor-pointer pl-1"
+              onClick={() => handleDissLike()}
+            >
+              <div className="w-4/5 h-4/5 flex flex-row-reverse">
+                <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
+                  {" "}
+                  {currentDissLikeCount}{" "}
+                </div>
+
+                <img
+                  src={disLike}
+                  alt=""
+                  className="text-red-500 w-1/2 h-full cursor-pointer"
+                ></img>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="w-20 h-[36%] ml-3 mr-1">
+          {Like ? (
+            <div
+              className="bg-red-300 w-full h-full rounded-[20px] rounded-r flex justify-center items-center cursor-pointer pl-1"
+              onClick={() => handleLike()}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
                 <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
                   {" "}
                   {currentLikeCount}{" "}
                 </div>
-                <IconHeart
-                  strokeWidth={1.5}
-                  className="text-red-500 w-1/2 h-full cursor-pointer"
-                ></IconHeart>
+                <img
+                  src={likeCheck}
+                  alt=""
+                  className="text-red-500 w-1/2 h-full cursor-pointer "
+                ></img>
+              </div>
+            </div>
+          ) : (
+            <div
+              className="bg-white w-full h-full rounded-[20px] rounded-r flex justify-center items-center cursor-pointer pl-1"
+              onClick={() => handleLike()}
+            >
+              <div className="w-4/5 h-4/5 flex flex-row-reverse">
+                <div className=" w-1/2 h-full flex items-center justify-center text-red-500 text-xl">
+                  {" "}
+                  {currentLikeCount}{" "}
+                </div>
+                <img
+                  src={like}
+                  alt=""
+                  className="text-red-500 w-1/2 h-full cursor-pointer "
+                ></img>
               </div>
             </div>
           )}
@@ -203,7 +310,7 @@ const Article = ({
           <img className="w-full h-full" src={currentImageAddressTumb} alt="" />
         </div>
       </div> */}
-{/* 
+      {/* 
       /* <div className=" w-full flex flex-col px-[5px] gap-5 rounded-b-lg mt-1 ">
         <span className="flex flex-row-reverse font-irSBold text-gray-800 ">
           {title}
@@ -240,9 +347,8 @@ const Article = ({
           <Button value={"اطلاعات بیشتر"} className=" !px-[30px] py-[10px] bg-[#fcbf49] rounded-full flex items-center justify-center font-irSans" onClick={()=> navigate(`/newsDetail/${id}`)}>       
             
           </Button> */}
-        {/* </div> */}
-      </div>
-    
+      {/* </div> */}
+    </div>
   );
 };
 

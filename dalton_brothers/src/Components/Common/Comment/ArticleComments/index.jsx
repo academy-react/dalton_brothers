@@ -11,47 +11,48 @@ import {
 } from "@tabler/icons-react";
 import { addLike, deleteLike } from "../../../../Core/Services/api/course/addLike";
 import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
+import { deleteArticleCommentLike } from "../../../../Core/Services/api/course/addSave";
+import { CommentArtReplays } from "../../../CourseDetail/components/CommentArtReplays";
 
-const Comments = ({
+const ArticComments = ({
   className,
-  author,
+  autor,
   describe,
   title,
   likeCount,
-  disslikeCount,
   dissLikeCount,
   id,
-  currentUserEmotion,
-  acceptReplysCount,
-  setEmotion,
+  replyCount,
+  setArticleEmotion,
   pictureAddress,
-  setReplay,
-  setReplayedCommentId,
-  courseId,
+  setArticleReplay,
+  setArticleReplayedCommentId,
   newsId,
+  currentUserLikeId,
   currentUserIsLike,
   currentUserIsDissLike,
 }) => {
-  const location = useLocation();
-  const [like, setLike] = useState();
-  const [DisLike, setDisLike] = useState();
+  const [like, setLike] = useState(currentUserIsLike);
+  const [DisLike, setDisLike] = useState(currentUserIsDissLike);
 
   const token = useSelector((state) => state.token.token);
+
   const handleLike = async () => {
     if (token) {
       if (like == false) {
         const userLike = await addLike(
-          `/Course/AddCourseCommentLike?CourseCommandId=${id}`
+          `/News/CommentLike/${id}`
         );
+        console.log(userLike);
         setLike(true);
         setDisLike(false);
-        setEmotion(true);
+        setArticleEmotion(true);
       } else {
-
-        const userDeleteLike = await deleteLike(
-          `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
-        )
-        console.log(userDeleteLike,id);
+        const obj = {
+          deleteEntityId : currentUserLikeId
+        }
+        const userDeleteLike = await deleteArticleCommentLike(obj)
+        console.log(userDeleteLike);
         setLike(false);
       }
     } else {
@@ -61,58 +62,39 @@ const Comments = ({
 
   const handleDisLike = async () => {
     if (token) {
-      if (location.pathname === `/courseDetail/${courseId}`) {
-        if (DisLike == false) {
-          const userLike = await addLike(
-            `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
-          );
-          setDisLike(true);
-          setLike(false);
-          setEmotion(false);
-        } else {
-          return;
+      if (DisLike == false) {
+        const userDisLike = await addLike(
+          `/News/CommentLike/${id}?LikeType=false`
+        );
+        console.log(userDisLike);
+        setDisLike(true);
+        setLike(false);
+        setArticleEmotion(true);
+      } else {
+        const obj = {
+          deleteEntityId : currentUserLikeId
         }
-      } else if (location.pathname === `/newsDetail/${newsId}`) {
-        if (DisLike == false) {
-          // const userLike = await addLike(
-          //   `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
-          // );
-          setDisLike(true);
-          setLike(false);
-          setEmotion(false);
-        } else {
-          return;
-        }
+        const userDeleteLike = await deleteArticleCommentLike(obj)
+        console.log(userDeleteLike);
+        setDisLike(false);
       }
     } else {
-      toast.error("برای لایک باید در سایت ثبت نام کنید");
+      toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
     }
   };
-  if (location.pathname === `/courseDetail/${courseId}`) {
-    useEffect(() => {
-      if (currentUserEmotion == "-") {
-        setLike(false);
-        setDisLike(false);
-      } else if (currentUserEmotion == "LIKED") {
-        setLike(true);
-        setDisLike(false);
-      } else if (currentUserEmotion == "DISSLIKED") {
-        setLike(false);
-        setDisLike(true);
-      }
-    }, []);
-  } else if (location.pathname === `/newsDetail/${newsId}`) {
-    useEffect(() => {
-      if (currentUserIsLike) {
-        setLike(true);
-        setDisLike(false);
-      }
-      if (currentUserIsDissLike) {
-        setLike(false);
-        setDisLike(true);
-      }
-    }, []);
-  }
+
+  useEffect(() => {
+    // if (currentUserEmotion == "-") {
+    //   setLike(false);
+    //   setDisLike(false);
+    // } else if (currentUserEmotion == "LIKED") {
+    //   setLike(true);
+    //   setDisLike(false);
+    // } else {
+    //   setLike(false);
+    //   setDisLike(true);
+    // }
+  }, []);
 
   return (
     <div
@@ -128,7 +110,7 @@ const Comments = ({
         </div>
         {/*--------------------------------------------------------------- author --------------------------------------------------------------- */}
         <span className="absolute top-[-10%] right-[10%]  text-gray-600 bg-white lg:text-[19px] md:text-xl text-lg text-center font-irSBold px-3">
-          {author}
+          {autor}
         </span>
         {/*--------------------------------------------------------------- title --------------------------------------------------------------- */}
         <div className=" w-full text-right bg-white lg:text-[17px] text-lg text-gray-500 whitespace-nowrap font-irSBold pr-[20px] ">
@@ -150,9 +132,7 @@ const Comments = ({
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
-              <span className="ml-[19px]">
-                {disslikeCount || dissLikeCount}
-              </span>
+              <span className="ml-[19px]">{dissLikeCount}</span>
             </>
           ) : (
             <>
@@ -161,9 +141,7 @@ const Comments = ({
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
-              <span className="ml-[19px]">
-                {disslikeCount || dissLikeCount}
-              </span>
+              <span className="ml-[19px]">{dissLikeCount}</span>
             </>
           )}
         </div>
@@ -196,16 +174,16 @@ const Comments = ({
             strokeWidth="1"
             className="w-full h-[70%] text-gray-800 cursor-pointer"
             onClick={() => {
-              setReplay(true);
-              setReplayedCommentId(id);
+                setArticleReplay(true);
+                setArticleReplayedCommentId(id);
             }}
           />
-          <span className="ml-[17px]">{acceptReplysCount}</span>
+          <span className="ml-[17px]">{replyCount}</span>
         </div>
       </div>
-      {acceptReplysCount > 0 && <CommentReplays id={id} courseId={courseId} />}
+      {replyCount > 0 && <CommentArtReplays id={id} newsId={newsId} />}
     </div>
   );
 };
 
-export { Comments };
+export { ArticComments };

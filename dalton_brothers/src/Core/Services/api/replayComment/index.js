@@ -8,3 +8,12 @@ export const replayComment = async (comment) => {
     console.log(error);
   }
 };
+export const replayArticleCommentData = async (articleData) => {
+  try {
+    const response = await http.post("/News/CreateNewsReplyComment",articleData);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+

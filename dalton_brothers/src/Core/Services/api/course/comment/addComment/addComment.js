@@ -9,3 +9,13 @@ export const addComment = async (url) => {
     return [];
   }
 };
+export const addArticleComment = async (url) => {
+  try {
+    const response = await http.post(`/News/CreateNewsComment`, url);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

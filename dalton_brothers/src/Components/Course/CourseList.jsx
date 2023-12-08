@@ -65,7 +65,7 @@ const CourseList = () => {
     >
       <LayOutHeaders topic={"لیست دوره ها"} />
       <Filter />
-      <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
+      <div className="w-100 flex flex-wrap flex-row-reverse justify-center gap-10 mb-24 ">
         {courseList && courseList.length > 0 ? (
           courseList.map((course, index) => (
             <Course

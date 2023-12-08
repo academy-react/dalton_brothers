@@ -26,14 +26,10 @@ const ArticleDetail = () => {
   const item = ArticleDetail.filter((item) => item.id === params.id).map(
     (item, index) => (
       <div className="flex flex-col gap-[100px]" key={index}>
-        <AboutArticle
-          {...item}
-          insertDate={item.insertDate.split("T")[0].replaceAll("-", " / ")}
-          updateDate={item.updateDate.split("T")[0].replaceAll("-", " / ")}
-        />
-        <ArticleIntroduction {...item} />
-        <CourseComments id={item.id} />
-        <RelatedArticle />
+        <AboutArticle {...item} insertDate={item.insertDate.split('T')[0].replaceAll("-"," / ")}  updateDate={item.updateDate.split('T')[0].replaceAll("-"," / ")}/>
+        <ArticleIntroduction {...item}/>
+        <ArticleComments id={item.id}/>
+        <RelatedArticle addUserFullName={item.addUserFullName} id={item.id}/>
       </div>
     )
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch ,useSelector} from "react-redux";
 
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,7 @@ import { basicGet } from "../../../Core/Services/api/course/courseList/courseLis
 
 const ArticleNews = () => {
   const [articleList, setArticleList] = useState([]);
+  console.log(useSelector((state)=> state.userDetail));
 
   const getSomeArticle = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=3");

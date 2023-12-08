@@ -23,7 +23,7 @@ const GoToCorse = () => {
           name="GoTO"
           className={style.inp}
           id="need"
-          onClick={()=> document.documentElement.scrollTop = "1600"}
+          onClick={()=> document.documentElement.scrollTop = "1300"}
         //   onChange={(e) => e.target.checked && setSort("view")}
         />
         <label htmlFor="need" className={style.sort}>
@@ -34,7 +34,7 @@ const GoToCorse = () => {
           name="GoTO"
           className={style.inp}
           id="teachers"
-          onClick={()=> document.documentElement.scrollTop = "2100"}
+          onClick={()=> document.documentElement.scrollTop = "1800"}
         //   onChange={(e) => e.target.checked && setSort("like")}
         />
         <label htmlFor="teachers" className={style.sort}>
@@ -45,7 +45,7 @@ const GoToCorse = () => {
           name="GoTO"
           className={style.inp}
           id="comment"
-          onClick={()=> document.documentElement.scrollTop = "2900"}
+          onClick={()=> document.documentElement.scrollTop = "2600"}
         //   onChange={(e) => e.target.checked && setSort("price")}
         />
         <label htmlFor="comment" className={style.sort}>
@@ -56,7 +56,7 @@ const GoToCorse = () => {
           name="GoTO"
           className={style.inp}
           id="relatedCorse"
-          onClick={()=> document.documentElement.scrollTop = "4100"}
+          onClick={()=> document.documentElement.scrollTop = "3600"}
         //   onChange={(e) => e.target.checked && setSort("price")}
         />
         <label htmlFor="relatedCorse" className={style.sort}>
