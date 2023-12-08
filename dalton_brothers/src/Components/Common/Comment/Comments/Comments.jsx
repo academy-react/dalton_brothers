@@ -31,6 +31,7 @@ const Comments = ({
   newsId,
   currentUserIsLike,
   currentUserIsDissLike,
+  currentUserLikeId,
 }) => {
   const [like, setLike] = useState();
   const [DisLike, setDisLike] = useState();
@@ -49,7 +50,7 @@ const Comments = ({
       } else {
 
         const userDeleteLike = await deleteLike(
-          `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
+          `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
         )
         console.log(userDeleteLike,id);
         setLike(false);
@@ -70,7 +71,11 @@ const Comments = ({
         setLike(false);
         setEmotion(false);
       } else {
-        return;
+        const userDeleteDisLike = await deleteLike(
+          `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
+        )
+        console.log(userDeleteDisLike,currentUserLikeId);
+        setDisLike(false);
       }
     } else {
       toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
