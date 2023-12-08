@@ -9,8 +9,12 @@ import {
   IconMessageCircle2,
   IconThumbDown,
 } from "@tabler/icons-react";
-import { addLike, deleteLike } from "../../../../Core/Services/api/course/addLike";
-import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
+import {
+  addLike,
+  deleteLike,
+} from "../../../../Core/Services/api/course/addLike";
+import { CommentReplays } from "../CommentReplays";
+import { useLocation } from "react-router-dom";
 
 const Comments = ({
   className,
@@ -48,11 +52,10 @@ const Comments = ({
         setDisLike(false);
         setEmotion(true);
       } else {
-
         const userDeleteLike = await deleteLike(
-          `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
-        )
-        console.log(userDeleteLike,id);
+          `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
+        );
+        console.log(userDeleteLike, id);
         setLike(false);
       }
     } else {
