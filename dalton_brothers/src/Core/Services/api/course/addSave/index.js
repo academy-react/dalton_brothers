@@ -1,13 +1,12 @@
 import http from "../../../interceptor";
 export const addSave = async (courseId) => {
   try {
-    const response = await http.post("/Course/AddCourseFavorite",courseId);
+    const response = await http.post("/Course/AddCourseFavorite", courseId);
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
-
 
 export const deleteArticleLike = async (deleteEntityId) => {
   try {
@@ -17,7 +16,7 @@ export const deleteArticleLike = async (deleteEntityId) => {
     });
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 export const deleteArticleCommentLike = async (deleteEntityId) => {
@@ -28,7 +27,7 @@ export const deleteArticleCommentLike = async (deleteEntityId) => {
     });
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };
 export const deleteArticleSave = async (deleteEntityId) => {
@@ -39,6 +38,6 @@ export const deleteArticleSave = async (deleteEntityId) => {
     });
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };

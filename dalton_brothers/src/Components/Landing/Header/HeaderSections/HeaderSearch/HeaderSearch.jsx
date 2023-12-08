@@ -18,7 +18,7 @@ function MyCombobox() {
   const getArticles = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
     const response = result.news;
-    // console.log(result.news);
+    // //console.log(result.news);
     setArticleList(response);
   };
 

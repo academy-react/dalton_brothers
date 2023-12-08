@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
 
-const ArticleIntroduction = ({id}) => {
+const ArticleIntroduction = ({ id }) => {
   const [Text, setText] = useState([]);
 
   const getIntro = async () => {
-    const getDiscribe = await basicGet(
-      `/News/${id}`
-    ) 
-    const fa = (getDiscribe.detailsNewsDto.describe);
+    const getDiscribe = await basicGet(`/News/${id}`);
+    const fa = getDiscribe.detailsNewsDto.describe;
 
-    setText(fa)
-    // console.log(fa);
-  }
+    setText(fa);
+    // //console.log(fa);
+  };
   useEffect(() => {
-    getIntro()
-  }, [])
-  
+    getIntro();
+  }, []);
+
   return (
     <div>
       <div className=" w-full mt-10 ">

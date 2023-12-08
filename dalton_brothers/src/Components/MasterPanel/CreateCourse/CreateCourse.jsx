@@ -18,7 +18,7 @@ const CreateCourse = () => {
 
   const colorMode = useSelector((state) => state.theme.theme);
 
-  const defaultPicture = colorMode === "dark" ? defaulDarktImg  :  defaultImg ;
+  const defaultPicture = colorMode === "dark" ? defaulDarktImg : defaultImg;
 
   const getCourses = async () => {
     const result = await basicGet("/Home/GetCoursesWithPagination");
@@ -55,7 +55,7 @@ const CreateCourse = () => {
 
     const user = await createCourse(formdata);
 
-    console.log(user);
+    //console.log(user);
   };
   const inpArray = [
     {
@@ -195,7 +195,9 @@ const CreateCourse = () => {
               className="cursor-pointer w-[100px] rounded-lg"
             >
               <img
-                src={personImg ? URL.createObjectURL(personImg) : defaultPicture}
+                src={
+                  personImg ? URL.createObjectURL(personImg) : defaultPicture
+                }
                 alt=""
                 className="w-[150px]"
               />
@@ -222,7 +224,9 @@ const CreateCourse = () => {
         </div>
         <Button
           value={"ثبت تغیرات"}
-          className={"bg-pallete-100 dark:bg-DarkPallete-100 dark:text-mode-50 w-[50%] m-auto z-30"}
+          className={
+            "bg-pallete-100 dark:bg-DarkPallete-100 dark:text-mode-50 w-[50%] m-auto z-30"
+          }
           type={"submit"}
         />
       </Form>

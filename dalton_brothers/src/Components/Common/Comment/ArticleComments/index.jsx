@@ -44,7 +44,7 @@ const ArticComments = ({
     if (token) {
       if (like == false) {
         const userLike = await addLike(`/News/CommentLike/${id}`);
-        console.log(userLike);
+        //console.log(userLike);
         setLike(true);
         setDisLike(false);
         // setArticleEmotion(true);
@@ -53,7 +53,7 @@ const ArticComments = ({
           deleteEntityId: currentUserLikeId,
         };
         const userDeleteLike = await deleteArticleCommentLike(obj);
-        console.log(userDeleteLike,currentUserLikeId);
+        //console.log(userDeleteLike,currentUserLikeId);
         setLike(false);
       }
     } else {
@@ -67,7 +67,7 @@ const ArticComments = ({
         const userDisLike = await addLike(
           `/News/CommentLike/${id}?LikeType=false`
         );
-        console.log(userDisLike);
+        //console.log(userDisLike);
         setDisLike(true);
         setLike(false);
         // setArticleEmotion(true);
@@ -76,7 +76,7 @@ const ArticComments = ({
           deleteEntityId: currentUserLikeId,
         };
         const userDeleteLike = await deleteArticleCommentLike(obj);
-        console.log(userDeleteLike);
+        //console.log(userDeleteLike);
         setDisLike(false);
       }
     } else {

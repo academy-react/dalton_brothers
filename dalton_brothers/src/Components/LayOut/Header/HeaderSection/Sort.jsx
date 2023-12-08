@@ -10,8 +10,7 @@ const LaySort = () => {
 
   const colorMode = useSelector((state) => state.theme.theme);
 
-
-  // console.log(store)
+  // //console.log(store)
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +19,7 @@ const LaySort = () => {
         <input
           type="radio"
           name="sort"
-          className={ colorMode=== "dark"  ? style.darkModeInp :  style.inp}
+          className={colorMode === "dark" ? style.darkModeInp : style.inp}
           id="newest"
           onChange={(e) =>
             e.target.checked && dispatch(onSortChange("lastUpdate"))
@@ -33,7 +32,7 @@ const LaySort = () => {
         <input
           type="radio"
           name="sort"
-          className={ colorMode=== "dark"  ? style.darkModeInp :  style.inp}
+          className={colorMode === "dark" ? style.darkModeInp : style.inp}
           id="mostView"
           onChange={(e) =>
             e.target.checked && dispatch(onSortChange("courseRate"))
@@ -45,9 +44,11 @@ const LaySort = () => {
         <input
           type="radio"
           name="sort"
-          className={ colorMode=== "dark"  ? style.darkModeInp :  style.inp}
+          className={colorMode === "dark" ? style.darkModeInp : style.inp}
           id="mostFavorite"
-          onChange={(e) => e.target.checked && dispatch(onSortChange("likeCount"))}
+          onChange={(e) =>
+            e.target.checked && dispatch(onSortChange("likeCount"))
+          }
         />
         <label htmlFor="mostFavorite" className={style.sort}>
           محبوب ترین
@@ -55,7 +56,7 @@ const LaySort = () => {
         <input
           type="radio"
           name="sort"
-          className={ colorMode=== "dark"  ? style.darkModeInp :  style.inp}
+          className={colorMode === "dark" ? style.darkModeInp : style.inp}
           id="cheapest"
           onChange={(e) => e.target.checked && dispatch(onSortChange("cost"))}
         />

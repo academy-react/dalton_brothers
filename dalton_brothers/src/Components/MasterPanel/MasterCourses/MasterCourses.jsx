@@ -9,7 +9,7 @@ const MasterCourses = () => {
     const result = await basicGet(
       `/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=10&SortingCol=Active&SortType=DESC&TechCount=0&TeacherId=12`
     );
-    console.log(result.courseFilterDtos);
+    //console.log(result.courseFilterDtos);
     setCourses(result.courseFilterDtos);
   };
   useEffect(() => {

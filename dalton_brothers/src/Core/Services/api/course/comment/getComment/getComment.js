@@ -5,7 +5,7 @@ export const getComment = async (url) => {
     const Response = await http.get(url);
     return Response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     return [];
   }
 };

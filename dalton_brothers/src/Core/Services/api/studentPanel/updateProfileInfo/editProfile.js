@@ -5,6 +5,6 @@ export const editUSerProfile = async (user) => {
     const response = await http.put(`/SharePanel/UpdateProfileInfo`, user);
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };

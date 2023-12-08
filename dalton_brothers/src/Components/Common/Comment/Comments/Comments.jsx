@@ -55,7 +55,7 @@ const Comments = ({
         const userDeleteLike = await deleteLike(
           `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
         );
-        console.log(userDeleteLike, id);
+        //console.log(userDeleteLike, id);
         setLike(false);
       }
     } else {
@@ -65,7 +65,6 @@ const Comments = ({
 
   const handleDisLike = async () => {
     if (token) {
-
       if (DisLike == false) {
         const userLike = await addLike(
           `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
@@ -76,8 +75,8 @@ const Comments = ({
       } else {
         const userDeleteDisLike = await deleteLike(
           `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
-        )
-        console.log(userDeleteDisLike,currentUserLikeId);
+        );
+        //console.log(userDeleteDisLike,currentUserLikeId);
         setDisLike(false);
       }
     } else {
@@ -133,9 +132,7 @@ const Comments = ({
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
-              <span className="ml-[19px]">
-                { disslikeCount}
-              </span>
+              <span className="ml-[19px]">{disslikeCount}</span>
             </>
           ) : (
             <>

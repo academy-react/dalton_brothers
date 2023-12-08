@@ -27,10 +27,14 @@ const ArticleDetail = () => {
   const item = ArticleDetail.filter((item) => item.id === params.id).map(
     (item, index) => (
       <div className="flex flex-col gap-[100px]" key={index}>
-        <AboutArticle {...item} insertDate={item.insertDate.split('T')[0].replaceAll("-"," / ")}  updateDate={item.updateDate.split('T')[0].replaceAll("-"," / ")}/>
-        <ArticleIntroduction {...item}/>
-        <ArticleComments id={item.id}/>
-        <RelatedArticle addUserFullName={item.addUserFullName} id={item.id}/>
+        <AboutArticle
+          {...item}
+          insertDate={item.insertDate.split("T")[0].replaceAll("-", " / ")}
+          updateDate={item.updateDate.split("T")[0].replaceAll("-", " / ")}
+        />
+        <ArticleIntroduction {...item} />
+        <ArticleComments id={item.id} />
+        <RelatedArticle addUserFullName={item.addUserFullName} id={item.id} />
       </div>
     )
   );
@@ -69,11 +73,11 @@ export { ArticleDetail };
 
 //   const getArticleDetail = async () => {
 //     const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
-//     console.log(result);
+//     //console.log(result);
 //     const response = result.news;
 
 //     setArticleDetail(response);
-//     console.log(response);
+//     //console.log(response);
 //   };
 //   useEffect(() => {
 //     getArticleDetail();

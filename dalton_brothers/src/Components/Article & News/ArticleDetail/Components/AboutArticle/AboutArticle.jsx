@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 
 import newsImage from "../../../../../Assets/Images/newsImage.jpg";
 
-
 import {
   IconHeart,
   IconHeartFilled,
@@ -37,15 +36,15 @@ const AboutArticle = ({
     if (token) {
       if (Like == true) {
         setLike(false);
-        const obj ={
-          deleteEntityId : likeId
-        }
-        console.log(obj);
-        const userDeleteArticleLike = await deleteArticleLike(obj)
-        console.log(userDeleteArticleLike);
+        const obj = {
+          deleteEntityId: likeId,
+        };
+        //console.log(obj);
+        const userDeleteArticleLike = await deleteArticleLike(obj);
+        //console.log(userDeleteArticleLike);
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
-        console.log(userIsLike);
+        //console.log(userIsLike);
         setLike(true);
         return;
       }

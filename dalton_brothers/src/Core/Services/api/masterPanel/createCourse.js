@@ -5,6 +5,6 @@ export const createCourse = async (user) => {
     const response = await http.post(`/Course`, user);
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };

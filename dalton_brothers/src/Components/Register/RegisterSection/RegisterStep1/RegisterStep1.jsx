@@ -21,10 +21,10 @@ const RegisterStep1 = () => {
     };
     setItem("userPhone", number.phoneNumber);
     const user = await registerS1(number);
-    
+
     navigate("/register/step2");
-    toast.success(" رمز برای شما ارسال شد ")
-    // console.log(user);
+    toast.success(" رمز برای شما ارسال شد ");
+    // //console.log(user);
   };
 
   return (
@@ -46,7 +46,9 @@ const RegisterStep1 = () => {
           <div className="min-[500px]:w-[90%] w-full h-52 flex items-center ">
             <Input
               topic={"شماره تلفن"}
-              className={"rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"}
+              className={
+                "rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"
+              }
               placeHolder={"... شماره ی خود را وارد کنید"}
               type={"text"}
               name={"loginPhoneNumber"}

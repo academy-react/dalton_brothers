@@ -4,7 +4,7 @@ import { Course } from "../../../../../src/Components/Course/CourseSections/Cour
 import { relatedData } from "../../../../Core/Services/data/";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 
-const RelatedCourses = ({ teacherName,courseId}) => {
+const RelatedCourses = ({ teacherName, courseId }) => {
   const [OtherCourse, setOtherCourse] = useState([]);
 
   const getAllCourse = async () => {
@@ -18,8 +18,8 @@ const RelatedCourses = ({ teacherName,courseId}) => {
   const filterOtherTeacherCourses = filterAllTeacherCourses.filter(
     (item) => item.courseId != courseId
   );
-  // console.log(teacherName,id ,filterOtherTeacherCourses);
-  console.log(filterAllTeacherCourses);
+  // //console.log(teacherName,id ,filterOtherTeacherCourses);
+  //console.log(filterAllTeacherCourses);
   const items = filterOtherTeacherCourses.map((course, index) => (
     <Course {...course} key={index} />
   ));

@@ -9,8 +9,6 @@ import {
   setItem,
 } from "../../../../../Core/Services/common/storage.services";
 
-
-
 import {
   IconArrowNarrowLeft,
   IconHome,
@@ -50,7 +48,7 @@ const PanelNavigation = () => {
 
   const colorMode = useSelector((state) => state.theme.theme);
 
-  // console.log(colorMode);
+  // //console.log(colorMode);
 
   const goTo = (link) => {
     navigate(link);
@@ -83,15 +81,17 @@ const PanelNavigation = () => {
     },
   ];
 
-  // masterPanelList.map((el ) => (console.log(el.icon)));
+  // masterPanelList.map((el ) => (//console.log(el.icon)));
 
   return (
     <>
-      <div className=" lg:w-[290px]
+      <div
+        className=" lg:w-[290px]
       
       
       
-      max-sm:w-auto  h-[300px] max-lg:h-auto max-lg:rounded-[10px] max-lg:px-8     bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0  lg:mt-0 mt-8 whitespace-nowrap max-sm:whitespace-normal py-10  ">
+      max-sm:w-auto  h-[300px] max-lg:h-auto max-lg:rounded-[10px] max-lg:px-8     bg-mode-50 dark:bg-mode-800 rounded-[20px] 2xl:ml-0  lg:mt-0 mt-8 whitespace-nowrap max-sm:whitespace-normal py-10  "
+      >
         <ul className=" w-full h-full rounded-[20px] flex flex-col justify-evenly max-lg:flex-row-reverse max-lg:gap-10 gap-5 font-irSans  ">
           {studentPanelList.map((item, index) => (
             <li
@@ -152,12 +152,7 @@ const PanelNavigation = () => {
           value={" خروج "}
         ></Button>
       </div>
-    
-
-
-
-</>
-
+    </>
   );
 };
 

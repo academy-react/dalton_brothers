@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
-import { useDispatch ,useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 import {
@@ -29,10 +29,10 @@ const SignInForm = () => {
   const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
-  // console.log(remember);
-  // console.log(useSelector((state)=> state.userDetail));
-  console.log(User);
+
+  // //console.log(remember);
+  // //console.log(useSelector((state)=> state.userDetail));
+  //console.log(User);
 
   const handleToggle = async (value) => {
     // ---------------- send to API ----------------
@@ -44,10 +44,10 @@ const SignInForm = () => {
 
     const user = await loginAPI(userObj);
     setUser(user);
-    // console.log(user);
+    // //console.log(user);
 
     if (user.success) {
-      dispatch(onUserChange(user))
+      dispatch(onUserChange(user));
       if (remember) {
         setItem("token", user.token);
         setItem("userId", user.id);
@@ -71,12 +71,12 @@ const SignInForm = () => {
       toast.error("حسابی با این مشخصات وجود ندارد");
       return;
     }
-      const userName = await basicGet(
-        "/SharePanel/GetProfileInfo"
-      ) 
-      // console.log(userName);
+    const userName = await basicGet("/SharePanel/GetProfileInfo");
+    // //console.log(userName);
     navigate("/");
-    toast.success(`${ userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `);
+    toast.success(
+      `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
+    );
   };
 
   // validation................................
@@ -97,7 +97,9 @@ const SignInForm = () => {
         <Form className=" w-full flex flex-col justify-center items-center  gap-[20px] px-10 rounded-[30px]">
           <Title
             topic={"صفحه ورود"}
-            style={"leading-3 text-[20px] self-center text-[#9a9a9a] dark:text-mode-50"}
+            style={
+              "leading-3 text-[20px] self-center text-[#9a9a9a] dark:text-mode-50"
+            }
           />
           <div className="min-[500px]:w-[80%] w-full">
             <Input
@@ -112,7 +114,9 @@ const SignInForm = () => {
           <div className="relative min-[500px]:w-[80%] w-full flex justify-end group ">
             <Input
               topic={"رمز عبور"}
-              className={"rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 text"}
+              className={
+                "rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 text"
+              }
               placeHolder={""}
               type={show ? "text" : "password"}
               name={"logInPassword"}

@@ -23,7 +23,7 @@ const CategoryKind = () => {
 
   const data = category && [
     {
-      imgPath: colorMode === "dark" ? DarkModeWeb :  web,
+      imgPath: colorMode === "dark" ? DarkModeWeb : web,
       title: category[0].techName,
     },
     {
@@ -47,7 +47,7 @@ const CategoryKind = () => {
       title: category[5].techName,
     },
     {
-      imgPath:colorMode === "dark" ? DarkModegraphic : graphic,
+      imgPath: colorMode === "dark" ? DarkModegraphic : graphic,
       title: category[6].techName,
     },
   ];
@@ -55,11 +55,10 @@ const CategoryKind = () => {
     const result = await basicGet("/Home/GetTechnologies");
     setCategory(result);
   };
-  category && console.log(category[0]);
-
-  useEffect(() => {
-    getCategory();
-  }, []);
+  category && //console.log(category[0]);
+    useEffect(() => {
+      getCategory();
+    }, []);
   return (
     <div className="m-auto flex justify-center flex-wrap gap-9 mt-10 mb-16">
       {data &&

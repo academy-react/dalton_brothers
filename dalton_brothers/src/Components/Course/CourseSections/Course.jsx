@@ -59,9 +59,9 @@ const Course = ({
         const obj = {
           courseId: courseId,
         };
-        console.log(obj);
+        //console.log(obj);
         const userSave = await addSave(obj);
-        console.log(userSave);
+        //console.log(userSave);
       } else {
         setSave(false);
         try {
@@ -70,7 +70,7 @@ const Course = ({
           const saveResult = await http.delete(`/Course/DeleteCourseFavorite`, {
             data: saveData,
           });
-          console.log(saveResult);
+          //console.log(saveResult);
         } catch (error) {
           toast.error(error);
         }
@@ -91,7 +91,7 @@ const Course = ({
           const result = await http.delete(`/Course/DeleteCourseLike`, {
             data: data,
           });
-          console.log(result);
+          //console.log(result);
         } catch (error) {
           toast.error(error);
         }
@@ -100,15 +100,15 @@ const Course = ({
         const userLike = await addLike(
           `/Course/AddCourseLike?CourseId=${courseId}`
         );
-        console.log(userLike);
+        //console.log(userLike);
         setLike(true);
-        setDisLike(false)
+        setDisLike(false);
       }
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
-  console.log(userIsLiked,currentUserDissLike);
+  //console.log(userIsLiked,currentUserDissLike);
   const handleDisLike = async () => {
     const data = new FormData();
 
@@ -120,7 +120,7 @@ const Course = ({
           const result = await http.delete(`/Course/DeleteCourseLike`, {
             data: data,
           });
-          console.log(result);
+          //console.log(result);
         } catch (error) {
           toast.error(error);
         }
@@ -133,7 +133,7 @@ const Course = ({
         const userDisLike = await addLike(
           `/Course/AddCourseDissLike?CourseId=${courseId}`
         );
-        console.log(userDisLike);
+        //console.log(userDisLike);
         setDisLike(true);
         setLike(false);
       }

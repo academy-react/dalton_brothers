@@ -6,7 +6,7 @@ const EditImg = ({ setPersonImg }) => {
 
   useEffect(() => {
     setPersonImg(acceptedFiles[0]);
-    console.log(acceptedFiles[0]);
+    //console.log(acceptedFiles[0]);
     return () => {
       false;
     };

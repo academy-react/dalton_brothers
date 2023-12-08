@@ -8,7 +8,7 @@ export const deletePic = async (form) => {
     });
     return Response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     return [];
   }
 };

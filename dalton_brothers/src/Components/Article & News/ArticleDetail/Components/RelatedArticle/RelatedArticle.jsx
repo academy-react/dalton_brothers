@@ -18,7 +18,7 @@ const RelatedArticle = ({ addUserFullName, id }) => {
   const filterOtherAuthorArticle = filterAllAuthorArticle.filter(
     (item) => item.id != id
   );
-  console.log(filterOtherAuthorArticle);
+  //console.log(filterOtherAuthorArticle);
   const items = filterOtherAuthorArticle.map((article, index) => (
     <Article
       {...article}

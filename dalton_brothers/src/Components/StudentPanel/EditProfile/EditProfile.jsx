@@ -34,12 +34,12 @@ const EditProfile = () => {
     const month = all.getMonth();
     const day = all.getDate();
     const final = year + "/" + month + "/" + day;
-    console.log(final);
+    //console.log(final);
     setDate(final);
   };
 
   const onSubmit = async (values) => {
-    console.log("triggered");
+    //console.log("triggered");
     var userNewObj = new FormData();
     userNewObj.append("LName", values.LName);
     userNewObj.append("FName", values.FName);
@@ -172,7 +172,7 @@ const EditProfile = () => {
                   padding: "15px 25px",
                   color: colorMode === "dark" ? "white" : "#a9afba",
                 }}
-                plugins={[ weekends()]}
+                plugins={[weekends()]}
                 className={colorMode === "dark" ? "teal bg-dark" : "yellow"}
                 value={date}
                 onChange={(date) => {

@@ -21,7 +21,8 @@ const PanelCourses = () => {
 
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
-    setCourseListCount(count);
+    const filteredCount = count.filter((el) => el.accept === false);
+    setCourseListCount(filteredCount);
     const result = await basicGet("/Home/GetCoursesWithPagination");
     setCourseList(result.courseFilterDtos);
   };
@@ -33,14 +34,12 @@ const PanelCourses = () => {
               courseList.filter((ele) => ele.courseId === el.courseId)
             )
           : [];
-      console.log(reservedCoursesArray);
       const reservedCourses = reservedCoursesArray.map((el) => el[0]);
       const afterDelete =
         reservedCourses.length !== 0
           ? reservedCourses.filter((el) => el.courseId !== courseDeleteId)
           : [];
       setReservedCourses(afterDelete ? afterDelete : []);
-      console.log(reservedCourses);
     }
   };
   function SumCalculator() {

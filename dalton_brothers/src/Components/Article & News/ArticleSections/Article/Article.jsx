@@ -27,7 +27,10 @@ import {
   IconHeartFilled,
   IconArrowNarrowLeft,
 } from "@tabler/icons-react";
-import { deleteArticleLike, deleteArticleSave } from "../../../../Core/Services/api/course/addSave";
+import {
+  deleteArticleLike,
+  deleteArticleSave,
+} from "../../../../Core/Services/api/course/addSave";
 
 const Article = ({
   miniDescribe,
@@ -63,10 +66,10 @@ const Article = ({
           deleteEntityId: currentUserFavoriteId,
         };
         const userDeleteArticleLike = await deleteArticleSave(obj);
-        console.log(userDeleteArticleLike);
+        //console.log(userDeleteArticleLike);
       } else {
         const userIsSave = await addLike(`/News/AddFavoriteNews?NewsId=${id}`);
-        console.log(userIsSave);
+        //console.log(userIsSave);
         setSave(true);
       }
     } else {
@@ -78,22 +81,22 @@ const Article = ({
     if (token) {
       if (DissLike == true) {
         setDissLike(false);
-         const obj = {
-           deleteEntityId: likeId,
-         };
-         const userDeleteArticleLike = await deleteArticleLike(obj);
-         console.log(userDeleteArticleLike);
+        const obj = {
+          deleteEntityId: likeId,
+        };
+        const userDeleteArticleLike = await deleteArticleLike(obj);
+        //console.log(userDeleteArticleLike);
       } else {
         const userIsDissLike = await addLike(`/News/NewsDissLike/${id}`);
         setDissLike(true);
         setLike(false);
-        console.log(userIsDissLike);
+        //console.log(userIsDissLike);
         return;
       }
     } else {
       toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
     }
-    console.log(currentUserIsDissLike);
+    //console.log(currentUserIsDissLike);
   };
 
   const handleLike = async () => {
@@ -104,10 +107,10 @@ const Article = ({
           deleteEntityId: likeId,
         };
         const userDeleteArticleLike = await deleteArticleLike(obj);
-        console.log(userDeleteArticleLike);
+        //console.log(userDeleteArticleLike);
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
-        console.log(userIsLike);
+        //console.log(userIsLike);
         setLike(true);
         setDissLike(false);
         return;
@@ -178,12 +181,10 @@ const Article = ({
         <div className="w-[190px] h-full flex justify-center items-center relative">
           <div className=" h-1/3 w-2/5 flex justify-center items-center">
             <IconEye className="w-7 h-7"></IconEye>
-            <div className="text-center text-xl ml-1 pt-1">
-              {currentView}
-            </div>
+            <div className="text-center text-xl ml-1 pt-1">{currentView}</div>
           </div>
           <div className=" h-1/3 w-2/5 flex justify-center items-center">
-            <IconStarFilled className="w-7 h-7 text-orange-300" ></IconStarFilled>
+            <IconStarFilled className="w-7 h-7 text-orange-300"></IconStarFilled>
             <div className="text-center text-xl ml-1 text-orange-300 pt-1">
               {currentRate}
             </div>
@@ -193,21 +194,18 @@ const Article = ({
         <div className="w-20 h-full flex items-center relative ">
           <div className="w-full h-1/3 pl-2">
             {Save ? (
-              <div className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
-                <img
-                  className="w-[30px]"
-                  src={bookmarkCheck}
-                  alt=""
-                 
-                />
+              <div
+                className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer"
+                onClick={() => handleSave()}
+              >
+                <img className="w-[30px]" src={bookmarkCheck} alt="" />
               </div>
             ) : (
-              <div className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
-                <img
-                  className="w-[30px]  opacity-40"
-                  src={bookmark}
-                  alt=""
-                />
+              <div
+                className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer"
+                onClick={() => handleSave()}
+              >
+                <img className="w-[30px]  opacity-40" src={bookmark} alt="" />
               </div>
             )}
           </div>

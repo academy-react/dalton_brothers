@@ -16,12 +16,38 @@ const YourStock = () => {
   const money = useSelector((state) => state.money.money);
   const handleIncrease = () => {
     const newAmount = currentAmount + 100000;
-    console.log(currentAmount);
+    //console.log(currentAmount);
     setItem("newAmount", newAmount);
     dispatch(onMoneyChange(newAmount));
-    if (newAmount === 1000000) toast.custom(<div className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl" duration='700'>بسه دیگه  برو خونتون</div>)
-    if (newAmount === 1500000) toast.custom(<div className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl" duration='700'> چه خبرته بانک نیومدی که </div>)
-    if (newAmount === 2000000) toast.custom(<div className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl" duration='700'> خیلی خری </div>)
+    if (newAmount === 1000000)
+      toast.custom(
+        <div
+          className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl"
+          duration="700"
+        >
+          بسه دیگه برو خونتون
+        </div>
+      );
+    if (newAmount === 1500000)
+      toast.custom(
+        <div
+          className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl"
+          duration="700"
+        >
+          {" "}
+          چه خبرته بانک نیومدی که{" "}
+        </div>
+      );
+    if (newAmount === 2000000)
+      toast.custom(
+        <div
+          className="bg-blue-200 px-5 py-4 rounded-xl font-irSans text-xl"
+          duration="700"
+        >
+          {" "}
+          خیلی خری{" "}
+        </div>
+      );
   };
   return (
     <div className=" w-full h-full border border-gray-200 rounded-[30px] flex flex-row-reverse  whitespace-nowrap font-irSans relative bg-white dark:bg-mode-900 dark:border-DarkPallete-100">

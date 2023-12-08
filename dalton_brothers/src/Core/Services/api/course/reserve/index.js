@@ -4,6 +4,6 @@ export const reserveCourse = async (courseId) => {
     const response = await http.post("/CourseReserve/ReserveAdd", courseId);
     return response;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 };

@@ -25,7 +25,6 @@ const CourseDetail = () => {
   useEffect(() => {
     getCourseDetail();
   }, []);
-
   return (
     <motion.div
       className=""
@@ -48,7 +47,10 @@ const CourseDetail = () => {
           <Needs />
           <CourseTeacher />
           <CourseComments id={item.courseId} />
-          <RelatedCourses teacherName={item.teacherName} courseId={item.courseId}/>
+          <RelatedCourses
+            teacherName={item.teacherName}
+            courseId={item.courseId}
+          />
         </div>
       ))}
     </motion.div>

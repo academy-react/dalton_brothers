@@ -1,33 +1,35 @@
 import { Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import { addArticleComment, addComment } from "../../../../Core/Services/api/course/comment/addComment/addComment";
+import {
+  addArticleComment,
+  addComment,
+} from "../../../../Core/Services/api/course/comment/addComment/addComment";
 import { Input } from "../../Inputs/Input";
 import { Button } from "../../buttons";
 import { commentValidation } from "../../../../Core/Validation/yup";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 
-const AddArticleComment = ({newsId}) => {
-    const [Value, setValue] = useState()
-    // const [UserInfoo, setUserInfoo] = useState()
+const AddArticleComment = ({ newsId }) => {
+  const [Value, setValue] = useState();
+  // const [UserInfoo, setUserInfoo] = useState()
 
-    // const getUserInfo = async () => {
-    //     const userInfo = await basicGet(`/SharePanel/GetProfileInfo`)
-    //     // console.log(userInfo);
-    //     setUserInfoo(userInfo)
-    // }
-     const onSubmit = async (values) => {
-        setValue(values)
-        const obj = {
-          newsId : newsId,
-          title : Value.title,
-          describe : Value.describe,
-        }
-        console.log(obj,setValue,newsId);
-        const user = await addArticleComment(obj);
-        console.log(user);
-};
-      
-  
+  // const getUserInfo = async () => {
+  //     const userInfo = await basicGet(`/SharePanel/GetProfileInfo`)
+  //     // //console.log(userInfo);
+  //     setUserInfoo(userInfo)
+  // }
+  const onSubmit = async (values) => {
+    setValue(values);
+    const obj = {
+      newsId: newsId,
+      title: Value.title,
+      describe: Value.describe,
+    };
+    //console.log(obj,setValue,newsId);
+    const user = await addArticleComment(obj);
+    //console.log(user);
+  };
+
   return (
     <div className=" w-full flex ">
       <div className=" w-[1000px] m-auto flex justify-evenly">
