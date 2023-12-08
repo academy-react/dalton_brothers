@@ -15,17 +15,18 @@ const AddArticleComment = ({newsId}) => {
     //     // console.log(userInfo);
     //     setUserInfoo(userInfo)
     // }
-    const onSubmit = async (values) => {
+     const onSubmit = async (values) => {
         setValue(values)
         const obj = {
-            newsId : newsId,
-            title : Value.title,
-            describe : Value.describe,
-    }
-    console.log(obj);
-    const user = await addArticleComment(obj);
-    console.log(user);
+          newsId : newsId,
+          title : Value.title,
+          describe : Value.describe,
+        }
+        console.log(obj,setValue,newsId);
+        const user = await addArticleComment(obj);
+        console.log(user);
 };
+      
   
   return (
     <div className=" w-full flex ">
