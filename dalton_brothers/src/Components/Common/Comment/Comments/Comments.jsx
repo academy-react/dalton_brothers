@@ -10,7 +10,7 @@ import {
   IconThumbDown,
 } from "@tabler/icons-react";
 import { addLike, deleteLike } from "../../../../Core/Services/api/course/addLike";
-import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
+// import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
 
 const Comments = ({
   className,
@@ -203,7 +203,7 @@ const Comments = ({
           <span className="ml-[17px]">{acceptReplysCount}</span>
         </div>
       </div>
-      {acceptReplysCount > 0 && <CommentReplays id={id} courseId={courseId} />}
+      {/* {acceptReplysCount > 0 && <CommentReplays id={id} courseId={courseId} />} */}
     </div>
   );
 };
