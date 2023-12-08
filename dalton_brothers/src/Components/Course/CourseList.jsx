@@ -64,7 +64,7 @@ const CourseList = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <LayOutHeaders topic={"لیست دوره ها"} />
+      {/* <LayOutHeaders topic={"لیست دوره ها"} /> */}
       <Filter />
     <Loading/>
 

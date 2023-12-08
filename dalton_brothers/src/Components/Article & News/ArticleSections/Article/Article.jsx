@@ -26,6 +26,10 @@ import {
   IconHeart,
   IconHeartFilled,
   IconArrowNarrowLeft,
+  IconThumbDownFilled,
+  IconThumbDown,
+  IconThumbUpFilled,
+  IconThumbUp,
 } from "@tabler/icons-react";
 import { deleteArticleLike, deleteArticleSave } from "../../../../Core/Services/api/course/addSave";
 
@@ -177,13 +181,13 @@ const Article = ({
         </div>
         <div className="w-[190px] h-full flex justify-center items-center relative">
           <div className=" h-1/3 w-2/5 flex justify-center items-center">
-            <IconEye className="w-7 h-7"></IconEye>
-            <div className="text-center text-xl ml-1 pt-1">
+            <IconEye className="w-7 h-7 text-mode-700 dark:text-mode-100"></IconEye>
+            <div className="text-center text-xl ml-1 pt-1 text-mode-700 dark:text-mode-100">
               {currentView}
             </div>
           </div>
           <div className=" h-1/3 w-2/5 flex justify-center items-center">
-            <IconStarFilled className="w-7 h-7 text-orange-300" ></IconStarFilled>
+            <IconStarFilled className="w-7 h-6 text-pallete-100" ></IconStarFilled>
             <div className="text-center text-xl ml-1 text-orange-300 pt-1">
               {currentRate}
             </div>
@@ -193,18 +197,18 @@ const Article = ({
         <div className="w-20 h-full flex items-center relative ">
           <div className="w-full h-1/3 pl-2">
             {Save ? (
-              <div className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
+              <div className="w-full h-[33px] bg-white rounded-full flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
                 <img
-                  className="w-[30px]"
+                  className="w-[25px] opacity-60"
                   src={bookmarkCheck}
                   alt=""
                  
                 />
               </div>
             ) : (
-              <div className="w-full bg-white rounded-xl flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
+              <div className="w-full h-[33px] bg-white rounded-full flex justify-center items-center cursor-pointer" onClick={() => handleSave()}>
                 <img
-                  className="w-[30px]  opacity-40"
+                  className="w-[25px]  opacity-60"
                   src={bookmark}
                   alt=""
                 />
@@ -223,16 +227,17 @@ const Article = ({
                   {" "}
                   {currentDissLikeCount}{" "}
                 </div>
-                <img
-                  src={disLikeCheck}
-                  alt=""
-                  className="text-red-500 w-1/2 h-full cursor-pointer"
-                ></img>
+                <IconThumbDownFilled
+                className="w-[30px] cursor-pointer  text-error-100  relative top-[2px]"
+                
+                
+               
+              />
               </div>
             </div>
           ) : (
             <div
-              className="bg-white w-full h-full rounded-[20px]  rounded-l flex justify-center items-center cursor-pointer pl-1"
+              className="bg-white  w-full h-full rounded-[20px]  rounded-l flex justify-center items-center cursor-pointer pl-1"
               onClick={() => handleDissLike()}
             >
               <div className="w-4/5 h-4/5 flex flex-row-reverse">
@@ -241,11 +246,12 @@ const Article = ({
                   {currentDissLikeCount}{" "}
                 </div>
 
-                <img
-                  src={disLike}
-                  alt=""
-                  className="text-red-500 w-1/2 h-full cursor-pointer"
-                ></img>
+                <IconThumbDown
+                className="w-[30px] opacity-80 cursor-pointer  text-mode-700 dark:text-mode-700 relative top-[2px]"
+                
+                
+                
+              />
               </div>
             </div>
           )}
@@ -261,11 +267,11 @@ const Article = ({
                   {" "}
                   {currentLikeCount}{" "}
                 </div>
-                <img
-                  src={likeCheck}
-                  alt=""
-                  className="text-red-500 w-1/2 h-full cursor-pointer "
-                ></img>
+                <IconThumbUpFilled
+                className="w-[30px] cursor-pointer text-error-100  "
+
+                
+              />
               </div>
             </div>
           ) : (
@@ -278,11 +284,11 @@ const Article = ({
                   {" "}
                   {currentLikeCount}{" "}
                 </div>
-                <img
-                  src={like}
-                  alt=""
-                  className="text-red-500 w-1/2 h-full cursor-pointer "
-                ></img>
+                <IconThumbUp
+                className="w-[30px] cursor-pointer   text-mode-700 dark:text-mode-700"
+              
+                onClick={() => handleLike()}
+              />
               </div>
             </div>
           )}

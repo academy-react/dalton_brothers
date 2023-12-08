@@ -6,7 +6,19 @@ import toast from "react-hot-toast";
 import likeCheck from "../../../Assets/Images/like1check.png";
 import likes from "../../../Assets/Images/like1.png";
 import dislikeCheck from "../../../Assets/Images/dislikeCheck.png";
-import dislike from "../../../Assets/Images/dislike.png";
+// import dislike from "../../../Assets/Images/dislike.png";
+
+import like from "../../../assets/Images/like & dislike/like.png";
+import likeFilled from "../../../assets/Images/like & dislike/likeFilled.png";
+import likeMode from "../../../assets/Images/like & dislike/likeMode.png";
+import dislike from "../../../assets/Images/like & dislike/dislike.png";
+import dislikeMode from "../../../assets/Images/like & dislike/dislikeMode.png";
+import dislikeFilled from "../../../assets/Images/like & dislike/dislikeFilled.png";
+import dislikeFilledMode from "../../../assets/Images/like & dislike/dislikeFilledMode.png";
+
+import { IconThumbUp , IconThumbUpFilled , IconThumbDownFilled , IconThumbDown  } from '@tabler/icons-react';
+
+
 // import comment from "../../../Assets/Images/comment.png";
 import bookmarkCheck from "../../../Assets/Images/bookMarkCheck.png";
 import bookmark from "../../../Assets/Images/bookMark.png";
@@ -25,6 +37,10 @@ import {
 } from "../../../Core/Services/common/storage.services";
 import handleDescription from "../../Common/Functions/HandleDesc/HandleDesc";
 import { addSave } from "../../../Core/Services/api/course/addSave";
+
+
+
+
 
 const Course = ({
   userFavorite,
@@ -179,46 +195,43 @@ const Course = ({
           </div>
           <div className="w-full h-1/3 pl-[30px] flex flex-col items-start gap-1">
             {Like ? (
-              <img
-                className="w-[30px] cursor-pointer "
-                dir="ltr"
-                src={likeCheck}
-                alt=""
+              <IconThumbUpFilled
+                className="w-[30px] cursor-pointer text-error-100 "
+
                 onClick={() => handleLike()}
               />
             ) : (
-              <img
-                className="w-[30px] cursor-pointer  opacity-80"
-                src={colorMode === "dark" ? DarkModelikes : likes}
-                alt=""
+              <IconThumbUp
+                className="w-[30px] cursor-pointer   text-mode-700 dark:text-mode-100"
+              
                 onClick={() => handleLike()}
               />
             )}
-            <span className="w-[30px] text-center inline-block dark:text-mode-200">
+            <span className="w-[30px] text-center inline-block dark:text-mode-200 text-mode-700">
               {likeCount}
             </span>
           </div>
           {DisLike ? (
             <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-              <img
-                className="w-[30px] cursor-pointer scale-110"
-                src={dislikeCheck}
-                alt=""
+              <IconThumbDownFilled
+                className="w-[30px] cursor-pointer  text-mode-700 dark:text-mode-100"
+                
+                
                 onClick={() => handleDisLike()}
               />
-              <span className="w-[30px] text-center inline-block">
+              <span className="w-[30px] text-center inline-block text-mode-700 dark:text-mode-100">
                 {dissLikeCount}
               </span>
             </div>
           ) : (
             <div className="w-full h-1/3 pl-[30px] flex flex-col items-start">
-              <img
-                className="w-[30px] opacity-80 cursor-pointer scale-110"
-                src={dislike}
-                alt=""
+              <IconThumbDown
+                className="w-[30px] opacity-80 cursor-pointer  text-mode-700 dark:text-mode-100"
+                
+                
                 onClick={() => handleDisLike()}
               />
-              <span className="w-[30px] text-center inline-block">
+              <span className="w-[30px] text-center inline-block text-mode-700 dark:text-mode-100">
                 {currentUserDissLike == 0 ? dissLikeCount : dissLikeCount}
               </span>
             </div>
