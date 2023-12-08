@@ -52,7 +52,7 @@ const CommentReplays = ({ id, courseId, className }) => {
       <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0">
         {/* each comment */}
         {replayList.map((el, index) => (
-          <ArticComments
+          <Comments
             {...el}
             key={index}
             setEmotion={setEmotion}

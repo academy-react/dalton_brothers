@@ -47,13 +47,13 @@ const ArticComments = ({
         console.log(userLike);
         setLike(true);
         setDisLike(false);
-        setArticleEmotion(true);
+        // setArticleEmotion(true);
       } else {
         const obj = {
           deleteEntityId: currentUserLikeId,
         };
         const userDeleteLike = await deleteArticleCommentLike(obj);
-        console.log(userDeleteLike);
+        console.log(userDeleteLike,currentUserLikeId);
         setLike(false);
       }
     } else {
@@ -70,7 +70,7 @@ const ArticComments = ({
         console.log(userDisLike);
         setDisLike(true);
         setLike(false);
-        setArticleEmotion(true);
+        // setArticleEmotion(true);
       } else {
         const obj = {
           deleteEntityId: currentUserLikeId,
