@@ -32,11 +32,11 @@ const Comments = ({
   currentUserIsLike,
   currentUserIsDissLike,
 }) => {
-  const location = useLocation();
   const [like, setLike] = useState();
   const [DisLike, setDisLike] = useState();
 
   const token = useSelector((state) => state.token.token);
+
   const handleLike = async () => {
     if (token) {
       if (like == false) {
@@ -61,59 +61,34 @@ const Comments = ({
 
   const handleDisLike = async () => {
     if (token) {
-      if (location.pathname === `/courseDetail/${courseId}`) {
-        if (DisLike == false) {
-          const userLike = await addLike(
-            `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
-          );
-          setDisLike(true);
-          setLike(false);
-          setEmotion(false);
-        } else {
-          return;
-        }
-      } else if (location.pathname === `/newsDetail/${newsId}`) {
-        if (DisLike == false) {
-          // const userLike = await addLike(
-          //   `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
-          // );
-          setDisLike(true);
-          setLike(false);
-          setEmotion(false);
-        } else {
-          return;
-        }
+
+      if (DisLike == false) {
+        const userLike = await addLike(
+          `/Course/AddCourseCommentDissLike?CourseCommandId=${id}`
+        );
+        setDisLike(true);
+        setLike(false);
+        setEmotion(false);
+      } else {
+        return;
       }
     } else {
-      toast.error("برای لایک باید در سایت ثبت نام کنید");
+      toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
     }
   };
-  if (location.pathname === `/courseDetail/${courseId}`) {
-    useEffect(() => {
-      if (currentUserEmotion == "-") {
-        setLike(false);
-        setDisLike(false);
-      } else if (currentUserEmotion == "LIKED") {
-        setLike(true);
-        setDisLike(false);
-      } else if (currentUserEmotion == "DISSLIKED") {
-        setLike(false);
-        setDisLike(true);
-      }
-    }, []);
-  } else if (location.pathname === `/newsDetail/${newsId}`) {
-    useEffect(() => {
-      if (currentUserIsLike) {
-        setLike(true);
-        setDisLike(false);
-      }
-      if (currentUserIsDissLike) {
-        setLike(false);
-        setDisLike(true);
-      }
-    }, []);
-  }
 
+  useEffect(() => {
+    if (currentUserEmotion == "-") {
+      setLike(false);
+      setDisLike(false);
+    } else if (currentUserEmotion == "LIKED") {
+      setLike(true);
+      setDisLike(false);
+    } else {
+      setLike(false);
+      setDisLike(true);
+    }
+  }, []);
   return (
     <div
       className={`xl:w-[1290px] lg:w-[1020px] md:w-[780px]  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] ${className}`}
