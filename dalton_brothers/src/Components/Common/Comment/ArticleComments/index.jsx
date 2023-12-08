@@ -9,8 +9,11 @@ import {
   IconMessageCircle2,
   IconThumbDown,
 } from "@tabler/icons-react";
-import { addLike, deleteLike } from "../../../../Core/Services/api/course/addLike";
-import { CommentReplays } from "../../../CourseDetail/components/CommentReplays";
+import {
+  addLike,
+  deleteLike,
+} from "../../../../Core/Services/api/course/addLike";
+import { CommentReplays } from "../CommentReplays/index";
 import { deleteArticleCommentLike } from "../../../../Core/Services/api/course/addSave";
 import { CommentArtReplays } from "../../../CourseDetail/components/CommentArtReplays";
 
@@ -40,18 +43,16 @@ const ArticComments = ({
   const handleLike = async () => {
     if (token) {
       if (like == false) {
-        const userLike = await addLike(
-          `/News/CommentLike/${id}`
-        );
+        const userLike = await addLike(`/News/CommentLike/${id}`);
         console.log(userLike);
         setLike(true);
         setDisLike(false);
         setArticleEmotion(true);
       } else {
         const obj = {
-          deleteEntityId : currentUserLikeId
-        }
-        const userDeleteLike = await deleteArticleCommentLike(obj)
+          deleteEntityId: currentUserLikeId,
+        };
+        const userDeleteLike = await deleteArticleCommentLike(obj);
         console.log(userDeleteLike);
         setLike(false);
       }
@@ -72,9 +73,9 @@ const ArticComments = ({
         setArticleEmotion(true);
       } else {
         const obj = {
-          deleteEntityId : currentUserLikeId
-        }
-        const userDeleteLike = await deleteArticleCommentLike(obj)
+          deleteEntityId: currentUserLikeId,
+        };
+        const userDeleteLike = await deleteArticleCommentLike(obj);
         console.log(userDeleteLike);
         setDisLike(false);
       }
@@ -174,8 +175,8 @@ const ArticComments = ({
             strokeWidth="1"
             className="w-full h-[70%] text-gray-800 cursor-pointer"
             onClick={() => {
-                setArticleReplay(true);
-                setArticleReplayedCommentId(id);
+              setArticleReplay(true);
+              setArticleReplayedCommentId(id);
             }}
           />
           <span className="ml-[17px]">{replyCount}</span>
