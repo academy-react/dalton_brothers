@@ -21,6 +21,7 @@ export default {
         DarkPallete : { 50 : "#bbf7d0" ,   100 : "#16A34A"},
 
     pallete : { 50 : "#fefce8" , 100 : "#fcbf49"   },
+    secondPallete : {100 : "#9333ea"},
     error : {100 :"#ef4444"} ,
   
     // mode: {

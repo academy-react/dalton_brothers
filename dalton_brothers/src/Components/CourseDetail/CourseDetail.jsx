@@ -11,6 +11,7 @@ import { CourseComments } from "../Common/Comment/CourseComment/CourseComment";
 import { GoToCorse } from "./components/GoToCorse/GoToCorse";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
+import Master from "../Landing/BestMasters/BestMasterSection/Master";
 
 const CourseDetail = () => {
   const [CourseDetail, setCourseDetail] = useState([]);
@@ -45,7 +46,8 @@ const CourseDetail = () => {
           />
           <CourseIntroduction {...item} />
           <Needs />
-          <CourseTeacher />
+          {/* masters on course details page */}
+          <Master    />
           <CourseComments id={item.courseId} />
           <RelatedCourses
             teacherName={item.teacherName}

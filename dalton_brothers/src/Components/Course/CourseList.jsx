@@ -56,6 +56,17 @@ const CourseList = () => {
     };
     handleTrigger();
   }, [maxPrice, minPrice]);
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <motion.div
       className="w-100 flex flex-col gap-5"
@@ -63,7 +74,7 @@ const CourseList = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <LayOutHeaders topic={"لیست دوره ها"} />
+      {/* <LayOutHeaders topic={"لیست دوره ها"} /> */}
       <Filter />
       <Loading />
       <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">

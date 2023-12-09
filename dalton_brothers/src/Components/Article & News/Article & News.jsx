@@ -30,8 +30,8 @@ const ArticleNews = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <LayOutHeaders topic={"اخبار و مقالات"} />
-      <div className="w-100 flex flex-row flex-wrap justify-center gap-9 gap-y-7 scale-x-90">
+      {/* <LayOutHeaders topic={"اخبار و مقالات"} /> */}
+      <div className="w-full flex flex-row flex-wrap justify-center gap-9 gap-y-7 scale-x-90 mt-10">
         {articleList.map((news, index) => (
           <Article
             {...news}

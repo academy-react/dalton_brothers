@@ -55,7 +55,7 @@ const RangeSlider = ({
               }
               type="text"
               value={minVal}
-              className="w-[100px] text-center px-2 focus:outline-none focus:border-b-2 focus:border-[#33466b]  bg-transparent"
+              className="w-[100px] text-center px-2 focus:outline-none focus:border-b-2 focus:border-[#33466b]  bg-transparent dark:text-mode-100"
             />
             <input
               onChange={(e) =>
@@ -63,13 +63,13 @@ const RangeSlider = ({
               }
               type="text"
               value={maxVal}
-              className="w-[100px] text-right px-2 focus:outline-none focus:border-b-2 focus:border-[#33466b]  bg-transparent"
+              className="w-[100px] text-right px-2 focus:outline-none focus:border-b-2 focus:border-[#33466b]  bg-transparent dark:text-mode-100"
             />
           </div>
         </div>
         <div className="mb-4 my-4 w-[95%] ">
           <div className="relative h-2 rounded-lg  w-[95%]">
-            <div className="h-2 bg-amber-400 rounded" ref={progressRef}></div>
+            <div className="h-2 bg-amber-400 rounded dark:bg-DarkPallete-100" ref={progressRef}></div>
           </div>
           <div className="relative" style={{ direction: "ltr" }}>
             <input
@@ -88,7 +88,7 @@ const RangeSlider = ({
               min={min}
               step={step}
               max={max}
-              className="absolute w-[95%] -top-2 h-1 bg-transparent appearance-none pointer-events-auto cursor-zoom-out"
+              className="absolute w-[95%] -top-2 h-1 bg-transparent appearance-none pointer-events-auto cursor-zoom-out "
             />
           </div>
         </div>
