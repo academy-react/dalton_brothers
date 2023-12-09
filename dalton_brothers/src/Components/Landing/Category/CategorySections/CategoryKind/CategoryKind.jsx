@@ -54,11 +54,11 @@ const CategoryKind = () => {
   const getCategory = async () => {
     const result = await basicGet("/Home/GetTechnologies");
     setCategory(result);
+    console.log(result);
   };
-  category && //console.log(category[0]);
-    useEffect(() => {
-      getCategory();
-    }, []);
+  useEffect(() => {
+    getCategory();
+  }, []);
   return (
     <div className="m-auto flex justify-center flex-wrap gap-9 mt-10 mb-16">
       {data &&
