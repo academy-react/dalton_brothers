@@ -14,7 +14,7 @@ import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDet
 import Master from "../Landing/BestMasters/BestMasterSection/Master";
 
 const CourseDetail = () => {
-  const [CourseDetail, setCourseDetail] = useState(null);
+  const [CourseDetail, setCourseDetail] = useState([]);
   const [change, setChange] = useState(false);
   const params = useParams();
 
