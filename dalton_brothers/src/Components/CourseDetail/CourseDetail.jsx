@@ -13,7 +13,8 @@ import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
 
 const CourseDetail = () => {
-  const [CourseDetail, setCourseDetail] = useState([]);
+  const [CourseDetail, setCourseDetail] = useState(null);
+  const [change, setChange] = useState(false);
   const params = useParams();
 
   const getCourseDetail = async () => {
@@ -24,7 +25,7 @@ const CourseDetail = () => {
   };
   useEffect(() => {
     getCourseDetail();
-  }, []);
+  }, [change]);
   return (
     <motion.div
       className=""
@@ -36,23 +37,26 @@ const CourseDetail = () => {
         <GoToCorse />
         <ScrollToTop />
       </div>
-      {CourseDetail.map((item, index) => (
-        <div className=" flex flex-col gap-[100px]" key={index}>
-          <AboutCourse
-            {...item}
-            startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
-            endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
-          />
-          <CourseIntroduction {...item} />
-          <Needs />
-          <CourseTeacher />
-          <CourseComments id={item.courseId} />
-          <RelatedCourses
-            teacherName={item.teacherName}
-            courseId={item.courseId}
-          />
-        </div>
-      ))}
+      {CourseDetail &&
+        CourseDetail.map((item, index) => (
+          <div className=" flex flex-col gap-[100px]" key={index}>
+            <AboutCourse
+              {...item}
+              setChange={setChange}
+              change={change}
+              startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
+              endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
+            />
+            <CourseIntroduction {...item} />
+            <Needs />
+            <CourseTeacher />
+            <CourseComments id={item.courseId} />
+            <RelatedCourses
+              teacherName={item.teacherName}
+              courseId={item.courseId}
+            />
+          </div>
+        ))}
     </motion.div>
   );
 };

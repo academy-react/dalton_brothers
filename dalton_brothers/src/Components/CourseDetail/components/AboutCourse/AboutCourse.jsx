@@ -31,14 +31,17 @@ const AboutCourse = ({
   courseId,
   isCourseUser,
   isCourseReseve,
+  setChange,
+  change,
 }) => {
   const [condition, setCondition] = useState("");
   const selectedCourse = {
     courseId: courseId,
   };
-  // console.log(isCourseReseve, isCourseUser, condition);
+
   const handleClick = async () => {
     const result = await reserveCourse(selectedCourse);
+    setChange(!change);
   };
   const getCondition = () => {
     if (isCourseReseve === "1") {
@@ -54,7 +57,7 @@ const AboutCourse = ({
   };
   useEffect(() => {
     getCondition();
-  }, [condition]);
+  }, [isCourseReseve, isCourseUser]);
   return (
     <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-[100px] flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto max-2xl:gap-20   ">
       {/* ------------------------  title  & info -------------------------------------------------- */}

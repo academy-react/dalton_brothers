@@ -8,6 +8,8 @@ import {
   getItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
+import { Loading } from "../../Common/Loading/Loading";
+import { useLocation } from "react-router-dom";
 
 const PanelCourses = () => {
   const [courseListCount, setCourseListCount] = useState([]);
@@ -17,16 +19,22 @@ const PanelCourses = () => {
   const [allCosts, setAllCosts] = useState("پرداخت شد");
   const payCheck = getItem("payCheck");
   const money = useSelector((state) => state.money.money);
-  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
 
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
     const filteredCount = count.filter((el) => el.accept === false);
+    console.log(filteredCount);
     setCourseListCount(filteredCount);
     const result = await basicGet("/Home/GetCoursesWithPagination");
     setCourseList(result.courseFilterDtos);
+    setIsLoading(false);
+    if (location.pathname !== "/panel/PanelCourses") {
+      setIsLoading(true);
+    }
   };
-  const getCourseDetail = async () => {
+  const getCourseDetail = () => {
     if (courseList) {
       const reservedCoursesArray =
         courseListCount.length !== 0
@@ -53,6 +61,7 @@ const PanelCourses = () => {
       setAllCosts(sum);
     }
   }
+
   const handlePay = () => {
     if (money >= allCosts) {
       toast.success("پرداخت با موفقیت انجام شد");
@@ -72,6 +81,10 @@ const PanelCourses = () => {
   useEffect(() => {
     SumCalculator();
   }, [reservedCourses]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       {reservedCourses.length !== 0 ? (

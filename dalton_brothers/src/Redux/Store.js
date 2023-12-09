@@ -25,7 +25,6 @@ const store = configureStore({
     money,
     theme,
     userDetail,
-    
   },
 });
 
