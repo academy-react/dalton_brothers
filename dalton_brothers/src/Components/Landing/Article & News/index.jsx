@@ -37,7 +37,7 @@ const ArticleNews = () => {
         <Link
           // onClick={() => (Document.documentElement.scrollTop = 0)}
           to={"/news"}
-          className="min-[500px]:w-[210px] whitespace-nowrap w-[175px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
+          className="min-[500px]:w-[210px] whitespace-nowrap w-[175px] h-[50px] bg-secondPallete-100 hover:cursor-pointer hover:bg-opacity-80 duration-100 flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
         >
           مشاهده ی تمام اخبار
         </Link>

@@ -57,6 +57,17 @@ const CourseList = () => {
     };
     handleTrigger();
   }, [maxPrice, minPrice]);
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <motion.div
       className="w-100 flex flex-col gap-5"
@@ -66,7 +77,7 @@ const CourseList = () => {
     >
       {/* <LayOutHeaders topic={"لیست دوره ها"} /> */}
       <Filter />
-    <Loading/>
+    <Loading />
 
       <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
         {courseList && courseList.length > 0 ? (

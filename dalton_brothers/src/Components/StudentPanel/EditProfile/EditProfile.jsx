@@ -157,7 +157,7 @@ const EditProfile = () => {
             {leftArrayInps.map((el, index) => (
               <PanelInps {...el} key={index} />
             ))}
-            <div className="flex flex-col items-center w-full relative sm:w-3/4 lg:w-full mt-[10px] mb-[35px] ">
+            <div className="flex flex-col items-center w-full relative  lg:w-full mt-[10px] mb-[35px] ">
               <DatePicker
                 style={{
                   textAlign: "right",
@@ -165,15 +165,18 @@ const EditProfile = () => {
                   height: "50px",
                   outlineColor: "none",
                   border: "2px solid #ccc",
-                  width: "330px",
+                  width: "320px " ,
+                  
                   margin: "auto",
                   borderRadius: "1000px",
                   fontSize: "14px",
                   padding: "15px 25px",
+                  
                   color: colorMode === "dark" ? "white" : "#a9afba",
+                  
                 }}
                 plugins={[ weekends()]}
-                className={colorMode === "dark" ? "teal bg-dark" : "yellow"}
+                className={colorMode === "dark" ? "teal bg-dark" : "yellow"   }
                 value={date}
                 onChange={(date) => {
                   handleDate(date?.isValid ? date : "");
@@ -193,7 +196,7 @@ const EditProfile = () => {
                 ]}
               />
             </div>
-            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mt-[10px]  px-[40px]">
+            <div className="flex flex-col w-full relative  lg:w-full mt-[10px]  px-[40px]">
               <span className="mx-[20%]  peer-focus:right-[65%]  whitespace-nowrap bg-white dark:bg-mode-900 dark:text-mode-50 absolute right-5 px-2 w-fit -top-4 transition-all duration-1000 text-[#595959]">
                 جنسیت
               </span>
