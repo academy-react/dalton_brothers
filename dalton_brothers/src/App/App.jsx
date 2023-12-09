@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
-      <Toaster duration="500"/>
+      <Toaster duration="5000" toastOptions={{style:{fontFamily:"iranSans"}}} />
       {token ? (
         <Authenticated location={location} />
       ) : (

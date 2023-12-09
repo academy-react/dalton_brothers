@@ -52,6 +52,7 @@ body {
   user-select: none;
   overflow-x: hidden;
 }
+html{scroll-behavior: smooth;}
 .swiper-button-prev {
   color: #fcc419;
   left: 0;
