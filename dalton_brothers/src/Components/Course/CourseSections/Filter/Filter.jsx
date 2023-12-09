@@ -9,7 +9,7 @@ import { RangeSlider } from "./RangePrice";
 import style from "./Filter.module.css";
 import { Button } from "../../../Common/buttons";
 import { onTriggerChange } from "../../../../Redux/Filter/trigger";
-const Filter = () => {
+const Filter = ({setlistTech,setTeacherId}) => {
   const minPrice = useSelector((state) => state.priceFilter.minPrice);
   const maxPrice = useSelector((state) => state.priceFilter.maxPrice);
   const [trigger, setTrigger] = useState(false);
@@ -37,7 +37,7 @@ const Filter = () => {
             topic={"استاد دوره"}
             style={"font-sha text-xl text-[#545454] my-[30px]"}
           />
-          <FilterMaster />
+          <FilterMaster setTeacherId={setTeacherId}/>
         </div>
         <div className="h-[20%]">
           <Title
@@ -62,7 +62,7 @@ const Filter = () => {
             topic={"موضوع دوره"}
             style={"font-sha text-xl text-[#545454] my-[30px]"}
           />
-          <FilterCourse />
+          <FilterCourse setlistTech={setlistTech}/>
         </div>
         <Button
           className={

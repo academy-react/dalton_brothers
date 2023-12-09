@@ -16,7 +16,6 @@ export const useAppContext = () => useContext(SortContext);
 
 const Layout = () => {
 
-  // const [colorMode, setColorMode] = useColorMode();
   const colorMode = useSelector((state) => state.theme.theme);
 
   const search = useSelector((state) => state.search.search);

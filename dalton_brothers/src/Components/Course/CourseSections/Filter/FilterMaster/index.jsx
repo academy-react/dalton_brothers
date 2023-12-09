@@ -15,12 +15,13 @@ import { EffectCube, Pagination, Autoplay, Navigation } from "swiper/modules";
 
 import style from "../Filter.module.css";
 
-const FilterMaster = () => {
+const FilterMaster = ({setTeacherId}) => {
   const store = useSelector((state) => state.masterFilter);
   const dispatch = useDispatch();
 
   // ------------------------------------------------------------ handle filter for ostad bahr ------------------------------------------------------------
   const handleBah = () => {
+    setTeacherId(12)
     if (store.bah === "") {
       dispatch(onBahChange("استاد محمد بحرالعلوم"));
       dispatch(onMasterElseChange(false));
@@ -40,6 +41,7 @@ const FilterMaster = () => {
 
   // ------------------------------------------------------------ handle filter for ostad nazary ------------------------------------------------------------
   const handleNaz = () => {
+    setTeacherId(2)
     if (store.naz === "") {
       dispatch(onNazChange("استاد حامد نظری"));
       dispatch(onMasterElseChange(false));
@@ -58,6 +60,7 @@ const FilterMaster = () => {
 
   // ------------------------------------------------------------ handle filter for ostad asghari ------------------------------------------------------------
   const handleAsg = () => {
+    setTeacherId(1)
     if (store.asg === "") {
       dispatch(onAsgChange("استاد مهدی اصغری"));
       dispatch(onMasterElseChange(false));
@@ -74,8 +77,9 @@ const FilterMaster = () => {
     dispatch(onAsgChange(""));
   };
 
-  // ------------------------------------------------------------ handle filter for ostad esfandiary ------------------------------------------------------------
+  // ------------------------------------------------------------ handle filter for ostad hexa  ------------------------------------------------------------
   const handleEsf = () => {
+    setTeacherId(9)
     if (store.esf === "") {
       dispatch(onEsfChange("استاد محسن اسفندیاری"));
       dispatch(onMasterElseChange(false));
@@ -105,9 +109,9 @@ const FilterMaster = () => {
         />
         <label
           htmlFor={`masterBah`}
-          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+          className={`w-[190px] h-[190px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
         >
-          <h1 className="mx-auto">استاد بحرالعلوم</h1>
+          <h1 className="mx-auto"> محمد جواد-سعدالهی</h1>
         </label>
         {/*------------------------------------------------------------ ostad nazary ------------------------------------------------------------*/}
         <input
@@ -119,9 +123,9 @@ const FilterMaster = () => {
         />
         <label
           htmlFor={`masterNaz`}
-          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+          className={`w-[190px] h-[190px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
         >
-          <h1 className="mx-auto">استاد نظری</h1>
+          <h1 className="mx-auto">unknown F-unknown L </h1>
         </label>
         {/*------------------------------------------------------------ ostad asghary ------------------------------------------------------------*/}
         <input
@@ -133,7 +137,7 @@ const FilterMaster = () => {
         />
         <label
           htmlFor={`masterAsg`}
-          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+          className={`w-[190px] h-[190px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
         >
           <h1 className="mx-auto">استاد اصغری</h1>
         </label>
@@ -147,9 +151,9 @@ const FilterMaster = () => {
         />
         <label
           htmlFor={`masterEsf`}
-          className={`w-[175px] h-[175px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
+          className={`w-[190px] h-[190px] flex items-end pb-[10px] border-[5px] ${style.masterLabel}`}
         >
-          <h1 className="mx-auto">استاد اسفندیاری</h1>
+          <h1 className="mx-auto"> Hexa-Squad</h1>
         </label>
       </div>
       <Swiper
@@ -184,7 +188,7 @@ const FilterMaster = () => {
             htmlFor={`masterBahResPonsive`}
             className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
           >
-            <h1 className="mx-auto">استاد بحرالعلوم</h1>
+            <h1 className="mx-auto">محمد جواد-سعدالهی </h1>
           </label>
         </SwiperSlide>
         <SwiperSlide className="bg-center bg-cover">
@@ -200,7 +204,7 @@ const FilterMaster = () => {
             htmlFor={`masterNazResPonsive`}
             className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
           >
-            <h1 className="mx-auto">استاد نظری</h1>
+            <h1 className="mx-auto">unknown F-unknown L </h1>
           </label>
         </SwiperSlide>
         <SwiperSlide className="bg-center bg-cover">
@@ -232,7 +236,7 @@ const FilterMaster = () => {
             htmlFor={`masterEsfResPonsive`}
             className={`w-[100%] h-[100%] flex items-end pb-[10px] border-[5px] ${style.masterLabelResponsive}`}
           >
-            <h1 className="mx-auto">استاد اسفندیاری</h1>
+            <h1 className="mx-auto">Hexa-Squad </h1>
           </label>
         </SwiperSlide>
       </Swiper>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import ReactPaginate from "react-paginate";
+import toast from "react-hot-toast";
 
 import "../../index.css";
 import { Course } from "./CourseSections/Course";
@@ -21,32 +22,77 @@ const CourseList = () => {
   const maxPrice = useSelector((state) => state.priceFilter.maxPrice);
   const trigger = useSelector((state) => state.trigger.trigger);
   const [totalCount, setTotalCount] = useState();
+  const [listTech, setlistTech] = useState();
+  const [TeacherId, setTeacherId] = useState();
   const [courseList, setCourseList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(5);
+  console.log(TeacherId);
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
     setCurrentPage(numberOfCurrentPage);
   };
 
-  const getCount = async () => {
-    const Count = await basicGet("/Home/GetCoursesWithPagination");
-    setTotalCount(Count.totalCount);
-  };
+  // const getCount = async () => {
+  //   const Count = await basicGet("/Home/GetCoursesWithPagination");
+  //   setTotalCount(Count.totalCount);
+  // };
 
   const getSearch = search ? `Query=${search}` : "";
 
   const getCourses = async () => {
-    const result = await basicGet(
-      `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TechCount=0`
-    );
-    setCourseList(result.courseFilterDtos);
+    if (TeacherId == undefined) {
+      if (listTech == undefined) {
+        const result = await basicGet(
+          `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC`
+        );
+        setCourseList(result.courseFilterDtos);
+        setTotalCount(result.totalCount);
+        console.log(result);
+      } else {
+        const result = await basicGet(
+          `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TechCount=1&ListTech=${listTech}`
+        );
+        setCourseList(result.courseFilterDtos);
+        console.log(result);
+        setTotalCount(result.totalCount);
+      toast.success("فیلتر اعمال شد");
+      }
+    } else {
+      if(listTech == undefined){
+        const result = await basicGet(
+          `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TeacherId=${TeacherId}`
+        );
+        setCourseList(result.courseFilterDtos);
+        console.log(result);
+        setTotalCount(result.totalCount);  
+      }
+      else{
+        const result = await basicGet(
+          `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TeacherId=${TeacherId}&TechCount=1&ListTech=${listTech}`
+        );
+        setCourseList(result.courseFilterDtos);
+        console.log(result);
+        setTotalCount(result.totalCount);  
+      }
+      toast.success("فیلتر اعمال شد");
+    }
+    // if(listTech == undefined){
+    //   const result = await basicGet(`/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC`);
+    //   setCourseList(result.courseFilterDtos);
+    //   console.log(result);
+    // }
+    // else{
+    // const result = await basicGet(`/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TechCount=1&ListTech=${listTech}`);
+    // setCourseList(result.courseFilterDtos);
+    // console.log(result);
+    // }
   };
   const numberOfPage = Math.ceil(totalCount / postsPerPage);
 
   useEffect(() => {
     getCourses();
-    getCount();
+    // getCount();
   }, []);
   useEffect(() => {
     getCourses();
@@ -65,8 +111,8 @@ const CourseList = () => {
       exit={{ opacity: 0 }}
     >
       <LayOutHeaders topic={"لیست دوره ها"} />
-      <Filter />
-    <Loading/>
+      <Filter setlistTech={setlistTech} setTeacherId={setTeacherId} />
+      <Loading />
 
       <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
         {courseList && courseList.length > 0 ? (

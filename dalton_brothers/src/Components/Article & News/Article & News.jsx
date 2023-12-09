@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { motion } from "framer-motion";
 // import { Article } from "./ArticleSections/Article";
 import { Article } from "./ArticleSections/Article/Article";
@@ -9,9 +11,12 @@ import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
 
 const ArticleNews = () => {
   const [articleList, setArticleList] = useState([]);
-
+  const search = useSelector((state) => state.search.search);
+  
   const getArticles = async () => {
-    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
+  const getSearch = search ? `Query=${search}` : "";
+
+    const result = await basicGet(`/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC&${getSearch}`);
 
     const response = result.news;
     console.log(result);
@@ -20,10 +25,9 @@ const ArticleNews = () => {
 
   useEffect(() => {
     getArticles();
-  }, []);
+  }, [search]);
   
 
-  // const data = ;
   return (
     <motion.div
       className="w-100 flex flex-col gap-5 "

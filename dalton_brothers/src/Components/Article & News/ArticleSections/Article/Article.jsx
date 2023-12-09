@@ -122,7 +122,7 @@ const Article = ({
       <div className=" w-full h-44 flex">
         <div className=" h-full w-3/5 flex-col pr-4">
           <h3 className=" w-full h-1/4 flex items-center justify-end font-irSBold text-xl dark:text-mode-50">
-            {title}{" "}
+            {title && handleDescription(title, 40)}{" "}
           </h3>
           <h5 className=" w-full h-1/4 flex items-center justify-end font-irSans text-lg text-mode-800 dark:text-mode-200">
             {" "}
