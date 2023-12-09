@@ -6,12 +6,16 @@ import { Article } from "./ArticleSections/Article/Article";
 import { LayOutHeaders } from "../Common/LayOutHeaders";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
+import { Loading } from "../Common/Loading/Loading";
 
 const ArticleNews = () => {
   const [articleList, setArticleList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const getArticles = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
+    setIsLoading(false);
 
     const response = result.news;
     //console.log(result);
@@ -23,6 +27,12 @@ const ArticleNews = () => {
   }, []);
 
   // const data = ;
+
+
+  if (isLoading) {
+    return <Loading style={""}  />;
+  }
+
   return (
     <motion.div
       className="w-100 flex flex-col gap-5 "

@@ -12,21 +12,33 @@ import { GoToCorse } from "./components/GoToCorse/GoToCorse";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
 import Master from "../Landing/BestMasters/BestMasterSection/Master";
+import { Loading } from "../Common/Loading/Loading";
 
 const CourseDetail = () => {
   const [CourseDetail, setCourseDetail] = useState([]);
   const [change, setChange] = useState(false);
   const params = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const getCourseDetail = async () => {
     const result = await getDetail(
       `/Home/GetCourseDetails?CourseId=${params.id}`
     );
+    setIsLoading(false);
+
     setCourseDetail([result]);
   };
   useEffect(() => {
     getCourseDetail();
   }, [change]);
+
+
+  if (isLoading) {
+    return <Loading style={""}  />;
+  }
+
+
   return (
     <motion.div
       className=""

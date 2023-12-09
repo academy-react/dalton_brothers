@@ -83,7 +83,7 @@ const PanelCourses = () => {
   }, [reservedCourses]);
 
   if (isLoading) {
-    return <Loading />;
+    return <Loading style={"2xl:mr-[400px] xl:mr-[200px] "}  />;
   }
   return (
     <>
@@ -140,8 +140,8 @@ const PanelCourses = () => {
           </div>
         </>
       ) : (
-        <div className="w-[75vw] h-[700px] flex justify-center items-center">
-          <p className="font-irSBold text-[#636363] bg-[#fff2da] w-[500px] h-[200px] flex justify-center items-center rounded-lg">
+        <div className="w-[1200px] max-xl:w-[600px] max-lg:w-auto h-[500px] flex justify-center items-center">
+          <p className="font-irSBold text-[#636363] bg-[#fff2da] dark:bg-mode-800 dark:text-mode-50 w-[500px] h-[200px] flex justify-center items-center rounded-lg">
             دوره ای برای نمایش وجود ندارد برای رزرو دوره به لیست دوره ها بروید
           </p>
         </div>

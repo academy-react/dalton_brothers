@@ -9,15 +9,18 @@ import { ScrollToTop } from "../../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { CourseComments } from "../../Common/Comment/CourseComment/CourseComment";
 import { basicGet } from "../../../Core/Services/api/course/courseList/courseList";
 import { ArticleComments } from "./Components/ArticleComent/ArticleComent";
+import { Loading } from "../../Common/Loading/Loading";
 
 const ArticleDetail = () => {
   const [ArticleDetail, setArticleDetail] = useState([]);
   const params = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const getArticleDetail = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=20");
     const response = result.news;
-
+setIsLoading(false);
     setArticleDetail(response);
   };
   useEffect(() => {
@@ -38,6 +41,12 @@ const ArticleDetail = () => {
       </div>
     )
   );
+
+
+
+  if (isLoading) {
+    return <Loading style={""}  />;
+  }
   return (
     <motion.div
       className=""

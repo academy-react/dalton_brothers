@@ -35,7 +35,7 @@ const LayoutPanel = () => {
           <PanelNavigation />
 
         </div>
-        <div className="  flex flex-col items-center">
+        <div className="  flex flex-col items-center ">
           <div className=" w-full pt-[10px]">
             <Outlet />
           </div>
