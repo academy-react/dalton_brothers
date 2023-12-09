@@ -53,14 +53,14 @@ function MyCombobox() {
     <Combobox
       value={selectedPerson}
       as={"div"}
-      className="xl:mt-[300px] xl:w-[604px] lg:w-[50vw] lg:mt-[150px] mt-[100px] min-[400px]:w-96 w-[90%] mx-auto h-[65px] text-right text-black font-irSans relative flex flex-row-reverse flex-wrap "
+      className="xl:mt-[300px] xl:w-[604px] lg:w-[50vw] lg:mt-[150px] mt-[100px] min-[400px]:w-96 w-[90%] mx-auto h-[65px] text-right text-black font-irSans relative flex flex-row-reverse flex-wrap  "
     >
       <Combobox.Input
         onFocusCapture={() => setQuery("")}
         onChange={(event) => setQuery(event.target.value)}
         displayValue={selectedPerson}
         className={
-          "w-full  outline-none h-[65px] border-2 rounded-full py-1 flex justify-start items-center px-5 gap-3 mb-3"
+          "w-full  outline-none h-[65px] border-2 rounded-full py-1 flex justify-start items-center px-5 gap-3 mb-3 dark:bg-mode-900 dark:text-mode-50"
         }
         placeholder="دِنبال چی دَری ..."
       />
