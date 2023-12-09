@@ -63,7 +63,7 @@ const CourseList = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <LayOutHeaders topic={"لیست دوره ها"} />
+      {/* <LayOutHeaders topic={"لیست دوره ها"} /> */}
       <Filter />
       <div className="w-100 flex flex-row flex-wrap justify-center gap-10 mb-24 ">
         {courseList && courseList.length > 0 ? (

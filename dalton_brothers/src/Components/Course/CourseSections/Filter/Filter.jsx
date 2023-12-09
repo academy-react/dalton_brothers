@@ -30,23 +30,23 @@ const Filter = () => {
         فیلتر
       </label>
       <div
-        className={`${style.content} h-0 w-[80%] overflow-hidden  m-auto transition-all duration-700 rounded-[30px] bg-mode-50`}
+        className={`${style.content} h-0 w-[80%] overflow-hidden  m-auto transition-all duration-700 rounded-[30px] bg-mode-50 dark:bg-mode-800`}
       >
         <div className="flex flex-col items-start">
           <Title
             topic={"استاد دوره"}
-            style={"font-sha text-xl text-[#545454] my-[30px]"}
+            style={"font-irSBold text-xl text-[#545454] my-[30px] dark:text-mode-50"}
           />
           <FilterMaster />
         </div>
         <div className="h-[20%]">
           <Title
             topic={"بازه ی قیمت"}
-            style={"font-sha text-xl text-[#545454] text-left my-[30px]"}
+            style={"font-irSBold text-xl text-[#545454] text-left my-[30px] dark:text-mode-50"}
           />
           <div className={style.priceRange}>
             <RangeSlider
-              className="xl:w-[60%] sm:w-[90%] w-full mx-auto relative top-10 z-0"
+              className="xl:w-[60%] sm:w-[90%] w-full mx-auto relative top-10 z-0 "
               minVal={minPrice}
               maxVal={maxPrice}
               min={0}
@@ -60,13 +60,13 @@ const Filter = () => {
         <div>
           <Title
             topic={"موضوع دوره"}
-            style={"font-sha text-xl text-[#545454] my-[30px]"}
+            style={"font-irSBold text-xl text-[#545454] my-[30px] dark:text-mode-50"}
           />
           <FilterCourse />
         </div>
         <Button
           className={
-            "border-[5px] border-[#ecedf0] w-full mt-[100px] bg-[#fbbf24] hover:bg-[#bd942c] text-[#f1f5f9]"
+            "border-[5px] border-[#ecedf0] w-full mt-[100px] bg-[#fbbf24] hover:bg-[#bd942c] text-[#f1f5f9] dark:bg-DarkPallete-100 dark:hover:bg-opacity-70 dark:border-mode-800"
           }
           onClick={() => {
             dispatch(onTriggerChange(true));

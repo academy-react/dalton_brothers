@@ -11,6 +11,7 @@ import { CourseComments } from "../Common/Comment/CourseComment/CourseComment";
 import { GoToCorse } from "./components/GoToCorse/GoToCorse";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
+import Master from "../Landing/BestMasters/BestMasterSection/Master";
 
 const CourseDetail = () => {
   const [CourseDetail, setCourseDetail] = useState(null);
@@ -37,26 +38,26 @@ const CourseDetail = () => {
         <GoToCorse />
         <ScrollToTop />
       </div>
-      {CourseDetail &&
-        CourseDetail.map((item, index) => (
-          <div className=" flex flex-col gap-[100px]" key={index}>
-            <AboutCourse
-              {...item}
-              setChange={setChange}
-              change={change}
-              startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
-              endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
-            />
-            <CourseIntroduction {...item} />
-            <Needs />
-            <CourseTeacher />
-            <CourseComments id={item.courseId} />
-            <RelatedCourses
-              teacherName={item.teacherName}
-              courseId={item.courseId}
-            />
-          </div>
-        ))}
+      {CourseDetail.map((item, index) => (
+        <div className=" flex flex-col gap-[100px]" key={index}>
+          <AboutCourse
+            {...item}
+            setChange={setChange}
+            change={change}
+            startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
+            endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
+          />
+          <CourseIntroduction {...item} />
+          <Needs />
+          {/* masters on course details page */}
+          <Master />
+          <CourseComments id={item.courseId} />
+          <RelatedCourses
+            teacherName={item.teacherName}
+            courseId={item.courseId}
+          />
+        </div>
+      ))}
     </motion.div>
   );
 };

@@ -27,7 +27,7 @@ const CourseList = () => {
         </div>
         <Link
           to={"/course"}
-          className="min-[500px]:w-[210px] w-[175px] h-[50px] bg-[#6c63ff] hover:cursor-pointer hover:bg-[#463fd3] flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
+          className="min-[500px]:w-[210px] w-[175px] h-[50px] bg-secondPallete-100 duration-100 hover:cursor-pointer hover:bg-opacity-80 flex justify-center items-center rounded-full font-irSans text-[#fff] text-l"
         >
           مشاهده ی تمام دوره ها
         </Link>
