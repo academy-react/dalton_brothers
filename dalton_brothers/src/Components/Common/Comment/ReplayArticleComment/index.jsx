@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
+import toast from "react-hot-toast";
+
 import { Input } from "../../Inputs/Input";
 import { Button } from "../../buttons";
 import { commentValidation } from "../../../../Core/Validation/yup";
 import { replayArticleCommentData} from "../../../../Core/Services/api/replayComment";
+import { addArticleReplyComment } from "../../../../Core/Services/api/course/comment/addComment/addComment";
 
 const ReplayArticleComment = ({
     setArticleReplay,
@@ -12,28 +15,37 @@ const ReplayArticleComment = ({
     setArticleEmotion,
     ArticleEmotion,
     newsId,
+    id,
 }) => {
   const [selArticleComment, setSelArticleComment] = useState({});
+  const [Value, setValue] = useState();
+
   const getComment = () => {
     if (ArticleReplayedCommentId) {
       const selectedComment = ArticleComment.find((el) => el.id === ArticleReplayedCommentId);
       setSelArticleComment(selectedComment);
     }
   };
+  const gha = () =>{
+    toast.success(selArticleComment.id)
+  }
   const handleReplay = async (values) => {
+    setValue(values)
     const obj = {
       newsId : newsId,
+      title : Value.title,
+      describe : Value.describe,
+      parentId : selArticleComment.id,
     }
-
-    const result = await replayArticleCommentData(formdata);
-    result.success === true && setArticleEmotion(!ArticleEmotion);
-    result.success === true && setArticleReplay(false);
+    console.log(selArticleComment,obj,newsId);
+    const user = await addArticleReplyComment(obj);
+    console.log(user);
   };
   useEffect(() => {
     getComment();
   }, []);
   return (
-    <div className="w-[60%] py-[40px] rounded-3xl border-2 absolute top-[20%] left-[20%] z-10 bg-[#6c63ff]">
+    <div className="w-[60%] py-[40px] rounded-3xl  absolute top-[20%] left-[20%]   z-10 bg-white dark:bg-mode-900 shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800">
       <div
         className="absolute top-0 right-0 w-[40px] h-[40px] flex justify-center items-center border-2 border-[#272268] rounded-tr-3xl"
         onClick={() => setArticleReplay(false)}
@@ -49,7 +61,7 @@ const ReplayArticleComment = ({
           validationSchema={commentValidation}
           onSubmit={(values) => handleReplay(values)}
         >
-          <Form className=" flex w-full flex-col items-center font-irSans transition-all">
+          <Form className=" flex w-full flex-col items-center font-irSans transition-all" onClick={()=> gha()}>
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
               <Input
                 topic={"عنوان نظر"}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { onSortChange } from "../../../../Redux/sort";
@@ -6,11 +6,22 @@ import { onSortChange } from "../../../../Redux/sort";
 import style from "../../layOut.module.css";
 
 const LaySort = () => {
+  const [Order, setOrder] = useState(false)
   const store = useSelector((state) => state.sort);
 
   const colorMode = useSelector((state) => state.theme.theme);
 
-  // //console.log(store)
+
+  const handleOrder = () => {
+console.log(Order);
+    if(Order == false){
+      setOrder(true)
+    }
+    else{
+      setOrder(false)
+    }
+  }
+  // console.log(store)
   const dispatch = useDispatch();
 
   return (
@@ -64,7 +75,7 @@ const LaySort = () => {
           قیمت
         </label>
       </div>
-      <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[300px] font-irSBold text-mode-50 text-lg py-[28px] px-[70px] bg-pallete-100 dark:bg-DarkPallete-100  max-lg:rounded-t-3xl max-lg:rounded-b-md">
+      <div className="flex justify-center items-center rounded-l-[999px] rounded-r-[300px] font-irSBold text-mode-50 text-lg py-[28px] px-[70px] bg-pallete-100 dark:bg-DarkPallete-100  max-lg:rounded-t-3xl max-lg:rounded-b-md" onClick={()=> handleOrder()}>
         ترتیب ها
       </div>
     </div>

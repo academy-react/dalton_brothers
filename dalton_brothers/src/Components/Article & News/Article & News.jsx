@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { motion } from "framer-motion";
 // import { Article } from "./ArticleSections/Article";
 import { Article } from "./ArticleSections/Article/Article";

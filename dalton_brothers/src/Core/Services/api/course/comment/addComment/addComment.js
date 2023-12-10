@@ -19,3 +19,13 @@ export const addArticleComment = async (url) => {
     return [];
   }
 };
+export const addArticleReplyComment = async (url) => {
+  try {
+    const response = await http.post(`/News/CreateNewsReplyComment`, url);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

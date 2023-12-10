@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 import newsImage from "../../../../../Assets/Images/newsImage.jpg";
+import articleWriter from "../../../../../Assets/Images/articleWriter.png";
 
 import {
   IconHeart,
@@ -174,11 +175,11 @@ const AboutArticle = ({
         </div>
         <div className=" w-full h-[38%] flex flex-row-reverse justify-center items-center max-md:flex-col">
           <div className=" flex w-1/2 max-md:w-full h-full justify-start items-center flex-row-reverse">
-            <div className="w-32 h-32 bg-yellow-300 rounded-full mr-1">
+            <div className="w-32 h-32 bg-yellow-300 rounded-full mr-1 flex justify-center items-center">
               <img
-                src={currentImageAddress}
+                src={currentImageAddress == null ? articleWriter : currentImageAddress}
                 alt="عکسی برای استاد یافت نشد"
-                className="w-full h-full flex justify-center items-center text-center"
+                className="w-4/5 h-4/5 flex justify-center items-center text-center mb-2"
               ></img>
             </div>
             <div className="w-80 h-24 flex flex-col mr-5 font-irSans text-xl text-gray-600 dark:text-mode-100">

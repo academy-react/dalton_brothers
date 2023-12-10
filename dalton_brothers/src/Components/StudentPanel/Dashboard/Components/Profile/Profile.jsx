@@ -9,8 +9,11 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { changePic } from "../../../../../Core/Services/api/studentPanel/selectMainPicture";
 import { deletePic } from "../../../../../Core/Services/api/studentPanel/deletePic";
+import { getItem } from "../../../../../Core/Services/common/storage.services";
 
 const Profile = () => {
+  const [UserFName, setUserFName] = useState();
+  const [UserLName, setUserLName] = useState();
   const [imgPath, setImgPath] = useState(null);
   const [imgCount, setImgCount] = useState(null);
   const [openSlider, setOpenSlider] = useState(false);
@@ -18,10 +21,17 @@ const Profile = () => {
   const [selectedPicture, setSelectedPicture] = useState();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
+
   const getProfile = async () => {
     const user = await basicGet("/SharePanel/GetProfileInfo");
     setImgPath(user.currentPictureAddress);
     setImgCount(user.userImage);
+
+    const userName = await basicGet(
+      "/SharePanel/GetProfileInfo"
+    ) 
+    setUserFName(userName.fName)
+    setUserLName(userName.lName)
   };
 
   const handlePick = async (i) => {
@@ -52,7 +62,7 @@ const Profile = () => {
   }, []);
   return (
     <div className=" w-[270px] max-sm:w-[180px] h-[70px] flex justify-center items-center gap-3 font-irSBold">
-      <h3 className=" text-lg text-gray-500 "> امین قادری </h3>
+      <h3 className=" text-lg text-gray-500 "> {UserFName} {UserLName}</h3>
       <div
         className="w-[60px] h-[60px] rounded-full bg-[#fcbe49] dark:bg-[#15a349] flex justify-center items-center overflow-hidden "
         onClick={() => setOpenSlider(true)}

@@ -85,40 +85,30 @@ const ArticComments = ({
   };
 
   useEffect(() => {
-    // if (currentUserEmotion == "-") {
-    //   setLike(false);
-    //   setDisLike(false);
-    // } else if (currentUserEmotion == "LIKED") {
-    //   setLike(true);
-    //   setDisLike(false);
-    // } else {
-    //   setLike(false);
-    //   setDisLike(true);
-    // }
   }, []);
 
   return (
     <div
-      className={`xl:w-[1290px] lg:w-[1020px] md:w-[780px]  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] ${className}`}
+      className={`xl:w-[1290px] max-lg:w-auto max  md:w-[780px] max-sm:pr-0  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className}`}
     >
-      <div className="relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[40px] md:py-8 md:px-16 py-3">
+      <div className="relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3">
         {/*--------------------------------------------------------------- user img --------------------------------------------------------------- */}
-        <div className="absolute top-[-40%] right-[-5%] border-2 border-[#9ca3af] lg:w-[130px] lg:h-[130px] md:w-[60px] md:h-[90px] w-[65px] h-[65px] rounded-full bg-white">
+        <div className="absolute top-[-40%] right-[-5%]  lg:w-[110px] lg:h-[110px] md:w-[60px] md:h-[90px] w-[65px] h-[65px] rounded-full bg-white">
           <img
             src={pictureAddress ? pictureAddress : user}
             className="w-full m-auto rounded-full text-center"
           ></img>
         </div>
         {/*--------------------------------------------------------------- author --------------------------------------------------------------- */}
-        <span className="absolute top-[-10%] right-[10%]  text-gray-600 bg-white lg:text-[19px] md:text-xl text-lg text-center font-irSBold px-3">
+        <span className="absolute top-[-10%] right-[10%]  text-gray-600 bg-white dark:bg-mode-900 dark:text-mode-50 lg:text-[19px] md:text-xl text-lg text-center font-irSBold px-3">
           {autor}
         </span>
         {/*--------------------------------------------------------------- title --------------------------------------------------------------- */}
-        <div className=" w-full text-right bg-white lg:text-[17px] text-lg text-gray-500 whitespace-nowrap font-irSBold pr-[20px] ">
+        <div className=" w-full text-right   lg:text-[17px] text-lg text-gray-500 whitespace-nowrap font-irSBold pr-[20px] dark:text-mode-200 ">
           {title}
         </div>
         {/*--------------------------------------------------------------- describe --------------------------------------------------------------- */}
-        <p className="text-gray-500 lg:text-xl text-md text-right md:pr-8 pr-3 font-BNa ">
+        <p className="text-gray-500 lg:text-xl text-md text-right md:pr-8 pr-3 font-BNa dark:text-mode-300 ">
           {describe}
         </p>
       </div>
@@ -129,7 +119,7 @@ const ArticComments = ({
             <>
               <IconThumbDown
                 fill="#6c63ff"
-                className="w-full h-[70%] text-[#272268] cursor-pointer"
+                className="w-full h-[40px] text-mode-700 cursor-pointer"
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
@@ -138,11 +128,11 @@ const ArticComments = ({
           ) : (
             <>
               <IconThumbDown
-                className="w-full h-[70%] text-gray-800 cursor-pointer"
+                className="w-full h-[40px] text-mode-700  cursor-pointer"
                 strokeWidth="1"
                 onClick={() => handleDisLike()}
               ></IconThumbDown>
-              <span className="ml-[19px]">{dissLikeCount}</span>
+              <span className="ml-[19px] text-mode-700">{dissLikeCount}</span>
             </>
           )}
         </div>
@@ -153,33 +143,33 @@ const ArticComments = ({
               <IconThumbUp
                 strokeWidth="1"
                 fill="#6c63ff"
-                className="w-full h-[70%] text-[#272268] cursor-pointer"
+                className="w-full h-[40px]  text-error-100 cursor-pointer"
                 onClick={() => handleLike()}
               />
-              <span className="ml-[19px]">{likeCount}</span>
+              <span className="ml-[19px] text-mode-700">{likeCount}</span>
             </>
           ) : (
             <>
               <IconThumbUp
                 strokeWidth="1"
-                className="w-full h-[70%] text-gray-800 cursor-pointer"
+                className="w-full h-[40px] text-mode-700 cursor-pointer"
                 onClick={() => handleLike()}
               />
-              <span className="ml-[19px]">{likeCount}</span>
+              <span className="ml-[19px] text-mode-700">{likeCount}</span>
             </>
           )}
         </div>
         {/*--------------------------------------------------------------- comment --------------------------------------------------------------- */}
-        <div className="lg:w-[50px] lg:h-full md:w-[50px] md:h-[50px] w-[40px] h-[40px]">
+        <div className="lg:w-[50px]  md:w-[50px] md:h-[50px] w-[40px] h-[40px]">
           <IconMessageCircle2
             strokeWidth="1"
-            className="w-full h-[70%] text-gray-800 cursor-pointer"
+            className="w-full h-[40px] text-mode-700 cursor-pointer"
             onClick={() => {
               setArticleReplay(true);
               setArticleReplayedCommentId(id);
             }}
           />
-          <span className="ml-[17px]">{replyCount}</span>
+          <span className="ml-[17px] text-mode-700">{replyCount}</span>
         </div>
       </div>
       {replyCount > 0 && <CommentArtReplays id={id} newsId={newsId} />}

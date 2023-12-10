@@ -124,7 +124,6 @@ const Course = ({
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
-  //console.log(userIsLiked,currentUserDissLike);
   const handleDisLike = async () => {
     const data = new FormData();
 

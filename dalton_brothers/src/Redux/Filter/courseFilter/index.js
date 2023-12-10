@@ -4,9 +4,12 @@ const courseFilterSlice = createSlice({
   name: "masterFilter",
   initialState: {
     python: "",
-    design: "",
+    SQL: "",
     react: "",
     main: "",
+    javaScript: "",
+    next: "",
+    backend: "",
     courseElse: true,
   },
 
@@ -14,14 +17,23 @@ const courseFilterSlice = createSlice({
     onPythonChange: (state, action) => {
       state.python = action.payload;
     },
-    onDesignChange: (state, action) => {
-      state.design = action.payload;
+    onSQLChange: (state, action) => {
+      state.SQL = action.payload;
     },
     onReactChange: (state, action) => {
       state.react = action.payload;
     },
     onMainChange: (state, action) => {
       state.main = action.payload;
+    },
+    onjavaScriptChange: (state, action) => {
+      state.javaScript = action.payload;
+    },
+    onnextChange: (state, action) => {
+      state.next = action.payload;
+    },
+    onbackendChange: (state, action) => {
+      state.backend = action.payload;
     },
     onCourseElseChange: (state, action) => {
       state.courseElse = action.payload;
@@ -31,10 +43,13 @@ const courseFilterSlice = createSlice({
 
 export const {
   onPythonChange,
-  onDesignChange,
+  onSQLChange,
   onReactChange,
   onMainChange,
+  onjavaScriptChange,
+  onnextChange,
   onCourseElseChange,
+  onbackendChange,
 } = courseFilterSlice.actions;
 
 export default courseFilterSlice.reducer;

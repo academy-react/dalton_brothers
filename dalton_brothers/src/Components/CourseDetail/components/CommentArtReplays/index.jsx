@@ -10,6 +10,7 @@ const CommentArtReplays = ({ id,className }) => {
   const [replay, setReplay] = useState(false);
   const [replayedCommentId, setReplayedCommentId] = useState();
   const [text, setText] = useState("نمایش پاسخ ها");
+  console.log(id,"id replay");
   const handleClick = async () => {
     const result = await basicGet(
       `/News/GetRepliesComments?Id=${id}`
