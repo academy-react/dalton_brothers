@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+import "aos/dist/aos.css";
+import AOS from "aos";
+
 // import { courseData } from "../../../../Core/Services/data";
 
 import userGold from "../../../../../src/assets/Images/user-gold-2.png";
@@ -58,7 +61,20 @@ const AboutCourse = ({
   useEffect(() => {
     getCondition();
   }, [isCourseReseve, isCourseUser]);
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      offset: 200, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
+
   return (
+    <div data-aos="fade-up">
+
     <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-[100px] flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto max-2xl:gap-20   ">
       {/* ------------------------  title  & info -------------------------------------------------- */}
 
@@ -190,7 +206,7 @@ const AboutCourse = ({
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

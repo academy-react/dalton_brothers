@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 import { AboutCourse } from "./components/AboutCourse/AboutCourse";
 import { CourseIntroduction } from "./components/CourseIntroduction/CourseIntroduction";
@@ -20,7 +22,6 @@ const CourseDetail = () => {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
-
   const getCourseDetail = async () => {
     const result = await getDetail(
       `/Home/GetCourseDetails?CourseId=${params.id}`
@@ -33,10 +34,11 @@ const CourseDetail = () => {
     getCourseDetail();
   }, [change]);
 
-
   if (isLoading) {
-    return <Loading style={""}  />;
+    return <Loading style={""} />;
   }
+
+
 
 
   return (
@@ -52,6 +54,7 @@ const CourseDetail = () => {
       </div>
       {CourseDetail.map((item, index) => (
         <div className=" flex flex-col gap-[100px]" key={index}>
+          
           <AboutCourse
             {...item}
             setChange={setChange}
