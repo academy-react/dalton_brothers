@@ -19,7 +19,7 @@ const CourseList = () => {
   const sort = useSelector((state) => state.sort.sort);
   const search = useSelector((state) => state.search.search);
   const teacherId = useSelector((state) => state.teacherId.teacherId);
-  // const order = useSelector((state) => state.order.order);
+  const order = useSelector((state) => state.order.order);
   const listTech = useSelector((state) => state.listTech.listTech);
   const minPrice = useSelector((state) => state.priceFilter.minPrice);
   const maxPrice = useSelector((state) => state.priceFilter.maxPrice);
@@ -30,7 +30,7 @@ const CourseList = () => {
   const [courseList, setCourseList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(4);
-  console.log(teacherId,listTech);
+  console.log(order);
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
     setCurrentPage(numberOfCurrentPage);
@@ -46,13 +46,13 @@ const CourseList = () => {
   const getSearch = search ? `Query=${search}` : "";
   const getlistTech = listTech ? `&TechCount=1&ListTech=${listTech}` : "";
   const getTeacherId = teacherId ? `TeacherId=${teacherId}` : "";
-  // const getOrder = `SortType=${newOrder}`;
+  const getOrder = `SortType=${order}`;
 
 
 
   const getCourses = async () => {
          const result = await basicGet(
-           `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&${getlistTech}&${getTeacherId}`
+           `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&${getOrder}&${getlistTech}&${getTeacherId}`
          );
          // setPostsPerPage(result.courseFilterDtos.length)
          setCourseList(result.courseFilterDtos);
@@ -113,7 +113,7 @@ const CourseList = () => {
   }, []);
   useEffect(() => {
     getCourses();
-  }, [currentPage, sort, search, trigger,teacherId,listTech]);
+  }, [currentPage, sort, search, trigger,teacherId,listTech,order]);
   useEffect(() => {
     const handleTrigger = () => {
       dispatch(onTriggerChange(false));
