@@ -1,10 +1,12 @@
 import { Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 import {
   clearStorage,
@@ -81,9 +83,19 @@ const SignInForm = () => {
 
   // validation................................
 
+  useEffect(() => {
+    AOS.init({
+      duration: 3000, // Animation duration in milliseconds
+      offset: 400, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
+
   return (
     <div
-      className={`2xl:w-[40%] xl:w-1/2 lg:w-3/5 md:w-[80%] w-full relative flex flex-row justify-center items-center`}
+      className={`2xl:w-[40%] xl:w-1/2 lg:w-3/5 md:w-[80%] w-full relative flex flex-row justify-center items-center  ` }
+      data-aos="fade-up"
     >
       <Formik
         initialValues={{
@@ -115,7 +127,7 @@ const SignInForm = () => {
             <Input
               topic={"رمز عبور"}
               className={
-                "rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 text"
+                "rounded-full dark:bg-mode-900 dark:border-2 dark:focus:border-DarkPallete-100 dark:text-mode-50"
               }
               placeHolder={""}
               type={show ? "text" : "password"}
