@@ -126,7 +126,7 @@ const AboutCourse = ({
           />
         </div>
         <div className="h-[30%] w-[80%] max-2xl:w-[500px] m-auto max-2xl:mt-10 max-sm:flex-col max-sm:w-auto max-sm:justify-center max-sm:gap-6 flex justify-between items-center flex-row-reverse ">
-          <div className="w-full flex justify-end max-sm:justify-center">
+          {/* <div className="w-full flex justify-end max-sm:justify-center">
             {condition === "تایید شده" ? (
               <span className="text-xl px-16 py-2 rounded-[40px] text-mode-700 dark:text-white font-irSans">
                 {condition}
@@ -139,7 +139,7 @@ const AboutCourse = ({
                 {condition}
               </button>
             )}
-          </div>
+          </div> */}
           <div className="h-full w-full flex justify-start items-center gap-3  max-sm:justify-center">
             {save ? (
               <div
