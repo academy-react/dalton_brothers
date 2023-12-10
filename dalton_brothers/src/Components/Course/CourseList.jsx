@@ -37,8 +37,6 @@ const CourseList = () => {
     const Count = await basicGet("/Home/GetCoursesWithPagination");
     setTotalCount(Count.totalCount);
     setIsLoading(false);
-
-
   };
 
   const getSearch = search ? `Query=${search}` : "";
@@ -59,24 +57,23 @@ const CourseList = () => {
         setCourseList(result.courseFilterDtos);
         console.log(result);
         setTotalCount(result.totalCount);
-      toast.success("فیلتر اعمال شد");
+        toast.success("فیلتر اعمال شد");
       }
     } else {
-      if(listTech == undefined){
+      if (listTech == undefined) {
         const result = await basicGet(
           `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TeacherId=${TeacherId}`
         );
         setCourseList(result.courseFilterDtos);
         console.log(result);
-        setTotalCount(result.totalCount);  
-      }
-      else{
+        setTotalCount(result.totalCount);
+      } else {
         const result = await basicGet(
           `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TeacherId=${TeacherId}&TechCount=1&ListTech=${listTech}`
         );
         setCourseList(result.courseFilterDtos);
         console.log(result);
-        setTotalCount(result.totalCount);  
+        setTotalCount(result.totalCount);
       }
       toast.success("فیلتر اعمال شد");
     }
@@ -106,11 +103,8 @@ const CourseList = () => {
     handleTrigger();
   }, [maxPrice, minPrice]);
 
-
-
-
   if (isLoading) {
-    return <Loading style={""}  />;
+    return <Loading style={""} />;
   }
 
   return (
