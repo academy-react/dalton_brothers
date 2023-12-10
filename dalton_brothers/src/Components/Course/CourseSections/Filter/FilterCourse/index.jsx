@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import { EffectCube, Pagination, Autoplay, Navigation } from "swiper/modules";
+import { onlistTechChange } from "../../../../../Redux/listTech";
 
 import style from "../Filter.module.css";
 
@@ -24,7 +25,7 @@ const FilterCourse = ({setlistTech}) => {
 
   // ------------------------------------------------------------ handle filter for python ------------------------------------------------------------
   const handlePython = () => {
-    setlistTech(7)
+    dispatch(onlistTechChange(7))
     if (store.python === "") {
       dispatch(onPythonChange("پایتون"));
       dispatch(onCourseElseChange(false));
@@ -47,7 +48,7 @@ const FilterCourse = ({setlistTech}) => {
 
   // ------------------------------------------------------------ handle filter for SQL ------------------------------------------------------------
   const handleSQL = () => {
-    setlistTech(8)
+    dispatch(onlistTechChange(8))
     if (store.SQL === "") {
       dispatch(onSQLChange("طراحی سایت"));
       dispatch(onCourseElseChange(false));
@@ -69,7 +70,7 @@ const FilterCourse = ({setlistTech}) => {
 
   // ------------------------------------------------------------ handle filter for react ------------------------------------------------------------
   const handleReact = () => {
-    setlistTech(3)
+    dispatch(onlistTechChange(3))
     if (store.react === "") {
       dispatch(onReactChange("ری اکت"));
       dispatch(onCourseElseChange(false));
@@ -91,7 +92,7 @@ const FilterCourse = ({setlistTech}) => {
 
   // ------------------------------------------------------------ handle filter for main ------------------------------------------------------------
   const handleMain = () => {
-    setlistTech(2)
+    dispatch(onlistTechChange(2))
     if (store.main === "") {
       dispatch(onMainChange("دوره اصلی"));
       dispatch(onCourseElseChange(false));
@@ -111,7 +112,7 @@ const FilterCourse = ({setlistTech}) => {
     dispatch(onMainChange(""));
   };
   const handleBackend = () => {
-    setlistTech(6)
+    dispatch(onlistTechChange(6))
     if (store.backend === "") {
       dispatch(onbackendChange("دوره بک اند"));
       dispatch(onCourseElseChange(false));
@@ -151,7 +152,7 @@ const FilterCourse = ({setlistTech}) => {
     dispatch(onjavaScriptChange(""));
   };
   const handleNext = () => {
-    setlistTech(4)
+    dispatch(onlistTechChange(4))
     if (store.next === "") {
       dispatch(onnextChange("دوره  نکست"));
       dispatch(onCourseElseChange(false));

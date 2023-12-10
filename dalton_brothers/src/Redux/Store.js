@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import teacherId from "./teacherId";
+import listTech from "./listTech";
 import search from "./search";
 import sort from "./sort";
 import courses from "./reservedCourse";
@@ -11,6 +13,7 @@ import token from "./token";
 import money from "./money";
 import theme from "./Theme";
 import userDetail from "./userDetail";
+import order from "./order";
 
 const store = configureStore({
   reducer: {
@@ -25,6 +28,9 @@ const store = configureStore({
     money,
     theme,
     userDetail,
+    teacherId,
+    listTech,
+    order,
   },
 });
 

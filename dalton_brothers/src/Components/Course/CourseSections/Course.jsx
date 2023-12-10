@@ -257,7 +257,8 @@ const Course = ({
 
         <div className="w-full h-[55px]  rounded-b-lg flex justify-center flex-row-reverse absolute bottom-0 ">
           <div className="w-1/2  flex justify-center items-center flex-row-reverse text-sm text-pallete-100 dark:text-DarkPallete-100 font-irSBold">
-            {cost} : قیمت
+            <p className="">{cost}</p>
+            <p className="pr-1"> تومان </p> 
           </div>
           <Button
             className="w-1/2  bg-pallete-100 dark:bg-DarkPallete-100 text-mode-100 rounded-tr-2xl rounded-bl-2xl rounded-tl-none rounded-br-none flex justify-center items-center font-irSBold"
