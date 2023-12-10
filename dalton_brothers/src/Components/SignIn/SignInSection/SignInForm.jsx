@@ -48,7 +48,11 @@ const SignInForm = () => {
     // //console.log(user);
 
     if (user.success) {
-      navigate("/");
+      const userName = await basicGet("/SharePanel/GetProfileInfo");
+      toast.success(
+        `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
+      );
+        navigate("/");
       dispatch(onUserChange(user));
       if (remember) {
         setItem("token", user.token);
@@ -77,10 +81,6 @@ const SignInForm = () => {
       toast.error("حسابی با این مشخصات وجود ندارد");
       return;
     }
-    const userName = await basicGet("/SharePanel/GetProfileInfo");
-    toast.success(
-      `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
-    );
   };
 
   // validation................................
