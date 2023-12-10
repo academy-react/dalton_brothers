@@ -14,6 +14,9 @@ import "swiper/css/pagination";
 import { EffectCube, Pagination, Autoplay, Navigation } from "swiper/modules";
 
 import style from "../Filter.module.css";
+import { onteacherIdChange } from "../../../../../Redux/teacherId";
+// import { onteacherIdChange } from "../../../Redux/teacherId";
+
 
 const FilterMaster = ({setTeacherId}) => {
   const store = useSelector((state) => state.masterFilter);
@@ -21,7 +24,7 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad bahr ------------------------------------------------------------
   const handleBah = () => {
-    setTeacherId(12)
+    dispatch(onteacherIdChange(12))
     if (store.bah === "") {
       dispatch(onBahChange("استاد محمد بحرالعلوم"));
       dispatch(onMasterElseChange(false));
@@ -41,7 +44,7 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad nazary ------------------------------------------------------------
   const handleNaz = () => {
-    setTeacherId(2)
+    dispatch(onteacherIdChange(2))
     if (store.naz === "") {
       dispatch(onNazChange("استاد حامد نظری"));
       dispatch(onMasterElseChange(false));
@@ -60,7 +63,7 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad asghari ------------------------------------------------------------
   const handleAsg = () => {
-    setTeacherId(1)
+    dispatch(onteacherIdChange(1))
     if (store.asg === "") {
       dispatch(onAsgChange("استاد مهدی اصغری"));
       dispatch(onMasterElseChange(false));
@@ -79,7 +82,7 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad hexa  ------------------------------------------------------------
   const handleEsf = () => {
-    setTeacherId(9)
+    dispatch(onteacherIdChange(9))
     if (store.esf === "") {
       dispatch(onEsfChange("استاد محسن اسفندیاری"));
       dispatch(onMasterElseChange(false));
@@ -104,7 +107,7 @@ const FilterMaster = ({setTeacherId}) => {
           type="checkbox"
           name="master"
           id={`masterBah`}
-          onClick={handleBah}
+          onClick={()=> handleBah()}
           className={`hidden ${style.masterInp}`}
         />
         <label

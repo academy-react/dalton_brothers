@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const priceSlice = createSlice({
   name: "price",
-  initialState: { minPrice: 0, maxPrice: 2000000 },
+  initialState: { minPrice: 0, maxPrice: 2000000000 },
 
   reducers: {
     onMinPriceChange: (state, action) => {

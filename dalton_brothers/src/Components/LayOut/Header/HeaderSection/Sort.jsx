@@ -4,21 +4,24 @@ import { useSelector, useDispatch } from "react-redux";
 import { onSortChange } from "../../../../Redux/sort";
 
 import style from "../../layOut.module.css";
+import { onorderChange } from "../../../../Redux/order";
 
 const LaySort = () => {
-  const [Order, setOrder] = useState(false)
+  const [Order, setOrder] = useState("DESC")
   const store = useSelector((state) => state.sort);
-
   const colorMode = useSelector((state) => state.theme.theme);
 
 
   const handleOrder = () => {
-console.log(Order);
-    if(Order == false){
-      setOrder(true)
+// console.log(Order);
+    if(Order == "DESC"){
+      setOrder("ASC")
+    dispatch(onorderChange("ASC"))
     }
     else{
-      setOrder(false)
+      setOrder( "DESC")
+    dispatch(onorderChange("DESC"))
+
     }
   }
   // console.log(store)
