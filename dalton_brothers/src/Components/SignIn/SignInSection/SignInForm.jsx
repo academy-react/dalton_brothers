@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import {
   clearStorage,
   getItem,
+  removeItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
 import { loginAPI } from "../../../Core/Services/api/Login/auth";
@@ -47,6 +48,11 @@ const SignInForm = () => {
     // //console.log(user);
 
     if (user.success) {
+      const userName = await basicGet("/SharePanel/GetProfileInfo");
+      toast.success(
+        `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
+      );
+        navigate("/");
       dispatch(onUserChange(user));
       if (remember) {
         setItem("token", user.token);
@@ -63,7 +69,11 @@ const SignInForm = () => {
         setItem("userDetail", user);
         dispatch(onTokenChange(user.token));
         window.onbeforeunload = function () {
-          clearStorage();
+          removeItem("token");
+          removeItem("userId");
+          removeItem("userDetail");
+          removeItem("phoneNumber");
+          removeItem("userRole");
         };
       }
     }
@@ -71,12 +81,6 @@ const SignInForm = () => {
       toast.error("حسابی با این مشخصات وجود ندارد");
       return;
     }
-    const userName = await basicGet("/SharePanel/GetProfileInfo");
-    // //console.log(userName);
-    navigate("/");
-    toast.success(
-      `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
-    );
   };
 
   // validation................................

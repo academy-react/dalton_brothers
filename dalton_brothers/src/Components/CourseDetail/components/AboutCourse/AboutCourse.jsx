@@ -16,6 +16,10 @@ import {
   IconStarFilled,
   IconStar,
 } from "@tabler/icons-react";
+import {
+  removeItem,
+  setItem,
+} from "../../../../Core/Services/common/storage.services";
 
 const AboutCourse = ({
   title,
@@ -43,6 +47,7 @@ const AboutCourse = ({
     const result = await reserveCourse(selectedCourse);
     setChange(!change);
   };
+  console.log(isCourseReseve, isCourseUser);
   const getCondition = () => {
     if (isCourseReseve === "1") {
       if (isCourseUser === "1") {
