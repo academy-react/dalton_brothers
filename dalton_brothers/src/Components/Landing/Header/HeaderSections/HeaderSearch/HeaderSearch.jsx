@@ -53,6 +53,7 @@ function MyCombobox() {
     <Combobox
       value={selectedPerson}
       as={"div"}
+      
       className="xl:mt-[300px] xl:w-[604px] lg:w-[50vw] lg:mt-[150px] mt-[100px] min-[400px]:w-96 w-[90%] mx-auto h-[65px] text-right text-black font-irSans relative flex flex-row-reverse flex-wrap  "
     >
       <Combobox.Input

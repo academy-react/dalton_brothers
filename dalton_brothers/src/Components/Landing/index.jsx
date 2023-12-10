@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+
 import { motion } from "framer-motion";
 import { Header } from "./Header/Header.jsx";
 import { Services } from "./ServiceHa/Services.jsx";
@@ -12,22 +13,47 @@ import { LandingFooter } from "./Footer/LandingFooter.jsx";
 import style from "./Landing.module.css";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop.jsx";
 
+import "aos/dist/aos.css";
+import AOS from "aos";
+
 const Landing = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000, // Animation duration in milliseconds
+      offset: 400, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
+
   return (
     <motion.div
-      className={style.landingContainer }
+      className={style.landingContainer}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <ScrollToTop />
       <Header />
-      <Services />
-      <Category />
-      <CourseList />
-      <ArticleNews />
-      <BestMasters />
-      <LandingComment />
+      <div data-aos="fade-up">
+        <Services />
+      </div>
+
+      <div data-aos="fade-up">
+        <Category />
+      </div>
+      <div data-aos="fade-up">
+        <CourseList />
+      </div>
+      <div data-aos="fade-up">
+        <ArticleNews />
+      </div>
+      <div data-aos="fade-up" data-aos-duration="6000">
+        <BestMasters />
+      </div>
+      <div data-aos="fade-up" data-aos-duration="6000">
+        <LandingComment />{" "}
+      </div>
       <LandingFooter />
     </motion.div>
   );
