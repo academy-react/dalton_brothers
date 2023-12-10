@@ -33,6 +33,7 @@ const CourseDetail = () => {
     getCourseDetail();
   }, [change]);
 
+
   if (isLoading) {
     return <Loading style={""}  />;
   }

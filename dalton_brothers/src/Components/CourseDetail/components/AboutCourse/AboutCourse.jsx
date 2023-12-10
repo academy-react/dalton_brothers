@@ -31,6 +31,21 @@ const AboutCourse = ({
     const result = await reserveCourse(selectedCourse);
     console.log(result);
   };
+  const getCondition = () => {
+    if (isCourseReseve === "1") {
+      if (isCourseUser === "1") {
+        setCondition("تایید شده");
+        return;
+      }
+      setCondition("در حال تایید");
+    }
+    if (isCourseReseve === "0") {
+      setCondition("ثبت نام");
+    }
+  };
+  useEffect(() => {
+    getCondition();
+  }, [isCourseReseve, isCourseUser]);
   return (
     <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-[100px] flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto max-2xl:gap-20   ">
       {/* ------------------------  title  & info -------------------------------------------------- */}
@@ -56,7 +71,9 @@ const AboutCourse = ({
               </p>
               ظرفیت پرشده
             </div>
-            <p className="text-mode-700 font-irSans text-lg dark:text-mode-200">4/5</p>
+            <p className="text-mode-700 font-irSans text-lg dark:text-mode-200">
+              4/5
+            </p>
             <div className="flex justify-center items-center">
               <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
@@ -66,7 +83,7 @@ const AboutCourse = ({
             </div>
             <p className="text-mode-700 dark:text-mode-200 font-irSans text-base flex flex-row-reverse gap-2 ">
               {" "}
-              <span >92</span>نفر{" "}
+              <span>92</span>نفر{" "}
             </p>
           </div>
 
@@ -76,26 +93,35 @@ const AboutCourse = ({
             {/* one item */}
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200 ">
               : وضعیت
-              <span className="font-irSBold mr-2 dark:text-mode-50">شروع نشده</span>{" "}
+              <span className="font-irSBold mr-2 dark:text-mode-50">
+                شروع نشده
+              </span>{" "}
             </div>
             {/* --------------- */}
             {/* one item */}
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               : (تومان) هزینه دوره
-              <span className="font-irSBold mr-2 flex dark:text-mode-50 "> 500000 </span>{" "}
+              <span className="font-irSBold mr-2 flex dark:text-mode-50 ">
+                {" "}
+                500000{" "}
+              </span>{" "}
             </div>
             {/* --------------- */}
             {/* one item */}
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
-              :  تاریخ شروع دوره{" "}
-              <span className="font-irSBold mr-2 dark:text-mode-50">1402 / 08 /03</span>{" "}
+              : تاریخ شروع دوره{" "}
+              <span className="font-irSBold mr-2 dark:text-mode-50">
+                1402 / 08 /03
+              </span>{" "}
             </div>
             {/* --------------- */}
 
             {/* one item */}
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
-              :  سطح دوره{" "}
-              <span className="font-irSBold mr-2 dark:text-mode-50">پیشرفته</span>{" "}
+              : سطح دوره{" "}
+              <span className="font-irSBold mr-2 dark:text-mode-50">
+                پیشرفته
+              </span>{" "}
             </div>
             {/* --------------- */}
           </div>
@@ -147,18 +173,26 @@ const AboutCourse = ({
             )}
             <div className="flex justify-center items-center gap-2">
               <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer">
-                <IconThumbUp className="text-mode-700 dark:text-mode-50 w-6 h-6" stroke={1.8} />
+                <IconThumbUp
+                  className="text-mode-700 dark:text-mode-50 w-6 h-6"
+                  stroke={1.8}
+                />
                 <p className="text-mode-700 dark:text-mode-50"> 25</p>
               </div>
               :
-               <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer " onClick={()=> handleDisLike()}>
+              <div
+                className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
+                onClick={() => handleDisLike()}
+              >
                 <IconThumbDown
                   className="text-mode-700 dark:text-mode-50 w-6 h-6 relative top-[2px]"
                   stroke={1.8}
                 />
-                <p className="text-mode-700 dark:text-mode-50 "> {dissLikeCount}</p>
-              </div>             
-            }
+                <p className="text-mode-700 dark:text-mode-50 ">
+                  {" "}
+                  {dissLikeCount}
+                </p>
+              </div>
             </div>
           </div>
         </div>
