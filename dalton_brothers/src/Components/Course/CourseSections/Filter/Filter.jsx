@@ -50,7 +50,7 @@ const Filter = ({setlistTech,setTeacherId}) => {
               minVal={minPrice}
               maxVal={maxPrice}
               min={0}
-              max={2000000}
+              max={2000000000}
               step={5000}
               priceCap={100}
               trigger={trigger}
