@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 // import { courseData } from "../../../../Core/Services/data";
 import {
@@ -9,6 +10,10 @@ import {
   IconStarFilled,
   IconStar,
 } from "@tabler/icons-react";
+import { addSave } from "../../../../Core/Services/api/course/addSave";
+import { addLike } from "../../../../Core/Services/api/course/addLike";
+import reservedCourse from "../../../../Redux/reservedCourse";
+import { reserveCourse } from "../../../../Core/Services/api/course/reserve";
 
 const AboutCourse = ({
   title,
@@ -22,15 +27,155 @@ const AboutCourse = ({
   capacity,
   currentRate,
   courseId,
+  isUserFavorite,
+  userFavoriteId,
+  dissLikeCount,
+  currentUserLike,
+  currentUserDissLike,
+  courseDetailImage,
+  isCourseReseve,
+  isCourseUser,
+  // reserveCourse,
 }) => {
+  const [save, setSave] = useState(isUserFavorite);
+  const [condition, setCondition] = useState("ثبت نام");
+  const [Like, setLike] = useState();
+  const [DisLike, setDisLike] = useState();
+
+  const token = useSelector((state) => state.token.token);
+
+  const handleSave = async () => {
+    const saveData = new FormData();
+
+    if (token) {
+      if (save == false) {
+        setSave(true);
+        const obj = {
+          courseId: courseId,
+        };
+        const userSave = await addSave(obj);
+        console.log(userSave);
+      } else {
+        setSave(false);
+        try {
+          saveData.append("CourseFavoriteId", userFavoriteId);
+
+          const saveResult = await http.delete(`/Course/DeleteCourseFavorite`, {
+            data: saveData,
+          });
+          console.log(saveResult);
+        } catch (error) {
+          toast.error(error);
+        }
+      }
+    } else {
+      toast.error("برای ذخیره دوره باید در سایت ثبت نام کنید");
+    }
+  };
+
+  const handleLike = async () => {
+    const data = new FormData();
+
+    if (token) {
+      if (Like == true) {
+        try {
+        data.append("CourseLikeId", userLikeId);
+
+        const result = await http.delete(`/Course/DeleteCourseLike`, {
+          data: data,
+        });
+        console.log(result);
+        } catch (error) {
+        toast.error(error);
+        }
+        setLike(false);
+      } else {
+        const userLike = await addLike(
+          `/Course/AddCourseLike?CourseId=${courseId}`
+        );
+        console.log(userLike);
+        setLike(true);
+        setDisLike(false);
+        
+      }
+    } else {
+      toast.error("برای لایک باید در سایت ثبت نام کنید");
+    }
+  };
+
+  const handleDisLike = async () => {
+    const data = new FormData();
+
+    if (token) {
+      if (DisLike == true) {
+        try {
+          data.append("CourseLikeId", userLikeId);
+
+          const result = await http.delete(`/Course/DeleteCourseLike`, {
+            data: data,
+          });
+          console.log(result);
+        } catch (error) {
+          toast.error(error);
+        }
+        setDisLike(false);
+      } else {
+        const userDisLike = await addLike(
+          `/Course/AddCourseDissLike?CourseId=${courseId}`
+        );
+        console.log(userDisLike);
+        setDisLike(true);
+        setLike(false);
+      }
+    } else {
+      toast.error("برای ذیس لایک باید در سایت ثبت نام کنید");
+    }
+  };
+
   const selectedCourse = {
     courseId: courseId,
   };
+  // const handleClick = async () => {
+  //   const result = await reservedCourse(selectedCourse);
+  //   console.log(result);
+  // };
+  // const selectedCourse = {
+  //   courseId: courseId,
+  // };
 
   const handleClick = async () => {
     const result = await reserveCourse(selectedCourse);
     console.log(result);
   };
+  const getCondition = () => {
+    if (isCourseReseve === "1") {
+      if (isCourseUser === "1") {
+        setCondition("تایید شده");
+        return;
+      }
+      setCondition("در حال تایید");
+    }
+    if (isCourseReseve === "0") {
+      setCondition("ثبت نام");
+    }
+  };
+  useEffect(() => {
+    getCondition();
+  }, [isCourseReseve, isCourseUser]);
+
+  useEffect(() => {
+    if (currentUserLike == "1") {
+      setLike(true);
+      setDisLike(false);
+    } else if (currentUserDissLike == "1") {
+      setLike(false);
+      setDisLike(true);
+    } else {
+      setLike(false);
+      setDisLike(false);
+    }
+  }, []);
+
   return (
     <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-[100px] flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto max-2xl:gap-20   ">
       {/* ------------------------  title  & info -------------------------------------------------- */}
@@ -57,7 +202,7 @@ const AboutCourse = ({
               ظرفیت پرشده
             </div>
             <p className="text-mode-700 font-irSans text-lg dark:text-mode-200">
-              4/5
+              {currentRate}
             </p>
             <div className="flex justify-center items-center">
               <IconStarFilled className="text-pallete-100" />
@@ -68,7 +213,7 @@ const AboutCourse = ({
             </div>
             <p className="text-mode-700 dark:text-mode-200 font-irSans text-base flex flex-row-reverse gap-2 ">
               {" "}
-              <span>92</span>نفر{" "}
+              <span>{capacity}</span>نفر{" "}
             </p>
           </div>
 
@@ -125,8 +270,9 @@ const AboutCourse = ({
             alt="عکسی وجود ندارد"
           />
         </div>
+
         <div className="h-[30%] w-[80%] max-2xl:w-[500px] m-auto max-2xl:mt-10 max-sm:flex-col max-sm:w-auto max-sm:justify-center max-sm:gap-6 flex justify-between items-center flex-row-reverse ">
-          {/* <div className="w-full flex justify-end max-sm:justify-center">
+          <div className="w-full flex justify-end max-sm:justify-center">
             {condition === "تایید شده" ? (
               <span className="text-xl px-16 py-2 rounded-[40px] text-mode-700 dark:text-white font-irSans">
                 {condition}
@@ -139,7 +285,7 @@ const AboutCourse = ({
                 {condition}
               </button>
             )}
-          </div> */}
+          </div>
           <div className="h-full w-full flex justify-start items-center gap-3  max-sm:justify-center">
             {save ? (
               <div
