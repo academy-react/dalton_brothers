@@ -9,7 +9,6 @@ import toast from "react-hot-toast";
 import {
   clearStorage,
   getItem,
-  removeItem,
   setItem,
 } from "../../../Core/Services/common/storage.services";
 import { loginAPI } from "../../../Core/Services/api/Login/auth";
@@ -48,7 +47,6 @@ const SignInForm = () => {
     // //console.log(user);
 
     if (user.success) {
-      navigate("/");
       dispatch(onUserChange(user));
       if (remember) {
         setItem("token", user.token);
@@ -65,11 +63,7 @@ const SignInForm = () => {
         setItem("userDetail", user);
         dispatch(onTokenChange(user.token));
         window.onbeforeunload = function () {
-          removeItem("token");
-          removeItem("userId");
-          removeItem("userDetail");
-          removeItem("phoneNumber");
-          removeItem("userRole");
+          clearStorage();
         };
       }
     }
@@ -78,6 +72,8 @@ const SignInForm = () => {
       return;
     }
     const userName = await basicGet("/SharePanel/GetProfileInfo");
+    // //console.log(userName);
+    navigate("/");
     toast.success(
       `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
     );

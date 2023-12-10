@@ -25,7 +25,7 @@ const PanelCourses = () => {
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
     const filteredCount = count.filter((el) => el.accept === false);
-    // console.log(filteredCount);
+    console.log(filteredCount);
     setCourseListCount(filteredCount);
     const result = await basicGet("/Home/GetCoursesWithPagination");
     setCourseList(result.courseFilterDtos);
@@ -43,12 +43,11 @@ const PanelCourses = () => {
             )
           : [];
       const reservedCourses = reservedCoursesArray.map((el) => el[0]);
-      // const afterDelete =
-      //   reservedCourses.length !== 0
-      //     ? reservedCourses.filter((el) => el.courseId !== courseDeleteId)
-      //     : [];
-      console.log(reservedCoursesArray);
-      setReservedCourses( []);
+      const afterDelete =
+        reservedCourses.length !== 0
+          ? reservedCourses.filter((el) => el.courseId !== courseDeleteId)
+          : [];
+      setReservedCourses(afterDelete ? afterDelete : []);
     }
   };
   function SumCalculator() {
@@ -65,10 +64,10 @@ const PanelCourses = () => {
 
   const handlePay = () => {
     if (money >= allCosts) {
-      setItem("payCheck", true);
-      setAllCosts("پرداخت شد");
       toast.success("پرداخت با موفقیت انجام شد");
       dispatch(onMoneyChange(money - allCosts));
+      setAllCosts("پرداخت شد");
+      setItem("payCheck", true);
     } else if (allCosts > money) {
       toast.error("شارژ حساب شما به اندازه ی کافی نیست");
     }
@@ -84,7 +83,7 @@ const PanelCourses = () => {
   }, [reservedCourses]);
 
   if (isLoading) {
-    return <Loading style={"2xl:mr-[400px] xl:mr-[200px] "} />;
+    return <Loading style={"2xl:mr-[400px] xl:mr-[200px] "}  />;
   }
   return (
     <>
