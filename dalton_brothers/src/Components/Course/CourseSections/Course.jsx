@@ -86,8 +86,12 @@ const Course = ({
   const handleLike = async () => {
     if (token) {
       if (!userIsLiked) {
-        const result = await addLike(courseId);
-        const result1 = await addLike(courseId);
+        const result = await addLike(
+          `/Course/AddCourseLike?CourseId=${courseId}`
+        );
+        const result1 = await addLike(
+          `/Course/AddCourseLike?CourseId=${courseId}`
+        );
       } else if (userIsLiked) {
         const data = new FormData();
         data.append("CourseLikeId", userLikedId);
@@ -103,7 +107,9 @@ const Course = ({
       if (!currentUserDissLike) {
         const result = await addDisLike(courseId);
       } else if (currentUserDissLike) {
-        const result = await addLike(courseId);
+        const result = await addLike(
+          `/Course/AddCourseLike?CourseId=${courseId}`
+        );
         const data = new FormData();
         data.append("CourseLikeId", userLikedId);
         const result1 = await deleteLike(data);
