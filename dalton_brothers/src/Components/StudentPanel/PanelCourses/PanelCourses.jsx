@@ -21,6 +21,7 @@ const PanelCourses = () => {
   const money = useSelector((state) => state.money.money);
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const getCount = async () => {
     const count = await basicGet("/SharePanel/GetMyCoursesReserve");
@@ -83,7 +84,7 @@ const PanelCourses = () => {
   }, [reservedCourses]);
 
   if (isLoading) {
-    return <Loading style={"2xl:mr-[400px] xl:mr-[200px] "}  />;
+    return <Loading style={"2xl:mr-[400px] xl:mr-[200px] "} />;
   }
   return (
     <>

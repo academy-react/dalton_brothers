@@ -20,7 +20,6 @@ const CourseDetail = () => {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
-
   const getCourseDetail = async () => {
     const result = await getDetail(
       `/Home/GetCourseDetails?CourseId=${params.id}`
@@ -33,11 +32,9 @@ const CourseDetail = () => {
     getCourseDetail();
   }, [change]);
 
-
   if (isLoading) {
-    return <Loading style={""}  />;
+    return <Loading style={""} />;
   }
-
 
   return (
     <motion.div
@@ -56,8 +53,8 @@ const CourseDetail = () => {
             {...item}
             setChange={setChange}
             change={change}
-            startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
-            endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
+            startTime={item.startTime?.split("T")[0].replaceAll("-", " / ")}
+            endTime={item.endTime?.split("T")[0].replaceAll("-", " / ")}
           />
           <CourseIntroduction {...item} />
           <Needs />
