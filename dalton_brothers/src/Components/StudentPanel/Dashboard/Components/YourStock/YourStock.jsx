@@ -56,11 +56,11 @@ const YourStock = () => {
           موجودی شما
         </span>
         <div className=" w-[150px] flex h-[60px] gap-1 xl:text-xl lg:text-lg justify-center items-center pt-8">
-          <p className="text-gray-600"> تومان </p>
-          <p className="text-gray-600">{money ? money : 0}</p>
+          <p className="text-gray-600 dark:text-mode-200"> تومان </p>
+          <p className="text-gray-600 dark:text-mode-50 ">{money ? money : 0}</p>
         </div>
         <div className=" w-full h-[70px] flex-col items-center ">
-          <p className=" w-full text-center text-sm text-gray-500 ">نوع شارژ</p>
+          <p className=" w-full text-center text-sm text-gray-500 dark:text-mode-300 ">نوع شارژ</p>
           <div className="w-[90%] h-[35px] flex justify-between items-center  mt-5 text-center  ">
             <div className="bg-mode-200 h-full w-[45%] rounded-r-md rounded-l-[30px] flex justify-center items-center text-sm ">
               دلار
