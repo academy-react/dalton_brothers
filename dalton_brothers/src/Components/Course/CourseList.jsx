@@ -29,8 +29,8 @@ const CourseList = () => {
   const [TeacherId1, setTeacherId1] = useState();
   const [courseList, setCourseList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [change, setChange] = useState(false);
   const [postsPerPage, setPostsPerPage] = useState(4);
-  console.log(order);
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
     setCurrentPage(numberOfCurrentPage);
@@ -48,63 +48,14 @@ const CourseList = () => {
   const getTeacherId = teacherId ? `TeacherId=${teacherId}` : "";
   const getOrder = `SortType=${order}`;
 
-
-
   const getCourses = async () => {
-         const result = await basicGet(
-           `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&${getOrder}&${getlistTech}&${getTeacherId}`
-         );
-         // setPostsPerPage(result.courseFilterDtos.length)
-         setCourseList(result.courseFilterDtos);
-         setTotalCount(result.totalCount);
-         console.log(result);    
-    // if (TeacherId == undefined) {
-    //   if (listTech == undefined) {
-    //     const result = await basicGet(
-    //       `/Home/GetCoursesWithPagination`
-    //     );
-    //     // setPostsPerPage(result.courseFilterDtos.length)
-    //     setCourseList(result.courseFilterDtos);
-    //     setTotalCount(result.totalCount);
-    //     console.log(result);
-    //   } else {
-    //     const result = await basicGet(
-    //       `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TechCount=1&ListTech=${listTech}`
-    //     );
-    //     setCourseList(result.courseFilterDtos);
-    //     console.log(result);
-    //     setTotalCount(result.totalCount);
-    //   toast.success("فیلتر اعمال شد");
-    //   }
-    // } else {
-    //   if(listTech == undefined){
-    //     const result = await basicGet(
-    //       `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TeacherId=${TeacherId}`
-    //     );
-    //     setCourseList(result.courseFilterDtos);
-    //     console.log(result);
-    //     setTotalCount(result.totalCount);  
-    //   }
-    //   else{
-    //     const result = await basicGet(
-    //       `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TeacherId=${TeacherId}&TechCount=1&ListTech=${listTech}`
-    //     );
-    //     setCourseList(result.courseFilterDtos);
-    //     console.log(result);
-    //     setTotalCount(result.totalCount);  
-    //   }
-    //   toast.success("فیلتر اعمال شد");
-    // }
-    // if(listTech == undefined){
-    //   const result = await basicGet(`/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC`);
-    //   setCourseList(result.courseFilterDtos);
-    //   console.log(result);
-    // }
-    // else{
-    // const result = await basicGet(`/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&SortType=DESC&TechCount=1&ListTech=${listTech}`);
-    // setCourseList(result.courseFilterDtos);
-    // console.log(result);
-    // }
+    const result = await basicGet(
+      `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&${getOrder}&${getlistTech}&${getTeacherId}`
+    );
+    console.log(result);
+    // setPostsPerPage(result.courseFilterDtos.length)
+    setCourseList(result.courseFilterDtos);
+    setTotalCount(result.totalCount);
   };
   const numberOfPage = Math.ceil(totalCount / postsPerPage);
 
@@ -113,17 +64,14 @@ const CourseList = () => {
   }, []);
   useEffect(() => {
     getCourses();
-  }, [currentPage, sort, search, trigger,teacherId,listTech,order]);
+  }, [currentPage, sort, search, trigger, teacherId, listTech, order, change]);
   useEffect(() => {
     const handleTrigger = () => {
       dispatch(onTriggerChange(false));
     };
     handleTrigger();
   }, [maxPrice, minPrice]);
-  // useEffect(() => {
-  //   const newOrder = JSON.parse(order)
-  // }, [])
-  
+
   return (
     <motion.div
       className="w-100 flex flex-col gap-5"
@@ -141,8 +89,8 @@ const CourseList = () => {
             <Course
               {...course}
               key={index}
-              setCourseList={setCourseList}
-              courseList={courseList}
+              setChange={setChange}
+              change={change}
             />
           ))
         ) : (

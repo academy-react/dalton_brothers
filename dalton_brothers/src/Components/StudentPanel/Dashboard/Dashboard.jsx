@@ -22,17 +22,14 @@ const Dashboard = () => {
           <Specification />
         </div>
       </div>
-      <div className=" flex flex-row-reverse  w-full mt-5 max-2xl:flex-col max-2xl:items-center   ">
+      <div className="flex flex-row-reverse  w-full mt-5 max-2xl:flex-col max-2xl:items-center   ">
         {/* h-[430px] */}
         <p className="w-1/3 whitespace-nowrap text-right text-xl font-irSans pt-5 pr-5 dark:text-mode-50">
           علاقه مندی ها
         </p>
-        <div className="   flex justify-start items-center mt-6 ">
-          {/* <div className="scale-75 ">
-            <CustomSlider component="Article" />
-          </div> */}
-          <div className="scale-75 ">
-            <CustomSlider component="Course" />
+        <div className="flex justify-center items-center mt-[70px]">
+          <div className="2xl:w-[1000px] lg:w-[1000px] max-sm:w-full scale-7">
+            <CustomSlider />
           </div>
         </div>
       </div>

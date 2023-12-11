@@ -24,6 +24,7 @@ const CourseDetail = () => {
     const result = await getDetail(
       `/Home/GetCourseDetails?CourseId=${params.id}`
     );
+    // console.log(result);
     setIsLoading(false);
 
     setCourseDetail([result]);

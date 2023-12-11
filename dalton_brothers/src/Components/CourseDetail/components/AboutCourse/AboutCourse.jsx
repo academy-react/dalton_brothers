@@ -11,9 +11,15 @@ import {
   IconStar,
 } from "@tabler/icons-react";
 import { addSave } from "../../../../Core/Services/api/course/addSave";
-import { addLike } from "../../../../Core/Services/api/course/addLike";
+import {
+  addLike,
+  deleteLike,
+} from "../../../../Core/Services/api/course/addLike";
 import reservedCourse from "../../../../Redux/reservedCourse";
 import { reserveCourse } from "../../../../Core/Services/api/course/reserve";
+import { deleteSave } from "../../../../Core/Services/api/course/deleteSave";
+import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
+import { addDisLike } from "../../../../Core/Services/api/course/addDisLike";
 
 const AboutCourse = ({
   title,
@@ -30,106 +36,66 @@ const AboutCourse = ({
   isUserFavorite,
   userFavoriteId,
   dissLikeCount,
-  currentUserLike,
-  currentUserDissLike,
   courseDetailImage,
   isCourseReseve,
   isCourseUser,
   change,
   setChange,
-  // reserveCourse,
+  currentUserLike,
+  likeCount,
+  userLikeId,
+  currentUserDissLike,
 }) => {
-  const [save, setSave] = useState(isUserFavorite);
   const [condition, setCondition] = useState();
-  const [Like, setLike] = useState();
-  const [DisLike, setDisLike] = useState();
 
   const token = useSelector((state) => state.token.token);
-
   const handleSave = async () => {
-    const saveData = new FormData();
-
     if (token) {
-      if (save == false) {
-        setSave(true);
+      if (isUserFavorite === false) {
         const obj = {
           courseId: courseId,
         };
         const userSave = await addSave(obj);
-        // console.log(userSave);
-      } else {
-        setSave(false);
-        try {
-          saveData.append("CourseFavoriteId", userFavoriteId);
-
-          const saveResult = await http.delete(`/Course/DeleteCourseFavorite`, {
-            data: saveData,
-          });
-          // console.log(saveResult);
-        } catch (error) {
-          toast.error(error);
-        }
+      } else if (isUserFavorite === true) {
+        var formdata = new FormData();
+        formdata.append("CourseFavoriteId", userFavoriteId);
+        // console.log(formdata);
+        const result = await deleteSave(formdata);
       }
+      setChange(!change);
     } else {
       toast.error("برای ذخیره دوره باید در سایت ثبت نام کنید");
     }
   };
-
   const handleLike = async () => {
-    const data = new FormData();
-
     if (token) {
-      if (Like == true) {
-        try {
-          data.append("CourseLikeId", userLikeId);
-
-          const result = await http.delete(`/Course/DeleteCourseLike`, {
-            data: data,
-          });
-          // console.log(result);
-        } catch (error) {
-          toast.error(error);
-        }
-        setLike(false);
-      } else {
-        const userLike = await addLike(
-          `/Course/AddCourseLike?CourseId=${courseId}`
-        );
-        // console.log(userLike);
-        setLike(true);
-        setDisLike(false);
+      if (currentUserLike === "0") {
+        const result = await addLike(courseId);
+        const result1 = await addLike(courseId);
+      } else if (currentUserLike === "1") {
+        const data = new FormData();
+        data.append("CourseLikeId", userLikeId);
+        const result = await deleteLike(data);
       }
+      setChange(!change);
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
-
+  console.log(currentUserLike, currentUserDissLike);
   const handleDisLike = async () => {
-    const data = new FormData();
-
     if (token) {
-      if (DisLike == true) {
-        try {
-          data.append("CourseLikeId", userLikeId);
-
-          const result = await http.delete(`/Course/DeleteCourseLike`, {
-            data: data,
-          });
-          // console.log(result);
-        } catch (error) {
-          toast.error(error);
-        }
-        setDisLike(false);
-      } else {
-        const userDisLike = await addLike(
-          `/Course/AddCourseDissLike?CourseId=${courseId}`
-        );
-        // console.log(userDisLike);
-        setDisLike(true);
-        setLike(false);
+      if (currentUserDissLike === "0") {
+        const result = await addDisLike(courseId);
+      } else if (currentUserDissLike === "1") {
+        const result = await addLike(courseId);
+        const data = new FormData();
+        data.append("CourseLikeId", userLikeId);
+        const result1 = await deleteLike(data);
       }
+      setChange(!change);
     } else {
-      toast.error("برای ذیس لایک باید در سایت ثبت نام کنید");
+      toast.error("برای دیس لایک باید در سایت ثبت نام کنید");
     }
   };
 
@@ -158,19 +124,6 @@ const AboutCourse = ({
   useEffect(() => {
     getCondition();
   }, [isCourseReseve, isCourseUser]);
-
-  useEffect(() => {
-    if (currentUserLike == "1") {
-      setLike(true);
-      setDisLike(false);
-    } else if (currentUserDissLike == "1") {
-      setLike(false);
-      setDisLike(true);
-    } else {
-      setLike(false);
-      setDisLike(false);
-    }
-  }, []);
 
   return (
     <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-[100px] flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto max-2xl:gap-20   ">
@@ -262,8 +215,7 @@ const AboutCourse = ({
           {" "}
           <img
             className="w-4/5 max-2xl:w-[500px] h-full rounded-[30px] flex justify-center items-center"
-            src={imageAddress != null ? imageAddress : courseDetailImage}
-            alt="عکسی وجود ندارد"
+            src={imageAddress ? imageAddress : courseDetailImage}
           />
         </div>
 
@@ -284,40 +236,41 @@ const AboutCourse = ({
             )}
           </div>
           <div className="h-full w-full flex justify-start items-center gap-3  max-sm:justify-center">
-            {save ? (
-              <div
-                className="w-12 h-12 dark:bg-mode-700 rounded-full flex justify-center items-center bg-gray-300 cursor-pointer"
-                onClick={() => handleSave()}
-              >
-                <IconBookmarks className="text-mode-700 dark:text-mode-50" />
-              </div>
-            ) : (
-              <div
-                className="w-12 h-12 bg-white dark:bg-mode-700 rounded-full flex justify-center items-center  cursor-pointer"
-                onClick={() => handleSave()}
-              >
-                <IconBookmarks className="text-mode-700 dark:text-mode-50" />
-              </div>
-            )}
+            {/* -------------saveCourse--------------------------------------------------------------------------- */}
+            <div
+              className="w-12 h-12 dark:bg-mode-700 rounded-full flex justify-center items-center bg-[#f0dcb7] cursor-pointer"
+              onClick={() => handleSave()}
+            >
+              {isUserFavorite ? (
+                <IconBookmarks className="text-[#ffac30] dark:text-black" />
+              ) : (
+                <IconBookmarks className="text-[#2c2c2c] dark:text-mode-50" />
+              )}
+            </div>
+
             <div className="flex justify-center items-center gap-2">
-              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer">
-                <IconThumbUp
-                  className="text-mode-700 dark:text-mode-50 w-6 h-6"
-                  stroke={1.8}
-                />
-                <p className="text-mode-700 dark:text-mode-50"> 25</p>
+              <div
+                className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer"
+                onClick={handleLike}
+              >
+                {currentUserLike === "1" ? (
+                  <IconThumbUp className="text-[#ffac30] dark:text-black" />
+                ) : (
+                  <IconThumbUp className="text-[#2c2c2c] dark:text-mode-50" />
+                )}
+                <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
               </div>
               :
               <div
                 className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
                 onClick={() => handleDisLike()}
               >
-                <IconThumbDown
-                  className="text-mode-700 dark:text-mode-50 w-6 h-6 relative top-[2px]"
-                  stroke={1.8}
-                />
+                {currentUserDissLike === "1" ? (
+                  <IconThumbDown className="text-[#ffac30] dark:text-black" />
+                ) : (
+                  <IconThumbDown className="text-[#2c2c2c] dark:text-mode-50" />
+                )}
                 <p className="text-mode-700 dark:text-mode-50 ">
-                  {" "}
                   {dissLikeCount}
                 </p>
               </div>
@@ -330,10 +283,3 @@ const AboutCourse = ({
 };
 
 export { AboutCourse };
-
-/* <button
-          className="md:px-14 md:py-4 bg-[#fcbf49] md:text-xl text-md px-11 py-3 absolute -bottom-[27px] rounded-[40px] text-white font-irSans"
-          onClick={() => handleClick()}
-        >
-          ثبت نام
-        </button>*/
