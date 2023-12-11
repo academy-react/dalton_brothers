@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "aos/dist/aos.css";
+import AOS from "aos";
+
+
 import { Outlet, useLocation } from "react-router-dom";
 import useColorMode from "../../CustomHooks/UseColorMode";
 import { motion } from "framer-motion";
@@ -17,26 +21,37 @@ const LayoutPanel = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   const location = useLocation();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 3000, // Animation duration in milliseconds
+      offset: 400, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
+
+
   return (
     <div className="relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[120vh] max-2xl:h-[130vh] max-lg:h-[150vh] max-sm:h-[170vh] justify-around flex-row-reverse    ">
       <div className="w-full  flex justify-between items-center flex-row-reverse px-10 max-sm:px-1  py-4">
-        <div className=" flex justify-center items-center ">
+        <div className=" flex justify-center items-center " data-aos="fade-up">
           <Profile />
         </div>
         <div className=" w-[600px] max-2xl:w-[400px] max-lg:relative max-lg:top-14 max-lg:-right-14   rounded-[30px]   flex justify-center items-center  ">
           {location.pathname === "/panel/PanelCoursesList" && <PanelSearch />}
         </div>
-        <div className="  flex    justify-between items-center ml-8 ">
+        <div className="  flex    justify-between items-center ml-8 " data-aos="fade-up">
           <Notification />
         </div>
       </div>
-      <div className="w-full h-[85%] flex justify-start flex-row-reverse  gap-10 pr-12 max-lg:pr-0 max-lg:flex-col  ">
-        <div className="  lg:scale-[80%] flex justify-start flex-col items-center relative -top-8 ">
+      <div className="w-full h-[85%] flex justify-start flex-row-reverse  gap-10 pr-12 max-lg:pr-0 max-lg:flex-col  " data-aos="zoom-in-down">
+        <div className="  lg:scale-[80%] flex justify-start flex-col items-center relative -top-8 "    >
           <PanelNavigation />
 
         </div>
-        <div className="  flex flex-col items-center ">
-          <div className=" w-full pt-[10px]">
+        <div className="  flex flex-col items-center "  >
+          <div className=" w-full pt-[10px]" >
             <Outlet />
           </div>
         </div>

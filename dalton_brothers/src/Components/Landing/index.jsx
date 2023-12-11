@@ -42,16 +42,16 @@ const Landing = () => {
       <div data-aos="fade-up">
         <Category />
       </div>
-      <div data-aos="fade-up">
+      <div data-aos="fade-up" data-offset="800">
         <CourseList />
       </div>
-      <div data-aos="fade-up">
+      <div data-aos="fade-up" data-offset="1200">
         <ArticleNews />
       </div>
-      <div data-aos="fade-up" >
+      <div data-aos="fade-up" data-offset="1200" data-duration="5000">
         <BestMasters />
       </div>
-      <div data-aos="fade-up" >
+      <div data-aos="fade-up" data-duration="5000" data-offset="1200">
         <LandingComment />{" "}
       </div>
       <LandingFooter />
