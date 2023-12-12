@@ -63,7 +63,7 @@ const CourseDetail = () => {
             startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
             endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
           />
-            <RatingBox/>
+            
           <CourseIntroduction {...item} />
           <Needs />
           {/* masters on course details page */}

@@ -19,6 +19,7 @@ import {
   IconStarFilled,
   IconStar,
 } from "@tabler/icons-react";
+import RatingBox from "../RatingBox";
 
 const AboutCourse = ({
   title,
@@ -38,6 +39,13 @@ const AboutCourse = ({
   change,
 }) => {
   const [condition, setCondition] = useState("");
+  const [NewRating , NewSetRating] = useState("");
+
+
+const handleStars = (newRating) => {NewSetRating(newRating)};
+
+
+
   const selectedCourse = {
     courseId: courseId,
   };
@@ -61,6 +69,7 @@ const AboutCourse = ({
   useEffect(() => {
     getCondition();
   }, [isCourseReseve, isCourseUser]);
+
 
 
   useEffect(() => {
@@ -99,15 +108,16 @@ const AboutCourse = ({
               </p>
               ظرفیت پرشده
             </div>
-            <p className="text-mode-700 font-irSans text-lg dark:text-mode-200">
-              4/5
+            <p className="text-mode-700 font-irSBold text-lg dark:text-mode-200 ">
+              {NewRating}
             </p>
             <div className="flex justify-center items-center">
+              {/* <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
-              <IconStarFilled className="text-pallete-100" />
-              <IconStar className="text-pallete-100" />
+              <IconStar className="text-pallete-100" /> */}
+              <RatingBox handleStars= {handleStars}/>
             </div>
             <p className="text-mode-700 dark:text-mode-200 font-irSans text-base flex flex-row-reverse gap-2 ">
               {" "}
