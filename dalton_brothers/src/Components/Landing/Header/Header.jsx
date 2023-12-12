@@ -25,7 +25,7 @@ const Header = () => {
       className={`2xl:h-[1100px] lg:bg-[url('../../../../src/assets/Images/landing-header.svg')] dark:lg:bg-[url('../../../../src/assets/Images/headerNightBg.svg')] lg:bg-[length:90%] bg-no-repeat bg-[length:90%] bg-[100% 0%] w-[100%] h-fit gap-[50px] flex flex-col justify-between`}
     >
       <HeaderNavbar />
-      <div data-aos="fade-up" data-aos-duration="3000">
+      <div data-aos="fade-left" data-aos-duration="2000">
         <HeaderContent />
       </div>
       <div data-aos="fade-up" data-aos-duration="3000">
