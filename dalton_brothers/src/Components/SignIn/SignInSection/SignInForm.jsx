@@ -66,6 +66,7 @@ const SignInForm = () => {
           clearStorage();
         };
       }
+      navigate("/");
     }
     if (!user.success) {
       toast.error("حسابی با این مشخصات وجود ندارد");
@@ -73,7 +74,6 @@ const SignInForm = () => {
     }
     const userName = await basicGet("/SharePanel/GetProfileInfo");
     // //console.log(userName);
-    navigate("/");
     toast.success(
       `${userName.fName ? userName.fName : "کاربر"}   عزیز به سایت خوش آمدید `
     );

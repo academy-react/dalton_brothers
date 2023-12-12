@@ -172,7 +172,7 @@ const ArticComments = ({
           <span className="ml-[17px] text-mode-700">{replyCount}</span>
         </div>
       </div>
-      {replyCount > 0 && <CommentArtReplays id={id} newsId={newsId} />}
+      { <CommentArtReplays id={id} newsId={newsId} />}
     </div>
   );
 };

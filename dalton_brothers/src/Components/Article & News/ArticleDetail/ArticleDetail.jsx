@@ -16,11 +16,10 @@ const ArticleDetail = () => {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
-
   const getArticleDetail = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=20");
     const response = result.news;
-setIsLoading(false);
+    setIsLoading(false);
     setArticleDetail(response);
   };
   useEffect(() => {
@@ -42,10 +41,8 @@ setIsLoading(false);
     )
   );
 
-
-
   if (isLoading) {
-    return <Loading style={""}  />;
+    return <Loading style={""} />;
   }
   return (
     <motion.div

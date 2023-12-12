@@ -16,7 +16,7 @@ const ArticleNews = () => {
 
 
   const getArticles = async () => {
-    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
+    const result = await basicGet("/News?PageNumber=1&RowsOfPage=100");
     setIsLoading(false);
 
     const response = result.news;

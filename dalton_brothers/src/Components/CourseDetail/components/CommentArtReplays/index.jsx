@@ -4,17 +4,15 @@ import { Comments } from "../../../Common/Comment/Comments/Comments";
 import { ReplayComment } from "../../../Common/Comment/ReplayComment";
 import { ArticComments } from "../../../Common/Comment/ArticleComments";
 
-const CommentArtReplays = ({ id,className }) => {
+const CommentArtReplays = ({ id, className }) => {
   const [replayList, setReplayList] = useState([]);
   const [emotion, setEmotion] = useState();
   const [replay, setReplay] = useState(false);
   const [replayedCommentId, setReplayedCommentId] = useState();
   const [text, setText] = useState("نمایش پاسخ ها");
-  console.log(id,"id replay");
+  console.log(id, "id replay");
   const handleClick = async () => {
-    const result = await basicGet(
-      `/News/GetRepliesComments?Id=${id}`
-    );
+    const result = await basicGet(`/News/GetRepliesComments?Id=${id}`);
     setReplayList(result);
   };
   const handleText = () => {
@@ -50,7 +48,7 @@ const CommentArtReplays = ({ id,className }) => {
       >
         {text}
       </label>
-      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0">
+      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0 ml-[-100px]">
         {/* each comment */}
         {replayList.map((el, index) => (
           <ArticComments
