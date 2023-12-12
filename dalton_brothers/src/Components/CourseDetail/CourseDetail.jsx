@@ -15,6 +15,7 @@ import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
 import Master from "../Landing/BestMasters/BestMasterSection/Master";
 import { Loading } from "../Common/Loading/Loading";
+import RatingBox from "./components/RatingBox";
 
 const CourseDetail = () => {
   const [CourseDetail, setCourseDetail] = useState([]);
@@ -62,6 +63,7 @@ const CourseDetail = () => {
             startTime={item.startTime.split("T")[0].replaceAll("-", " / ")}
             endTime={item.endTime.split("T")[0].replaceAll("-", " / ")}
           />
+            <RatingBox/>
           <CourseIntroduction {...item} />
           <Needs />
           {/* masters on course details page */}
