@@ -39,7 +39,6 @@ const AboutCourse = ({
   isUserFavorite,
   userFavoriteId,
   dissLikeCount,
-  courseDetailImage,
   isCourseReseve,
   isCourseUser,
   change,
@@ -49,6 +48,7 @@ const AboutCourse = ({
   userLikeId,
   currentUserDissLike,
 }) => {
+  // console.log(imageAddress);
   const [condition, setCondition] = useState();
 
   const token = useSelector((state) => state.token.token);
@@ -150,7 +150,6 @@ const AboutCourse = ({
     setChange(!change);
   };
   const getCondition = () => {
-    // console.log("ok");
     if (isCourseReseve === "1") {
       if (isCourseUser === "1") {
         setCondition("تایید شده");
@@ -256,7 +255,7 @@ const AboutCourse = ({
           {" "}
           <img
             className="w-4/5 max-2xl:w-[500px] h-full rounded-[30px] flex justify-center items-center"
-            src={imageAddress ? imageAddress : courseDetailImage}
+            src={imageAddress != null ? imageAddress : courseDetailImage}
           />
         </div>
 
@@ -301,19 +300,19 @@ const AboutCourse = ({
                 )}
                 <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
               </div>
-              :
-              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer"  onClick={()=> handleLike()}>
+              {/* : */}
+              {/* <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer"  onClick={()=> handleLike()}>
               <IconThumbUp
                 className="text-mode-700 dark:text-mode-50 w-6 h-6"
                 stroke={1.8}
               />
               <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
-            </div>
-              }
-              {
-                DisLike ? 
+            </div> */}
+              {/* } */}
+              {/* { */}
+                {/* change ?  */}
                 <div
-                className="w-20 h-[44px] bg-red-300 dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
+                className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
                 onClick={() => handleDisLike()}
               >
                 {currentUserDissLike === "1" ? (
@@ -325,8 +324,8 @@ const AboutCourse = ({
                   {dissLikeCount}
                 </p>
               </div>
-              :
-              <div
+              {/* : */}
+              {/* <div
               className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
               onClick={() => handleDisLike()}
             >
@@ -338,8 +337,8 @@ const AboutCourse = ({
                 {" "}
                 {dissLikeCount}
               </p>
-            </div>
-              }
+            </div> */}
+              {/* } */}
 
             </div>
           </div>
