@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 import { Form, Formik } from "formik";
 import * as yup from "yup";
+
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 import { Title } from "../../../Common/Title/Title";
 import { Input } from "../../../Common/Inputs/Input";
@@ -25,6 +29,16 @@ const ForgetForm = () => {
   const handleSubmit = () => {
     navigate("/identify");
   };
+  
+
+  useEffect(() => {
+    AOS.init({
+      duration: 3000, // Animation duration in milliseconds
+      offset: 400, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
 
   return (
     <div>
@@ -32,8 +46,13 @@ const ForgetForm = () => {
         initialValues={{ email: "" }}
         validationSchema={validation}
         onSubmit={handleSubmit}
+        
       >
-        <Form className={`flex flex-col gap-[35px] items-center relative `}>
+      
+        <Form className={`flex flex-col gap-[35px] items-center relative `}
+      data-aos="fade-up"
+        
+        >
           <div className="w-[75px]">
             <img src={colorMode === "dark" ? darkLogo :  logo} alt="" className="w-full h-full" />
           </div>

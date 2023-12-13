@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import http from "../../../../Core/Services/interceptor";
+
+import "aos/dist/aos.css";
+import AOS from "aos";
+
 // import { courseData } from "../../../../Core/Services/data";
 import {
   IconBookmarks,
@@ -23,6 +27,7 @@ import { reserveCourse } from "../../../../Core/Services/api/course/reserve";
 import { deleteSave } from "../../../../Core/Services/api/course/deleteSave";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 import { addDisLike } from "../../../../Core/Services/api/course/addDisLike";
+import RatingBox from "../RatingBox";
 
 const AboutCourse = ({
   title,
@@ -140,6 +145,13 @@ const AboutCourse = ({
     }
   };
 
+  const [NewRating , NewSetRating] = useState("");
+
+
+const handleStars = (newRating) => {NewSetRating(newRating)};
+
+
+
   const selectedCourse = {
     courseId: courseId,
   };
@@ -165,7 +177,20 @@ const AboutCourse = ({
     getCondition();
   }, [isCourseReseve, isCourseUser]);
 
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      offset: 200, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
+
   return (
+    <div data-aos="fade-up">
+
     <div className="h-[500px] bg-pallete-100 bg-opacity-20 dark:bg-mode-800 w-full mt-[100px] flex justify-center items-center px-10 pt-10 pb-5 max-2xl:flex-col-reverse max-2xl:h-auto max-2xl:gap-20   ">
       {/* ------------------------  title  & info -------------------------------------------------- */}
 
@@ -190,15 +215,16 @@ const AboutCourse = ({
               </p>
               ظرفیت پرشده
             </div>
-            <p className="text-mode-700 font-irSans text-lg dark:text-mode-200">
-              {currentRate}
+            <p className="text-mode-700 font-irSBold text-lg dark:text-mode-200 ">
+              {NewRating}
             </p>
             <div className="flex justify-center items-center">
+              {/* <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
               <IconStarFilled className="text-pallete-100" />
-              <IconStarFilled className="text-pallete-100" />
-              <IconStar className="text-pallete-100" />
+              <IconStar className="text-pallete-100" /> */}
+              <RatingBox handleStars= {handleStars}/>
             </div>
             <p className="text-mode-700 dark:text-mode-200 font-irSans text-base flex flex-row-reverse gap-2 ">
               {" "}
@@ -344,7 +370,7 @@ const AboutCourse = ({
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

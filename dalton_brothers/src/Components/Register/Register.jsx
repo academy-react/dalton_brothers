@@ -1,8 +1,14 @@
 import React from "react";
+
+
 import { motion } from "framer-motion";
 import { LayoutRegister } from "./RegisterSection/LayoutRegister/LayoutRegister";
 
 const Register = () => {
+
+
+
+  
   return (
     <motion.div
       dir="ltr"

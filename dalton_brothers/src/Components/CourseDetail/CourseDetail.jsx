@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 import { AboutCourse } from "./components/AboutCourse/AboutCourse";
 import { CourseIntroduction } from "./components/CourseIntroduction/CourseIntroduction";
@@ -13,6 +15,7 @@ import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { getDetail } from "../../Core/Services/api/course/courseDetail/courseDetail";
 import Master from "../Landing/BestMasters/BestMasterSection/Master";
 import { Loading } from "../Common/Loading/Loading";
+import RatingBox from "./components/RatingBox";
 
 const CourseDetail = () => {
   const [CourseDetail, setCourseDetail] = useState([]);
@@ -50,6 +53,7 @@ const CourseDetail = () => {
       </div>
       {CourseDetail.map((item, index) => (
         <div className=" flex flex-col gap-[100px]" key={index}>
+          
           <AboutCourse
             {...item}
             setChange={setChange}
@@ -57,6 +61,7 @@ const CourseDetail = () => {
             startTime={item.startTime?.split("T")[0].replaceAll("-", " / ")}
             endTime={item.endTime?.split("T")[0].replaceAll("-", " / ")}
           />
+            
           <CourseIntroduction {...item} />
           <Needs />
           {/* masters on course details page */}

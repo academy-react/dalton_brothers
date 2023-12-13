@@ -11,6 +11,8 @@ import { basicGet } from "../../../Core/Services/api/course/courseList/courseLis
 import { ArticleComments } from "./Components/ArticleComent/ArticleComent";
 import { Loading } from "../../Common/Loading/Loading";
 
+
+
 const ArticleDetail = () => {
   const [ArticleDetail, setArticleDetail] = useState([]);
   const params = useParams();
@@ -29,6 +31,8 @@ const ArticleDetail = () => {
   const item = ArticleDetail.filter((item) => item.id === params.id).map(
     (item, index) => (
       <div className="flex flex-col gap-[100px]" key={index}>
+
+
         <AboutArticle
           {...item}
           insertDate={item.insertDate.split("T")[0].replaceAll("-", " / ")}

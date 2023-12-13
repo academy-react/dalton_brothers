@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 import newsImage from "../../../../../Assets/Images/newsImage.jpg";
 import articleWriter from "../../../../../Assets/Images/articleWriter.png";
@@ -53,6 +55,18 @@ const AboutArticle = ({
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      offset: 200, // Offset (in pixels) from the original trigger point
+      easing: "ease", // Animation easing
+      // Other options...
+    });
+  }, []);
+
+
+
   return (
     // <div className=" 2xl:h-[350px] xl:h-[310px] lg:h-72 md:h-60 h-[690px] md:flex md:justify-between md:flex-row-reverse flex max-md:flex-col max-md:items-center max-md:gap-9 mx-auto mt-16">
     //   <div className="bg-green-900 md:h-full h-52 2xl:w-[500px] xl:w-[400px] lg:w-96 md:w-80 w-[300px] lg:rounded-[50px] rounded-[40px] xl:ml-5 ml-2">
@@ -89,6 +103,8 @@ const AboutArticle = ({
     //     </p>
     //   </div>
     // </div>
+    <div data-aos="fade-up">
+
     <div className="w-full h-[480px] mt-32 bg-pallete-50 dark:bg-mode-800  flex max-xl:flex-col max-xl:justify-center max-xl:items-center max-xl:h-auto max-xl:py-10">
       <div className="w-[40%] max-lg:w-auto  h-full  flex justify-center items-center">
         <div className="w-[660px] h-[640px] max-2xl:w-[500px] max-2xl:h-[500px] max-xl:w-[400px] max-xl:h-[400px] bg-pallete-100 dark:bg-DarkPallete-100 opacity-95 rounded-full flex justify-center items-center">
@@ -216,6 +232,7 @@ const AboutArticle = ({
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
