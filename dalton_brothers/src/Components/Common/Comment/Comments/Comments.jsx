@@ -15,6 +15,7 @@ import {
 } from "../../../../Core/Services/api/course/addLike";
 import { CommentReplays } from "../CommentReplays";
 import { useLocation } from "react-router-dom";
+import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 
 const Comments = ({
   className,
@@ -39,8 +40,27 @@ const Comments = ({
 }) => {
   const [like, setLike] = useState();
   const [DisLike, setDisLike] = useState();
+  // const [replay, setreplay] = useState(false);
+  const [fName, setfName] = useState();
+  const [lName, setlName] = useState();
+  const [isAuthor, setisAuthor] = useState(false);
 
   const token = useSelector((state) => state.token.token);
+
+  const isYourComment = async () =>{
+    const result = await basicGet("/SharePanel/GetProfileInfo")
+    setfName(result.fName)
+    setlName(result.lName)
+
+    const user = fName + "-" + lName
+    if(author == user){
+      console.log("is yours");
+      setisAuthor(true);
+    }
+    else{
+      console.log("not for you");
+    }
+  }
 
   const handleLike = async () => {
     if (token) {
@@ -55,7 +75,6 @@ const Comments = ({
         const userDeleteLike = await deleteLike(
           `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
         );
-        //console.log(userDeleteLike, id);
         setLike(false);
       }
     } else {
@@ -76,7 +95,6 @@ const Comments = ({
         const userDeleteDisLike = await deleteLike(
           `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
         );
-        //console.log(userDeleteDisLike,currentUserLikeId);
         setDisLike(false);
       }
     } else {
@@ -96,11 +114,16 @@ const Comments = ({
       setDisLike(true);
     }
   }, []);
+
+  useEffect(() => {
+    isYourComment()
+  }, [fName,lName]);
+
   return (
     <div
       className={`xl:w-[1290px] max-lg:w-auto max  md:w-[780px] max-sm:pr-0  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className}`}
     >
-      <div className="relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3">
+      <div className={`relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3 ${isAuthor ? "bg-blue-100 border-none" : "bg-white"}`}>
         {/*--------------------------------------------------------------- user img --------------------------------------------------------------- */}
         <div className="absolute top-[-40%] right-[-5%]  lg:w-[110px] lg:h-[110px] md:w-[60px] md:h-[90px] w-[65px] h-[65px] rounded-full bg-white">
           <img

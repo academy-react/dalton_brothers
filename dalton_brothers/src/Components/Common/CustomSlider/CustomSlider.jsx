@@ -18,7 +18,7 @@ const CustomSlider =({component}) => {
   const getCount = async () => {
     const Count = await basicGet("/SharePanel/GetMyFavoriteCourses");
     setCourseList(Count.favoriteCourseDto);
-    // console.log(Count);
+    console.log(Count);
   };
 
   useEffect(() => {

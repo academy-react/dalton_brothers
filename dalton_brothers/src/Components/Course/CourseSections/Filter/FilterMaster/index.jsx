@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   onBahChange,
@@ -20,11 +20,16 @@ import { onteacherIdChange } from "../../../../../Redux/teacherId";
 
 const FilterMaster = ({setTeacherId}) => {
   const store = useSelector((state) => state.masterFilter);
+  const [teacher, setteacher] = useState()
   const dispatch = useDispatch();
+
+   dispatch(onteacherIdChange(teacher))
+
 
   // ------------------------------------------------------------ handle filter for ostad bahr ------------------------------------------------------------
   const handleBah = () => {
-    dispatch(onteacherIdChange(12))
+    // dispatch(onteacherIdChange(12))
+    setteacher(12)
     if (store.bah === "") {
       dispatch(onBahChange("استاد محمد بحرالعلوم"));
       dispatch(onMasterElseChange(false));
@@ -44,7 +49,8 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad nazary ------------------------------------------------------------
   const handleNaz = () => {
-    dispatch(onteacherIdChange(2))
+    // dispatch(onteacherIdChange(2))
+    setteacher(2)
     if (store.naz === "") {
       dispatch(onNazChange("استاد حامد نظری"));
       dispatch(onMasterElseChange(false));
@@ -63,7 +69,8 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad asghari ------------------------------------------------------------
   const handleAsg = () => {
-    dispatch(onteacherIdChange(1))
+    setteacher(1)
+    // dispatch(onteacherIdChange(1))
     if (store.asg === "") {
       dispatch(onAsgChange("استاد مهدی اصغری"));
       dispatch(onMasterElseChange(false));
@@ -82,7 +89,8 @@ const FilterMaster = ({setTeacherId}) => {
 
   // ------------------------------------------------------------ handle filter for ostad hexa  ------------------------------------------------------------
   const handleEsf = () => {
-    dispatch(onteacherIdChange(9))
+    // dispatch(onteacherIdChange(9))
+    setteacher(9)
     if (store.esf === "") {
       dispatch(onEsfChange("استاد محسن اسفندیاری"));
       dispatch(onMasterElseChange(false));

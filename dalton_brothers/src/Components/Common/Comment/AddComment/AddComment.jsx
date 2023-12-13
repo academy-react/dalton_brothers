@@ -1,5 +1,7 @@
 import { Field, Form, Formik } from "formik";
+import toast from "react-hot-toast";
 import React from "react";
+
 import { addComment } from "../../../../Core/Services/api/course/comment/addComment/addComment";
 import { Input } from "../../Inputs/Input";
 import { Button } from "../../buttons";
@@ -12,6 +14,8 @@ const AddComment = ({ id }) => {
     formdata.append("Title", values.title);
     formdata.append("Describe", values.describe);
     const user = await addComment(formdata);
+    if(user.success==true){toast.success("نظر شما با موفقیت ارسال شد")}
+    else{toast.error("مشکلی در ارسال نظر وجود دارد")}
   };
   return (
     <div className=" w-full flex ">

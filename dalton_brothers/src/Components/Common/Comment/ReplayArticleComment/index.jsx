@@ -18,7 +18,6 @@ const ReplayArticleComment = ({
     id,
 }) => {
   const [selArticleComment, setSelArticleComment] = useState({});
-  const [Value, setValue] = useState();
 
   const getComment = () => {
     if (ArticleReplayedCommentId) {
@@ -26,21 +25,23 @@ const ReplayArticleComment = ({
       setSelArticleComment(selectedComment);
     }
   };
-  const gha = () =>{
-    toast.success(selArticleComment.id)
-  }
+
   const handleReplay = async (values) => {
-    setValue(values)
     const obj = {
       newsId : newsId,
-      title : Value.title,
-      describe : Value.describe,
+      title : values.title,
+      describe : values.describe,
       parentId : selArticleComment.id,
     }
-    console.log(selArticleComment,obj,newsId);
+    // console.log(obj,newsId);
     const user = await addArticleReplyComment(obj);
     console.log(user);
+    if(user.success == true) {
+      toast.success("نظر شما با موفقیت ارسال شد")
+    }
+    else{toast.error("مشکلی در ارسال نظر وجود دارد")}
   };
+  
   useEffect(() => {
     getComment();
   }, []);
@@ -61,7 +62,7 @@ const ReplayArticleComment = ({
           validationSchema={commentValidation}
           onSubmit={(values) => handleReplay(values)}
         >
-          <Form className=" flex w-full flex-col items-center font-irSans transition-all" onClick={()=> gha()}>
+          <Form className=" flex w-full flex-col items-center font-irSans transition-all" >
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
               <Input
                 topic={"عنوان نظر"}

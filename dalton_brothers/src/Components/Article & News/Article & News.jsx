@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ReactPaginate from "react-paginate";
 
 import { motion } from "framer-motion";
 // import { Article } from "./ArticleSections/Article";
@@ -13,23 +14,28 @@ import { Loading } from "../Common/Loading/Loading";
 const ArticleNews = () => {
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [totalCount, setTotalCount] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
 
-
+  const handlePageClick = (data) => {
+    const numberOfCurrentPage = data.selected + 1;
+    setCurrentPage(numberOfCurrentPage);
+  };
   const getArticles = async () => {
-    const result = await basicGet("/News?PageNumber=1&RowsOfPage=10");
+    const result = await basicGet(`/News?PageNumber=${currentPage}&RowsOfPage=${postsPerPage}`);
     setIsLoading(false);
 
     const response = result.news;
-    //console.log(result);
+    console.log(result);
     setArticleList(response);
-  };
+    setTotalCount(result.totalCount);
 
+  };
+  const numberOfPage = Math.ceil(totalCount / postsPerPage);
   useEffect(() => {
     getArticles();
-  }, []);
-
-  // const data = ;
-
+  }, [currentPage]);
 
   if (isLoading) {
     return <Loading style={""}  />;
@@ -53,6 +59,26 @@ const ArticleNews = () => {
           />
         ))}
       </div>
+      <ReactPaginate
+        previousLabel={"<"}
+        nextLabel={">"}
+        breakLabel={"..."}
+        pageCount={numberOfPage}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageClick}
+        containerClassName={
+          "flex justify-center mx-auto text-xl items-center p-1"
+        }
+        pageClassName="mx-1"
+        nextClassName="mx-1 p-2 "
+        previousClassName="mx-1 p-2 "
+        nextLinkClassName="p-2 scale-120"
+        previousLinkClassName="p-2 scale-120"
+        pageLinkClassName="bg-gray-200  mx-1 px-[14px] py-2 rounded-md"
+        breakLinkClassName="mx-1 p-2"
+        activeLinkClassName="bg-pallete-100 dark:bg-DarkPallete-100 text-white"
+      ></ReactPaginate>
       <ScrollToTop />
     </motion.div>
   );

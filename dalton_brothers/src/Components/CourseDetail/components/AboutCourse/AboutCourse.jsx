@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import toast from "react-hot-toast";
+import http from "../../../../Core/Services/interceptor";
 // import { courseData } from "../../../../Core/Services/data";
 import {
   IconBookmarks,
@@ -12,7 +13,7 @@ import {
 } from "@tabler/icons-react";
 import { addSave } from "../../../../Core/Services/api/course/addSave";
 import { addLike } from "../../../../Core/Services/api/course/addLike";
-import reservedCourse from "../../../../Redux/reservedCourse";
+import courseDetailImage from "../../../../../src/assets/Images/newsImage.jpg";
 import { reserveCourse } from "../../../../Core/Services/api/course/reserve";
 
 const AboutCourse = ({
@@ -32,10 +33,10 @@ const AboutCourse = ({
   dissLikeCount,
   currentUserLike,
   currentUserDissLike,
-  courseDetailImage,
   isCourseReseve,
   isCourseUser,
-  // reserveCourse,
+  likeCount,
+  userLikeId,
 }) => {
   const [save, setSave] = useState(isUserFavorite);
   const [condition, setCondition] = useState("ثبت نام");
@@ -96,7 +97,6 @@ const AboutCourse = ({
         console.log(userLike);
         setLike(true);
         setDisLike(false);
-        
       }
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
@@ -104,21 +104,22 @@ const AboutCourse = ({
   };
 
   const handleDisLike = async () => {
-    const data = new FormData();
+    const disLikeData = new FormData();
 
     if (token) {
       if (DisLike == true) {
         try {
-          data.append("CourseLikeId", userLikeId);
+          disLikeData.append("CourseLikeId", userLikeId);
 
           const result = await http.delete(`/Course/DeleteCourseLike`, {
-            data: data,
+            data: disLikeData,
           });
           console.log(result);
         } catch (error) {
           toast.error(error);
         }
         setDisLike(false);
+        console.log(userLikeId);
       } else {
         const userDisLike = await addLike(
           `/Course/AddCourseDissLike?CourseId=${courseId}`
@@ -135,14 +136,6 @@ const AboutCourse = ({
   const selectedCourse = {
     courseId: courseId,
   };
-  // const handleClick = async () => {
-  //   const result = await reservedCourse(selectedCourse);
-  //   console.log(result);
-  // };
-  // const selectedCourse = {
-  //   courseId: courseId,
-  // };
-
   const handleClick = async () => {
     const result = await reserveCourse(selectedCourse);
     console.log(result);
@@ -224,7 +217,7 @@ const AboutCourse = ({
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200 ">
               : وضعیت
               <span className="font-irSBold mr-2 dark:text-mode-50">
-                شروع نشده
+                 {courseStatusName}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -233,7 +226,7 @@ const AboutCourse = ({
               : (تومان) هزینه دوره
               <span className="font-irSBold mr-2 flex dark:text-mode-50 ">
                 {" "}
-                500000{" "}
+                {cost}{" "}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -241,7 +234,7 @@ const AboutCourse = ({
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               : تاریخ شروع دوره{" "}
               <span className="font-irSBold mr-2 dark:text-mode-50">
-                1402 / 08 /03
+               {startTime}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -250,7 +243,7 @@ const AboutCourse = ({
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               : سطح دوره{" "}
               <span className="font-irSBold mr-2 dark:text-mode-50">
-                پیشرفته
+                {courseLevelName}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -303,16 +296,28 @@ const AboutCourse = ({
               </div>
             )}
             <div className="flex justify-center items-center gap-2">
-              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer">
+              {
+                Like ?
+                <div className="w-20 h-[44px] bg-green-300 dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer" onClick={()=> handleLike()}>
                 <IconThumbUp
                   className="text-mode-700 dark:text-mode-50 w-6 h-6"
                   stroke={1.8}
                 />
-                <p className="text-mode-700 dark:text-mode-50"> 25</p>
+                <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
               </div>
               :
-              <div
-                className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
+              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer"  onClick={()=> handleLike()}>
+              <IconThumbUp
+                className="text-mode-700 dark:text-mode-50 w-6 h-6"
+                stroke={1.8}
+              />
+              <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
+            </div>
+              }
+              {
+                DisLike ? 
+                <div
+                className="w-20 h-[44px] bg-red-300 dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
                 onClick={() => handleDisLike()}
               >
                 <IconThumbDown
@@ -324,6 +329,22 @@ const AboutCourse = ({
                   {dissLikeCount}
                 </p>
               </div>
+              :
+              <div
+              className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
+              onClick={() => handleDisLike()}
+            >
+              <IconThumbDown
+                className="text-mode-700 dark:text-mode-50 w-6 h-6 relative top-[2px]"
+                stroke={1.8}
+              />
+              <p className="text-mode-700 dark:text-mode-50 ">
+                {" "}
+                {dissLikeCount}
+              </p>
+            </div>
+              }
+
             </div>
           </div>
         </div>
