@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from "formik";
+import toast from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import {
   addArticleComment,
@@ -10,7 +11,7 @@ import { commentValidation } from "../../../../Core/Validation/yup";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 
 const AddArticleComment = ({ newsId }) => {
-  const [Value, setValue] = useState();
+  // const [Value, setValue] = useState();
   // const [UserInfoo, setUserInfoo] = useState()
 
   // const getUserInfo = async () => {
@@ -19,15 +20,21 @@ const AddArticleComment = ({ newsId }) => {
   //     setUserInfoo(userInfo)
   // }
   const onSubmit = async (values) => {
-    setValue(values);
+    // setValue(values);
     const obj = {
       newsId: newsId,
-      title: Value.title,
-      describe: Value.describe,
+      title: values.title,
+      describe: values.describe,
     };
-    //console.log(obj,setValue,newsId);
     const user = await addArticleComment(obj);
-    //console.log(user);
+    console.log(user);
+    console.log(obj);
+    if(user.success==true){
+      toast.success("کامنت شما با موفقیت ثبت شد")
+    }
+    else{
+      toast.error("مشکلی در ارسال نظر وجود دارد")
+    }
   };
 
   return (

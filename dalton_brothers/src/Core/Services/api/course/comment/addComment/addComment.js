@@ -22,6 +22,16 @@ export const addArticleComment = async (url) => {
 export const addArticleReplyComment = async (url) => {
   try {
     const response = await http.post(`/News/CreateNewsReplyComment`, url);
+    // console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+export const ChangeOldPassword = async (url) => {
+  try {
+    const response = await http.post(`/SharePanel/ChangePassword`, url);
     console.log(response);
     return response;
   } catch (error) {

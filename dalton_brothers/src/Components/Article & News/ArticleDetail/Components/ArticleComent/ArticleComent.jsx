@@ -20,7 +20,7 @@ const ArticleComments = ({ id, newsId }) => {
   const getArticleComments = async () => {
     const result = await getComment(`/News/GetNewsComments?NewsId=${id}`);
     setArticleComment(result);
-    //console.log(result);
+    console.log(result);
   };
   useEffect(() => {
     getArticleComments();
@@ -49,24 +49,25 @@ const ArticleComments = ({ id, newsId }) => {
           نام نمایید یا وارد شوید
         </p>
       )}
-      <div className="w-full my-[50px] grid grid-col justify-items-end gap-12 relative">
-        {ArticleComment.length !== 0 ? (
-          ArticleComment.map((el, index) => (
-            <ArticComments
-              {...el}
-              key={index}
-              setArticleEmotion={setArticleEmotion}
-              setArticleReplay={setArticleReplay}
-              setArticleReplayedCommentId={setArticleReplayedCommentId}
-            />
-          ))
-        ) : (
-          <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">
-            تاکنون کامنتی در این مورد ثبت نشده{" "}
-          </div>
-        )}
-      </div>
-      <div>
+      <div className="w-full my-[50px] grid grid-col justify-items-center gap-12">
+        <div className="w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ">
+          {ArticleComment.length !== 0 ? (
+            ArticleComment.map((el, index) => (
+              <ArticComments
+                {...el}
+                key={index}
+                setArticleEmotion={setArticleEmotion}
+                setArticleReplay={setArticleReplay}
+                setArticleReplayedCommentId={setArticleReplayedCommentId}
+              />
+            ))
+          ) : (
+            <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">
+              تاکنون کامنتی در این مورد ثبت نشده{" "}
+            </div>
+          )}
+        </div>
+
         <button
           className=" lg:px-8 lg:py-4 md:px-6 md:py-3 px-4 py-2 text-xl font-irSBold bg-white border-2 border-pallete-100 dark:border-DarkPallete-100 dark:bg-mode-900 m-auto rounded-full cursor-pointer text-pallete-100 dark:text-DarkPallete-100"
           onClick={() => setModal(!modal)}
@@ -74,7 +75,7 @@ const ArticleComments = ({ id, newsId }) => {
           {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}
         </button>
         <div className="mx-auto transition-all">
-          {modal == true && <AddArticleComment newsId={id} />}
+          {modal == true && <AddArticleComment newsId={id} getArticleComments={getArticleComments}/>}
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Comments } from "../../../Common/Comment/Comments/Comments";
 import { ReplayComment } from "../../../Common/Comment/ReplayComment";
 import { ArticComments } from "../../../Common/Comment/ArticleComments";
 
-const CommentReplays = ({ id, courseId, className }) => {
+const CommentReplays = ({ id, courseId, className,setreplay }) => {
   const [replayList, setReplayList] = useState([]);
   const [emotion, setEmotion] = useState();
   const [replay, setReplay] = useState(false);
@@ -19,8 +19,10 @@ const CommentReplays = ({ id, courseId, className }) => {
   const handleText = () => {
     if (text === "نمایش پاسخ ها") {
       setText("پنهان کردن پاسخ ها");
-    } else if (text === "پنهان کردن پاسخ ها") {
+      // setreplay(false);
+    } else {
       setText("نمایش پاسخ ها");
+      // setreplay(true)
     }
   };
   useEffect(() => {
@@ -49,7 +51,7 @@ const CommentReplays = ({ id, courseId, className }) => {
       >
         {text}
       </label>
-      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0">
+      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full  h-0">
         {/* each comment */}
         {replayList.map((el, index) => (
           <Comments

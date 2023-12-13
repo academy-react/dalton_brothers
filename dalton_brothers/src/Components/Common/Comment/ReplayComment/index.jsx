@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import { Input } from "../../Inputs/Input";
@@ -27,8 +28,12 @@ const ReplayComment = ({
     formdata.append("Describe", values.describe);
 
     const result = await replayComment(formdata);
-    result.success === true && setEmotion(!emotion);
-    result.success === true && setReplay(false);
+    if(result.success==true){
+      toast.success("نظر شما با موفقیت ارسال شد")
+      setEmotion(!emotion);
+      setReplay(false);
+    }
+    else{toast.error("مشکلی در ارسال نظر وجود دارد")}
   };
   useEffect(() => {
     getComment();

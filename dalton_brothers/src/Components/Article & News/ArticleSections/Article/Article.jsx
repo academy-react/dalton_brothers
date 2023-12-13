@@ -55,6 +55,7 @@ const Article = ({
   isCurrentUserFavorite,
   currentUserFavoriteId,
 }) => {
+  console.log(currentImageAddressTumb);
   const [Save, setSave] = useState(isCurrentUserFavorite);
   const [Like, setLike] = useState(currentUserIsLike);
   const [DissLike, setDissLike] = useState(currentUserIsDissLike);
@@ -146,7 +147,7 @@ const Article = ({
         <div className=" h-full w-2/5">
           <div className=" w-full h-full rounded-[30px]">
             <img
-              src={currentImageAddressTumb ? true : newsImage}
+              src={currentImageAddressTumb != null ? currentImageAddressTumb : newsImage}
               alt=""
               className="w-full h-full flex justify-center items-center rounded-2xl "
             ></img>

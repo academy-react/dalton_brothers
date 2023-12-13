@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import toast from "react-hot-toast";
+import http from "../../../../Core/Services/interceptor";
 // import { courseData } from "../../../../Core/Services/data";
 import {
   IconBookmarks,
@@ -16,6 +17,8 @@ import {
   deleteLike,
 } from "../../../../Core/Services/api/course/addLike";
 import reservedCourse from "../../../../Redux/reservedCourse";
+import courseDetailImage from "../../../../../src/assets/Images/newsImage.jpg";
+
 import { reserveCourse } from "../../../../Core/Services/api/course/reserve";
 import { deleteSave } from "../../../../Core/Services/api/course/deleteSave";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
@@ -76,6 +79,21 @@ const AboutCourse = ({
         const data = new FormData();
         data.append("CourseLikeId", userLikeId);
         const result = await deleteLike(data);
+      //   const result = await http.delete(`/Course/DeleteCourseLike`, {
+      //     data: data,
+      //   });
+      //   console.log(result);
+      //   } catch (error) {
+      //   toast.error(error);
+      //   }
+      //   setLike(false);
+      // } else {
+      //   const userLike = await addLike(
+      //     `/Course/AddCourseLike?CourseId=${courseId}`
+      //   );
+      //   console.log(userLike);
+      //   setLike(true);
+      //   setDisLike(false);
       }
       setChange(!change);
     } else {
@@ -92,6 +110,29 @@ const AboutCourse = ({
         const data = new FormData();
         data.append("CourseLikeId", userLikeId);
         const result1 = await deleteLike(data);
+        // const disLikeData = new FormData();
+
+        // if (token) {
+        //   if (DisLike == true) {
+        //     try {
+        //       disLikeData.append("CourseLikeId", userLikeId);
+    
+        //       const result = await http.delete(`/Course/DeleteCourseLike`, {
+        //         data: disLikeData,
+        //       });
+        //       console.log(result);
+        //     } catch (error) {
+        //       toast.error(error);
+        //     }
+        //     setDisLike(false);
+        //     console.log(userLikeId);
+        //   } else {
+        //     const userDisLike = await addLike(
+        //       `/Course/AddCourseDissLike?CourseId=${courseId}`
+        //     );
+        //     console.log(userDisLike);
+        //     setDisLike(true);
+        //     setLike(false);
       }
       setChange(!change);
     } else {
@@ -173,7 +214,7 @@ const AboutCourse = ({
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200 ">
               : وضعیت
               <span className="font-irSBold mr-2 dark:text-mode-50">
-                شروع نشده
+                 {courseStatusName}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -182,7 +223,7 @@ const AboutCourse = ({
               : (تومان) هزینه دوره
               <span className="font-irSBold mr-2 flex dark:text-mode-50 ">
                 {" "}
-                500000{" "}
+                {cost}{" "}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -190,7 +231,7 @@ const AboutCourse = ({
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               : تاریخ شروع دوره{" "}
               <span className="font-irSBold mr-2 dark:text-mode-50">
-                1402 / 08 /03
+               {startTime}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -199,7 +240,7 @@ const AboutCourse = ({
             <div className="text-mode-700  flex flex-row-reverse dark:text-mode-200">
               : سطح دوره{" "}
               <span className="font-irSBold mr-2 dark:text-mode-50">
-                پیشرفته
+                {courseLevelName}
               </span>{" "}
             </div>
             {/* --------------- */}
@@ -261,8 +302,18 @@ const AboutCourse = ({
                 <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
               </div>
               :
-              <div
-                className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
+              <div className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-l-[100px] rounded-r-[20px]  flex justify-center items-center gap-2 cursor-pointer"  onClick={()=> handleLike()}>
+              <IconThumbUp
+                className="text-mode-700 dark:text-mode-50 w-6 h-6"
+                stroke={1.8}
+              />
+              <p className="text-mode-700 dark:text-mode-50"> {likeCount}</p>
+            </div>
+              }
+              {
+                DisLike ? 
+                <div
+                className="w-20 h-[44px] bg-red-300 dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
                 onClick={() => handleDisLike()}
               >
                 {currentUserDissLike === "1" ? (
@@ -274,6 +325,22 @@ const AboutCourse = ({
                   {dissLikeCount}
                 </p>
               </div>
+              :
+              <div
+              className="w-20 h-[44px] bg-white dark:bg-mode-700 rounded-r-[100px] rounded-l-[20px]  flex justify-center items-center gap-2 cursor-pointer "
+              onClick={() => handleDisLike()}
+            >
+              <IconThumbDown
+                className="text-mode-700 dark:text-mode-50 w-6 h-6 relative top-[2px]"
+                stroke={1.8}
+              />
+              <p className="text-mode-700 dark:text-mode-50 ">
+                {" "}
+                {dissLikeCount}
+              </p>
+            </div>
+              }
+
             </div>
           </div>
         </div>
