@@ -48,7 +48,7 @@ const CommentArtReplays = ({ id, className }) => {
       >
         {text}
       </label>
-      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0 ml-[-100px]">
+      <div className="peer-checked:h-fit peer-checked:flex gap-5 flex-col mt-[30px] hidden transition-all w-full h-0 ">
         {/* each comment */}
         {replayList.map((el, index) => (
           <ArticComments

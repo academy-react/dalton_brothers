@@ -7,14 +7,17 @@ import { Input } from "../../Inputs/Input";
 import { Button } from "../../buttons";
 import { commentValidation } from "../../../../Core/Validation/yup";
 
-const AddComment = ({ id }) => {
+const AddComment = ({ id ,emotion ,setEmotion}) => {
   const onSubmit = async (values) => {
     var formdata = new FormData();
     formdata.append("CourseId", id);
     formdata.append("Title", values.title);
     formdata.append("Describe", values.describe);
     const user = await addComment(formdata);
-    if(user.success==true){toast.success("نظر شما با موفقیت ارسال شد")}
+    if(user.success==true){
+      toast.success("نظر شما با موفقیت ارسال شد")
+      setEmotion(!emotion)
+  }
     else{toast.error("مشکلی در ارسال نظر وجود دارد")}
   };
   return (

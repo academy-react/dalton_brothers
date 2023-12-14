@@ -8,6 +8,7 @@ import {
   IconThumbUp,
   IconMessageCircle2,
   IconThumbDown,
+  IconEdit,
 } from "@tabler/icons-react";
 import {
   addLike,
@@ -17,6 +18,7 @@ import { CommentReplays } from "../CommentReplays/index";
 import { deleteArticleCommentLike } from "../../../../Core/Services/api/course/addSave";
 import { CommentArtReplays } from "../../../CourseDetail/components/CommentArtReplays";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
+import { EditArticleComment } from "../../EditArticleComment";
 
 const ArticComments = ({
   className,
@@ -31,6 +33,7 @@ const ArticComments = ({
   pictureAddress,
   setArticleReplay,
   setArticleReplayedCommentId,
+  ArticleReplayedCommentId,
   newsId,
   currentUserLikeId,
   currentUserIsLike,
@@ -41,23 +44,24 @@ const ArticComments = ({
   const [fName, setfName] = useState();
   const [lName, setlName] = useState();
   const [isAuthor, setisAuthor] = useState(false);
+  const [modal, setModal] = useState(false);
+
 
   const token = useSelector((state) => state.token.token);
 
-  const isYourComment = async () =>{
-    const result = await basicGet("/SharePanel/GetProfileInfo")
-    setfName(result.fName)
-    setlName(result.lName)
+  const isYourComment = async () => {
+    const result = await basicGet("/SharePanel/GetProfileInfo");
+    setfName(result.fName);
+    setlName(result.lName);
 
-    const user = fName + "-" + lName
-    if(autor == user){
+    const user = fName + "-" + lName;
+    if (autor == user) {
       console.log("is yours");
       setisAuthor(true);
-    }
-    else{
+    } else {
       console.log("not for you");
     }
-  }
+  };
 
   console.log(pictureAddress);
   const handleLike = async () => {
@@ -101,14 +105,18 @@ const ArticComments = ({
   };
 
   useEffect(() => {
-    isYourComment()
-  }, [fName,lName]);
+    isYourComment();
+  }, [fName, lName]);
 
   return (
     <div
       className={`xl:w-[1290px] max-lg:w-auto max  md:w-[780px] max-sm:pr-0  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className} `}
     >
-      <div className={`relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3 ${isAuthor ? "bg-blue-100 border-none" : "bg-white"}`}>
+      <div
+        className={`relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3 ${
+          isAuthor ? "bg-blue-100 border-none" : "bg-white"
+        }`}
+      >
         {/*--------------------------------------------------------------- user img --------------------------------------------------------------- */}
         <div className="absolute top-[-40%] right-[-5%]  lg:w-[110px] lg:h-[110px] md:w-[60px] md:h-[90px] w-[65px] h-[65px] rounded-full bg-white">
           <img
@@ -188,8 +196,18 @@ const ArticComments = ({
           />
           <span className="ml-[17px] text-mode-700">{replyCount}</span>
         </div>
+        {isAuthor &&
+        <div className="lg:w-[50px]  md:w-[50px] md:h-[50px] w-[40px] h-[40px]">
+          <IconEdit
+            strokeWidth="1"
+            className="w-full h-[50px] text-mode-700 cursor-pointer"
+            onClick={()=> setModal(!modal)}
+          ></IconEdit>
+        </div>       
+        }
       </div>
-      { <CommentArtReplays id={id} newsId={newsId} />}
+      {modal && <EditArticleComment setModal={setModal} modal={modal} newsId={newsId} id={id}/>}
+      {<CommentArtReplays id={id} newsId={newsId} />}
     </div>
   );
 };
