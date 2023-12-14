@@ -39,3 +39,23 @@ export const ChangeOldPassword = async (url) => {
     return [];
   }
 };
+export const EditNewsComment = async (url) => {
+  try {
+    const response = await http.put(`/News/UpdateNewsComment`, url);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+export const EditCourseComment = async (url) => {
+  try {
+    const response = await http.put(`/Course/UpdateCourseComment`, url);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

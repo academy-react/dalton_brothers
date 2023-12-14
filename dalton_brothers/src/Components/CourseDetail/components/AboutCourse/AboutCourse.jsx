@@ -144,7 +144,6 @@ const AboutCourse = ({
     courseId: courseId,
   };
 
-  // console.log(isCourseUser, isCourseReseve);
   const handleClick = async () => {
     const result = await reserveCourse(selectedCourse);
     setChange(!change);

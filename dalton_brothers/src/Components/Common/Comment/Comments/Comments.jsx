@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 import user from "../../../../assets/Images/panel/user.png";
 import {
-  IconHeart,
+  IconEdit,
   IconThumbUp,
   IconMessageCircle2,
   IconThumbDown,
@@ -16,6 +16,7 @@ import {
 import { CommentReplays } from "../CommentReplays";
 import { useLocation } from "react-router-dom";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
+import { EditCommentCourse } from "../../EditCommentCourse";
 
 const Comments = ({
   className,
@@ -44,6 +45,7 @@ const Comments = ({
   const [fName, setfName] = useState();
   const [lName, setlName] = useState();
   const [isAuthor, setisAuthor] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const token = useSelector((state) => state.token.token);
 
@@ -73,8 +75,9 @@ const Comments = ({
         setEmotion(true);
       } else {
         const userDeleteLike = await deleteLike(
-          `/Course/DeleteCourseCommentLike?CourseCommandId=${id}`
+          `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
         );
+        console.log(userDeleteLike,currentUserLikeId);
         setLike(false);
       }
     } else {
@@ -95,6 +98,7 @@ const Comments = ({
         const userDeleteDisLike = await deleteLike(
           `/Course/DeleteCourseCommentLike?CourseCommandId=${currentUserLikeId}`
         );
+        console.log(userDeleteDisLike);
         setDisLike(false);
       }
     } else {
@@ -203,7 +207,17 @@ const Comments = ({
           />
           <span className="ml-[17px] text-mode-700">{acceptReplysCount}</span>
         </div>
+        {isAuthor &&
+        <div className="lg:w-[50px]  md:w-[50px] md:h-[50px] w-[40px] h-[40px]">
+          <IconEdit
+            strokeWidth="1"
+            className="w-full h-[50px] text-mode-700 cursor-pointer"
+            onClick={()=> setModal(!modal)}
+          ></IconEdit>
+        </div>       
+        }
       </div>
+      {modal && <EditCommentCourse setModal={setModal} modal={modal} courseId={courseId} id={id}/>}
       {acceptReplysCount > 0 && <CommentReplays id={id} courseId={courseId} />}
     </div>
   );

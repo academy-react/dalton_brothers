@@ -50,7 +50,7 @@ const ArticleComments = ({ id, newsId }) => {
         </p>
       )}
       <div className="w-full my-[50px] grid grid-col justify-items-center gap-12">
-        <div className="w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ">
+        <div className={`w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ${ArticleComment.length == 0 && "h-4 border-none "}`}>
           {ArticleComment.length !== 0 ? (
             ArticleComment.map((el, index) => (
               <ArticComments
@@ -59,6 +59,7 @@ const ArticleComments = ({ id, newsId }) => {
                 setArticleEmotion={setArticleEmotion}
                 setArticleReplay={setArticleReplay}
                 setArticleReplayedCommentId={setArticleReplayedCommentId}
+                ArticleReplayedCommentId={ArticleReplayedCommentId}
               />
             ))
           ) : (
@@ -75,7 +76,7 @@ const ArticleComments = ({ id, newsId }) => {
           {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}
         </button>
         <div className="mx-auto transition-all">
-          {modal == true && <AddArticleComment newsId={id} getArticleComments={getArticleComments}/>}
+          {modal == true && <AddArticleComment newsId={id} getArticleComments={getArticleComments} setArticleEmotion={setArticleEmotion} ArticleEmotion={ArticleEmotion}/>}
         </div>
       </div>
     </div>
