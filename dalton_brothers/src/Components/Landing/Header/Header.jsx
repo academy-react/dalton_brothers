@@ -28,7 +28,7 @@ const Header = () => {
       <div data-aos="fade-left" data-aos-duration="2000">
         <HeaderContent />
       </div>
-      <div data-aos="fade-up" data-aos-duration="3000">
+      <div data-aos="fade-up" data-aos-duration="1500">
         <HeaderSearch />
       </div>
     </div>

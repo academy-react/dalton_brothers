@@ -16,7 +16,7 @@ const Filter = ({setlistTech,setTeacherId}) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-[90%] m-auto ">
+    <div className="w-[90%] m-auto relative mb-11 ">
       <input
         type="checkbox"
         name="Filter"
@@ -25,7 +25,7 @@ const Filter = ({setlistTech,setTeacherId}) => {
       />
       <label
         htmlFor="Filter"
-        className={`${style.filterLabel} min-[500px]:text-lg min-[500px]:px-[107px] text-xs px-[60px] py-[5px]  transition-all duration-700 relative left-0 w-fit border-2 bg-[#334155] text-white rounded-full font-irSBold cursor-pointer `}
+        className={`${style.filterLabel} min-[500px]:text-lg min-[500px]:px-[107px] text-xs px-[60px] py-[5px]  transition-all duration-700\ absolute right-0 w-fit  bg-white border-2 border-pallete-100 dark:border-DarkPallete-100 dark:bg-mode-900  text-pallete-100 dark:text-DarkPallete-100  rounded-full font-irSBold cursor-pointer `}
       >
         فیلتر
       </label>

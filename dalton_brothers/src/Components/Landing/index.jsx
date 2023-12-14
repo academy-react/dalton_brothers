@@ -19,7 +19,7 @@ import AOS from "aos";
 const Landing = () => {
   useEffect(() => {
     AOS.init({
-      duration: 3000, // Animation duration in milliseconds
+      duration: 2000, // Animation duration in milliseconds
       offset: 400, // Offset (in pixels) from the original trigger point
       easing: "ease", // Animation easing
       // Other options...
@@ -51,7 +51,7 @@ const Landing = () => {
       <div data-aos="fade-up" data-offset="1200" data-duration="5000">
         <BestMasters />
       </div>
-      <div data-aos="fade-up" data-duration="5000" data-offset="1200">
+      <div data-aos="fade-up"  data-offset="1200">
         <LandingComment />{" "}
       </div>
       <LandingFooter />
