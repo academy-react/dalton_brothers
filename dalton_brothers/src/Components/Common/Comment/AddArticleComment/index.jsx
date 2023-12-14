@@ -10,7 +10,7 @@ import { Button } from "../../buttons";
 import { commentValidation } from "../../../../Core/Validation/yup";
 import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 
-const AddArticleComment = ({ newsId }) => {
+const AddArticleComment = ({ newsId ,ArticleEmotion,setArticleEmotion}) => {
   // const [Value, setValue] = useState();
   // const [UserInfoo, setUserInfoo] = useState()
 
@@ -31,6 +31,7 @@ const AddArticleComment = ({ newsId }) => {
     console.log(obj);
     if(user.success==true){
       toast.success("کامنت شما با موفقیت ثبت شد")
+      setArticleEmotion(!ArticleEmotion)
     }
     else{
       toast.error("مشکلی در ارسال نظر وجود دارد")

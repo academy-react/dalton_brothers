@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Master from "../../../Landing/BestMasters/BestMasterSection/Master";
+import { basicGet } from "../../../../Core/Services/api/course/courseList/courseList";
 import { masterData } from "../../../../Core/Services/data";
 
-const CourseTeacher = () => {
+const CourseTeacher = ({teacherName}) => {
+  // const [Teachers, setTeachers] = useState()
   const data = masterData;
+  // const getAllTeachers = async () => {
+  //   const teacher = await basicGet("/Home/GetTeachers")
+  //   console.log(teacherName,teacher);
+  //   const item = teacher.find((item) => item.fullName == teacherName);
+  //   console.log(item);
+  // }
+
+  // useEffect(() => {
+  //   getAllTeachers()
+  // }, [])
+  
 
   return (
     <div className=" w-full flex flex-col gap-5 ">

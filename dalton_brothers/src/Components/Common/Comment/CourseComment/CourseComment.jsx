@@ -50,7 +50,7 @@ const CourseComments = ({ id }) => {
         </p>
       )}
       <div className="w-full my-[50px] grid grid-col justify-items-center gap-12">
-        <div className="w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ">
+        <div className={`w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ${comment.length == 0 && "h-5 border-none"}`}>
           {/* each comment */}
           {comment.length == 0 ? 
           <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">تاکنون کامنتی در این مورد ثبت نشده  </div>
@@ -72,7 +72,7 @@ const CourseComments = ({ id }) => {
           {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}
         </button>
         <div className="mx-auto transition-all">
-          {modal == true && <AddComment id={id} />}
+          {modal == true && <AddComment id={id} setEmotion={setEmotion} emotion={emotion}/>}
         </div>
       </div>
     </div>
