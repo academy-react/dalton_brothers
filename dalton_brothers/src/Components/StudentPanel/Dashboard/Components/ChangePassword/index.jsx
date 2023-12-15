@@ -47,7 +47,7 @@ const ChangePassword = ({setmodal,modal}) => {
 
 
   return (
-    <div className='xl:w-[500px] xl:h-[400px] w-[350px] h-[300px]  bg-white dark:bg-mode-900 border border-gray-300 dark:border-none shadow-[0_0_5px_8px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800 z-[9999999] absolute top-24 left-5 rounded-[30px]  flex flex-col items-center justify-evenly font-irSans  '   data-aos="fade-up">
+    <div className='xl:w-[500px] xl:h-[400px] w-[350px] h-[300px]  bg-white dark:bg-mode-900 border border-gray-300 dark:border-none shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800 z-[9999999] absolute top-24 left-5 rounded-[30px]  flex flex-col items-center justify-evenly font-irSans  '   data-aos="fade-up">
         <IconX className='w-12 h-12 relative top-1 xl:left-[220px] left-[150px] dark:text-mode-50 cursor-pointer' onClick={()=> setmodal(!modal)}></IconX>
         <h3 className='h-14 text-xl font-irSans dark:text-mode-50 '> تغییر پسوورد </h3>
         <Formik

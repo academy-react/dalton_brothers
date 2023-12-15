@@ -33,7 +33,7 @@ const ForgetForm = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 3000, // Animation duration in milliseconds
+      duration: 1000, // Animation duration in milliseconds
       offset: 400, // Offset (in pixels) from the original trigger point
       easing: "ease", // Animation easing
       // Other options...
