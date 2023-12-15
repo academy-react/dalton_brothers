@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ModalComponent } from '../../../Common/modal-package/Modal'
 import { Map } from '../mapPackage'
+
+
 
 import { useSelector } from 'react-redux';
 
@@ -39,11 +41,12 @@ const MapModal = ({isOpen, closeModal , openModal  }) => {
   };
 
 
+
   return (
-    <div className="app hidden" >
-    <h1> آ</h1>
+    <div className="app hidden"  >
+    <h1> </h1>
     <button onClick={openModal}></button>
-    <ModalComponent isOpen={isOpen} closeModal={closeModal}  title={"آکادمی برنامه نویسی بحر العلوم"} style={  customStyles}>
+    <ModalComponent isOpen={isOpen} closeModal={closeModal}  title={"آکادمی برنامه نویسی بحر العلوم"} style={  customStyles}  >
     <Map />
     </ModalComponent>
   </div>

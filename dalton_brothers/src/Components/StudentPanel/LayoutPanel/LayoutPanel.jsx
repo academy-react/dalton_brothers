@@ -41,7 +41,7 @@ const LayoutPanel = () => {
         <div className=" w-[600px] max-2xl:w-[400px] max-lg:relative max-lg:top-14 max-lg:-right-14   rounded-[30px]   flex justify-center items-center  ">
           {location.pathname === "/panel/PanelCoursesList" && <PanelSearch />}
         </div>
-        <div className="  flex    justify-between items-center ml-8 " data-aos="fade-up">
+        <div className="  flex    justify-between items-center ml-8 z-[1] relative " data-aos="fade-up">
           <Notification />
         </div>
       </div>
@@ -51,7 +51,7 @@ const LayoutPanel = () => {
 
         </div>
         <div className="  flex flex-col items-center "  >
-          <div className=" w-full pt-[10px]" >
+          <div className=" w-full pt-[10px] " >
             <Outlet />
           </div>
         </div>
