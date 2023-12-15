@@ -63,7 +63,7 @@ const ArticleComments = ({ id, newsId }) => {
               />
             ))
           ) : (
-            <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">
+            <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 dark:text-mode-50 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">
               تاکنون کامنتی در این مورد ثبت نشده{" "}
             </div>
           )}
@@ -73,7 +73,7 @@ const ArticleComments = ({ id, newsId }) => {
           className=" lg:px-8 lg:py-4 md:px-6 md:py-3 px-4 py-2 text-xl font-irSBold bg-white border-2 border-pallete-100 dark:border-DarkPallete-100 dark:bg-mode-900 m-auto rounded-full cursor-pointer text-pallete-100 dark:text-DarkPallete-100"
           onClick={() => setModal(!modal)}
         >
-          {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}
+          {modal == true ? " بیخیال " : " ثبت نظر"}
         </button>
         <div className="mx-auto transition-all">
           {modal == true && <AddArticleComment newsId={id} getArticleComments={getArticleComments} setArticleEmotion={setArticleEmotion} ArticleEmotion={ArticleEmotion}/>}

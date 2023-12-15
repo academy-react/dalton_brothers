@@ -37,7 +37,7 @@ const RelatedArticle = ({ addUserFullName, id }) => {
         <></>
       ) : (
         <div className=" w-full">
-          <p className="text-center h-[80px] w-full font-bold text-2xl mb-[50px] p-[30px]">
+          <p className="text-center h-[80px] w-full font-irSBold text-2xl mb-[50px] p-[30px] dark:text-DarkPallete-100 ">
             {" "}
             دیگر خبر های این نویسنده{" "}
           </p>

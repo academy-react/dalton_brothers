@@ -43,7 +43,7 @@ const CommentReplays = ({ id, courseId, className,setreplay }) => {
       <input type="checkbox" id={id} className="peer hidden" />
       <label
         htmlFor={id}
-        className="font-irSans mt-[10px] flex justify-center text-[#4b5563]"
+        className="font-irSans mt-[10px] flex justify-center text-[#4b5563] dark:text-mode-50"
         onClick={() => {
           handleClick();
           handleText();

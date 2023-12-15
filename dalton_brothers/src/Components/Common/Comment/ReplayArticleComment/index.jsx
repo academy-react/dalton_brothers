@@ -48,7 +48,7 @@ const ReplayArticleComment = ({
   return (
     <div className="w-[60%] py-[40px] rounded-3xl  absolute top-[20%] left-[20%]   z-10 bg-white dark:bg-mode-900 shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800">
       <div
-        className="absolute top-0 right-0 w-[40px] h-[40px] flex justify-center items-center border-2 border-[#272268] rounded-tr-3xl"
+        className="absolute top-0 right-0 w-[40px] h-[40px] flex justify-center items-center border-2 border-mode-700 dark:text-mode-50 rounded-tr-3xl "
         onClick={() => setArticleReplay(false)}
       >
         x
@@ -66,17 +66,17 @@ const ReplayArticleComment = ({
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
               <Input
                 topic={"عنوان نظر"}
-                className="rounded-[20px]"
+                className="rounded-[20px] dark:text-mode-50 dark:bg-mode-900"
                 placeHolder={"...عنوان نظر"}
                 type={"text"}
                 name={"title"}
                 as={"input"}
               />
             </div>
-            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px]">
+            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px] ">
               <Input
                 topic={"پیام شما"}
-                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5"
+                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5 dark:text-mode-50 dark:bg-mode-900"
                 placeHolder={"...متن پیام"}
                 type={"text"}
                 name={"describe"}
@@ -84,7 +84,7 @@ const ReplayArticleComment = ({
               />
             </div>
             <Button
-              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"
+              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] dark:bg-DarkPallete-100"
               type={"submit"}
               children={"ثبت"}
             />

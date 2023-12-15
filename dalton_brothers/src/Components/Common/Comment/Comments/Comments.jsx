@@ -125,9 +125,9 @@ const Comments = ({
 
   return (
     <div
-      className={`xl:w-[1290px] max-lg:w-auto max  md:w-[780px] max-sm:pr-0  w-[410px] my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className}`}
+      className={`xl:w-[1290px]  max-lg:w-auto    max-sm:pr-0  max-xl:justify-center my-[20px] flex flex-wrap justify-end flex-row-reverse pr-[50px] mr-6 ${className}`}
     >
-      <div className={`relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3 ${isAuthor ? "bg-blue-100 border-none" : "bg-white"}`}>
+      <div className={`relative xl:w-[1000px] lg:w-[900px] md:w-[670px] w-[400px]  border border-gray-400 rounded-[20px] md:py-8 md:px-16 py-3 dark:bg-mode-900 ${isAuthor ? "bg-blue-100 dark:!bg-mode-800   border-none " : "bg-white"}`}>
         {/*--------------------------------------------------------------- user img --------------------------------------------------------------- */}
         <div className="absolute top-[-40%] right-[-5%]  lg:w-[110px] lg:h-[110px] md:w-[60px] md:h-[90px] w-[65px] h-[65px] rounded-full bg-white">
           <img
@@ -136,7 +136,7 @@ const Comments = ({
           ></img>
         </div>
         {/*--------------------------------------------------------------- author --------------------------------------------------------------- */}
-        <span className="absolute top-[-10%] right-[10%]  text-gray-600 bg-white dark:bg-mode-900 dark:text-mode-50 lg:text-[19px] md:text-xl text-lg text-center font-irSBold px-3">
+        <span className="absolute top-[-10%] right-[10%]  text-gray-600 bg-white dark:bg-mode-900 dark:text-mode-50 lg:text-[19px] md:text-xl text-lg text-center font-irSBold px-3 rounded-full">
           {author}
         </span>
         {/*--------------------------------------------------------------- title --------------------------------------------------------------- */}

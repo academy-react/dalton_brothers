@@ -49,7 +49,7 @@ const CourseIntroduction = ({describe}) => {
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
-        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold dark:text-mode-50">
+        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold dark:text-DarkPallete-100 ">
           {" "}
           معرفی دوره{" "}
         </h4>

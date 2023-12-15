@@ -21,7 +21,7 @@ const CommentPlace = () => {
 
   return (
     <>
-      <h1 className="text-center my-4 font-irSans text-slate-800 text-lg whitespace-nowrap">
+      <h1 className="text-center my-4 font-irSans text-slate-800 dark:text-mode-50 text-lg whitespace-nowrap">
         ارتباط با ما
       </h1>
       <Formik
@@ -36,7 +36,7 @@ const CommentPlace = () => {
           <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px] dark:bg-mode-900">
             <Input
               topic={"نام کاربر"}
-              className="rounded-[20px] dark:bg-mode-900 dark:text-mode-50"
+              className="rounded-[20px] dark:bg-mode-900 dark:text-mode-50 "
               placeHolder={"...نام کاربری"}
               type={"text"}
               name={"name"}

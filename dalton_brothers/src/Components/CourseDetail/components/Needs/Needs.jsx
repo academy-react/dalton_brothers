@@ -5,7 +5,7 @@ import { IconCheck,IconPlus } from '@tabler/icons-react';
 const Needs = () => {
   return (
     <div className=" w-full flex flex-col px-[40px]">
-      <div className=" w-full h-[100px] text-center font-irSBold text-2xl py-[25px] dark:text-mode-50 ">
+      <div className=" w-full h-[100px] text-center font-irSBold text-2xl py-[25px] dark:text-DarkPallete-100 ">
         {" "}
         پیش نیاز ها{" "}
       </div>

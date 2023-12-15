@@ -7,22 +7,23 @@ import { Input } from "../../Inputs/Input";
 import { Button } from "../../buttons";
 import { commentValidation } from "../../../../Core/Validation/yup";
 
-const AddComment = ({ id ,emotion ,setEmotion}) => {
+const AddComment = ({ id, emotion, setEmotion }) => {
   const onSubmit = async (values) => {
     var formdata = new FormData();
     formdata.append("CourseId", id);
     formdata.append("Title", values.title);
     formdata.append("Describe", values.describe);
     const user = await addComment(formdata);
-    if(user.success==true){
-      toast.success("نظر شما با موفقیت ارسال شد")
-      setEmotion(!emotion)
-  }
-    else{toast.error("مشکلی در ارسال نظر وجود دارد")}
+    if (user.success == true) {
+      toast.success("نظر شما با موفقیت ارسال شد");
+      setEmotion(!emotion);
+    } else {
+      toast.error("مشکلی در ارسال نظر وجود دارد");
+    }
   };
   return (
     <div className=" w-full flex ">
-      <div className=" w-[1000px] m-auto flex justify-evenly">
+      <div className=" w-[1000px]   m-auto flex justify-evenly">
         <Formik
           initialValues={{
             title: "",
@@ -35,7 +36,7 @@ const AddComment = ({ id ,emotion ,setEmotion}) => {
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
               <Input
                 topic={"عنوان نظر"}
-                className="rounded-[20px] dark:bg-mode-900"
+                className="rounded-[20px] dark:bg-mode-900 "
                 placeHolder={"...عنوان نظر"}
                 type={"text"}
                 name={"title"}
