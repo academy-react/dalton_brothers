@@ -72,6 +72,15 @@ const CourseList = () => {
     handleTrigger();
   }, [maxPrice, minPrice]);
 
+
+
+
+
+
+
+
+
+  
   return (
     <motion.div
       className="w-100 flex flex-col gap-5"

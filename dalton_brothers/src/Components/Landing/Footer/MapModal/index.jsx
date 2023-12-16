@@ -24,7 +24,7 @@ const MapModal = ({isOpen, closeModal , openModal  }) => {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor: "white",
+      
       padding: "20px",
       borderRadius: "8px",
       outline: "none",
