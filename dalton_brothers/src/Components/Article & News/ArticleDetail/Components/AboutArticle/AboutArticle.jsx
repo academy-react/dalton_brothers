@@ -16,6 +16,8 @@ import {
 
 import { addLike } from "../../../../../Core/Services/api/course/addLike";
 import { deleteArticleLike } from "../../../../../Core/Services/api/course/addSave";
+import RatingBox from "../../../../CourseDetail/components/RatingBox";
+import { postYourNewsRate } from "../../../../../Core/Services/api/course/courseDetail/courseDetail";
 
 const AboutArticle = ({
   currentView,
@@ -31,6 +33,10 @@ const AboutArticle = ({
   updateDate,
   id,
   likeId,
+  currentUserSetRate,
+  currentUserRateNumber,
+  setChange,
+  change,
 }) => {
   const [Like, setLike] = useState(currentUserIsLike);
   const token = useSelector((state) => state.token.token);
@@ -42,18 +48,26 @@ const AboutArticle = ({
         const obj = {
           deleteEntityId: likeId,
         };
-        //console.log(obj);
         const userDeleteArticleLike = await deleteArticleLike(obj);
-        //console.log(userDeleteArticleLike);
+        setChange(!change)
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
-        //console.log(userIsLike);
         setLike(true);
+        setChange(!change)
         return;
       }
     } else {
       toast.error("برای لایک باید در سایت ثبت نام کنید");
     }
+  };
+  const [NewRating, NewSetRating] = useState();
+
+  const handleStars = async (newRating) => {
+    NewSetRating(newRating);
+    const rate = await postYourNewsRate(newRating,id)
+    console.log(rate,newRating,NewRating);
+    setChange(!change)
+    toast.success("امتیاز شما به این خبر ثبت شد")
   };
 
   useEffect(() => {
@@ -111,7 +125,7 @@ const AboutArticle = ({
           <div className=" w-[95%] h-[95%]   bg-gray-300 rounded-full">
             <img
               className="w-full h-full flex justify-center rounded-full items-center"
-              src={currentImageAddressTumb ? true : newsImage}
+              src={currentImageAddressTumb != null ?currentImageAddressTumb : newsImage}
               alt="عکسی یافت نشد "
             ></img>
           </div>
@@ -126,7 +140,7 @@ const AboutArticle = ({
             {miniDescribe}
           </p>
         </div>
-        <div className="  w-full h-[17%] flex flex-row-reverse ">
+        <div className="  w-full h-[17%] flex flex-row-reverse">
           <div className=" w-[110px] h-full flex justify-end items-center">
             <div className="w-[120px] h-[50px]">
               {Like ? (
@@ -176,24 +190,31 @@ const AboutArticle = ({
               <IconEye className="w-[50px] h-[50px] text-mode-700 dark:text-mode-200 flex justify-center items-center pl-2"></IconEye>
             </div>
           </div>
-          <div className=" w-[100px] h-full flex justify-center items-center font-irSans text-2xl">
-            <div className="w-[100px] h-2/3 flex justify-end items-center ">
-              <div className=" text-orange-300 flex justify-center items-center pt-1">
+          <div className=" w-[160px] h-full flex justify-center items-center font-irSans text-2xl">
+            <div className="w-[160px] h-2/3 flex justify-end items-center ">
+              <div className="text-gray-600 flex justify-center items-center pt-2">
                 {" "}
-                {currentRate}{" "}
+                {currentRate}{" "}<p className="text-lg  whitespace-nowrap pl-1">:امتیاز فعلی خبر </p>
               </div>
-              <IconStarFilled
+              {/* <IconStarFilled
                 className="w-1/2 scale-125 text-orange-300 flex justify-center items-center pl-2"
                 fill="orange-300"
-              ></IconStarFilled>
+              ></IconStarFilled> */}
             </div>
           </div>
+          {currentUserSetRate ? 
+          <div className="flex justify-center items-center pt-2 font-irSans text-gray-600 text-lg">  {currentUserRateNumber } : امتیازی که شما به این خبر دادید  </div>
+          :
+          <div  className="flex justify-center items-center text-lg">
+          <RatingBox handleStars={handleStars} />
+            <p className="font-irSans pl-1 text-gray-600 pt-2">:امتیاز شما به خبر </p>
+          </div>}
         </div>
         <div className=" w-full h-[38%] flex flex-row-reverse justify-center items-center max-md:flex-col">
           <div className=" flex w-1/2 max-md:w-full h-full justify-start items-center flex-row-reverse">
             <div className="w-32 h-32 bg-yellow-300 rounded-full mr-1 flex justify-center items-center">
               <img
-                src={currentImageAddress == null ? articleWriter : currentImageAddress}
+                src={currentImageAddress !== null ?currentImageAddress :  articleWriter}
                 alt="عکسی برای استاد یافت نشد"
                 className="w-4/5 h-4/5 flex justify-center items-center text-center mb-2"
               ></img>

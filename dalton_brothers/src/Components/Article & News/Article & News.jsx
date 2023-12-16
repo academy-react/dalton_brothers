@@ -17,6 +17,8 @@ const ArticleNews = () => {
   const [totalCount, setTotalCount] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(4);
+  const [Emotion, setEmotion] = useState();
+
 
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
@@ -35,7 +37,7 @@ const ArticleNews = () => {
   const numberOfPage = Math.ceil(totalCount / postsPerPage);
   useEffect(() => {
     getArticles();
-  }, [currentPage]);
+  }, [currentPage,Emotion]);
 
   if (isLoading) {
     return <Loading style={""}  />;
@@ -56,6 +58,8 @@ const ArticleNews = () => {
             key={index}
             insertDate={news.insertDate.split("T")[0].replaceAll("-", "/")}
             updateDate={news.updateDate.split("T")[0].replaceAll("-", "/")}
+            setEmotion={setEmotion}
+            Emotion={Emotion}
           />
         ))}
       </div>

@@ -4,7 +4,7 @@ import { Comments } from "../../../Common/Comment/Comments/Comments";
 import { ReplayComment } from "../../../Common/Comment/ReplayComment";
 import { ArticComments } from "../../../Common/Comment/ArticleComments";
 
-const CommentArtReplays = ({ id, className }) => {
+const CommentArtReplays = ({ id, className ,setNumReply,NumReply}) => {
   const [replayList, setReplayList] = useState([]);
   const [emotion, setEmotion] = useState();
   const [replay, setReplay] = useState(false);
@@ -14,7 +14,11 @@ const CommentArtReplays = ({ id, className }) => {
   const handleClick = async () => {
     const result = await basicGet(`/News/GetRepliesComments?Id=${id}`);
     setReplayList(result);
+    setNumReply(result.length)
+    if(result.length==0){setText("")}
+    
   };
+  console.log(replayList, "replayed");
   const handleText = () => {
     if (text === "نمایش پاسخ ها") {
       setText("پنهان کردن پاسخ ها");

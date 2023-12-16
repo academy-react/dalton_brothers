@@ -17,6 +17,8 @@ const ArticleDetail = () => {
   const [ArticleDetail, setArticleDetail] = useState([]);
   const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [change, setChange] = useState(false);
+
 
   const getArticleDetail = async () => {
     const result = await basicGet("/News?PageNumber=1&RowsOfPage=20");
@@ -26,7 +28,7 @@ const ArticleDetail = () => {
   };
   useEffect(() => {
     getArticleDetail();
-  }, []);
+  }, [change]);
 
   const item = ArticleDetail.filter((item) => item.id === params.id).map(
     (item, index) => (
@@ -37,6 +39,8 @@ const ArticleDetail = () => {
           {...item}
           insertDate={item.insertDate.split("T")[0].replaceAll("-", " / ")}
           updateDate={item.updateDate.split("T")[0].replaceAll("-", " / ")}
+          setChange={setChange}
+          change={change}
         />
         <ArticleIntroduction {...item} />
         <ArticleComments id={item.id} />

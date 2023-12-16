@@ -7,7 +7,7 @@ import { Input } from "../../Inputs/Input";
 import { Button } from "../../buttons";
 import { commentValidation } from "../../../../Core/Validation/yup";
 
-const AddComment = ({ id ,emotion ,setEmotion}) => {
+const AddComment = ({ id ,emotion ,setEmotion ,setModal,modal}) => {
   const onSubmit = async (values) => {
     var formdata = new FormData();
     formdata.append("CourseId", id);
@@ -17,12 +17,13 @@ const AddComment = ({ id ,emotion ,setEmotion}) => {
     if(user.success==true){
       toast.success("نظر شما با موفقیت ارسال شد")
       setEmotion(!emotion)
+      setModal(!modal)
   }
     else{toast.error("مشکلی در ارسال نظر وجود دارد")}
   };
   return (
     <div className=" w-full flex ">
-      <div className=" w-[1000px] m-auto flex justify-evenly">
+      <div className=" xl:w-[1000px] lg:w-[900px] md:w-[800px] sm:w-[600] w-[350px] m-auto flex justify-evenly">
         <Formik
           initialValues={{
             title: "",
@@ -32,7 +33,7 @@ const AddComment = ({ id ,emotion ,setEmotion}) => {
           onSubmit={(values) => onSubmit(values)}
         >
           <Form className=" flex w-full flex-col items-center font-irSans transition-all">
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
+            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] md:px-[40px] px-1">
               <Input
                 topic={"عنوان نظر"}
                 className="rounded-[20px] dark:bg-mode-900"
@@ -42,7 +43,7 @@ const AddComment = ({ id ,emotion ,setEmotion}) => {
                 as={"input"}
               />
             </div>
-            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px]">
+            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] md:px-[40px] px-1">
               <Input
                 topic={"پیام شما"}
                 className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5 dark:bg-mode-900"

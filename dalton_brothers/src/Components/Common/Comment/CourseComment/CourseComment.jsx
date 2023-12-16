@@ -72,7 +72,7 @@ const CourseComments = ({ id }) => {
           {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}
         </button>
         <div className="mx-auto transition-all">
-          {modal == true && <AddComment id={id} setEmotion={setEmotion} emotion={emotion}/>}
+          {modal == true && <AddComment id={id} setEmotion={setEmotion} emotion={emotion} modal={modal} setModal={setModal}/>}
         </div>
       </div>
     </div>

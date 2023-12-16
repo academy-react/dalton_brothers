@@ -72,7 +72,7 @@ const Notification = () => {
           </button>
         </div>
       </div>
-      <div className="mx-auto transition-all ">
+      <div className="mx-auto transition-all z-50">
         {modal && (
           <ChangePassword setmodal={setmodal} modal={modal}></ChangePassword>
         )}

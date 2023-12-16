@@ -46,14 +46,14 @@ const ReplayArticleComment = ({
     getComment();
   }, []);
   return (
-    <div className="w-[60%] py-[40px] rounded-3xl  absolute top-[20%] left-[20%]   z-10 bg-white dark:bg-mode-900 shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800">
+    <div className="xl:w-[1000px] lg:w-[900px] md:w-[800px] sm:w-[600] w-[350px] py-[40px] rounded-3xl  absolute top-[20%] xl:left-[20%] lg:left-[10%] md:left-[5%] sm:right-[20%] right-[20%]   z-10 bg-white dark:bg-mode-900 shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800">
       <div
         className="absolute top-0 right-0 w-[40px] h-[40px] flex justify-center items-center border-2 border-[#272268] rounded-tr-3xl"
         onClick={() => setArticleReplay(false)}
       >
         x
       </div>
-      <div className=" w-[1000px] m-auto flex justify-evenly">
+      <div className="xl:w-[1000px] lg:w-[900px] md:w-[800px] sm:w-[600] w-[350px] m-auto flex justify-evenly">
         <Formik
           initialValues={{
             title: "",
@@ -63,17 +63,17 @@ const ReplayArticleComment = ({
           onSubmit={(values) => handleReplay(values)}
         >
           <Form className=" flex w-full flex-col items-center font-irSans transition-all" >
-            <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
+            <div className="flex flex-col relative  mt-[30px] mb-[30px] mx-auto">
               <Input
                 topic={"عنوان نظر"}
-                className="rounded-[20px]"
+                className="rounded-[20px] xl:w-[650px] lg:w-[580px] md:w-[500px] sm:w-[500] w-[300px]"
                 placeHolder={"...عنوان نظر"}
                 type={"text"}
                 name={"title"}
                 as={"input"}
               />
             </div>
-            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px]">
+            <div className="flex flex-col w-full relative sm:w-3/4 lg:w-3/4 mb-[10px] md:px-[40px] px-1">
               <Input
                 topic={"پیام شما"}
                 className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5"

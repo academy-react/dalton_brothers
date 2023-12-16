@@ -33,8 +33,8 @@ const ChangePassword = ({setmodal,modal}) => {
         NewPassword: yup.string().required("پسوورد جدید را وارد کنید"),
       })
   return (
-    <div className='xl:w-[500px] xl:h-[400px] w-[350px] h-[300px]  bg-white border border-gray-300 shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800 absolute top-24 left-5 rounded-[30px] z-20 flex flex-col items-center justify-evenly font-irSans'>
-        <IconX className='w-12 h-12 relative top-1 xl:left-[220px] left-[150px]' onClick={()=> setmodal(!modal)}></IconX>
+    <div className='xl:w-[500px] xl:h-[400px] w-[350px] h-[300px]  bg-white border border-gray-300 shadow-[0_0_5px_4px] shadow-zinc-200 dark:shadow-[0_0_2px_3px] dark:shadow-mode-800 absolute top-24 left-5 rounded-[30px] z-10 flex flex-col items-center justify-evenly font-irSans'>
+        <IconX className='w-12 h-12 relative top-1 xl:left-[220px] left-[150px] z-50' onClick={()=> setmodal(!modal)}></IconX>
         <h3 className='h-14 text-xl font-irSans '> تغییر پسوورد </h3>
         <Formik
               initialValues={{
@@ -44,7 +44,7 @@ const ChangePassword = ({setmodal,modal}) => {
               onSubmit={onSubmit}
               validationSchema={validation}
         >
-            <Form className=' w-[350px] h-[350px] flex flex-col items-center justify-evenly pt-7'>
+            <Form className=' w-[350px] h-[350px] flex flex-col items-center justify-evenly pt-7 z-50'>
                 <Field 
                 className={" w-4/5 h-10 rounded-2xl dark:bg-mode-900 dark:text-mode-50 text-right bg-white text-[#9ca3af] outline-none border-zinc-300 border-[1px] px-4 peer "}
                 placeholder={"پسوورد قبلی"}

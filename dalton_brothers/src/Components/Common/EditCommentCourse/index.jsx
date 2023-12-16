@@ -13,6 +13,8 @@ const EditCommentCourse = ({
     id,
     modal,
     setModal,
+    setEmotion,
+    emotion,
 }) => {
     const [OldText, setOldText] = useState([])
     const [Title, setTitle] = useState()
@@ -40,17 +42,13 @@ const EditCommentCourse = ({
     formdata.append("Title", values.title);
     formdata.append("Describe", values.describe);
 
-    // const obj = {
-    //   courseId : courseId,
-    //   title : values.title,
-    //   describe : values.describe,
-    //   id : id,
-    // }
     console.log(formdata);
     const user = await EditCourseComment(formdata);
     console.log(user);
     if(user.success == true) {
       toast.success("نظر شما با موفقیت تغییر کرد")
+      setModal(!modal)
+      setEmotion(!emotion)
     }
     else{toast.error("مشکلی در ویرایش نظر وجود دارد")}
   };

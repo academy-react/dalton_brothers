@@ -54,6 +54,8 @@ const Article = ({
   currentUserIsDissLike,
   isCurrentUserFavorite,
   currentUserFavoriteId,
+  setEmotion,
+  Emotion,
 }) => {
   console.log(currentImageAddressTumb);
   const [Save, setSave] = useState(isCurrentUserFavorite);
@@ -91,10 +93,12 @@ const Article = ({
         };
         const userDeleteArticleLike = await deleteArticleLike(obj);
         //console.log(userDeleteArticleLike);
+        setEmotion(!Emotion)
       } else {
         const userIsDissLike = await addLike(`/News/NewsDissLike/${id}`);
         setDissLike(true);
         setLike(false);
+        setEmotion(!Emotion)
         //console.log(userIsDissLike);
         return;
       }
@@ -113,11 +117,13 @@ const Article = ({
         };
         const userDeleteArticleLike = await deleteArticleLike(obj);
         //console.log(userDeleteArticleLike);
+      setEmotion(!Emotion)
       } else {
         const userIsLike = await addLike(`/News/NewsLike/${id}`);
         //console.log(userIsLike);
         setLike(true);
         setDissLike(false);
+        setEmotion(!Emotion)
         return;
       }
     } else {
@@ -147,7 +153,7 @@ const Article = ({
         <div className=" h-full w-2/5">
           <div className=" w-full h-full rounded-[30px]">
             <img
-              src={/*currentImageAddressTumb != null ? currentImageAddressTumb :*/ newsImage}
+              src={currentImageAddressTumb != null ? currentImageAddressTumb : newsImage}
               alt=""
               className="w-full h-full flex justify-center items-center rounded-2xl "
             ></img>
