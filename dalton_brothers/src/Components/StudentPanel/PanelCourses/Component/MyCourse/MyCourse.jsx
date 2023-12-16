@@ -51,10 +51,10 @@ const MyCourse = ({
           <div className="bg-red-200 w-[40px] h-[40px] rounded-full"></div>
         )}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 overflow-hidden ">
         {courseName}
       </div>
-      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 ">
+      <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50  overflow-hidden ">
         {courseMaster}
       </div>
       <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 max-xl:hidden">
