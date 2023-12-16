@@ -192,9 +192,9 @@ const AboutArticle = ({
           </div>
           <div className=" w-[160px] h-full flex justify-center items-center font-irSans text-2xl">
             <div className="w-[160px] h-2/3 flex justify-end items-center ">
-              <div className="text-gray-600 flex justify-center items-center pt-2">
+              <div className="text-gray-600 flex justify-center items-center pt-2 dark:text-mode-200">
                 {" "}
-                {currentRate}{" "}<p className="text-lg  whitespace-nowrap pl-1">:امتیاز فعلی خبر </p>
+                {currentRate}{" "}<p className="text-lg  whitespace-nowrap pl-1 dark:text-mode-200">:امتیاز فعلی خبر </p>
               </div>
               {/* <IconStarFilled
                 className="w-1/2 scale-125 text-orange-300 flex justify-center items-center pl-2"
@@ -203,11 +203,11 @@ const AboutArticle = ({
             </div>
           </div>
           {currentUserSetRate ? 
-          <div className="flex justify-center items-center pt-2 font-irSans text-gray-600 text-lg">  {currentUserRateNumber } : امتیازی که شما به این خبر دادید  </div>
+          <div className="flex justify-center items-center pt-2 font-irSans text-gray-600 dark:text-mode-50 text-lg">  {currentUserRateNumber } : امتیازی که شما به این خبر دادید  </div>
           :
           <div  className="flex justify-center items-center text-lg">
           <RatingBox handleStars={handleStars} />
-            <p className="font-irSans pl-1 text-gray-600 pt-2">:امتیاز شما به خبر </p>
+            <p className="font-irSans pl-1 text-gray-600 pt-2 dark:text-mode-50 ">:امتیاز شما به خبر </p>
           </div>}
         </div>
         <div className=" w-full h-[38%] flex flex-row-reverse justify-center items-center max-md:flex-col">

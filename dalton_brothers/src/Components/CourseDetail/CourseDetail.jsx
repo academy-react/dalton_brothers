@@ -65,7 +65,7 @@ const CourseDetail = () => {
           <CourseIntroduction {...item} />
           <Needs />
           {/* masters on course details page */}
-          <Master teacherName={item.teacherName}/>
+          {/* <Master teacherName={item.teacherName}/> */}
           <CourseComments id={item.courseId} />
           <RelatedCourses
             teacherName={item.teacherName}
