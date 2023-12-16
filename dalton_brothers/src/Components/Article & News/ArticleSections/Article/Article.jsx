@@ -132,7 +132,7 @@ const Article = ({
   };
 
   return (
-    <div className="w-[780px]  border rounded-[30px] flex-col bg-mode-50 text-mode-900 dark:bg-mode-800 dark:border-none p-4 pb-0">
+    <div className="w-[780px]  border rounded-[30px] flex-col bg-mode-50 text-mode-900 dark:bg-mode-800 dark:border-none p-4 pb-0 max-xl:scale-75 max-md:scale-[60%] max-sm:scale-[50%]">
       <div className=" w-full h-44 flex">
         <div className=" h-full w-3/5 flex-col pr-4">
           <h3 className=" w-full h-1/4 flex items-center justify-end font-irSBold text-xl dark:text-mode-50">
