@@ -116,14 +116,14 @@ const ArticComments = ({
     >
       <div
         className={`relative 2xl:w-[1000px] xl:w-[850px] lg:w-[790px] md:w-[670px] sm:w-[550px] w-[480px] max-md:h-32 md:h-36 xl:h-44 border border-gray-400 rounded-[20px] md:py-8 md:px-16 xl:py-3 py-0  ${
-          isAuthor ? "bg-blue-100 border-none" : "bg-white"
+          isAuthor ? "bg-blue-100 border-none dark:bg-mode-800  "  : "bg-white"
         }`}
       >
         {/*--------------------------------------------------------------- user img --------------------------------------------------------------- */}
         <div className="absolute top-[-40%] right-[-5%] max-lg:top-[-20%]  lg:w-[110px] lg:h-[110px] md:w-[80px] md:h-[80px] w-[65px] h-[65px] rounded-full bg-white">
           <img
             src={pictureAddress ? pictureAddress : user}
-            className="w-full m-auto rounded-full text-center"
+            className="w-[70%] h-[70%] m-auto rounded-full text-center"
           ></img>
         </div>
         {/*--------------------------------------------------------------- author --------------------------------------------------------------- */}

@@ -86,7 +86,7 @@ const EditArticleComment = ({
             <div className="flex flex-col relative  mt-[30px] mb-[30px] mx-auto">
               <Input
                 topic={"عنوان نظر"}
-                className="rounded-[20px] xl:w-[650px] lg:w-[580px] md:w-[500px] sm:w-[500] w-[300px]"
+                className="rounded-[20px]"
                 placeHolder={"...عنوان نظر"}
                 type={"text"}
                 name={"title"}
@@ -96,7 +96,7 @@ const EditArticleComment = ({
             <div className="flex flex-col w-full relative sm:w-3/4 lg:w-3/4 mb-[10px] md:px-[40px] px-1">
               <Input
                 topic={"پیام شما"}
-                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5"
+                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5 dark:bg-mode-900 dark:text-mode-50"
                 placeHolder={"...متن پیام"}
                 type={"text"}
                 name={"describe"}
@@ -104,7 +104,7 @@ const EditArticleComment = ({
               />
             </div>
             <Button
-              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"
+              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] dark:bg-DarkPallete-100"
               type={"submit"}
               children={"ویرایش"}
             />

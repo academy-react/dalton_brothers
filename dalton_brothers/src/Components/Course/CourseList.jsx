@@ -12,6 +12,7 @@ import { Filter } from "./CourseSections/Filter/Filter";
 import { ScrollToTop } from "../ScrollAnimation/ScrolToTop/ScrollToTop";
 import { basicGet } from "../../Core/Services/api/course/courseList/courseList";
 import { onTriggerChange } from "../../Redux/Filter/trigger";
+import { Loading } from "../Common/Loading/Loading";
 // import Loading from "../Loading/Loading";
 
 const CourseList = () => {
@@ -31,6 +32,10 @@ const CourseList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [change, setChange] = useState(false);
   const [postsPerPage, setPostsPerPage] = useState(4);
+  const [isLoading, setIsLoading] = useState(true);
+
+
+
   const handlePageClick = (data) => {
     const numberOfCurrentPage = data.selected + 1;
     setCurrentPage(numberOfCurrentPage);
@@ -53,6 +58,7 @@ const CourseList = () => {
       `/Home/GetCoursesWithPagination?CostDown=${minPrice}&CostUp=${maxPrice}&${getSearch}&PageNumber=${currentPage}&RowsOfPage=${postsPerPage}&SortingCol=${sort}&${getOrder}&${getlistTech}&${getTeacherId}`
     );
     console.log(result);
+    setIsLoading();
     // setPostsPerPage(result.courseFilterDtos.length)
     setCourseList(result.courseFilterDtos);
     setTotalCount(result.totalCount);
@@ -72,6 +78,18 @@ const CourseList = () => {
     handleTrigger();
   }, [maxPrice, minPrice]);
 
+
+
+
+
+
+
+
+
+  if (isLoading) {
+    return <Loading style={" "} />;
+  }
+
   return (
     <motion.div
       className="w-100 flex flex-col gap-5"
@@ -79,7 +97,7 @@ const CourseList = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <LayOutHeaders topic={"لیست دوره ها"} />
+      {/* <LayOutHeaders topic={"لیست دوره ها"} /> */}
       <Filter setlistTech={setlistTech1} setTeacherId={setTeacherId1} />
       {/* <Loading /> */}
 

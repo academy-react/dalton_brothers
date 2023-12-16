@@ -1,11 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import axios from 'axios';
+
+
+
+import { useSpeechRecognition, useSpeechSynthesis } from 'react-speech-kit';
 
 const CourseIntroduction = ({describe}) => {
+
+//   const [text, setText] = useState('Your Persian text goes here');
+
+//   const speakText = async () => {
+//     const apiKey = 'YOUR_GOOGLE_API_KEY'; // Replace with your actual API key
+//     const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
+
+//     try {
+//       const response = await axios.post(
+//         url,
+//         {
+//           input: { text },
+//           voice: { languageCode: 'fa-IR', name: 'fa-IR-Standard-A' }, // Persian language code and voice name
+//           audioConfig: { audioEncoding: 'MP3' } // Audio format (MP3, WAV, etc.)
+//         }
+//       );
+
+//       const audioContent = response.data.audioContent;
+//       const audio = new Audio(`data:audio/mp3;base64,${audioContent}`);
+//       audio.play();
+//     } catch (error) {
+//       console.error('Error synthesizing speech:', error);
+//     }
+//   };
+
+
+
+
+
+  // const [text, setText] = useState('Your Persian text goes here');
+
+  // const speakText = () => {
+  //   const utterance = new SpeechSynthesisUtterance(text);
+  //   utterance.lang = 'fa-IR'; // Set the language to Persian (Farsi)
+  //   speechSynthesis.speak(utterance);
+  // };
+
+
   return (
     <div>
       <div className=" w-full mt-10 ">
         {/* //////// main title /////// */}
-        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold dark:text-mode-50">
+        <h4 className=" w-full h-[50px] text-center md:text-2xl text-xl my-5 font-irSBold dark:text-DarkPallete-100 ">
           {" "}
           معرفی دوره{" "}
         </h4>
@@ -15,35 +59,16 @@ const CourseIntroduction = ({describe}) => {
             {describe}
           </p>
         </div>
-        {/* <div className=" px-[40px] py-[10px] ">
-          <h5 className=" text-xl text-right font-bold"> کاربرد های پایتون </h5>
-          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
-            هرچند که مطالعه کل این مطلب از مجله فرادرس، در افزایش شناخت و آگاهی
-            فرد از زبان پایتون، قابلیت‌های آن و چرایی انتخاب پایتون موثر است.
-            افراد می‌توانند از کاربرد پایتون برای اعمال علم داده و یادگیری ماشین
-            در حوزه‌های گوناگون نیز برای گرفتن ایده انجام پروژه و پژوهش‌های علمی
-            استفاده کنند. شایان توجه است که در هر بخش از مطلب، تلاش شده است تا
-            فیلم‌های آموزش پایتون به زبان فارسی و متناسب با آن دامنه کاربرد،
-            همراه با جزئیات گوناگون شامل طول مدت دوره، مدرس، سرفصل‌های تحت پوشش
-            دوره و اینکه برای چه کسانی مناسب است معرفی شوند. مخاطبان می‌توانند
-            از این فیلم‌های آموزش برای فراگیری پایتون برای کاربرد مورد نظر
-            خودشان استفاده کنند.
-          </p>
-        </div> */}
-        {/* <div className=" px-[40px] py-[10px] ">
-          <h5 className=" text-xl text-right font-bold"> اهداف دوره </h5>
-          <p className="text-lg text-right my-[10px] text-gray-800 font-irSans">
-            پایتون امروزه از محبوبیت بسیار زیادی برخوردار است و برنامه‌نویسان
-            زیادی یا با آن آشنایی دارند، یا به طور کامل به آن مسلط هستند و یا در
-            حال/درصدد یادگیری این زبان هستند. همین امر پایتون را به گزینه‌ای
-            مناسب برای این منظور مبدل می‌کند که زبان اصلی مورد استفاده برای
-            پروژه‌های بزرگ نرم‌افزاری باشد. زیرا در این پروژه‌ها تعداد زیادی
-            توسعه‌دهنده مشغول به فعالیت می‌شوند و گزینش یک زبان که همه افراد به
-            آن مسلط باشند یا بتوان همه نیروهای پروژه را برای کار با آن آموزش
-            داد، دشوار است.
-          </p>
-        </div> */}
+
       </div>
+      {/* <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        rows={4}
+        cols={50}
+      />
+      <button onClick={speakText}>Speak</button> */}
+
     </div>
   );
 };

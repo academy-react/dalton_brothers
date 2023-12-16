@@ -14,8 +14,8 @@ import { CustomSlider } from "../../Common/CustomSlider/CustomSlider";
 const Dashboard = () => {
   return (
     <div className=" w-full h-full flex-col mt-10  ">
-      <div className="flex justify-evenly max-2xl:flex-col-reverse max-2xl:justify-center max-2xl:items-center max-2xl:gap-[100px] max-2xl:mt-[50px] max-2xl:mb-[50px]   w-full max-lg:items-center  gap-8 ">
-        <div className="   lg:w-[350px] w-[400px] xl:h-[250px] lg:h-[250px] h-[200px]">
+      <div className="flex justify-evenly max-2xl:flex-col-reverse max-2xl:justify-center max-2xl:items-center  max-2xl:gap-[100px] max-2xl:mt-[50px] max-2xl:mb-[50px]   w-full max-lg:items-center  gap-8  ">
+        <div className="   lg:w-[350px] w-[400px] xl:h-[250px] lg:h-[250px] h-[200px] ">
           <YourStock />
         </div>
         <div className=" 2xl:w-[780px] lg:w-[750px] max-sm:w-full   xl:justify-start   xl:h-[250px] lg:h-[250px] ">

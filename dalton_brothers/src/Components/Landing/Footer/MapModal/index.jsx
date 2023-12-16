@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ModalComponent } from '../../../Common/modal-package/Modal'
 import { Map } from '../mapPackage'
 
+
+
+import { useSelector } from 'react-redux';
+
+
+
 const MapModal = ({isOpen, closeModal , openModal  }) => {
+
+
+  const colorMode = useSelector((state) => state.theme.theme);
+
 
   const customStyles = {
     // Add your custom styles here
@@ -14,7 +24,7 @@ const MapModal = ({isOpen, closeModal , openModal  }) => {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor: "white",
+      
       padding: "20px",
       borderRadius: "8px",
       outline: "none",
@@ -24,15 +34,19 @@ const MapModal = ({isOpen, closeModal , openModal  }) => {
       // display : "flex",
       // justifyContent: 'center',
       // alignItems: 'center',
+     backgroundColor: colorMode === "dark" ?   "#404042"  :  " white " ,
+     borderColor: colorMode  === "dark" ?   "#404042"  :  " white " ,
+     
     },
   };
 
 
+
   return (
-    <div className="app hidden" >
-    <h1> آ</h1>
+    <div className="app hidden"  >
+    <h1> </h1>
     <button onClick={openModal}></button>
-    <ModalComponent isOpen={isOpen} closeModal={closeModal}  title={"آکادمی برنامه نویسی بحر العلوم"} style={customStyles}>
+    <ModalComponent isOpen={isOpen} closeModal={closeModal}  title={"آکادمی برنامه نویسی بحر العلوم"} style={  customStyles}  >
     <Map />
     </ModalComponent>
   </div>

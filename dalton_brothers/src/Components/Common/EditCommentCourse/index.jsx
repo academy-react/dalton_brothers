@@ -87,7 +87,7 @@ const EditCommentCourse = ({
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] px-[40px]">
               <Input
                 topic={"عنوان نظر"}
-                className="rounded-[20px]"
+                className="rounded-[20px] dark:bg-mode-900 dark:text-mode-50" 
                 placeHolder={"...عنوان نظر"}
                 type={"text"}
                 name={"title"}
@@ -97,7 +97,7 @@ const EditCommentCourse = ({
             <div className="flex flex-col w-full relative sm:w-3/4 lg:w-full mb-[10px] px-[40px]">
               <Input
                 topic={"پیام شما"}
-                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5"
+                className="rounded-[20px] min-h-[120px] max-h-[120px] pt-5 dark:bg-mode-900 dark:text-mode-50"
                 placeHolder={"...متن پیام"}
                 type={"text"}
                 name={"describe"}
@@ -105,7 +105,7 @@ const EditCommentCourse = ({
               />
             </div>
             <Button
-              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff]"
+              className="bg-[#fcbf49] hover:bg-[#c89c44] text-[#fff] dark:bg-DarkPallete-100"
               type={"submit"}
               children={"ویرایش"}
             />

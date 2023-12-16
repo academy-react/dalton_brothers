@@ -40,11 +40,11 @@ const CourseComments = ({ id }) => {
           emotion={emotion}
         />
       )}
-      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold dark:text-mode-50">
+      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold dark:text-DarkPallete-100">
         نظرات
       </h2>
       {!token && (
-        <p className="text-center lg:text-xl text-lg py-[20px] text-gray-800 font-irSans">
+        <p className="text-center lg:text-xl text-lg py-[20px] text-gray-800 dark:text-mode-50 font-irSans">
           .تنها کاربران سایت قادر به ثبت نظر هستند. برای ثبت نظر لازم است تا ثبت
           نام نمایید یا وارد شوید
         </p>
@@ -53,7 +53,7 @@ const CourseComments = ({ id }) => {
         <div className={`w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ${comment.length == 0 && "h-5 border-none"}`}>
           {/* each comment */}
           {comment.length == 0 ? 
-          <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">تاکنون کامنتی در این مورد ثبت نشده  </div>
+          <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48 dark:text-mode-50">تاکنون کامنتی در این مورد ثبت نشده  </div>
           :
            comment.map((el, index) => (
             <Comments
@@ -69,7 +69,7 @@ const CourseComments = ({ id }) => {
           className=" lg:px-8 lg:py-4 md:px-6 md:py-3 px-4 py-2 text-xl font-irSBold bg-white border-2 border-pallete-100 dark:border-DarkPallete-100 dark:bg-mode-900 m-auto rounded-full cursor-pointer text-pallete-100 dark:text-DarkPallete-100"
           onClick={() => setModal(!modal)}
         >
-          {modal == true ? " بیخیال نظر دادن " : " نظر دادن"}
+          {modal == true ? " بیخیال  " : " ثبت نظر"}
         </button>
         <div className="mx-auto transition-all">
           {modal == true && <AddComment id={id} setEmotion={setEmotion} emotion={emotion} modal={modal} setModal={setModal}/>}

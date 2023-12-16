@@ -2,7 +2,7 @@
   display: none;
 }
 .filterInput:checked + .filterLabel {
-  left: 40%;
+  right: 42%;
 }
 .filterInput:checked ~ .content {
   height: 1200px;
@@ -209,4 +209,16 @@
     50% 30%;
   background-size: 60%;
   border-radius: 30px;
+}
+
+@media (max-width: 800px) {
+  .filterInput:checked + .filterLabel {
+    right: 30%;
+  }
+}
+
+@media (max-width: 650px) {
+  .filterInput:checked + .filterLabel {
+    right: 32%;
+  }
 }

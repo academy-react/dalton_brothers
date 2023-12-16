@@ -36,7 +36,7 @@ const AddComment = ({ id ,emotion ,setEmotion ,setModal,modal}) => {
             <div className="flex flex-col w-full relative  sm:w-3/4 lg:w-full mt-[30px] mb-[30px] md:px-[40px] px-1">
               <Input
                 topic={"عنوان نظر"}
-                className="rounded-[20px] dark:bg-mode-900"
+                className="rounded-[20px] dark:bg-mode-900 "
                 placeHolder={"...عنوان نظر"}
                 type={"text"}
                 name={"title"}

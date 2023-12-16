@@ -9,7 +9,7 @@ const LandingComment = () => {
 
   return (
     <div className="w-[85%] h-[500px] m-auto mt-[200px] mb-8">
-      <div className="mr-3 text-2xl mb-[10px] text-center font-irSans text-[#fcbf49]">
+      <div className="mr-3 text-2xl mb-[10px] text-center font-irSans text-pallete-100 ">
         پیشنهادات و انتقادات
       </div>
       <div className="flex flex-row-reverse justify-center items-center pt-11">
