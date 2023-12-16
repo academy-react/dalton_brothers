@@ -54,8 +54,10 @@ const CategoryKind = () => {
   const getCategory = async () => {
     const result = await basicGet("/Home/GetTechnologies");
     setCategory(result);
+    // console.log(result);
   };
-  category && //console.log(category[0]);
+
+  // category && //console.log(category[0]);
     useEffect(() => {
       getCategory();
     }, []);
