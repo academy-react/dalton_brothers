@@ -39,7 +39,7 @@ const ArticleComments = ({ id, newsId }) => {
           // id={id}
         />
       )}
-      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold dark:text-mode-50">
+      <h2 className="text-center lg:text-2xl text-xl py-[20px] font-irSBold dark:text-DarkPallete-100">
         {" "}
         نظرات{" "}
       </h2>
