@@ -50,7 +50,7 @@ const ArticleComments = ({ id, newsId }) => {
         </p>
       )}
       <div className="w-full my-[50px] grid grid-col justify-items-center gap-12">
-        <div className={`w-fit h-[600px] bg-red-400 overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px]  ${ArticleComment.length == 0 && "h-4 border-none "}`}>
+        <div className={`w-fit h-[600px]  overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px]  ${ArticleComment.length == 0 && "h-4 border-none "}`}>
           {ArticleComment.length !== 0 ? (
             ArticleComment.map((el, index) => (
               <ArticComments
@@ -63,7 +63,7 @@ const ArticleComments = ({ id, newsId }) => {
               />
             ))
           ) : (
-            <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 dark:text-mode-50 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">
+            <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 dark:text-mode-50  xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48">
               تاکنون کامنتی در این مورد ثبت نشده{" "}
             </div>
           )}

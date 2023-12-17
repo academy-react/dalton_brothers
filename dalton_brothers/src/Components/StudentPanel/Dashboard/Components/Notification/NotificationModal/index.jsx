@@ -83,16 +83,16 @@ const NotificationModal = ({ setnotifModal, notifModal }) => {
                   <SwiperSlide
                     className="flex justify-center items-center">
                     <div className="w-full h-full flex flex-col">
-                      <div className="w-full h-10 flex justify-center items-start font-irSans text-xl"> اطلاعات شما در دوره ها </div>
+                      <div className="w-full h-10 flex justify-center items-start font-irSans text-xl dark:text-DarkPallete-100"> اطلاعات شما در دوره ها </div>
                       <div className="w-full h-[250px]  flex flex-col justify-evenly items-center mt-8"> 
                         <div className="flex  h-14 items-center justify-center"> 
-                          <p className="pr-2"> {CourseTotal}</p><p className="text-mode-800"> :تعداد کامنت های شما  </p>
+                          <p className="pr-2 dark:text-mode-100"> {CourseTotal}</p><p className="text-mode-800 dark:text-mode-100"> :تعداد کامنت های شما  </p>
                         </div>
                         <div className="flex  h-14 items-center justify-center"> 
-                          <p className="pr-2"> {CourseTotal -1}</p><p className="text-mode-800"> :تعداد کامنت های پذیرفته شما  </p>
+                          <p className="pr-2 dark:text-mode-100"> {CourseTotal -1}</p><p className="text-mode-800 dark:text-mode-100"> :تعداد کامنت های پذیرفته شما  </p>
                         </div>
                         <div className="flex  h-14 items-center justify-center"> 
-                          <p className="pr-2"> {CourseTotal *2}</p><p className="text-mode-800"> مجموع لایک کامنت های شما </p>
+                          <p className="pr-2 dark:text-mode-100"> {CourseTotal *2}</p><p className="text-mode-800 dark:text-mode-100 "> مجموع لایک کامنت های شما </p>
                         </div>
                       </div>
 
@@ -101,16 +101,16 @@ const NotificationModal = ({ setnotifModal, notifModal }) => {
                   <SwiperSlide
                     className="flex justify-center items-center">
                     <div className="w-full h-full flex flex-col">
-                      <div className="w-full h-10 flex justify-center items-start font-irSans text-xl"> اطلاعات شما در خبر ها </div>
+                      <div className="w-full h-10 flex justify-center items-start font-irSans text-xl dark:text-DarkPallete-100"> اطلاعات شما در خبر ها </div>
                       <div className="w-full h-[250px]  flex flex-col justify-evenly items-center mt-8"> 
                         <div className="flex  h-14 items-center justify-center"> 
-                          <p className="pr-2"> {ArticleTotal}</p><p className="text-mode-800"> :تعداد کامنت های شما  </p>
+                          <p className="pr-2 dark:text-mode-100"> {ArticleTotal}</p><p className="text-mode-800 dark:text-mode-100"> :تعداد کامنت های شما  </p>
+                        </div>
+                        <div className="flex  h-14 items-center justify-center "> 
+                          <p className="pr-2 dark:text-mode-100"> {ArticleTotal -1}</p><p className="text-mode-800 dark:text-mode-100"> :تعداد کامنت های پذیرفته شما  </p>
                         </div>
                         <div className="flex  h-14 items-center justify-center"> 
-                          <p className="pr-2"> {ArticleTotal -1}</p><p className="text-mode-800"> :تعداد کامنت های پذیرفته شما  </p>
-                        </div>
-                        <div className="flex  h-14 items-center justify-center"> 
-                          <p className="pr-2"> {ArticleTotal *2}</p><p className="text-mode-800"> مجموع لایک کامنت های شما </p>
+                          <p className="pr-2 dark:text-mode-100"> {ArticleTotal *2}</p><p className="text-mode-800 dark:text-mode-100" > مجموع لایک کامنت های شما </p>
                         </div>
                       </div>
                     </div>

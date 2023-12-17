@@ -80,7 +80,7 @@ const Profile = () => {
           <>
             <Swiper
               style={{
-                "--swiper-navigation-color": "#fff",
+                "--swiper-navigation-color": "#fff  ",
                 "--swiper-pagination-color": "#fff",
               }}
               loop={true}

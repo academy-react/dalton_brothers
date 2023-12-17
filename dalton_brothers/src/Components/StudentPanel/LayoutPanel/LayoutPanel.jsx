@@ -35,17 +35,17 @@ const LayoutPanel = () => {
   return (
     <div className="relative flex flex-wrap w-full max-w-[2000px] mx-auto h-[120vh] max-2xl:h-[130vh] max-lg:h-[150vh] max-sm:h-[170vh] justify-around flex-row-reverse    ">
       <div className="w-full  flex justify-between items-center flex-row-reverse px-10 max-sm:px-1  py-4">
-        <div className=" flex justify-center items-center " data-aos="fade-up">
+        <div className=" flex justify-center items-center " >
           <Profile />
         </div>
         <div className=" w-[600px] max-2xl:w-[400px] max-lg:relative max-lg:top-14 max-lg:-right-14   rounded-[30px]   flex justify-center items-center  ">
           {location.pathname === "/panel/PanelCoursesList" && <PanelSearch />}
         </div>
-        <div className="  flex    justify-between items-center ml-8 z-[1] relative " data-aos="fade-up">
+        <div className="  flex    justify-between items-center ml-8 z-[1] relative " >
           <Notification />
         </div>
       </div>
-      <div className="w-full h-[85%] flex justify-start flex-row-reverse  gap-10 pr-12 max-lg:pr-0 max-lg:flex-col  " data-aos="zoom-in-down">
+      <div className="w-full h-[85%] flex justify-start flex-row-reverse  gap-10 pr-12 max-lg:pr-0 max-lg:flex-col  " data-aos="fade-up">
         <div className="  lg:scale-[80%] flex justify-start flex-col items-center relative -top-8 "    >
           <PanelNavigation />
 

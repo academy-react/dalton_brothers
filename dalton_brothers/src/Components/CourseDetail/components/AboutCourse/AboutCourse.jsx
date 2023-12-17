@@ -318,7 +318,7 @@ console.log(NewRating);
             <div className="h-full w-full flex justify-start items-center gap-3  max-sm:justify-center">
               {/* -------------saveCourse--------------------------------------------------------------------------- */}
               <div
-                className="w-12 h-12 dark:bg-mode-700 rounded-full flex justify-center items-center bg-[#f0dcb7] cursor-pointer"
+                className="w-12 h-12 dark:bg-mode-700 rounded-full flex justify-center items-center bg-white cursor-pointer"
                 onClick={() => handleSave()}
               >
                 {isUserFavorite ? (

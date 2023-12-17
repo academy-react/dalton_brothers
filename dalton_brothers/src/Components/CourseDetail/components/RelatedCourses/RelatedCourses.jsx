@@ -65,11 +65,11 @@ const RelatedCourses = ({ teacherName, courseId }) => {
               spaceBetween: 25,
             },
             1280: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 25,
             },
             1536: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 25,
             },
           }}

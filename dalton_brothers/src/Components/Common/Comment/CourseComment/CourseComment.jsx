@@ -53,7 +53,7 @@ const CourseComments = ({ id }) => {
         <div className={`w-fit h-[600px] overflow-scroll border rounded-[20px] grid grid-col justify-items-end gap-12  pt-[50px] ${comment.length == 0 && "h-5 border-none"}`}>
           {/* each comment */}
           {comment.length == 0 ? 
-          <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700 absolute xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48 dark:text-mode-50">تاکنون کامنتی در این مورد ثبت نشده  </div>
+          <div className="flex font-irSans lg:text-2xl text-xl items-center justify-end text-gray-700  xl:right-[39%] lg:right-[34%] md:right-[30%] sm:right-[25%] right-[21%] top-48 dark:text-mode-50">تاکنون کامنتی در این مورد ثبت نشده  </div>
           :
            comment.map((el, index) => (
             <Comments
