@@ -7,7 +7,7 @@ import addlIcon from "../../../../../assets/Images/panel/PanelAdd.png";
 import { deleteReserve } from "../../../../../Core/Services/api/course/reserve/deleteReserve";
 import { basicGet } from "../../../../../Core/Services/api/course/courseList/courseList";
 
-
+import courseImage from "../../../../../assets/Images/icons8-python-144.png";
 
 const MyCourse = ({
   courseName,
@@ -43,12 +43,12 @@ const MyCourse = ({
       <div className=" w-[50px] h-[65px] text-center rounded-full flex justify-center items-center mr-2">
         {imgUrl ? (
           <img
-            src={imgUrl}
+            src={imgUrl }
             alt=""
             className="bg-red-200 w-[40px] h-[40px] rounded-full"
           ></img>
         ) : (
-          <div className="bg-red-200 w-[40px] h-[40px] rounded-full"></div>
+          <div className="bg-white w-[40px] h-[40px] rounded-full "> <img src={courseImage} alt="" /></div>
         )}
       </div>
       <div className="lg:w-[130px] w-[205px]  h-[25px] text-center dark:text-mode-50 overflow-hidden ">
